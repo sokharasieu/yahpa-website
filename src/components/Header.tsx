@@ -1,14 +1,9 @@
 import {
-  As,
   Box,
-  Button,
-  ButtonProps,
   Collapse,
-  Divider,
   Flex,
   Heading,
   HStack,
-  Icon,
   IconButton,
   Image,
   Stack,
@@ -27,21 +22,48 @@ import {
 } from "react-icons/fi";
 import Link from "./Link";
 
-function NavLink(props: React.ComponentProps<typeof Link>) {
+function NavLink({
+  children,
+  ...linkProps
+}: React.ComponentProps<typeof Link>) {
   const router = useRouter();
-  const isActiveLink = router.asPath === props.href;
+  const isActiveLink = router.asPath === linkProps.href;
   return (
     <Link
       fontSize="xl"
       fontWeight="500"
-      color={isActiveLink ? "primary.500" : undefined}
-      _hover={{
-        textDecoration: "none",
-        color: "primary.500",
+      position="relative"
+      sx={{
+        color: isActiveLink ? "primary.500" : undefined,
+        ":after": {
+          content: "''",
+          display: isActiveLink ? "block" : "none",
+          position: "absolute",
+          bottom: "-0.75em",
+          left: 0,
+          width: "100%",
+          backgroundColor: "primary.500",
+          height: 1,
+        },
+        ":hover, :focus": {
+          transition: "all 0.2s ease-in-out",
+          textDecoration: "none",
+          color: "primary.500",
+          ":after": {
+            content: "''",
+            display: "block",
+            position: "absolute",
+            bottom: "-0.75em",
+            left: 0,
+            width: "100%",
+            backgroundColor: "primary.500",
+            height: 1,
+          },
+        },
       }}
-      {...props}
+      {...linkProps}
     >
-      {props.children}
+      {children}
     </Link>
   );
 }
@@ -52,6 +74,7 @@ function MenuLink({
 }: React.ComponentProps<typeof Link>) {
   return (
     <NavLink
+      p={3}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -59,8 +82,6 @@ function MenuLink({
         fontSize: "xl",
         borderBottom: "1px solid",
         borderColor: "gray.300",
-        padding: 1,
-        transition: "all 0.3s ease-in-out",
         svg: {
           opacity: 0,
           color: "primary.500",
@@ -70,6 +91,7 @@ function MenuLink({
         },
         ":hover, :focus": {
           backgroundColor: "gray.200",
+
           svg: {
             opacity: 1,
           },
@@ -83,21 +105,15 @@ function MenuLink({
   );
 }
 
-type SocialMediaButtonProps = {
-  icon: As<any> | undefined;
-  href: string;
-} & ButtonProps;
+type SocialMediaButtonProps = React.PropsWithChildren<
+  React.ComponentPropsWithRef<typeof Link>
+>;
 
-function SocialMediaButton({
-  icon,
-  href,
-  ...buttonProps
-}: SocialMediaButtonProps) {
+function SocialMediaButton({ children, ...linkProps }: SocialMediaButtonProps) {
   return (
-    <Button
-      as={Link}
-      size="xs"
-      href={href}
+    <Link
+      p={1}
+      borderRadius="md"
       sx={{
         svg: {
           ":last-child": {
@@ -105,10 +121,10 @@ function SocialMediaButton({
           },
         },
       }}
-      {...buttonProps}
+      {...linkProps}
     >
-      <Icon as={icon} boxSize={18} color="white" />
-    </Button>
+      {children}
+    </Link>
   );
 }
 
@@ -122,7 +138,7 @@ export function Topbar() {
       spacing={6}
     >
       <Text color="white" display={{ base: "none", md: "block" }}>
-        Young Asian Health Professionals
+        Young Asian Health Professional Association
       </Text>
       <Flex>
         <Text color="white" mr={4}>
@@ -131,23 +147,28 @@ export function Topbar() {
         <HStack spacing={2}>
           <SocialMediaButton
             aria-label="facebook page"
-            icon={FiFacebook}
-            colorScheme="facebook"
+            bg="facebook.500"
+            _hover={{ backgroundColor: "facebook.400" }}
             href="https://www.facebook.com/YAHPAMontreal"
-          />
+          >
+            <FiFacebook size={18} color="white" />
+          </SocialMediaButton>
           <SocialMediaButton
             aria-label="youtube channel"
-            icon={FiYoutube}
-            colorScheme="red"
+            bg="red.500"
+            _hover={{ backgroundColor: "red.400" }}
             href="https://www.youtube.com/channel/UCKFif2TbH7QunfPRzARPSgw"
-          />
+          >
+            <FiYoutube size={18} color="white" />
+          </SocialMediaButton>
           <SocialMediaButton
-            aria-label="instagram account"
-            icon={FiInstagram}
-            href="https://www.instagram.com/yahpamontreal/"
-            background="radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)"
+            aria-label="youtube channel"
+            bg="radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)"
             _hover={{ filter: "brightness(0.80)" }}
-          />
+            href="https://www.instagram.com/yahpamontreal/"
+          >
+            <FiInstagram size={18} color="white" />
+          </SocialMediaButton>
         </HStack>
       </Flex>
     </HStack>
@@ -169,7 +190,7 @@ export default function Header() {
           alignItems="center"
           background="whiteAlpha.500"
           h={{ base: "70px", md: "60px" }}
-          boxShadow={isOpen ? undefined : "md"}
+          boxShadow={{ base: undefined, md: "md" }}
         >
           <Flex alignItems="center" mr={8}>
             <Image
@@ -212,7 +233,7 @@ export default function Header() {
         </Flex>
         <Collapse in={isOpen} animateOpacity>
           <Box px={3} py={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={3} px={2}>
+            <Stack as={"nav"} spacing={0} px={2}>
               <MenuLink href="/">Home</MenuLink>
               <MenuLink href="/projects">Projects</MenuLink>
               <MenuLink href="/about">About Us</MenuLink>

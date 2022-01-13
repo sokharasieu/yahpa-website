@@ -44,10 +44,6 @@ const theme: Dict<Theme> = extendTheme({
   ...BaseTheme,
   styles,
   breakpoints,
-  config: {
-    initialColorMode: "light",
-    useSystemColorMode: false,
-  },
   fonts: {
     body: "Lato",
     heading: "Lato",
