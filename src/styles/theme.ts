@@ -1,5 +1,4 @@
-import { Theme, theme as BaseTheme } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
+import { extendTheme, theme as BaseTheme, Theme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 import { Dict } from "@chakra-ui/utils";
 
@@ -13,7 +12,7 @@ const breakpoints = createBreakpoints({
 
 const styles = {
   ...BaseTheme.styles,
-  global: (props: Dict<any>) => ({
+  global: () => ({
     body: {
       fontFamily: "body",
       color: "gray.800",
@@ -24,10 +23,10 @@ const styles = {
       boxSizing: "border-box",
     },
     "*::placeholder": {
-      color: mode("gray.400", "whiteAlpha.400")(props),
+      color: "gray.400",
     },
     "*, *::before, &::after": {
-      borderColor: mode("gray.200", "whiteAlpha.300")(props),
+      borderColor: "gray.200",
       wordWrap: "break-word",
       boxSizing: "inherit",
     },
@@ -41,14 +40,29 @@ const styles = {
       },
   }),
 };
-const theme: Theme = {
+const theme: Dict<Theme> = extendTheme({
   ...BaseTheme,
   styles,
   breakpoints,
-  config: {
-    initialColorMode: "light",
-    useSystemColorMode: false,
+  fonts: {
+    body: "Lato",
+    heading: "Lato",
   },
-};
+  colors: {
+    ...BaseTheme.colors,
+    primary: {
+      "50": "#E8F8FD",
+      "100": "#BEEAF8",
+      "200": "#95DDF4",
+      "300": "#6BCFF0",
+      "400": "#42C2EB",
+      "500": "#18B4E7",
+      "600": "#1390B9",
+      "700": "#0E6C8B",
+      "800": "#0A485C",
+      "900": "#05242E",
+    },
+  },
+});
 
 export default theme;
