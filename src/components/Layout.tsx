@@ -5,6 +5,7 @@ import Footer from "./Footer";
 
 export default function Layout({ children }: React.PropsWithChildren<{}>) {
   const currentBreakpoint = useBreakpoint();
+
   return (
     <Flex
       bg="whiteAlpha.900"
@@ -28,6 +29,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
         <Box
           px={2}
           bg="black"
+          borderRadius="md"
           color="white"
           sx={{ position: "fixed", right: "0.5rem", bottom: "0.5rem" }}
         >
