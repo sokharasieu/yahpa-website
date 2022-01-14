@@ -13,6 +13,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import useTranslation, { Resource } from "hooks/useTranslation";
 
 function ListHeader({ children }: React.PropsWithChildren<{}>) {
   return (
@@ -23,33 +24,47 @@ function ListHeader({ children }: React.PropsWithChildren<{}>) {
 }
 
 export default function Footer() {
+  const { t, languages, updateLocale, locales } = useTranslation();
+
+  const handleLocaleChange = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const newLocale = (e.target as HTMLAnchorElement).lang;
+    updateLocale(newLocale);
+  };
+
   return (
     <Box bg="gray.700" color="whiteAlpha.800" pt={10}>
       <Container as={Stack} maxW={"6xl"}>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"flex-start"}>
-            <ListHeader>Organization</ListHeader>
-            <Link href="/projects">Projects</Link>
-            <Link href="/about">About Us</Link>
-            <Link href="/contribute">Contribute</Link>
+            <ListHeader>{t("organization")}</ListHeader>
+            <Link href="/projects">{t("projects")}</Link>
+            <Link href="/about">{t("about")}</Link>
+            <Link href="/contribute">{t("contribute")}</Link>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Languages</ListHeader>
-            <Link>English</Link>
-            <Link>French</Link>
-            <Link>Chinese</Link>
+            <ListHeader>{t("languages")}</ListHeader>
+            {locales?.map((language) => (
+              <Link
+                key={language}
+                lang={language}
+                href={language}
+                onClick={handleLocaleChange}
+              >
+                {languages[language as Resource]}
+              </Link>
+            ))}
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Support</ListHeader>
+            <ListHeader>{t("support")}</ListHeader>
             <Stack direction={"row"} align={"center"} spacing={2}>
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/contact">{t("contact")}</Link>
               <Tag
                 size={"sm"}
                 bg={useColorModeValue("red.300", "red.800")}
                 ml={2}
                 color={"white"}
               >
-                Coming Soon
+                {t("coming_soon")}
               </Tag>
             </Stack>
           </Stack>

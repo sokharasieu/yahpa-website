@@ -10,6 +10,7 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import useTranslation from "hooks/useTranslation";
 import { useRouter } from "next/router";
 import React from "react";
 import {
@@ -20,6 +21,7 @@ import {
   FiX,
   FiYoutube,
 } from "react-icons/fi";
+import LanguagePicker from "./LanguagePicker";
 import Link from "./Link";
 
 function NavLink({
@@ -28,6 +30,7 @@ function NavLink({
 }: React.ComponentProps<typeof Link>) {
   const router = useRouter();
   const isActiveLink = router.asPath === linkProps.href;
+
   return (
     <Link
       fontSize="xl"
@@ -129,6 +132,7 @@ function SocialMediaButton({ children, ...linkProps }: SocialMediaButtonProps) {
 }
 
 export function Topbar() {
+  const { t } = useTranslation();
   return (
     <HStack
       py={2}
@@ -138,12 +142,10 @@ export function Topbar() {
       spacing={6}
     >
       <Text color="white" display={{ base: "none", md: "block" }}>
-        Young Asian Health Professional Association
+        {t("yahpa_full")}
       </Text>
       <Flex>
-        <Text color="white" mr={4}>
-          English
-        </Text>
+        <LanguagePicker mr={4} />
         <HStack spacing={2}>
           <SocialMediaButton
             aria-label="facebook page"
@@ -177,6 +179,7 @@ export function Topbar() {
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -205,16 +208,16 @@ export default function Header() {
               color="primary.500"
               letterSpacing={4}
             >
-              YAHPA
+              {t("yahpa")}
             </Heading>
           </Flex>
           <Box width="100%" display={{ base: "none", md: "block" }}>
             <HStack as="nav" spacing={6} mx={6} justifyContent="flex-start">
-              <NavLink href="/">Home</NavLink>
-              <NavLink href="/projects">Projects</NavLink>
-              <NavLink href="/about">About Us</NavLink>
-              <NavLink href="/contribute">Contribute</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
+              <NavLink href="/">{t("home")}</NavLink>
+              <NavLink href="/projects">{t("projects")}</NavLink>
+              <NavLink href="/about">{t("about")}</NavLink>
+              <NavLink href="/contribute">{t("contribute")}</NavLink>
+              <NavLink href="/contact">{t("contact")}</NavLink>
             </HStack>
           </Box>
           <Flex
@@ -234,11 +237,11 @@ export default function Header() {
         <Collapse in={isOpen} animateOpacity>
           <Box px={3} py={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={0} px={2}>
-              <MenuLink href="/">Home</MenuLink>
-              <MenuLink href="/projects">Projects</MenuLink>
-              <MenuLink href="/about">About Us</MenuLink>
-              <MenuLink href="/contribute">Contribute</MenuLink>
-              <MenuLink href="/contact">Contact Us</MenuLink>
+              <MenuLink href="/">{t("home")}</MenuLink>
+              <MenuLink href="/projects">{t("projects")}</MenuLink>
+              <MenuLink href="/about">{t("about")}</MenuLink>
+              <MenuLink href="/contribute">{t("contribute")}</MenuLink>
+              <MenuLink href="/contact">{t("contact")}</MenuLink>
             </Stack>
           </Box>
         </Collapse>
