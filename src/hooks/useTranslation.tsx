@@ -15,6 +15,11 @@ const en = {
   languages: "Languages",
   support: "Support",
   coming_soon: "Coming Soon",
+  error_404_title: "Page Not Found",
+  error_404_message: "The page you're looking for does not seem to exist",
+  error_404_button: "Return to Home",
+  learn_more: "Learn More",
+  become_member: "Become a Member",
 };
 
 const fr: DefaultLanguageResource = {
@@ -29,6 +34,11 @@ const fr: DefaultLanguageResource = {
   languages: "Langages",
   support: "Support",
   coming_soon: "Bientôt disponible",
+  error_404_title: "Page non trouvée",
+  error_404_message: "La page que vous recherchez ne semble pas exister",
+  error_404_button: "Retourner à l'accueil",
+  learn_more: "Learn More",
+  become_member: "Become a Member",
 };
 
 const zh: DefaultLanguageResource = {
@@ -43,6 +53,11 @@ const zh: DefaultLanguageResource = {
   languages: "语言",
   support: "支持",
   coming_soon: "即将推出",
+  error_404_title: "找不到网页",
+  error_404_message: "您要找的页面似乎不存在",
+  error_404_button: "返回主页",
+  learn_more: "学到更多",
+  become_member: "成为会员",
 };
 
 const resources = {

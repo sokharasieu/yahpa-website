@@ -1,21 +1,28 @@
 import { Box, Stack, Text, VStack } from "@chakra-ui/react";
-import Image from "./Image";
+import Image, { ImageProps } from "./Image";
 
 type HeroProps = React.PropsWithChildren<{
   title?: string;
   subtitle?: string;
-}>;
+}> &
+  ImageProps;
 
-export default function Hero({ title, subtitle, children }: HeroProps) {
+export default function Hero({
+  title,
+  subtitle,
+  src,
+  alt,
+  children,
+  ...imageProps
+}: HeroProps) {
   return (
     <Box position="relative">
       <Box
         width={{ base: "100%", md: "60%" }}
-        height="80%"
         marginLeft="auto"
         background="gray.300"
       >
-        <Image src="/images/image2.jpg" alt="picture" ratio={4 / 3} />
+        <Image src={src} alt={alt} ratio={4 / 3} priority {...imageProps} />
       </Box>
       <Box
         position="absolute"
@@ -36,7 +43,7 @@ export default function Hero({ title, subtitle, children }: HeroProps) {
           width={{ md: "45%", lg: "40%" }}
           justify={{ base: "flex-end", md: "center" }}
           alignItems={{ base: "center", md: "flex-start" }}
-          p={8}
+          p={{ base: 3, sm: 6, lg: 8 }}
         >
           <Stack align={{ base: "center", md: "flex-start" }} spacing={8}>
             <Stack>
@@ -58,7 +65,7 @@ export default function Hero({ title, subtitle, children }: HeroProps) {
                 {subtitle}
               </Text>
             </Stack>
-            <Stack direction={"row"} spacing={4} wrap="wrap">
+            <Stack direction={"row"} spacing={{ base: 3, lg: 4 }} wrap="wrap">
               {children}
             </Stack>
           </Stack>

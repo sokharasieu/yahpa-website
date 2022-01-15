@@ -5,7 +5,7 @@ import {
   Heading,
   HStack,
   IconButton,
-  Image,
+  Img,
   Stack,
   Text,
   useDisclosure,
@@ -196,7 +196,7 @@ export default function Header() {
           boxShadow={{ base: undefined, md: "md" }}
         >
           <Flex alignItems="center" mr={8}>
-            <Image
+            <Img
               src={"/images/logo_wb.png"}
               alt="YAHPA logo"
               objectFit="cover"

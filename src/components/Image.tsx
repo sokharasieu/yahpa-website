@@ -14,13 +14,14 @@ const shimmer = keyframes({
   "100%": { backgroundPosition: "0% 0%" },
 });
 
-type ImageProps = React.ComponentPropsWithRef<typeof NextImage> &
+export type ImageProps = React.ComponentPropsWithRef<typeof NextImage> &
   AspectRatioProps;
 
 export default function Image({
   ratio,
   src,
   alt,
+  priority,
   ...AspectRatioProps
 }: ImageProps) {
   const [loading, setLoading] = useState(false);
@@ -29,6 +30,24 @@ export default function Image({
     "gray.400",
     "gray.500",
   ]);
+
+  if (priority) {
+    return (
+      <AspectRatio
+        ratio={ratio ?? 4 / 3}
+        overflow="hidden"
+        {...AspectRatioProps}
+      >
+        <NextImage
+          layout="fill"
+          objectFit="cover"
+          src={src}
+          alt={alt}
+          priority
+        />
+      </AspectRatio>
+    );
+  }
 
   return (
     <AspectRatio ratio={ratio ?? 4 / 3} overflow="hidden" {...AspectRatioProps}>
