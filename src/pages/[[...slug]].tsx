@@ -1,5 +1,7 @@
-import { Button, Container } from "@chakra-ui/react";
+import { Button, Container, Heading, Stack } from "@chakra-ui/react";
+import CardLatest from "components/CardLatest";
 import Hero from "components/Hero";
+import Link from "components/Link";
 import useTranslation from "hooks/useTranslation";
 import {
   GetStaticPathsContext,
@@ -42,7 +44,7 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
 export default function Home(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const story = useStoryblok(props?.story!!);
+  const story = useStoryblok(props.story?.home!!);
   const { t } = useTranslation();
 
   return (
@@ -53,18 +55,40 @@ export default function Home(
         title={story.content.title}
         subtitle={story.content.description}
       >
-        <Button
+        <Link
+          as={Button}
+          href="#"
           bg={"orange.400"}
           rounded={"full"}
           color="white"
           _hover={{ bg: "orange.500" }}
         >
           {t("learn_more")}
-        </Button>
-        <Button bg={"gray.300"} rounded={"full"} _hover={{ bg: "gray.400" }}>
+        </Link>
+        <Link
+          as={Button}
+          href="#"
+          bg={"gray.300"}
+          color="black"
+          rounded={"full"}
+          _hover={{ bg: "gray.400" }}
+        >
           {t("become_member")}
-        </Button>
+        </Link>
       </Hero>
+      <Container
+        as="section"
+        maxW="full"
+        px={{ base: 3, lg: 6 }}
+        bg="gray.800"
+        color="white"
+        py={{ base: "2rem", md: "5rem" }}
+      >
+        <Stack spacing={8}>
+          <Heading as="h2">{t("latest_activity")}</Heading>
+          <CardLatest story={props.story?.latestPost} />
+        </Stack>
+      </Container>
     </Container>
   );
 }

@@ -21,7 +21,7 @@ export default function Hero({
       paddingBottom={{ base: "20%", sm: "35%", md: "0%" }}
     >
       <Box
-        width={{ base: "100%", md: "70%" }}
+        width={{ base: "100%", md: "65%" }}
         marginLeft="auto"
         background="gray.300"
       >
@@ -55,7 +55,7 @@ export default function Hero({
                 fontWeight={700}
                 lineHeight={1.2}
                 textAlign={{ base: "center", md: "start" }}
-                fontSize={{ base: "3xl", md: "3xl", lg: "4xl" }}
+                fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
               >
                 {title}
               </Text>

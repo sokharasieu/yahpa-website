@@ -5,6 +5,7 @@ import {
   LinkPath,
   PageHome,
   StoryResult,
+  GetHome,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -14,14 +15,23 @@ const defaultParams: Partial<StoryParams> = {
   cv: Date.now(),
 };
 
-export async function getHome(
-  params?: StoryParams
-): Promise<StoryResult<PageHome>> {
-  const response = await Storyblok.getStory("home", {
+export async function getHome(params?: StoryParams): Promise<GetHome> {
+  const homepageStory = await Storyblok.getStory("home", {
     ...defaultParams,
     ...params,
   });
-  return response.data.story;
+
+  const latestNewsStory = await Storyblok.getStories({
+    ...defaultParams,
+    ...params,
+    by_slugs: "news/*",
+    sort_by: "created_at:asc",
+  });
+
+  return {
+    home: homepageStory.data.story,
+    latestPost: latestNewsStory.data.stories[0],
+  };
 }
 
 // getStoriesPaths returns all possible paths by locale

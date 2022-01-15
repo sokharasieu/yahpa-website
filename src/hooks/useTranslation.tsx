@@ -19,7 +19,9 @@ const en = {
   error_404_message: "The page you're looking for does not seem to exist",
   error_404_button: "Return to Home",
   learn_more: "Learn More",
+  see_more_events: "See more events",
   become_member: "Become a Member",
+  latest_activity: "Our Latest Activity",
 };
 
 const fr: DefaultLanguageResource = {
@@ -38,7 +40,9 @@ const fr: DefaultLanguageResource = {
   error_404_message: "La page que vous recherchez ne semble pas exister",
   error_404_button: "Retourner à l'accueil",
   learn_more: "En savoir plus",
+  see_more_events: "Voir nos projets",
   become_member: "Comment devenir membre",
+  latest_activity: "Notre dernière activité",
 };
 
 const zh: DefaultLanguageResource = {
@@ -57,7 +61,9 @@ const zh: DefaultLanguageResource = {
   error_404_message: "您要找的页面似乎不存在",
   error_404_button: "返回主页",
   learn_more: "学到更多",
+  see_more_events: "查看我们的项目",
   become_member: "成为会员",
+  latest_activity: "我们的最新活动",
 };
 
 const resources = {

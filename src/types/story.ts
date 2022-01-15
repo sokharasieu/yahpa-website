@@ -2,9 +2,10 @@ import {
   StoryData,
   StoryblokComponent,
   StoryblokResult,
+  Richtext,
 } from "storyblok-js-client";
 
-type SingleImageAsset = {
+export type SingleImageAsset = {
   alt?: string;
   copyright?: string;
   fieldtype?: "asset";
@@ -17,10 +18,23 @@ type SingleImageAsset = {
 
 export type StoryResult<T> = StoryData<StoryblokComponent<string> & T>;
 
+export type GetHome = {
+  home: StoryResult<PageHome>;
+  latestPost: StoryResult<StoryNews>;
+};
+
 export type PageHome = {
   title?: string;
   description?: string;
   image?: SingleImageAsset;
+  latestPost?: StoryNews;
+};
+
+export type StoryNews = {
+  title?: string;
+  date?: Date;
+  image?: SingleImageAsset;
+  description?: Richtext;
 };
 
 export interface GetPathsResult extends StoryblokResult {
