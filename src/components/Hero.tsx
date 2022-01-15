@@ -16,9 +16,12 @@ export default function Hero({
   ...imageProps
 }: HeroProps) {
   return (
-    <Box position="relative">
+    <Box
+      position="relative"
+      paddingBottom={{ base: "20%", sm: "35%", md: "0%" }}
+    >
       <Box
-        width={{ base: "100%", md: "60%" }}
+        width={{ base: "100%", md: "70%" }}
         marginLeft="auto"
         background="gray.300"
       >
@@ -32,40 +35,43 @@ export default function Hero({
         height="full"
         zIndex={3}
         bgGradient={{
-          base: "linear(to-t, whiteAlpha.900 35%, whiteAlpha.800 60%, whiteAlpha.300 100%)",
-          sm: "linear(to-t, gray.100 30%, whiteAlpha.400 60%, blackAlpha.200 100%)",
+          base: "linear(to-t,gray.100 50%, whiteAlpha.900 70%, whiteAlpha.800 100%)",
+          sm: "linear(to-t, gray.100 50%, whiteAlpha.400 70%, blackAlpha.200 100%)",
           md: "linear(to-r, gray.100 45%, blackAlpha.200 60%,  blackAlpha.200 80%, blackAlpha.100 100%)",
-          lg: "linear(to-r, gray.100 40%, blackAlpha.200 60%,  blackAlpha.200 80%, blackAlpha.100 100%)",
+          lg: "linear(to-r, gray.100 38%, whiteAlpha.100 60%,  blackAlpha.200 80%, blackAlpha.100 100%)",
         }}
       >
         <VStack
           h="full"
           width={{ md: "45%", lg: "40%" }}
-          justify={{ base: "flex-end", md: "center" }}
+          justify={{ base: "center", sm: "flex-end", md: "center" }}
           alignItems={{ base: "center", md: "flex-start" }}
           p={{ base: 3, sm: 6, lg: 8 }}
         >
-          <Stack align={{ base: "center", md: "flex-start" }} spacing={8}>
+          <Stack align={{ base: "center", md: "flex-start" }} spacing={6}>
             <Stack>
               <Text
-                color="black"
+                color="primary.600"
                 fontWeight={700}
                 lineHeight={1.2}
                 textAlign={{ base: "center", md: "start" }}
-                fontSize={{ base: "xl", md: "2xl", lg: "3xl" }}
+                fontSize={{ base: "3xl", md: "3xl", lg: "4xl" }}
               >
                 {title}
               </Text>
               <Text
-                display={{ base: "none", md: "block" }}
                 color="black"
                 textAlign={{ base: "center", md: "start" }}
-                fontSize={{ base: "md", md: "lg" }}
+                fontSize={{ base: "md", lg: "lg" }}
               >
                 {subtitle}
               </Text>
             </Stack>
-            <Stack direction={"row"} spacing={{ base: 3, lg: 4 }} wrap="wrap">
+            <Stack
+              direction={{ base: "column", xl: "row" }}
+              spacing={{ base: 3, lg: 4 }}
+              wrap="wrap"
+            >
               {children}
             </Stack>
           </Stack>

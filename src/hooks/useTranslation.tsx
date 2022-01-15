@@ -37,8 +37,8 @@ const fr: DefaultLanguageResource = {
   error_404_title: "Page non trouvée",
   error_404_message: "La page que vous recherchez ne semble pas exister",
   error_404_button: "Retourner à l'accueil",
-  learn_more: "Learn More",
-  become_member: "Become a Member",
+  learn_more: "En savoir plus",
+  become_member: "Comment devenir membre",
 };
 
 const zh: DefaultLanguageResource = {
