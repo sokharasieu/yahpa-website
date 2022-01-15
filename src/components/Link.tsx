@@ -12,12 +12,11 @@ export default function Link({
   return (
     <NextLink href={props.href as string} passHref>
       <ChakraLink
-        {...props}
         display="inline-flex"
         alignItems="center"
-        color="primary.700"
         isExternal={isExternal}
         lang={locale}
+        {...props}
       >
         {children}
         {isExternal && <Icon as={FiExternalLink} ml={1} boxSize={4} />}

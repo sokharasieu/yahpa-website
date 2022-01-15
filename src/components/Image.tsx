@@ -5,7 +5,7 @@ import {
   keyframes,
   useToken,
 } from "@chakra-ui/react";
-import NextImage from "next/image";
+import NextImage, { ImageProps as NextImageProps } from "next/image";
 import { useState } from "react";
 
 const shimmer = keyframes({
@@ -14,8 +14,12 @@ const shimmer = keyframes({
   "100%": { backgroundPosition: "0% 0%" },
 });
 
-export type ImageProps = React.ComponentPropsWithRef<typeof NextImage> &
-  AspectRatioProps;
+type NextImagePropsLimitedProps = Pick<
+  NextImageProps,
+  "src" | "alt" | "priority"
+>;
+
+export type ImageProps = NextImagePropsLimitedProps & AspectRatioProps;
 
 export default function Image({
   ratio,
