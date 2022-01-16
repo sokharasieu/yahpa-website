@@ -781,6 +781,11 @@
   resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.5.0.tgz#c248b083be330daafade76995fed9088d5b76c04"
   integrity sha512-Y1qluoF+5b2U6MWcEz70+euZwl4TEV+9v7nZCmuRgNHb5McYc3VmbNmYNEiLsnb1HHwlAHA70P/LktP9EJ61ag==
 
+"@fontsource/roboto-slab@^4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto-slab/-/roboto-slab-4.5.1.tgz#6568022e2f4d356ad64dc865bfa4dd4e3702bcfa"
+  integrity sha512-SE7R7QZNtzGfJbh8xdA8JDsTOQKJyY5EcndDssOw5tmnoxac/N2TSQSGv8GXMexhV90pQe+OoHTBVDVycdTlLg==
+
 "@hapi/accept@5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@hapi/accept/-/accept-5.0.2.tgz#ab7043b037e68b722f93f376afb05e85c0699523"

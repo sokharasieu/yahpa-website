@@ -206,7 +206,8 @@ export default function Header() {
               mx={3}
               fontSize="4xl"
               color="primary.500"
-              letterSpacing={4}
+              letterSpacing={2}
+              fontFamily="Helvetica"
             >
               {t("yahpa")}
             </Heading>

@@ -16,6 +16,11 @@ export type SingleImageAsset = {
   title?: string;
 };
 
+export type LinkAsset = {
+  url: string;
+  cached_url: string;
+};
+
 export type StoryResult<T> = StoryData<StoryblokComponent<string> & T>;
 
 export type GetHome = {
@@ -28,6 +33,8 @@ export type PageHome = {
   description?: string;
   image?: SingleImageAsset;
   latestPost?: StoryNews;
+  register_description?: Richtext;
+  register_video_link?: LinkAsset;
 };
 
 export type StoryNews = {

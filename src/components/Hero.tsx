@@ -1,4 +1,4 @@
-import { Box, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, VStack } from "@chakra-ui/react";
 import Image, { ImageProps } from "./Image";
 
 type HeroProps = React.PropsWithChildren<{
@@ -50,7 +50,7 @@ export default function Hero({
         >
           <Stack align={{ base: "center", md: "flex-start" }} spacing={6}>
             <Stack>
-              <Text
+              <Heading
                 color="primary.600"
                 fontWeight={700}
                 lineHeight={1.2}
@@ -58,7 +58,7 @@ export default function Hero({
                 fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
               >
                 {title}
-              </Text>
+              </Heading>
               <Text
                 color="black"
                 textAlign={{ base: "center", md: "start" }}

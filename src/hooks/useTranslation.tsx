@@ -22,6 +22,10 @@ const en = {
   see_more_events: "See more events",
   become_member: "Become a Member",
   latest_activity: "Our Latest Activity",
+  register_title: "Interested in becoming a member?",
+  register_video_title: "Montreal YAHPA registery",
+  register_cta: "I want to register as a member",
+  register_modal: "Please choose the option that applies to you",
 };
 
 const fr: DefaultLanguageResource = {
@@ -43,6 +47,11 @@ const fr: DefaultLanguageResource = {
   see_more_events: "Voir nos projets",
   become_member: "Comment devenir membre",
   latest_activity: "Notre dernière activité",
+  register_title: "Intéressé à devenir membre?",
+  register_cta: "Je veux m'inscrire en tant que membre",
+  register_modal: "Veuillez choisir l'option qui s'applique à vous",
+  register_video_title:
+    "Registre des professionnels asiatiques de la santé de Montréal - YAHPA",
 };
 
 const zh: DefaultLanguageResource = {
@@ -64,6 +73,10 @@ const zh: DefaultLanguageResource = {
   see_more_events: "查看我们的项目",
   become_member: "成为会员",
   latest_activity: "我们的最新活动",
+  register_title: "有兴趣成为会员？",
+  register_cta: "我想注册成为会员",
+  register_modal: "请选择适用于您的选项",
+  register_video_title: "蒙特利尔 YAHPA 登记处",
 };
 
 const resources = {

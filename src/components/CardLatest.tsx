@@ -40,7 +40,7 @@ export default function CardLatest(props: CardProps) {
           </Text>
         </Stack>
       </Flex>
-      <Stack spacing={6} sx={{ p: { lineHeight: 1.5, fontSize: "xl" } }}>
+      <Stack spacing={6} sx={{ p: { lineHeight: 1.5 } }}>
         <Heading as="h3" color="primary.400" fontSize="2xl">
           {props.story?.content.title}
         </Heading>
