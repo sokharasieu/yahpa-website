@@ -5,7 +5,6 @@ import {
   Heading,
   HStack,
   IconButton,
-  Img,
   Stack,
   Text,
   useDisclosure,

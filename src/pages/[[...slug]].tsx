@@ -11,6 +11,7 @@ import {
 import CardGoal from "components/CardGoal";
 import CardLatest from "components/CardLatest";
 import Hero from "components/Hero";
+import LazyIframe from "components/LazyIframe";
 import Link from "components/Link";
 import Page from "components/Page";
 import RenderRichText from "components/RenderRichText";
@@ -133,20 +134,12 @@ export default function Home(
             </Flex>
           </Stack>
           <Box borderRadius="lg" width="full">
-            <AspectRatio
-              maxW={640}
+            <LazyIframe
+              maxWidth={640}
               ratio={4 / 3}
-              borderRadius="lg"
-              boxShadow="xl"
-              margin="auto"
-            >
-              <Box
-                as="iframe"
-                src={props.story?.home.content.register_video_link?.url}
-                allowFullScreen
-                borderRadius="md"
-              />
-            </AspectRatio>
+              url={props.story?.home.content.register_video_link?.url ?? ""}
+              title={props.story?.home.content.title}
+            />
           </Box>
         </SimpleGrid>
       </Container>

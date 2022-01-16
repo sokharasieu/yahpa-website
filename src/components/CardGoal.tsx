@@ -1,19 +1,25 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import type { Option } from "types/story";
+import Image from "./Image";
 
 export default function CardGoal(props: Option) {
   return (
-    <Box
-      position="relative"
-      bg="white"
-      borderRadius="md"
-      boxShadow="lg"
-      h="40vh"
-      backgroundSize="cover"
-      backgroundRepeat="no-repeat"
-      backgroundImage={`url(${props.image?.filename})`}
-    >
+    <Box position="relative">
+      <Image
+        src={props.image?.filename ?? ""}
+        alt={props.image?.name}
+        bg="white"
+        borderRadius="md"
+        boxShadow="lg"
+        h="40vh"
+      />
       <Flex
+        position="absolute"
+        top={0}
+        left={0}
+        bottom={0}
+        right={0}
+        zIndex={1}
         flexDirection="column"
         height="full"
         justifyContent="space-between"

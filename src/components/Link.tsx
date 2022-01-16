@@ -1,4 +1,4 @@
-import { Icon, Link as ChakraLink, LinkProps } from "@chakra-ui/react";
+import { Icon, Text, Link as ChakraLink, LinkProps } from "@chakra-ui/react";
 import useTranslation from "hooks/useTranslation";
 import NextLink from "next/link";
 import { FiExternalLink } from "react-icons/fi";
@@ -8,6 +8,11 @@ export default function Link({
   ...props
 }: React.PropsWithChildren<LinkProps>) {
   const { locale } = useTranslation();
+
+  if (!props.href) {
+    return <Text>{children}</Text>;
+  }
+
   const isExternal = !!(props?.href as string).match(/^(https?:)?\/\//);
   return (
     <NextLink href={props.href as string} passHref>
