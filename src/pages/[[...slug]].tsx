@@ -85,7 +85,9 @@ export default function Home(
         py={{ base: "2rem", md: "5rem" }}
       >
         <Stack spacing={8}>
-          <Heading as="h2">{t("latest_activity")}</Heading>
+          <Heading as="h2" fontSize={{ base: "xl", lg: "3xl" }}>
+            {t("latest_activity")}
+          </Heading>
           <CardLatest story={props.story?.latestPost} />
         </Stack>
       </Container>

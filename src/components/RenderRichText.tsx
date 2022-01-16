@@ -7,7 +7,7 @@ import {
 export const StoryblokResolvers: RenderOptionsProps = {
   nodeResolvers: {
     paragraph: (children) => (
-      <Text fontSize="lg" mb={6}>
+      <Text fontSize={{ base: "md", lg: "lg" }} mb={6}>
         {children}
       </Text>
     ),

@@ -15,10 +15,11 @@ export default function CardLatest(props: CardProps) {
     <Stack direction={{ base: "column-reverse", xl: "row" }} spacing={5}>
       <Flex flex={3} justifyContent="center" height="fit-content">
         <Stack
-          background="primary.800"
+          background="gray.700"
           padding="0.5rem"
           borderRadius="md"
           boxShadow="lg"
+          width={{ base: "full", sm: "auto" }}
         >
           <Image
             ratio={16 / 9}
@@ -26,10 +27,15 @@ export default function CardLatest(props: CardProps) {
             alt={props.story?.content.image?.name}
             borderRadius="md"
             overflow="hidden"
-            width={{ base: "full", sm: 320, md: 640 }}
-            height={{ base: "full", sm: 240, md: 480 }}
+            width={{ base: "full", sm: 320, md: 480, xl: 640 }}
+            height={{ base: "full", sm: 240, md: 320, xl: 480 }}
           />
-          <Text textAlign="center" fontStyle="italic">
+          <Text
+            textAlign="center"
+            fontSize="sm"
+            color="gray.300"
+            fontStyle="italic"
+          >
             {props.story?.content.image?.name}
           </Text>
         </Stack>

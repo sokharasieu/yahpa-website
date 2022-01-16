@@ -18,7 +18,7 @@ export default function Hero({
   return (
     <Box
       position="relative"
-      paddingBottom={{ base: "20%", sm: "35%", md: "0%" }}
+      paddingBottom={{ base: "20%", sm: "30%", md: "0%" }}
     >
       <Box
         width={{ base: "100%", md: "65%" }}
@@ -36,7 +36,7 @@ export default function Hero({
         zIndex={3}
         bgGradient={{
           base: "linear(to-t,gray.100 50%, whiteAlpha.900 70%, whiteAlpha.800 100%)",
-          sm: "linear(to-t, gray.100 50%, whiteAlpha.400 70%, blackAlpha.200 100%)",
+          sm: "linear(to-t, gray.100 55%, whiteAlpha.400 80%, blackAlpha.200 100%)",
           md: "linear(to-r, gray.100 45%, blackAlpha.200 60%,  blackAlpha.200 80%, blackAlpha.100 100%)",
           lg: "linear(to-r, gray.100 38%, whiteAlpha.100 60%,  blackAlpha.200 80%, blackAlpha.100 100%)",
         }}
@@ -62,7 +62,7 @@ export default function Hero({
               <Text
                 color="black"
                 textAlign={{ base: "center", md: "start" }}
-                fontSize={{ base: "md", lg: "lg" }}
+                fontSize={{ base: "md", lg: "lg", xl: "xl" }}
               >
                 {subtitle}
               </Text>
