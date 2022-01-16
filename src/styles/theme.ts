@@ -1,6 +1,5 @@
-import { extendTheme, theme as BaseTheme, Theme } from "@chakra-ui/react";
+import { extendTheme, theme as BaseTheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
-import { Dict } from "@chakra-ui/utils";
 
 const breakpoints = createBreakpoints({
   sm: "480px",
@@ -40,13 +39,13 @@ const styles = {
       },
   }),
 };
-const theme: Dict<Theme> = extendTheme({
+const theme = extendTheme({
   ...BaseTheme,
   styles,
   breakpoints,
   fonts: {
     body: "Lato",
-    heading: "Lato",
+    heading: "Merriweather",
   },
   colors: {
     ...BaseTheme.colors,

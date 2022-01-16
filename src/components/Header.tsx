@@ -5,13 +5,14 @@ import {
   Heading,
   HStack,
   IconButton,
-  Image,
   Stack,
   Text,
   useDisclosure,
+  useOutsideClick,
 } from "@chakra-ui/react";
+import useTranslation from "hooks/useTranslation";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useRef } from "react";
 import {
   FiChevronLeft,
   FiFacebook,
@@ -20,6 +21,8 @@ import {
   FiX,
   FiYoutube,
 } from "react-icons/fi";
+import Image from "./Image";
+import LanguagePicker from "./LanguagePicker";
 import Link from "./Link";
 
 function NavLink({
@@ -28,6 +31,7 @@ function NavLink({
 }: React.ComponentProps<typeof Link>) {
   const router = useRouter();
   const isActiveLink = router.asPath === linkProps.href;
+
   return (
     <Link
       fontSize="xl"
@@ -86,9 +90,6 @@ function MenuLink({
           opacity: 0,
           color: "primary.500",
         },
-        ":last-child": {
-          borderColor: "gray.500",
-        },
         ":hover, :focus": {
           backgroundColor: "gray.200",
 
@@ -129,6 +130,7 @@ function SocialMediaButton({ children, ...linkProps }: SocialMediaButtonProps) {
 }
 
 export function Topbar() {
+  const { t } = useTranslation();
   return (
     <HStack
       py={2}
@@ -138,12 +140,9 @@ export function Topbar() {
       spacing={6}
     >
       <Text color="white" display={{ base: "none", md: "block" }}>
-        Young Asian Health Professional Association
+        {t("yahpa_full")}
       </Text>
       <Flex>
-        <Text color="white" mr={4}>
-          English
-        </Text>
         <HStack spacing={2}>
           <SocialMediaButton
             aria-label="facebook page"
@@ -175,72 +174,89 @@ export function Topbar() {
   );
 }
 
-export default function Header() {
+export default function Nav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const ref = useRef(null);
+  useOutsideClick({ ref: ref, handler: onClose });
+  const { t } = useTranslation();
 
   return (
     <>
-      <Stack spacing={0}>
-        <Topbar />
-        <Flex
-          position="relative"
-          zIndex="10"
-          p={0}
-          px={3}
+      <Topbar />
+      <Stack
+        position="sticky"
+        top={0}
+        zIndex={10}
+        spacing={0}
+        background="white"
+        h="full"
+        p={{ base: 2, xl: 0 }}
+        px={{ xl: 3 }}
+        boxShadow="xl"
+        ref={ref}
+      >
+        <Stack
+          direction="row"
           alignItems="center"
-          background="whiteAlpha.500"
-          h={{ base: "70px", md: "60px" }}
-          boxShadow={{ base: undefined, md: "md" }}
+          justifyContent="center"
+          h="100%"
         >
-          <Flex alignItems="center" mr={8}>
+          <Link
+            href="/"
+            mx={3}
+            _hover={{ textDecoration: "none" }}
+            display="inline-flex"
+          >
             <Image
+              priority
               src={"/images/logo_wb.png"}
               alt="YAHPA logo"
               objectFit="cover"
               boxSize="60px"
             />
             <Heading
-              mx={3}
               fontSize="4xl"
               color="primary.500"
-              letterSpacing={4}
+              letterSpacing={2}
+              fontFamily="Helvetica"
             >
-              YAHPA
+              {t("yahpa")}
             </Heading>
-          </Flex>
-          <Box width="100%" display={{ base: "none", md: "block" }}>
+          </Link>
+          <Box width="100%" display={{ base: "none", xl: "block" }}>
             <HStack as="nav" spacing={6} mx={6} justifyContent="flex-start">
-              <NavLink href="/">Home</NavLink>
-              <NavLink href="/projects">Projects</NavLink>
-              <NavLink href="/about">About Us</NavLink>
-              <NavLink href="/contribute">Contribute</NavLink>
-              <NavLink href="/contact">Contact</NavLink>
+              <NavLink href="/about">{t("about")}</NavLink>
+              <NavLink href="/projects">{t("projects")}</NavLink>
+              <NavLink href="/contribute">{t("contribute")}</NavLink>
+              <NavLink href="/contact">{t("contact")}</NavLink>
             </HStack>
           </Box>
-          <Flex
-            width="100%"
-            display={{ base: "flex", md: "none" }}
+          <Stack
+            direction="row"
             justifyContent="flex-end"
+            alignItems="center"
+            width={{ base: "full", xl: "auto" }}
+            spacing={5}
           >
+            <LanguagePicker />
             <IconButton
+              display={{ base: "inline-flex", xl: "none" }}
               aria-label={isOpen ? "close menu" : "open menu"}
-              backgroundColor="gray.200"
+              backgroundColor="white"
+              size="lg"
+              icon={isOpen ? <FiX size={18} /> : <FiMenu size={18} />}
               _hover={{ backgroundColor: "gray.300" }}
-              icon={isOpen ? <FiX /> : <FiMenu />}
               onClick={isOpen ? onClose : onOpen}
             />
-          </Flex>
-        </Flex>
+          </Stack>
+        </Stack>
         <Collapse in={isOpen} animateOpacity>
-          <Box px={3} py={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={0} px={2}>
-              <MenuLink href="/">Home</MenuLink>
-              <MenuLink href="/projects">Projects</MenuLink>
-              <MenuLink href="/about">About Us</MenuLink>
-              <MenuLink href="/contribute">Contribute</MenuLink>
-              <MenuLink href="/contact">Contact Us</MenuLink>
-            </Stack>
-          </Box>
+          <Stack as="nav" spacing={0} py={4} background="white">
+            <MenuLink href="/about">{t("about")}</MenuLink>
+            <MenuLink href="/projects">{t("projects")}</MenuLink>
+            <MenuLink href="/contribute">{t("contribute")}</MenuLink>
+            <MenuLink href="/contact">{t("contact")}</MenuLink>
+          </Stack>
         </Collapse>
       </Stack>
     </>

@@ -2,10 +2,11 @@ import {
   AspectRatio,
   AspectRatioProps,
   Box,
+  BoxProps,
   keyframes,
-  useToken,
+  useToken
 } from "@chakra-ui/react";
-import NextImage from "next/image";
+import NextImage, { ImageProps as NextImageProps } from "next/image";
 import { useState } from "react";
 
 const shimmer = keyframes({
@@ -14,16 +15,16 @@ const shimmer = keyframes({
   "100%": { backgroundPosition: "0% 0%" },
 });
 
-type ImageProps = React.ComponentPropsWithRef<typeof NextImage> &
-  AspectRatioProps;
+type NextImagePropsLimitedProps = Pick<
+  NextImageProps,
+  "src" | "alt" | "priority"
+>;
 
-export default function Image({
-  ratio,
-  src,
-  alt,
-  ...AspectRatioProps
-}: ImageProps) {
-  const [loading, setLoading] = useState(false);
+type ShimmerProps = {
+  isLoading?: boolean;
+} & BoxProps;
+
+export function Shimmer({ isLoading, ...boxProps }: ShimmerProps) {
   const [gray1, gray2, gray3] = useToken("colors", [
     "gray.300",
     "gray.400",
@@ -31,27 +32,63 @@ export default function Image({
   ]);
 
   return (
-    <AspectRatio ratio={ratio ?? 4 / 3} overflow="hidden" {...AspectRatioProps}>
-      <>
-        <Box
-          sx={{
-            position: "absolute",
-            top: 0,
-            zIndex: 1,
-            opacity: !loading ? 1 : 0,
-            transition: "opacity 1s ease-out",
-            background: `linear-gradient(145deg, ${gray1}, ${gray2}, ${gray3})`,
-            backgroundPosition: "0% 0%",
-            backgroundSize: "200% 200%",
-            width: "100%",
-            height: "100%",
-            animation: `${shimmer} 2s ease-in-out infinite`,
-          }}
-        />
+    <Box
+      position="absolute"
+      top={0}
+      bottom={0}
+      right={0}
+      left={0}
+      zIndex={1}
+      sx={{
+        opacity: isLoading ? 1 : 0,
+        transition: "opacity 1s ease-out",
+        background: `linear-gradient(145deg, ${gray1}, ${gray2}, ${gray3})`,
+        backgroundPosition: "0% 0%",
+        backgroundSize: "200% 200%",
+        animation: `${shimmer} 2s ease-in-out infinite`,
+      }}
+      {...boxProps}
+    />
+  );
+}
+
+export type ImageProps = NextImagePropsLimitedProps & AspectRatioProps;
+
+export default function Image({
+  ratio,
+  src,
+  alt,
+  priority,
+  ...AspectRatioProps
+}: ImageProps) {
+  const [loading, setLoading] = useState(true);
+
+  if (priority) {
+    return (
+      <AspectRatio
+        ratio={ratio ?? 4 / 3}
+        overflow="hidden"
+        {...AspectRatioProps}
+      >
         <NextImage
           layout="fill"
           objectFit="cover"
-          onLoadingComplete={() => setLoading(true)}
+          src={src}
+          alt={alt}
+          priority
+        />
+      </AspectRatio>
+    );
+  }
+
+  return (
+    <AspectRatio ratio={ratio ?? 4 / 3} overflow="hidden" {...AspectRatioProps}>
+      <>
+        <Shimmer isLoading={loading} />
+        <NextImage
+          layout="fill"
+          objectFit="cover"
+          onLoadingComplete={() => setLoading(false)}
           src={src}
           alt={alt}
         />
