@@ -35,6 +35,8 @@ export type PageHome = {
   latestPost?: StoryNews;
   register_description?: Richtext;
   register_video_link?: LinkAsset;
+  option_title?: string;
+  option_items?: Option[];
 };
 
 export type StoryNews = {
@@ -77,4 +79,11 @@ export type StoryblokLink = {
   uuid: string;
   is_startpage: boolean;
   real_path: string;
+};
+
+export type Option = {
+  image?: SingleImageAsset;
+  title?: string;
+  call_to_action: string;
+  link?: LinkAsset;
 };

@@ -1,7 +1,7 @@
 import { Box, Flex, useBreakpoint } from "@chakra-ui/react";
 import isDev from "utils/isDev";
-import Header from "./Header";
 import Footer from "./Footer";
+import Header from "./Header";
 
 export default function Layout({ children }: React.PropsWithChildren<{}>) {
   const currentBreakpoint = useBreakpoint();
@@ -17,6 +17,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
     >
       <Header />
       <Flex
+        as="main"
         sx={{
           flex: 1,
           minWidth: 0,
@@ -31,7 +32,12 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
           bg="black"
           borderRadius="md"
           color="white"
-          sx={{ position: "fixed", right: "0.5rem", bottom: "0.5rem" }}
+          sx={{
+            position: "fixed",
+            right: "0.5rem",
+            bottom: "0.5rem",
+            zIndex: 999,
+          }}
         >
           {currentBreakpoint}
         </Box>

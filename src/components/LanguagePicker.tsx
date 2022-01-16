@@ -14,9 +14,7 @@ export default function LanguagePicker(selectProps: SelectFieldProps) {
     <Select
       defaultValue={locale}
       onChange={handleLocaleChange}
-      color="white"
-      size="sm"
-      borderColor="gray.700"
+      width="7rem"
       icon={<IoLanguage />}
       {...selectProps}
     >

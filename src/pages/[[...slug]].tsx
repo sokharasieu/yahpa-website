@@ -8,9 +8,11 @@ import {
   SimpleGrid,
   Stack,
 } from "@chakra-ui/react";
+import CardGoal from "components/CardGoal";
 import CardLatest from "components/CardLatest";
 import Hero from "components/Hero";
 import Link from "components/Link";
+import Page from "components/Page";
 import RenderRichText from "components/RenderRichText";
 import useTranslation from "hooks/useTranslation";
 import {
@@ -58,43 +60,35 @@ export default function Home(
   const { t } = useTranslation();
 
   return (
-    <Container px={0} maxWidth="100%" as="main">
+    <Page>
       <Hero
         src={story.content.image?.filename ?? "/images/image2.jpg"}
         alt={story.content.image?.name}
         title={story.content.title}
         subtitle={story.content.description}
-      >
-        <Link
-          as={Button}
-          href="#"
-          bg={"orange.400"}
-          rounded={"full"}
-          color="white"
-          _hover={{ bg: "orange.500" }}
-        >
-          {t("learn_more")}
-        </Link>
-      </Hero>
+      />
       <Container
         as="section"
         maxW="full"
-        px={{ base: 3, lg: 6 }}
-        bg="gray.800"
-        color="white"
-        py={{ base: "2rem", md: "5rem" }}
+        bg="gray.100"
+        color="black"
+        p={{ base: "2rem", md: "5rem" }}
       >
-        <Stack spacing={8}>
-          <Heading as="h2" fontSize={{ base: "xl", lg: "3xl" }}>
-            {t("latest_activity")}
+        <Stack spacing={6}>
+          <Heading fontSize={{ base: "2xl", xl: "4xl" }}>
+            {props.story?.home.content.option_title}
           </Heading>
-          <CardLatest story={props.story?.latestPost} />
+          <SimpleGrid spacing={6} columns={{ base: 1, lg: 2, xl: 3 }}>
+            {props.story?.home.content?.option_items?.map((option) => (
+              <CardGoal key={option.title} {...option} />
+            ))}
+          </SimpleGrid>
         </Stack>
       </Container>
+
       <Container
         as="section"
         maxW="full"
-        px={{ base: 3, lg: 6 }}
         bg="gray.200"
         backgroundImage={"url(/images/mask2.jpg)"}
         backgroundAttachment="fixed"
@@ -115,20 +109,14 @@ export default function Home(
           backgroundColor: "blackAlpha.700",
         }}
         color="white"
-        py={{ base: "2rem", md: "5rem" }}
+        p={{ base: "2rem", md: "5rem" }}
       >
         <SimpleGrid
-          columns={{ base: 1, md: 2 }}
+          columns={{ base: 1, lg: 2 }}
           templateRows="auto"
           spacing={4}
         >
-          <Stack
-            height="full"
-            width="full"
-            justifyContent="center"
-            p={12}
-            spacing={5}
-          >
+          <Stack height="full" width="full" justifyContent="center" spacing={5}>
             <Heading color="primary.400" mb={4}>
               {t("register_title")}
             </Heading>
@@ -162,6 +150,21 @@ export default function Home(
           </Box>
         </SimpleGrid>
       </Container>
-    </Container>
+      <Container
+        as="section"
+        maxW="full"
+        px={{ base: "2rem", md: "5rem" }}
+        bg="gray.800"
+        color="white"
+        py={{ base: "2rem", md: "5rem" }}
+      >
+        <Stack spacing={8}>
+          <Heading as="h2" fontSize={{ base: "2xl", xl: "4xl" }}>
+            {t("latest_activity")}
+          </Heading>
+          <CardLatest story={props.story?.latestPost} />
+        </Stack>
+      </Container>
+    </Page>
   );
 }
