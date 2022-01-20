@@ -3,17 +3,16 @@ import {
   Box,
   Container,
   Flex,
-  HStack,
   Image,
   Link,
   SimpleGrid,
   Stack,
-  StackDivider,
   Tag,
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
 import useTranslation, { Resource } from "hooks/useTranslation";
+import SocialMedia from "./SocialMedia";
 
 function ListHeader({ children }: React.PropsWithChildren<{}>) {
   return (
@@ -24,7 +23,7 @@ function ListHeader({ children }: React.PropsWithChildren<{}>) {
 }
 
 export default function Footer() {
-  const { t, languages, updateLocale, locales } = useTranslation();
+  const { t, languages, updateLocale, locales, locale } = useTranslation();
 
   const handleLocaleChange = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const newLocale = (e.target as HTMLAnchorElement).lang;
@@ -76,35 +75,19 @@ export default function Footer() {
           alignItems="center"
           justifyContent={{ base: "center", md: "flex-start" }}
         >
-          <HStack
-            pt={6}
-            divider={<StackDivider borderColor="gray.600" />}
-            spacing={4}
-            width="full"
-            alignItems="center"
-            justifyContent={{ base: "center", md: "flex-start" }}
+          <Stack
+            alignItems={{ base: "center", lg: "flex-start" }}
+            mt={5}
+            spacing={0}
           >
-            <Link
-              _hover={{ color: "blue.600" }}
-              href="https://www.facebook.com/YAHPAMontreal"
-            >
-              Facebook
-            </Link>
-            <Link
-              _hover={{ color: "red.500" }}
-              href="https://www.youtube.com/channel/UCKFif2TbH7QunfPRzARPSgw"
-            >
-              Youtube
-            </Link>
-            <Link
-              _hover={{
-                color: "pink.400",
-              }}
-              href="https://www.instagram.com/yahpamontreal/"
-            >
-              Instagram
-            </Link>
-          </HStack>
+            <Text fontWeight={600}>{t("follow_social")}</Text>
+            <SocialMedia px={0} spacing={4}>
+              <SocialMedia.Facebook />
+              <SocialMedia.Youtube />
+              <SocialMedia.Instagram />
+              <SocialMedia.WeChat />
+            </SocialMedia>
+          </Stack>
           <Flex
             width="100%"
             justifyContent={{ base: "center", md: "flex-end" }}

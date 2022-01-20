@@ -1,20 +1,19 @@
 import {
-  AspectRatio,
   Box,
   Button,
-  Container,
   Flex,
   Heading,
   SimpleGrid,
   Stack,
 } from "@chakra-ui/react";
+import CardLatest from "components/CardEvent";
 import CardGoal from "components/CardGoal";
-import CardLatest from "components/CardLatest";
 import Hero from "components/Hero";
 import LazyIframe from "components/LazyIframe";
 import Link from "components/Link";
 import Page from "components/Page";
 import RenderRichText from "components/RenderRichText";
+import Section from "components/Section";
 import useTranslation from "hooks/useTranslation";
 import {
   GetStaticPathsContext,
@@ -62,62 +61,47 @@ export default function Home(
 
   return (
     <Page>
-      <Hero
-        src={story.content.image?.filename ?? "/images/image2.jpg"}
-        alt={story.content.image?.name}
-        title={story.content.title}
-        subtitle={story.content.description}
-      />
-      <Container
-        as="section"
-        maxW="full"
-        bg="gray.100"
-        color="black"
-        p={{ base: "2rem", md: "5rem" }}
-      >
+      <Section.Outer p={0}>
+        <Hero
+          src={story.content.image?.filename ?? "/images/image2.jpg"}
+          alt={story.content.image?.name}
+          title={story.content.title}
+          subtitle={story.content.description}
+        />
+      </Section.Outer>
+      <Section bg="gray.100" color="black">
+        <Stack spacing={8}>
+          <Heading as="h2" fontSize={{ base: "2xl", xl: "4xl" }}>
+            {t("latest_activity")}
+          </Heading>
+          <CardLatest story={props.story?.latestPost} />
+        </Stack>
+      </Section>
+      <Section bg="gray.100" color="black">
         <Stack spacing={6}>
           <Heading fontSize={{ base: "2xl", xl: "4xl" }}>
             {props.story?.home.content.option_title}
           </Heading>
-          <SimpleGrid spacing={6} columns={{ base: 1, lg: 2, xl: 3 }}>
+          <SimpleGrid spacing={6} columns={{ base: 1, lg: 2 }}>
             {props.story?.home.content?.option_items?.map((option) => (
               <CardGoal key={option.title} {...option} />
             ))}
           </SimpleGrid>
         </Stack>
-      </Container>
-
-      <Container
-        as="section"
-        maxW="full"
-        bg="gray.200"
-        backgroundImage={"url(/images/mask2.jpg)"}
-        backgroundAttachment="fixed"
-        backgroundPosition="center"
-        backgroundRepeat="no-repeat"
-        backgroundSize="cover"
-        position="relative"
-        zIndex={0}
-        _before={{
-          content: "' '",
-          display: "block",
-          position: "absolute",
-          top: 0,
-          right: 0,
-          left: 0,
-          bottom: 0,
-          zIndex: -1,
-          backgroundColor: "blackAlpha.700",
-        }}
-        color="white"
-        p={{ base: "2rem", md: "5rem" }}
-      >
+      </Section>
+      <Section.Parallax backgroundImageUrl={"/images/bg.jpg"}>
         <SimpleGrid
           columns={{ base: 1, lg: 2 }}
           templateRows="auto"
           spacing={4}
         >
-          <Stack height="full" width="full" justifyContent="center" spacing={5}>
+          <Stack
+            height="full"
+            width="full"
+            justifyContent="center"
+            spacing={5}
+            color="white"
+          >
             <Heading color="primary.400" mb={4}>
               {t("register_title")}
             </Heading>
@@ -142,22 +126,7 @@ export default function Home(
             />
           </Box>
         </SimpleGrid>
-      </Container>
-      <Container
-        as="section"
-        maxW="full"
-        px={{ base: "2rem", md: "5rem" }}
-        bg="gray.800"
-        color="white"
-        py={{ base: "2rem", md: "5rem" }}
-      >
-        <Stack spacing={8}>
-          <Heading as="h2" fontSize={{ base: "2xl", xl: "4xl" }}>
-            {t("latest_activity")}
-          </Heading>
-          <CardLatest story={props.story?.latestPost} />
-        </Stack>
-      </Container>
+      </Section.Parallax>
     </Page>
   );
 }

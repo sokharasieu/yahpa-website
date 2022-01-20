@@ -4,7 +4,17 @@ import Image from "./Image";
 
 export default function CardGoal(props: Option) {
   return (
-    <Box position="relative">
+    <Box
+      position="relative"
+      overflow="hidden"
+      _hover={{
+        img: {
+          transform: "scale(1.1)",
+          transition: "transform 0.3s ease-in-out",
+        },
+      }}
+      boxShadow="md"
+    >
       <Image
         src={props.image?.filename ?? ""}
         alt={props.image?.name}

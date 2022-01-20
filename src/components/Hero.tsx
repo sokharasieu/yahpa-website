@@ -94,28 +94,13 @@ export default function Hero({
           alt={alt}
           ratio={4 / 3}
           width={{ base: "auto", lg: "full" }}
-          height={{ base: "50vh", md: "70vh", lg: "full" }}
+          height={{ base: "50vh", sm: "55vh", md: "70vh", lg: "full" }}
           transform={{ base: "translateY(-30vh)", lg: "none" }}
           priority
           borderRadius="xl"
           boxShadow="lg"
           {...imageProps}
         />
-        {/* <Box
-          position="absolute"
-          top={0}
-          bottom={0}
-          left={0}
-          right={0}
-          zIndex={3}
-          // border="5px solid blue"
-          bgGradient={{
-            base: "linear(to-b,primary.100 3%, whiteAlpha.100 40%, blackAlpha.200 70%)",
-            // sm: "linear(to-t, primary.50 5%, whiteAlpha.400 60%, blackAlpha.200 100%)",
-            lg: "linear(to-r, primary.100 5%, blackAlpha.100 40%)",
-            // lg: "linear(to-r, primary.50 40%, blackAlpha.100 70%,  blackAlpha.200 80%, blackAlpha.100 100%)",
-          }}
-        ></Box> */}
       </Box>
     </Stack>
   );

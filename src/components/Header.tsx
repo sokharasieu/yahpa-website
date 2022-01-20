@@ -13,17 +13,11 @@ import {
 import useTranslation from "hooks/useTranslation";
 import { useRouter } from "next/router";
 import React, { useRef } from "react";
-import {
-  FiChevronLeft,
-  FiFacebook,
-  FiInstagram,
-  FiMenu,
-  FiX,
-  FiYoutube,
-} from "react-icons/fi";
+import { FiChevronLeft, FiMenu, FiX } from "react-icons/fi";
 import Image from "./Image";
 import LanguagePicker from "./LanguagePicker";
 import Link from "./Link";
+import SocialMedia from "./SocialMedia";
 
 function NavLink({
   children,
@@ -106,71 +100,12 @@ function MenuLink({
   );
 }
 
-type SocialMediaButtonProps = React.PropsWithChildren<
-  React.ComponentPropsWithRef<typeof Link>
->;
-
-function SocialMediaButton({ children, ...linkProps }: SocialMediaButtonProps) {
-  return (
-    <Link
-      p={1}
-      borderRadius="md"
-      sx={{
-        svg: {
-          ":last-child": {
-            display: "none",
-          },
-        },
-      }}
-      {...linkProps}
-    >
-      {children}
-    </Link>
-  );
-}
-
 export function Topbar() {
   const { t } = useTranslation();
   return (
-    <HStack
-      py={2}
-      px={3}
-      justifyContent={{ base: "flex-end", md: "space-between" }}
-      backgroundColor="gray.800"
-      spacing={6}
-    >
-      <Text color="white" display={{ base: "none", md: "block" }}>
-        {t("yahpa_full")}
-      </Text>
-      <Flex>
-        <HStack spacing={2}>
-          <SocialMediaButton
-            aria-label="facebook page"
-            bg="facebook.500"
-            _hover={{ backgroundColor: "facebook.400" }}
-            href="https://www.facebook.com/YAHPAMontreal"
-          >
-            <FiFacebook size={18} color="white" />
-          </SocialMediaButton>
-          <SocialMediaButton
-            aria-label="youtube channel"
-            bg="red.500"
-            _hover={{ backgroundColor: "red.400" }}
-            href="https://www.youtube.com/channel/UCKFif2TbH7QunfPRzARPSgw"
-          >
-            <FiYoutube size={18} color="white" />
-          </SocialMediaButton>
-          <SocialMediaButton
-            aria-label="youtube channel"
-            bg="radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)"
-            _hover={{ filter: "brightness(0.80)" }}
-            href="https://www.instagram.com/yahpamontreal/"
-          >
-            <FiInstagram size={18} color="white" />
-          </SocialMediaButton>
-        </HStack>
-      </Flex>
-    </HStack>
+    <Flex py={2} px={3} backgroundColor="gray.800">
+      <Text color="white">{t("yahpa_full")}</Text>
+    </Flex>
   );
 }
 
@@ -236,14 +171,14 @@ export default function Nav() {
             justifyContent="flex-end"
             alignItems="center"
             width={{ base: "full", xl: "auto" }}
-            spacing={5}
+            spacing={{ base: 3, lg: 5 }}
           >
             <LanguagePicker />
             <IconButton
               display={{ base: "inline-flex", xl: "none" }}
               aria-label={isOpen ? "close menu" : "open menu"}
               backgroundColor="white"
-              size="lg"
+              size="md"
               icon={isOpen ? <FiX size={18} /> : <FiMenu size={18} />}
               _hover={{ backgroundColor: "gray.300" }}
               onClick={isOpen ? onClose : onOpen}
@@ -256,6 +191,21 @@ export default function Nav() {
             <MenuLink href="/projects">{t("projects")}</MenuLink>
             <MenuLink href="/contribute">{t("contribute")}</MenuLink>
             <MenuLink href="/contact">{t("contact")}</MenuLink>
+          </Stack>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent={{ base: "space-between", md: "flex-start" }}
+          >
+            <Text px={3} fontWeight={600}>
+              {t("follow_social")}
+            </Text>
+            <SocialMedia spacing={4}>
+              <SocialMedia.Facebook />
+              <SocialMedia.Youtube />
+              <SocialMedia.Instagram />
+              <SocialMedia.WeChat />
+            </SocialMedia>
           </Stack>
         </Collapse>
       </Stack>
