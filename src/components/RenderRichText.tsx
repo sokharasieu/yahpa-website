@@ -13,7 +13,12 @@ export const StoryblokResolvers: RenderOptionsProps = {
     ),
     heading: (children, attrs) => {
       return (
-        <Heading mb={3} fontSize="xl" fontWeight="bold" as={`h${attrs.level}`}>
+        <Heading
+          mb={3}
+          fontSize={{ base: "2xl", lg: "3xl" }}
+          fontWeight="bold"
+          as={`h${attrs.level}`}
+        >
           {children}
         </Heading>
       );

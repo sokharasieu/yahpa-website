@@ -32,7 +32,7 @@ const en = {
 const fr: DefaultLanguageResource = {
   home: "Accueil",
   projects: "Projets",
-  about: "Découvrez-nous",
+  about: "À propos de nous",
   contribute: "Contribuer",
   contact: "Nous contacter",
   yahpa: "AJPAS",
@@ -63,7 +63,7 @@ const zh: DefaultLanguageResource = {
   contribute: "贡献",
   contact: "联系我们",
   yahpa: "YAHPA",
-  yahpa_full: "Young Asian Health Professional Association",
+  yahpa_full: "亚洲青年健康专业协会",
   organization: "组织",
   languages: "语言",
   support: "支持",

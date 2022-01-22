@@ -20,13 +20,7 @@ export default function LanguagePicker(selectProps: SelectFieldProps) {
     >
       {locales?.map((language, index) => {
         return (
-          <Box
-            as="option"
-            key={index}
-            value={language}
-            backgroundColor="white"
-            color="black"
-          >
+          <Box as="option" key={index} value={language}>
             {languages[language as Resource]}
           </Box>
         );

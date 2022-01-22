@@ -24,6 +24,7 @@ export type LinkAsset = {
 export type StoryResult<T> = StoryData<StoryblokComponent<string> & T>;
 
 export type PageLandingStory = StoryResult<PageLandingBlok>;
+export type PageAboutStory = StoryResult<PageAboutBlok>;
 export type ArticleEventStory = StoryResult<ArticleEventBlok>;
 
 export type PageLandingBlok = {
@@ -42,6 +43,20 @@ export type PageLandingBlok = {
   event_description?: string;
   event_latest?: CardEventBlok[];
   seo?: SeoBlok;
+};
+
+export type PageAboutBlok = {
+  page_title?: string;
+  mission_text?: Richtext;
+  mission_image?: SingleImageAsset;
+  goals_text?: Richtext;
+  goals_table?: ItemGoalBlok[];
+  seo?: SeoBlok;
+};
+
+export type ItemGoalBlok = {
+  _uuid?: string;
+  text?: string;
 };
 
 export type CardEventBlok = {
