@@ -11,7 +11,7 @@ export default class Document extends NextDocument {
             rel="canonical"
             href={isDev() ? "http://localhost:3000" : process.env.baseUrl}
           />
-          <meta name="robots" content="index, follow" />
+          <meta name="robots" content="all" />
           <meta property="og:site_name" content={process.env.baseUrl} />
           <meta property="og:type" content="article" />
         </Head>
