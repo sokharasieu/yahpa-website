@@ -36,9 +36,9 @@ export default function Footer() {
         <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
           <Stack align={"flex-start"}>
             <ListHeader>{t("organization")}</ListHeader>
-            <Link href="/projects">{t("projects")}</Link>
             <Link href="/about">{t("about")}</Link>
-            <Link href="/contribute">{t("contribute")}</Link>
+            {/* <Link href="/projects">{t("projects")}</Link>
+            <Link href="/contribute">{t("contribute")}</Link> */}
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>{t("languages")}</ListHeader>
@@ -53,7 +53,7 @@ export default function Footer() {
               </Link>
             ))}
           </Stack>
-          <Stack align={"flex-start"}>
+          {/* <Stack align={"flex-start"}>
             <ListHeader>{t("support")}</ListHeader>
             <Stack direction={"row"} align={"center"} spacing={2}>
               <Link href="/contact">{t("contact")}</Link>
@@ -66,7 +66,7 @@ export default function Footer() {
                 {t("coming_soon")}
               </Tag>
             </Stack>
-          </Stack>
+          </Stack> */}
         </SimpleGrid>
       </Container>
       <Container maxW={"6xl"} mt={4} py={4}>
