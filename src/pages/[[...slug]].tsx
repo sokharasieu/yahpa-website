@@ -96,7 +96,7 @@ export default function Home(
             )}
           </Stack>
         </Section.Fade>
-        <Section.Fade bg="gray.100" color="black">
+        <Section.Fade paddingTop={0} bg="gray.100" color="black">
           <Stack spacing={6}>
             <Stack maxW={{ base: "xl", xl: "2xl" }}>
               <Heading fontSize={{ base: "2xl", xl: "4xl" }}>
