@@ -1,12 +1,20 @@
 import { ColorModeScript } from "@chakra-ui/react";
 import NextDocument, { Head, Html, Main, NextScript } from "next/document";
-import theme from "styles/theme";
+import isDev from "utils/isDev";
 
 export default class Document extends NextDocument {
   render() {
     return (
-      <Html lang="en">
-        <Head />
+      <Html>
+        <Head>
+          <link
+            rel="canonical"
+            href={isDev() ? "http://localhost:3000" : process.env.baseUrl}
+          />
+          <meta name="robots" content="all" />
+          <meta property="og:site_name" content={process.env.baseUrl} />
+          <meta property="og:type" content="article" />
+        </Head>
         <body>
           <ColorModeScript />
           <Main />

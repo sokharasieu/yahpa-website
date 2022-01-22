@@ -23,27 +23,49 @@ export type LinkAsset = {
 
 export type StoryResult<T> = StoryData<StoryblokComponent<string> & T>;
 
-export type GetHome = {
-  home: StoryResult<PageHome>;
-  latestPost: StoryResult<StoryNews>;
-};
+export type PageLandingStory = StoryResult<PageLandingBlok>;
+export type ArticleEventStory = StoryResult<ArticleEventBlok>;
 
-export type PageHome = {
+export type PageLandingBlok = {
   title?: string;
   description?: string;
   image?: SingleImageAsset;
-  latestPost?: StoryNews;
+  latestPost?: ArticleEventBlok;
+  register_title?: string;
   register_description?: Richtext;
   register_video_link?: LinkAsset;
   option_title?: string;
+  option_description?: string;
   option_items?: Option[];
+  event_title?: string;
+  event_description?: string;
+  event_latest?: CardEventBlok[];
+  seo?: SeoBlok;
 };
 
-export type StoryNews = {
+export type CardEventBlok = {
+  component?: string;
+  events?: StoryResult<ArticleEventBlok>[];
+};
+
+export type ArticleEventBlok = {
   title?: string;
   date?: Date;
   image?: SingleImageAsset;
   description?: Richtext;
+};
+
+export type SeoBlok = {
+  _uid: string;
+  title?: string;
+  plugin: "seo_metatags";
+  og_image?: string;
+  og_title?: string;
+  description?: string;
+  twitter_image?: string;
+  twitter_title?: string;
+  og_description?: string;
+  twitter_description?: string;
 };
 
 export interface GetPathsResult extends StoryblokResult {

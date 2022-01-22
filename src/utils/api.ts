@@ -3,9 +3,7 @@ import {
   GetPathsResult,
   LinkParams,
   LinkPath,
-  PageHome,
-  StoryResult,
-  GetHome,
+  PageLandingStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -15,23 +13,14 @@ const defaultParams: Partial<StoryParams> = {
   cv: Date.now(),
 };
 
-export async function getHome(params?: StoryParams): Promise<GetHome> {
+export async function getHome(params?: StoryParams): Promise<PageLandingStory> {
   const homepageStory = await Storyblok.getStory("home", {
     ...defaultParams,
     ...params,
+    resolve_relations: "card_event.events",
   });
 
-  const latestNewsStory = await Storyblok.getStories({
-    ...defaultParams,
-    ...params,
-    by_slugs: "news/*",
-    sort_by: "created_at:asc",
-  });
-
-  return {
-    home: homepageStory.data.story,
-    latestPost: latestNewsStory.data.stories[0],
-  };
+  return homepageStory.data.story;
 }
 
 // getStoriesPaths returns all possible paths by locale
@@ -46,7 +35,6 @@ export async function getStoriesPaths(params?: LinkParams, locales?: string[]) {
     for (const locale of locales) {
       Object.keys(links).forEach((link_id) => {
         if (!links[link_id].is_startpage && !links[link_id].is_folder) {
-          const slug = links[link_id].real_path;
           const result = {
             params: {
               slug: [locale],
