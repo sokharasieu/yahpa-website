@@ -4,7 +4,7 @@ import {
   Box,
   BoxProps,
   keyframes,
-  useToken
+  useToken,
 } from "@chakra-ui/react";
 import NextImage, { ImageProps as NextImageProps } from "next/image";
 import { useState } from "react";

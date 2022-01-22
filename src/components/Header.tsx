@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import useTranslation from "hooks/useTranslation";
 import { useRouter } from "next/router";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { FiChevronLeft, FiMenu, FiX } from "react-icons/fi";
 import Image from "./Image";
 import LanguagePicker from "./LanguagePicker";
@@ -111,9 +111,17 @@ export function Topbar() {
 
 export default function Nav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const router = useRouter();
   const ref = useRef(null);
   useOutsideClick({ ref: ref, handler: onClose });
   const { t } = useTranslation();
+
+  useEffect(() => {
+    router.events.on("routeChangeComplete", onClose);
+    return () => {
+      router.events.off("routeChangeComplete", onClose);
+    };
+  }, [router, onClose]);
 
   return (
     <>

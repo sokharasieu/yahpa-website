@@ -1,13 +1,12 @@
 import {
-  Box,
   Button,
   Divider,
+  Flex,
   Heading,
   Link,
   Stack,
   Text,
   VStack,
-  Flex,
 } from "@chakra-ui/react";
 import useTranslation from "hooks/useTranslation";
 import Image, { ImageProps } from "./Image";
@@ -28,40 +27,34 @@ export default function Hero({
 }: HeroProps) {
   const { t } = useTranslation();
   return (
-    <Stack
-      direction={{ base: "column", lg: "row" }}
-      position="relative"
-      spacing={0}
-      paddingX={{ lg: "5rem" }}
-      paddingY={{ lg: "3rem" }}
-      bg="primary.100"
-    >
+    <Stack direction={{ base: "column", xl: "row" }} spacing={6}>
       <VStack
-        position="relative"
-        zIndex={2}
-        backgroundColor="primary.100"
-        width={{ lg: "40%" }}
-        justify={{ base: "center", sm: "flex-end", md: "center" }}
-        alignItems={{ base: "center", lg: "flex-start" }}
-        padding={{ base: "2rem", lg: "1rem" }}
-        paddingBottom={{ base: "30vh" }}
+        flex={1}
+        justify={{ base: "flex-start" }}
+        alignItems={{ base: "start" }}
       >
         <Flex flexDirection="column">
           <Heading
             color="black"
             fontWeight={700}
             lineHeight={1.4}
-            maxW={{ base: "90%", lg: "full" }}
-            fontSize={{ base: "4xl", xl: "5xl" }}
+            maxW={{ base: "full", lg: "full" }}
+            fontSize={{ base: "5xl" }}
             mb={3}
           >
             {title}
           </Heading>
-          <Divider bg="primary.400" h="0.2rem" mb="2rem" />
+          <Divider
+            backgroundColor="primary.400"
+            h="0.5rem"
+            mb="2rem"
+            w="80%"
+            borderRadius="lg"
+          />
           <Text
             color="black"
             lineHeight={1.2}
-            fontSize={{ base: "md", lg: "lg", xl: "xl", "2xl": "2xl" }}
+            fontSize={{ base: "2xl" }}
             mb={{ base: "1.5rem", lg: "2rem" }}
           >
             {subtitle}
@@ -70,38 +63,28 @@ export default function Hero({
         <Link
           as={Button}
           href="#"
+          w={{ base: "full", sm: "fit-content" }}
           padding={{ base: 6, lg: 8 }}
           fontSize={{ base: "xl", lg: "2xl" }}
           fontWeight={400}
-          bg="primary.400"
+          bg="orange.400"
           rounded={"full"}
           color="white"
-          _hover={{ bg: "primary.500" }}
+          _hover={{ bg: "orange.500" }}
         >
           {t("learn_more")}
         </Link>
       </VStack>
-      <Box
-        position="relative"
-        bg={{ base: "gray.100", lg: "primary.100" }}
-        width={{ base: "100%", lg: "60%" }}
-        height={{ base: "30vh", md: "50vh", lg: "full" }}
-        p={{ base: "2rem", lg: "1rem" }}
-        zIndex={3}
-      >
-        <Image
-          src={src}
-          alt={alt}
-          ratio={4 / 3}
-          width={{ base: "auto", lg: "full" }}
-          height={{ base: "50vh", sm: "55vh", md: "70vh", lg: "full" }}
-          transform={{ base: "translateY(-30vh)", lg: "none" }}
-          priority
-          borderRadius="xl"
-          boxShadow="lg"
-          {...imageProps}
-        />
-      </Box>
+      <Image
+        priority
+        flex={{ base: 1, lg: 2 }}
+        src={src}
+        alt={alt}
+        ratio={{ base: 4 / 3, lg: 16 / 9 }}
+        borderRadius="xl"
+        boxShadow="lg"
+        {...imageProps}
+      />
     </Stack>
   );
 }

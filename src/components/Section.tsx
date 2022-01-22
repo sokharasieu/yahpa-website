@@ -1,6 +1,9 @@
-import { Container, ContainerProps } from "@chakra-ui/react";
+import { Box, BoxProps, Container, ContainerProps } from "@chakra-ui/react";
+import { motion, useReducedMotion } from "framer-motion";
 
-function OuterSection({ children, ...containerProps }: ContainerProps) {
+type SectionProps = ContainerProps;
+
+function OuterSection({ children, ...containerProps }: SectionProps) {
   return (
     <Container
       as="section"
@@ -14,7 +17,7 @@ function OuterSection({ children, ...containerProps }: ContainerProps) {
   );
 }
 
-function InnerSection({ children, ...containerProps }: ContainerProps) {
+function InnerSection({ children, ...containerProps }: SectionProps) {
   return (
     <Container
       padding={0}
@@ -26,10 +29,7 @@ function InnerSection({ children, ...containerProps }: ContainerProps) {
   );
 }
 
-export default function Section({
-  children,
-  ...containerProps
-}: ContainerProps) {
+export default function Section({ children, ...containerProps }: SectionProps) {
   return (
     <OuterSection {...containerProps}>
       <InnerSection>{children}</InnerSection>
@@ -42,7 +42,7 @@ Section.Outer = OuterSection;
 
 type SectionWithParallaxProps = {
   backgroundImageUrl?: string;
-} & ContainerProps;
+} & SectionProps;
 
 Section.Parallax = function SectionWithParallax({
   children,
@@ -72,6 +72,29 @@ Section.Parallax = function SectionWithParallax({
       {...containerProps}
     >
       {children}
+    </Section>
+  );
+};
+
+const MotionBox = motion<BoxProps>(Box);
+
+Section.Fade = function SeciontWithFade({
+  children,
+  ...sectionProps
+}: SectionProps) {
+  const shouldReduceMotion = useReducedMotion();
+  return (
+    <Section overflowY="hidden" {...sectionProps}>
+      <MotionBox
+        initial={
+          shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0.3, y: 64 }
+        }
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transitionDuration="0.2s"
+      >
+        {children}
+      </MotionBox>
     </Section>
   );
 };

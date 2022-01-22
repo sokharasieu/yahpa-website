@@ -1,17 +1,15 @@
 import { Box, Flex, Heading, Stack } from "@chakra-ui/react";
-import useTranslation from "hooks/useTranslation";
-import { StoryNews, StoryResult } from "types/story";
+import { ArticleEventStory } from "types/story";
 import Image from "./Image";
 import Link from "./Link";
 import RenderRichText from "./RenderRichText";
 import Time from "./Time";
 
 type CardProps = {
-  story?: StoryResult<StoryNews>;
+  story?: ArticleEventStory;
 };
 
-export default function CardLatest(props: CardProps) {
-  const { t } = useTranslation();
+export default function CardEvent({ story }: CardProps) {
   return (
     <Link
       href="#"
@@ -32,8 +30,8 @@ export default function CardLatest(props: CardProps) {
       >
         <Flex flex={{ base: 2, lg: 1 }}>
           <Image
-            src={props.story?.content.image?.filename ?? ""}
-            alt={props.story?.content.image?.name}
+            src={story?.content.image?.filename ?? ""}
+            alt={story?.content.image?.name}
             ratio={16 / 9}
             w={{ base: "full" }}
             borderRadius={{ md: "md" }}
@@ -47,11 +45,11 @@ export default function CardLatest(props: CardProps) {
         >
           <Stack>
             <Heading color="primary.400" fontSize={{ base: "xl" }}>
-              {props.story?.content.title}
+              {story?.content.title}
             </Heading>
-            <Time time={props.story?.content?.date as Date} />
-            <Box sx={{ p: { fontSize: { base: "sm", lg: "md" }, margin: 0 } }}>
-              {RenderRichText(props.story?.content.description)}
+            <Time time={story?.content?.date as Date} />
+            <Box sx={{ p: { fontSize: { base: "md", lg: "xl" }, margin: 0 } }}>
+              {RenderRichText(story?.content.description)}
             </Box>
           </Stack>
         </Stack>
