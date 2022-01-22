@@ -53,7 +53,7 @@ Section.Parallax = function SectionWithParallax({
     <Section
       position="relative"
       backgroundImage={`url(${backgroundImageUrl})`}
-      backgroundAttachment="fixed"
+      backgroundAttachment={{ base: "scroll", lg: "fixed" }}
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"

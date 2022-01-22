@@ -1,5 +1,6 @@
 import {
   Button,
+  Collapse,
   Flex,
   Heading,
   SimpleGrid,
@@ -13,6 +14,7 @@ import Link from "components/Link";
 import Page from "components/Page";
 import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
+import SEO from "components/SEO";
 import useTranslation from "hooks/useTranslation";
 import {
   GetStaticPathsContext,
@@ -20,8 +22,8 @@ import {
   InferGetStaticPropsType,
 } from "next";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import { getHome, getStoriesPaths } from "utils/api";
-import SEO from "components/SEO";
 import { useStoryblok } from "utils/storyblokClient";
 
 const LazyVideoEmbed = dynamic(() => import("components/VideoEmbed"));
@@ -60,7 +62,10 @@ export default function Home(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const story = useStoryblok(props?.story!!);
+  const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false);
   const { t } = useTranslation();
+
+  const openFormLinks = () => setShowRegisterForm(!showRegisterForm);
 
   return (
     <>
@@ -121,20 +126,47 @@ export default function Home(
               spacing={5}
               color="white"
             >
-              <Heading color="primary.400" mb={4}>
+              <Heading color="primary.400">
                 {story.content.register_title}
               </Heading>
               {RenderRichText(story?.content.register_description)}
               <Flex justifyContent="flex-start" width="100%" margin="auto">
-                <Link
-                  as={Button}
-                  href="#"
-                  bg="primary.500"
-                  _hover={{ bg: "primary.600" }}
-                >
-                  {t("register_cta")}
-                </Link>
+                <Collapse animateOpacity in={!showRegisterForm} unmountOnExit>
+                  <Button
+                    onClick={openFormLinks}
+                    bg="primary.500"
+                    fontWeight={400}
+                    _hover={{ bg: "primary.600" }}
+                  >
+                    {t("register_cta")}
+                  </Button>
+                </Collapse>
               </Flex>
+              <Collapse animateOpacity in={showRegisterForm} unmountOnExit>
+                <Flex justifyContent={{ base: "center", lg: "start" }}>
+                  <Stack spacing={4}>
+                    {story.content.register_links?.map((item) => (
+                      <Link
+                        key={item.title}
+                        href={item.link?.url}
+                        borderRadius="xl"
+                        paddingY={2}
+                        paddingX={3}
+                        display="flex"
+                        textAlign="center"
+                        justifyContent="center"
+                        bg="orange.400"
+                        _hover={{ backgroundColor: "orange.500" }}
+                        sx={{
+                          svg: { display: "none" },
+                        }}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </Stack>
+                </Flex>
+              </Collapse>
             </Stack>
             <LazyVideoEmbed
               title={story?.content.title}

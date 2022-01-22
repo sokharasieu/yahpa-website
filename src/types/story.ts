@@ -34,6 +34,7 @@ export type PageLandingBlok = {
   register_title?: string;
   register_description?: Richtext;
   register_video_link?: LinkAsset;
+  register_links?: ButtonLinkBlok[];
   option_title?: string;
   option_description?: string;
   option_items?: Option[];
@@ -66,6 +67,11 @@ export type SeoBlok = {
   twitter_title?: string;
   og_description?: string;
   twitter_description?: string;
+};
+
+export type ButtonLinkBlok = {
+  title?: string;
+  link?: LinkAsset;
 };
 
 export interface GetPathsResult extends StoryblokResult {
