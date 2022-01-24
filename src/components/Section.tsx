@@ -9,7 +9,10 @@ function OuterSection({ children, ...containerProps }: SectionProps) {
       as="section"
       maxW="full"
       bg="gray.100"
-      p={{ base: "2rem", md: "5rem" }}
+      paddingLeft={{ base: "2rem", md: "5rem" }}
+      paddingRight={{ base: "2rem", md: "5rem" }}
+      paddingTop={{ base: "2rem", md: "5rem" }}
+      paddingBottom={{ base: "2rem", md: "5rem" }}
       {...containerProps}
     >
       {children}
@@ -53,7 +56,7 @@ Section.Parallax = function SectionWithParallax({
     <Section
       position="relative"
       backgroundImage={`url(${backgroundImageUrl})`}
-      backgroundAttachment="fixed"
+      backgroundAttachment={{ base: "scroll", lg: "fixed" }}
       backgroundPosition="center"
       backgroundRepeat="no-repeat"
       backgroundSize="cover"

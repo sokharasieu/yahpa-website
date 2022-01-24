@@ -24,6 +24,7 @@ export type LinkAsset = {
 export type StoryResult<T> = StoryData<StoryblokComponent<string> & T>;
 
 export type PageLandingStory = StoryResult<PageLandingBlok>;
+export type PageAboutStory = StoryResult<PageAboutBlok>;
 export type ArticleEventStory = StoryResult<ArticleEventBlok>;
 
 export type PageLandingBlok = {
@@ -34,6 +35,7 @@ export type PageLandingBlok = {
   register_title?: string;
   register_description?: Richtext;
   register_video_link?: LinkAsset;
+  register_links?: ButtonLinkBlok[];
   option_title?: string;
   option_description?: string;
   option_items?: Option[];
@@ -43,9 +45,30 @@ export type PageLandingBlok = {
   seo?: SeoBlok;
 };
 
+export type PageAboutBlok = {
+  page_title?: string;
+  mission_text?: Richtext;
+  mission_image?: SingleImageAsset;
+  goals_text?: Richtext;
+  goals_table?: ItemGoalBlok[];
+  members_title?: string;
+  members?: ListMembersBlok[];
+  seo?: SeoBlok;
+};
+
+export type ItemGoalBlok = {
+  _uid?: string;
+  text?: string;
+};
+
 export type CardEventBlok = {
   component?: string;
   events?: StoryResult<ArticleEventBlok>[];
+};
+
+export type ListMembersBlok = {
+  component?: string;
+  members?: StoryResult<TeamMemberBlok>[];
 };
 
 export type ArticleEventBlok = {
@@ -53,6 +76,14 @@ export type ArticleEventBlok = {
   date?: Date;
   image?: SingleImageAsset;
   description?: Richtext;
+};
+
+export type TeamMemberBlok = {
+  name?: string;
+  position?: string;
+  image?: SingleImageAsset;
+  description?: Richtext;
+  languages?: string[];
 };
 
 export type SeoBlok = {
@@ -66,6 +97,11 @@ export type SeoBlok = {
   twitter_title?: string;
   og_description?: string;
   twitter_description?: string;
+};
+
+export type ButtonLinkBlok = {
+  title?: string;
+  link?: LinkAsset;
 };
 
 export interface GetPathsResult extends StoryblokResult {

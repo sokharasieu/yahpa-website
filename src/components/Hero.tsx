@@ -1,5 +1,4 @@
 import {
-  Button,
   Divider,
   Flex,
   Heading,
@@ -61,11 +60,12 @@ export default function Hero({
           </Text>
         </Flex>
         <Link
-          as={Button}
-          href="#"
+          href="/about"
           w={{ base: "full", sm: "fit-content" }}
-          padding={{ base: 6, lg: 8 }}
-          fontSize={{ base: "xl", lg: "2xl" }}
+          paddingX={{ sm: 6, lg: 8 }}
+          paddingY={{ base: 3, lg: 4 }}
+          textAlign="center"
+          fontSize={{ base: "xl" }}
           fontWeight={400}
           bg="orange.400"
           rounded={"full"}

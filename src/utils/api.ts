@@ -3,6 +3,7 @@ import {
   GetPathsResult,
   LinkParams,
   LinkPath,
+  PageAboutStory,
   PageLandingStory,
 } from "types/story";
 import isDev from "./isDev";
@@ -21,6 +22,16 @@ export async function getHome(params?: StoryParams): Promise<PageLandingStory> {
   });
 
   return homepageStory.data.story;
+}
+
+export async function getAbout(params?: StoryParams): Promise<PageAboutStory> {
+  const aboutPageStory = await Storyblok.getStory("about", {
+    ...defaultParams,
+    ...params,
+    resolve_relations: "list_members.members",
+  });
+
+  return aboutPageStory.data.story;
 }
 
 // getStoriesPaths returns all possible paths by locale
