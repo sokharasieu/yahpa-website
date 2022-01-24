@@ -15,9 +15,8 @@ const shimmer = keyframes({
   "100%": { backgroundPosition: "0% 0%" },
 });
 
-type NextImagePropsLimitedProps = Pick<
-  NextImageProps,
-  "src" | "alt" | "priority"
+type NextImagePropsLimitedProps = Partial<
+  Pick<NextImageProps, "src" | "alt" | "priority">
 >;
 
 type ShimmerProps = {
@@ -56,7 +55,7 @@ export type ImageProps = NextImagePropsLimitedProps & AspectRatioProps;
 
 export default function Image({
   ratio,
-  src,
+  src = "/images/logo_white.png",
   alt,
   priority,
   ...AspectRatioProps
@@ -73,7 +72,7 @@ export default function Image({
         <NextImage
           layout="fill"
           objectFit="cover"
-          src={src}
+          src={src ?? "/images/logo_white.png"}
           alt={alt}
           priority
         />
@@ -89,7 +88,7 @@ export default function Image({
           layout="fill"
           objectFit="cover"
           onLoadingComplete={() => setLoading(false)}
-          src={src}
+          src={src ?? "/images/logo_white.png"}
           alt={alt}
         />
       </>

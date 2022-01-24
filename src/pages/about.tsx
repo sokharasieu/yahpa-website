@@ -1,10 +1,12 @@
 import { Box, Heading, HStack, SimpleGrid, Text } from "@chakra-ui/react";
+import CardMember from "components/CardMember";
 import Image from "components/Image";
 import Page from "components/Page";
 import PageTitle from "components/PageTitle";
 import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
 import SEO from "components/SEO";
+import { LayoutGroup } from "framer-motion";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { getAbout } from "utils/api";
 import { useStoryblok } from "utils/storyblokClient";
@@ -45,7 +47,7 @@ export default function About(
         translatedSlugs={story.translated_slugs}
         defaultSlug={story.full_slug}
       />
-      <Section.Fade paddingBottom={0}>
+      <Section.Fade>
         <SimpleGrid
           spacing={8}
           columns={{ base: 1, lg: 2 }}
@@ -65,11 +67,11 @@ export default function About(
           </Box>
         </SimpleGrid>
       </Section.Fade>
-      <Section.Fade backgroundColor="gray.100">
+      <Section.Fade paddingTop={0} backgroundColor="gray.100">
         <Box>{RenderRichText(story.content.goals_text)}</Box>
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8} mt="2rem">
           {story.content?.goals_table?.map((goal, index) => (
-            <HStack key={goal._uuid} alignItems="baseline">
+            <HStack key={goal._uid} alignItems="baseline">
               <Heading fontSize="xl" color="primary.500" as="span">
                 {index + 1}.
               </Heading>
@@ -80,6 +82,44 @@ export default function About(
           ))}
         </SimpleGrid>
       </Section.Fade>
+      <Section.Parallax backgroundImageUrl="/images/bg2.jpg">
+        <Heading
+          color="white"
+          fontSize={{ base: "3xl", lg: "4xl" }}
+          width="fit-content"
+          _after={{
+            content: "' '",
+            backgroundColor: "primary.500",
+            width: "100%",
+            height: 1,
+            borderRadius: "md",
+            display: "block",
+          }}
+        >
+          {story.content.members_title}
+        </Heading>
+      </Section.Parallax>
+      <Section
+        paddingTop={{ base: "2rem", lg: "3rem" }}
+        paddingBottom={{ base: "2rem", lg: "3rem" }}
+      >
+        <SimpleGrid
+          spacing={3}
+          gridTemplateColumns={{
+            base: "repeat(1, auto)",
+            md: "repeat(2,auto)",
+            xl: "repeat(3,auto)",
+          }}
+        >
+          <LayoutGroup>
+            {story.content.members?.map((item) =>
+              item.members?.map((member) => {
+                return <CardMember key={member.id} member={member} />;
+              })
+            )}
+          </LayoutGroup>
+        </SimpleGrid>
+      </Section>
     </Page>
   );
 }

@@ -51,11 +51,13 @@ export type PageAboutBlok = {
   mission_image?: SingleImageAsset;
   goals_text?: Richtext;
   goals_table?: ItemGoalBlok[];
+  members_title?: string;
+  members?: ListMembersBlok[];
   seo?: SeoBlok;
 };
 
 export type ItemGoalBlok = {
-  _uuid?: string;
+  _uid?: string;
   text?: string;
 };
 
@@ -64,11 +66,24 @@ export type CardEventBlok = {
   events?: StoryResult<ArticleEventBlok>[];
 };
 
+export type ListMembersBlok = {
+  component?: string;
+  members?: StoryResult<TeamMemberBlok>[];
+};
+
 export type ArticleEventBlok = {
   title?: string;
   date?: Date;
   image?: SingleImageAsset;
   description?: Richtext;
+};
+
+export type TeamMemberBlok = {
+  name?: string;
+  position?: string;
+  image?: SingleImageAsset;
+  description?: Richtext;
+  languages?: string[];
 };
 
 export type SeoBlok = {

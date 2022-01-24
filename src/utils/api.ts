@@ -3,8 +3,8 @@ import {
   GetPathsResult,
   LinkParams,
   LinkPath,
-  PageLandingStory,
   PageAboutStory,
+  PageLandingStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -28,6 +28,7 @@ export async function getAbout(params?: StoryParams): Promise<PageAboutStory> {
   const aboutPageStory = await Storyblok.getStory("about", {
     ...defaultParams,
     ...params,
+    resolve_relations: "list_members.members",
   });
 
   return aboutPageStory.data.story;
