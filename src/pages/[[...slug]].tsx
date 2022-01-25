@@ -79,7 +79,7 @@ export default function Home(
             subtitle={story.content.description}
           />
         </Section>
-        <Section.Fade color="black">
+        <Section color="black">
           <Stack spacing={8}>
             <Stack maxW={{ base: "xl", xl: "2xl" }}>
               <Heading as="h2" fontSize={{ base: "2xl", xl: "4xl" }}>
@@ -95,8 +95,8 @@ export default function Home(
               ))
             )}
           </Stack>
-        </Section.Fade>
-        <Section.Fade paddingTop={0} bg="gray.100" color="black">
+        </Section>
+        <Section paddingTop={0} bg="gray.100" color="black">
           <Stack spacing={6}>
             <Stack maxW={{ base: "xl", xl: "2xl" }}>
               <Heading fontSize={{ base: "2xl", xl: "4xl" }}>
@@ -112,7 +112,7 @@ export default function Home(
               ))}
             </SimpleGrid>
           </Stack>
-        </Section.Fade>
+        </Section>
         <Section.Parallax backgroundImageUrl={"/images/bg.jpg"}>
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}

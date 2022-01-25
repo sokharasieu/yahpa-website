@@ -47,7 +47,7 @@ export default function About(
         translatedSlugs={story.translated_slugs}
         defaultSlug={story.full_slug}
       />
-      <Section.Fade>
+      <Section>
         <SimpleGrid
           spacing={8}
           columns={{ base: 1, lg: 2 }}
@@ -59,6 +59,7 @@ export default function About(
               borderRadius="lg"
               boxShadow="md"
               ratio={16 / 9}
+              priority
               src={
                 story.content.mission_image?.filename ?? "/images/image2.jpg"
               }
@@ -66,8 +67,8 @@ export default function About(
             />
           </Box>
         </SimpleGrid>
-      </Section.Fade>
-      <Section.Fade paddingTop={0} backgroundColor="gray.100">
+      </Section>
+      <Section paddingTop={0} backgroundColor="gray.100">
         <Box>{RenderRichText(story.content.goals_text)}</Box>
         <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8} mt="2rem">
           {story.content?.goals_table?.map((goal, index) => (
@@ -81,7 +82,7 @@ export default function About(
             </HStack>
           ))}
         </SimpleGrid>
-      </Section.Fade>
+      </Section>
       <Section.Parallax backgroundImageUrl="/images/bg2.jpg">
         <Heading
           color="white"
@@ -102,19 +103,23 @@ export default function About(
       <Section
         paddingTop={{ base: "2rem", lg: "3rem" }}
         paddingBottom={{ base: "2rem", lg: "3rem" }}
+        paddingRight={{ base: 0, lg: "3rem" }}
+        paddingLeft={{ base: 0, lg: "3rem" }}
       >
         <SimpleGrid
           spacing={3}
           gridTemplateColumns={{
             base: "repeat(1, auto)",
             md: "repeat(2,auto)",
-            xl: "repeat(3,auto)",
+            "2xl": "repeat(3,auto)",
           }}
         >
           <LayoutGroup>
             {story.content.members?.map((item) =>
-              item.members?.map((member) => {
-                return <CardMember key={member.id} member={member} />;
+              item.members?.map((member, index) => {
+                return (
+                  <CardMember key={member.id} index={index} member={member} />
+                );
               })
             )}
           </LayoutGroup>

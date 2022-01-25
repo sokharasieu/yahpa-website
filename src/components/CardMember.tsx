@@ -6,9 +6,11 @@ import {
   Text,
   useBreakpoint,
   useDisclosure,
+  useOutsideClick,
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
+import { useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect } from "react";
 import { StoryResult, TeamMemberBlok } from "types/story";
@@ -17,17 +19,26 @@ import RenderRichText from "./RenderRichText";
 
 type CardMemberProps = {
   member: StoryResult<TeamMemberBlok>;
+  index: number;
 };
 
 const MotionStack = motion(Stack);
 const MotionBox = motion(Box);
 
-export default function CardMember({ member }: CardMemberProps) {
-  const { isOpen, onToggle, onClose, onOpen } = useDisclosure();
+export default function CardMember({ member, index }: CardMemberProps) {
+  const { isOpen, onClose, onOpen } = useDisclosure({
+    defaultIsOpen: index === 0,
+  });
+  const cardRef = useRef(null);
+
+  useOutsideClick({ ref: cardRef, handler: onClose });
 
   const currentBreakpoint = useBreakpoint();
 
   useEffect(() => {
+    if (currentBreakpoint === "base") {
+      onOpen();
+    }
     if (currentBreakpoint === "sm") {
       onOpen();
     }
@@ -40,32 +51,32 @@ export default function CardMember({ member }: CardMemberProps) {
   return (
     <MotionBox
       as="li"
+      ref={cardRef}
       tabIndex={0}
       listStyleType="none"
       layout
       _hover={{ cursor: "pointer" }}
       onClick={onOpen}
-      onFocus={onToggle}
+      onFocus={onOpen}
       onBlur={onClose}
     >
       <MotionStack
         layout
-        direction="row"
-        padding={{ base: 0, lg: 3 }}
+        direction={"row-reverse"}
+        padding={{ base: isOpen && 3, lg: 3 }}
         bg={isOpen ? "primary.100" : undefined}
-        borderRadius={isOpen ? "md" : undefined}
+        borderRadius={{ lg: isOpen ? "md" : undefined }}
         boxShadow={isOpen ? "lg" : undefined}
-        justifyContent={{ base: "center", md: "start" }}
+        justifyContent={{ base: "start", md: "start" }}
       >
         <MotionBox layout>
           <Image
-            ratio={{ base: 1, sm: 2 / 3 }}
+            ratio={{ base: 2 / 3, sm: 2 / 3 }}
             w={{ base: 200, lg: 250 }}
             src={member.content.image?.filename}
             alt={member.content.name}
             boxShadow={isOpen ? undefined : "lg"}
-            borderLeftRadius={{ base: "md" }}
-            borderRightRadius={{ base: isOpen ? undefined : "md", lg: "md" }}
+            borderRadius="md"
           />
         </MotionBox>
         <AnimatePresence>
@@ -81,7 +92,6 @@ export default function CardMember({ member }: CardMemberProps) {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
                 spacing={{ base: 1, md: 2, lg: 3 }}
-                padding={3}
               >
                 <Heading fontSize={{ base: "xl", lg: "2xl" }}>
                   {member.content.name}
