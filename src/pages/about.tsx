@@ -70,15 +70,13 @@ export default function About(
       </Section>
       <Section paddingTop={0} backgroundColor="gray.100">
         <Box>{RenderRichText(story.content.goals_text)}</Box>
-        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8} mt="2rem">
+        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mt="2rem">
           {story.content?.goals_table?.map((goal, index) => (
             <HStack key={goal._uid} alignItems="baseline">
               <Heading fontSize="xl" color="primary.500" as="span">
                 {index + 1}.
               </Heading>
-              <Text fontSize={{ base: "md", lg: "lg", xl: "xl" }}>
-                {goal.text}
-              </Text>
+              <Text fontSize={{ base: "md" }}>{goal.text}</Text>
             </HStack>
           ))}
         </SimpleGrid>
@@ -86,7 +84,7 @@ export default function About(
       <Section.Parallax backgroundImageUrl="/images/bg2.jpg">
         <Heading
           color="white"
-          fontSize={{ base: "3xl", lg: "4xl" }}
+          fontSize={{ base: "2xl", lg: "3xl" }}
           width="fit-content"
           _after={{
             content: "' '",
@@ -103,23 +101,18 @@ export default function About(
       <Section
         paddingTop={{ base: "2rem", lg: "3rem" }}
         paddingBottom={{ base: "2rem", lg: "3rem" }}
-        paddingRight={{ base: 0, lg: "3rem" }}
-        paddingLeft={{ base: 0, lg: "3rem" }}
       >
         <SimpleGrid
-          spacing={3}
+          spacing={{ base: 5 }}
           gridTemplateColumns={{
-            base: "repeat(1, auto)",
-            md: "repeat(2,auto)",
-            "2xl": "repeat(3,auto)",
+            base: "repeat(1, 1fr)",
+            md: "repeat(2,1fr)",
           }}
         >
           <LayoutGroup>
             {story.content.members?.map((item) =>
-              item.members?.map((member, index) => {
-                return (
-                  <CardMember key={member.id} index={index} member={member} />
-                );
+              item.members?.map((member) => {
+                return <CardMember key={member.id} member={member} />;
               })
             )}
           </LayoutGroup>
