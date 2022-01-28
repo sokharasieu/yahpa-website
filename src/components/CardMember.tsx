@@ -43,7 +43,6 @@ export default function CardMember({ member }: CardMemberProps) {
           layout
           width="auto"
           onClick={hasContent ? onToggle : undefined}
-          tabIndex={0}
           _hover={{ cursor: hasContent ? "pointer" : undefined }}
         >
           <Image

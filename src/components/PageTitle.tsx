@@ -3,6 +3,7 @@ import useTranslation from "hooks/useTranslation";
 import { StoryData } from "storyblok-js-client";
 import Link from "./Link";
 import Section from "./Section";
+import { useRouter } from "next/router";
 
 type PageTitleProps = {
   title?: string;
@@ -19,6 +20,7 @@ type Slug = {
 
 export default function PageTitle(props: PageTitleProps) {
   const { t, locale } = useTranslation();
+  const router = useRouter();
 
   let slugs: Slug[] | undefined;
   if (locale !== "en") {
@@ -46,13 +48,16 @@ export default function PageTitle(props: PageTitleProps) {
           <BreadcrumbItem>
             <Link href="/">{t("home")}</Link>
           </BreadcrumbItem>
-          {slugs?.map((slug) => (
-            <BreadcrumbItem key={slug.name}>
-              <Link href={slug.path}>
-                {capitalizeFirstLetter(slug.name ?? "")}
-              </Link>
-            </BreadcrumbItem>
-          ))}
+          {slugs?.map((slug) => {
+            const slugMatches = "/" + slug.path === router.asPath;
+            return (
+              <BreadcrumbItem key={slug.name}>
+                <Link href={slugMatches ? undefined : slug.path}>
+                  {capitalizeFirstLetter(slug.name ?? "")}
+                </Link>
+              </BreadcrumbItem>
+            );
+          })}
         </Breadcrumb>
       </Stack>
     </Section>
