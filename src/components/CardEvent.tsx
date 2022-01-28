@@ -16,7 +16,6 @@ export default function CardEvent({ story }: CardProps) {
       background="white"
       borderRadius="md"
       overflow="hidden"
-      boxShadow="lg"
       position="relative"
       padding={{ md: 3 }}
       _hover={{

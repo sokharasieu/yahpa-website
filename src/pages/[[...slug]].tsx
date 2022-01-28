@@ -90,9 +90,13 @@ export default function Home(
               </Text>
             </Stack>
             {story.content.event_latest?.map((event) =>
-              event.events?.map((story) => (
-                <CardEvent key={story.uuid} story={story} />
-              ))
+              event.events
+                ?.sort((a, b) => {
+                  return (
+                    +new Date(b.content.date!!) - +new Date(a.content.date!!)
+                  );
+                })
+                .map((story) => <CardEvent key={story.uuid} story={story} />)
             )}
           </Stack>
         </Section>

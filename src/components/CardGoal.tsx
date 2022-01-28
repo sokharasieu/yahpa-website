@@ -17,7 +17,6 @@ export default function CardGoal(props: Option) {
           transition: "transform 0.3s ease-in-out",
         },
       }}
-      boxShadow="md"
     >
       <Image
         src={props.image?.filename ?? ""}
