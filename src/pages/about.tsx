@@ -47,7 +47,7 @@ export default function About(
         translatedSlugs={story.translated_slugs}
         defaultSlug={story.full_slug}
       />
-      <Section.Fade>
+      <Section>
         <SimpleGrid
           spacing={8}
           columns={{ base: 1, lg: 2 }}
@@ -59,6 +59,7 @@ export default function About(
               borderRadius="lg"
               boxShadow="md"
               ratio={16 / 9}
+              priority
               src={
                 story.content.mission_image?.filename ?? "/images/image2.jpg"
               }
@@ -66,26 +67,24 @@ export default function About(
             />
           </Box>
         </SimpleGrid>
-      </Section.Fade>
-      <Section.Fade paddingTop={0} backgroundColor="gray.100">
+      </Section>
+      <Section paddingTop={0} backgroundColor="gray.100">
         <Box>{RenderRichText(story.content.goals_text)}</Box>
-        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={8} mt="2rem">
+        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mt="2rem">
           {story.content?.goals_table?.map((goal, index) => (
             <HStack key={goal._uid} alignItems="baseline">
               <Heading fontSize="xl" color="primary.500" as="span">
                 {index + 1}.
               </Heading>
-              <Text fontSize={{ base: "md", lg: "lg", xl: "xl" }}>
-                {goal.text}
-              </Text>
+              <Text fontSize={{ base: "md" }}>{goal.text}</Text>
             </HStack>
           ))}
         </SimpleGrid>
-      </Section.Fade>
+      </Section>
       <Section.Parallax backgroundImageUrl="/images/bg2.jpg">
         <Heading
           color="white"
-          fontSize={{ base: "3xl", lg: "4xl" }}
+          fontSize={{ base: "2xl", lg: "3xl" }}
           width="fit-content"
           _after={{
             content: "' '",
@@ -104,11 +103,10 @@ export default function About(
         paddingBottom={{ base: "2rem", lg: "3rem" }}
       >
         <SimpleGrid
-          spacing={3}
+          spacing={{ base: 5 }}
           gridTemplateColumns={{
-            base: "repeat(1, auto)",
-            md: "repeat(2,auto)",
-            xl: "repeat(3,auto)",
+            base: "repeat(1, 1fr)",
+            md: "repeat(2,1fr)",
           }}
         >
           <LayoutGroup>

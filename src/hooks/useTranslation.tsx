@@ -27,6 +27,8 @@ const en = {
   register_cta: "I want to register as a member",
   register_modal: "Please choose the option that applies to you",
   follow_social: "Follow us on our Social Media",
+  show_more: "Show more",
+  show_less: "Show less",
 };
 
 const fr: DefaultLanguageResource = {
@@ -54,6 +56,8 @@ const fr: DefaultLanguageResource = {
   register_video_title:
     "Registre des professionnels asiatiques de la santé de Montréal - YAHPA",
   follow_social: "Suivez-nous sur nos réseaux sociaux",
+  show_more: "voir plus",
+  show_less: "voir moin",
 };
 
 const zh: DefaultLanguageResource = {
@@ -80,6 +84,8 @@ const zh: DefaultLanguageResource = {
   register_modal: "请选择适用于您的选项",
   register_video_title: "蒙特利尔 YAHPA 登记处",
   follow_social: "在社交媒体上关注我们",
+  show_more: "显示更多",
+  show_less: "显示较少",
 };
 
 const resources = {
