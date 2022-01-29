@@ -24,7 +24,6 @@ function ListHeader({ children }: React.PropsWithChildren<{}>) {
 
 export default function Footer() {
   const { t, languages, locales } = useTranslation();
-  const router = useRouter();
 
   return (
     <Box bg="gray.700" color="whiteAlpha.800" pt={10}>
