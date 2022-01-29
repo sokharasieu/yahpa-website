@@ -9,7 +9,7 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
-import { AnimatePresence, motion, Variants } from "framer-motion";
+import { AnimatePresence, motion, Variants, Spring } from "framer-motion";
 import useTranslation from "hooks/useTranslation";
 import { StoryResult, TeamMemberBlok } from "types/story";
 import Image from "./Image";
@@ -34,6 +34,12 @@ export default function CardMember({ member }: CardMemberProps) {
   const variants: Variants = {
     open: { top: "100%", translateY: "-100%" },
     closed: { top: 0 },
+  };
+
+  const spring: Spring = {
+    type: "spring",
+    damping: 10,
+    stiffness: 50,
   };
 
   return (
@@ -62,6 +68,7 @@ export default function CardMember({ member }: CardMemberProps) {
             position="absolute"
             animate={isOpen ? "open" : "closed"}
             variants={variants}
+            transition={spring}
           >
             <Stack spacing={1}>
               <Heading as="h3" fontSize={{ base: "lg", lg: "xl" }}>

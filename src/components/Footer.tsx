@@ -4,15 +4,15 @@ import {
   Container,
   Flex,
   Image,
-  Link,
+  Link as ChakraLink,
   SimpleGrid,
   Stack,
-  Tag,
   Text,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import useTranslation, { Resource } from "hooks/useTranslation";
+import { useRouter } from "next/router";
 import SocialMedia from "./SocialMedia";
+import Link from "./Link";
 
 function ListHeader({ children }: React.PropsWithChildren<{}>) {
   return (
@@ -23,12 +23,7 @@ function ListHeader({ children }: React.PropsWithChildren<{}>) {
 }
 
 export default function Footer() {
-  const { t, languages, updateLocale, locales, locale } = useTranslation();
-
-  const handleLocaleChange = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const newLocale = (e.target as HTMLAnchorElement).lang;
-    updateLocale(newLocale);
-  };
+  const { t, languages, locales } = useTranslation();
 
   return (
     <Box bg="gray.700" color="whiteAlpha.800" pt={10}>
@@ -43,14 +38,14 @@ export default function Footer() {
           <Stack align={"flex-start"}>
             <ListHeader>{t("languages")}</ListHeader>
             {locales?.map((language) => (
-              <Link
+              <ChakraLink
                 key={language}
+                href={`/${language}`}
                 lang={language}
-                href={language}
-                onClick={handleLocaleChange}
+                hrefLang={language}
               >
                 {languages[language as Resource]}
-              </Link>
+              </ChakraLink>
             ))}
           </Stack>
           {/* <Stack align={"flex-start"}>

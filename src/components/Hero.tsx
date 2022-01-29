@@ -1,14 +1,7 @@
-import {
-  Divider,
-  Flex,
-  Heading,
-  Link,
-  Stack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Divider, Flex, Heading, Stack, Text, VStack } from "@chakra-ui/react";
 import useTranslation from "hooks/useTranslation";
 import Image, { ImageProps } from "./Image";
+import Link from "./Link";
 
 type HeroProps = React.PropsWithChildren<{
   title?: string;
@@ -24,7 +17,7 @@ export default function Hero({
   children,
   ...imageProps
 }: HeroProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   return (
     <Stack direction={{ base: "column", xl: "row" }} spacing={6}>
       <VStack

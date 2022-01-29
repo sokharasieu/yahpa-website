@@ -21,6 +21,7 @@ export default function Link({
         alignItems="center"
         isExternal={isExternal}
         lang={locale}
+        hrefLang={locale}
         {...props}
       >
         {children}

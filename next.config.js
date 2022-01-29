@@ -8,7 +8,7 @@ module.exports = {
     baseUrl: "https://www.yahpa.org",
   },
   i18n: {
-    locales: ["en", "fr", "zh"],
+    locales: ["en", "fr", "zh", "vi"],
     defaultLocale: "en",
   },
   images: {

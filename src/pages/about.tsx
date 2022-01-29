@@ -68,19 +68,21 @@ export default function About(
           </Box>
         </SimpleGrid>
       </Section>
-      <Section paddingTop={0} backgroundColor="gray.100">
-        <Box>{RenderRichText(story.content.goals_text)}</Box>
-        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mt="2rem">
-          {story.content?.goals_table?.map((goal, index) => (
-            <HStack key={goal._uid} alignItems="baseline">
-              <Heading fontSize="xl" color="primary.500" as="span">
-                {index + 1}.
-              </Heading>
-              <Text fontSize={{ base: "md" }}>{goal.text}</Text>
-            </HStack>
-          ))}
-        </SimpleGrid>
-      </Section>
+      <Section.Outer paddingTop={0}>
+        <Section.Inner borderRadius="lg" backgroundColor="white" padding={4}>
+          <Box>{RenderRichText(story.content.goals_text)}</Box>
+          <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mt="2rem">
+            {story.content?.goals_table?.map((goal, index) => (
+              <HStack key={goal._uid} alignItems="baseline">
+                <Heading fontSize="xl" color="primary.500" as="span">
+                  {index + 1}.
+                </Heading>
+                <Text fontSize={{ base: "md", xl: "lg" }}>{goal.text}</Text>
+              </HStack>
+            ))}
+          </SimpleGrid>
+        </Section.Inner>
+      </Section.Outer>
       <Section.Parallax backgroundImageUrl="/images/bg2.jpg">
         <Heading
           color="white"

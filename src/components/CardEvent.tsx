@@ -16,7 +16,6 @@ export default function CardEvent({ story }: CardProps) {
       background="white"
       borderRadius="md"
       overflow="hidden"
-      boxShadow="lg"
       position="relative"
       padding={{ md: 3 }}
       _hover={{
@@ -44,7 +43,7 @@ export default function CardEvent({ story }: CardProps) {
             {story?.content.title}
           </Heading>
           <Time time={story?.content?.date as Date} />
-          <Box sx={{ p: { fontSize: { base: "md", lg: "xl" }, margin: 0 } }}>
+          <Box sx={{ p: { margin: 0 } }}>
             {RenderRichText(story?.content.description)}
           </Box>
         </Stack>
