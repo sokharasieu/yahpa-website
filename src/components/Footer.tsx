@@ -7,11 +7,10 @@ import {
   Link,
   SimpleGrid,
   Stack,
-  Tag,
   Text,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import useTranslation, { Resource } from "hooks/useTranslation";
+import { useRouter } from "next/router";
 import SocialMedia from "./SocialMedia";
 
 function ListHeader({ children }: React.PropsWithChildren<{}>) {
@@ -23,12 +22,8 @@ function ListHeader({ children }: React.PropsWithChildren<{}>) {
 }
 
 export default function Footer() {
-  const { t, languages, updateLocale, locales, locale } = useTranslation();
-
-  const handleLocaleChange = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const newLocale = (e.target as HTMLAnchorElement).lang;
-    updateLocale(newLocale);
-  };
+  const { t, languages, locales } = useTranslation();
+  const router = useRouter();
 
   return (
     <Box bg="gray.700" color="whiteAlpha.800" pt={10}>
@@ -46,8 +41,7 @@ export default function Footer() {
               <Link
                 key={language}
                 lang={language}
-                href={language}
-                onClick={handleLocaleChange}
+                href={`/${language}${router.asPath}`}
               >
                 {languages[language as Resource]}
               </Link>
