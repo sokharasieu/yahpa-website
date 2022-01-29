@@ -4,7 +4,7 @@ import {
   Container,
   Flex,
   Image,
-  Link,
+  Link as ChakraLink,
   SimpleGrid,
   Stack,
   Text,
@@ -12,6 +12,7 @@ import {
 import useTranslation, { Resource } from "hooks/useTranslation";
 import { useRouter } from "next/router";
 import SocialMedia from "./SocialMedia";
+import Link from "./Link";
 
 function ListHeader({ children }: React.PropsWithChildren<{}>) {
   return (
@@ -38,13 +39,14 @@ export default function Footer() {
           <Stack align={"flex-start"}>
             <ListHeader>{t("languages")}</ListHeader>
             {locales?.map((language) => (
-              <Link
+              <ChakraLink
                 key={language}
+                href={`/${language}`}
                 lang={language}
-                href={`/${language}${router.asPath}`}
+                hrefLang={language}
               >
                 {languages[language as Resource]}
-              </Link>
+              </ChakraLink>
             ))}
           </Stack>
           {/* <Stack align={"flex-start"}>
