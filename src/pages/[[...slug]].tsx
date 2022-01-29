@@ -82,10 +82,10 @@ export default function Home(
         <Section color="black">
           <Stack spacing={8}>
             <Stack maxW={{ base: "xl", xl: "2xl" }}>
-              <Heading as="h2" fontSize={{ base: "2xl", xl: "4xl" }}>
+              <Heading as="h2" fontSize={{ base: "2xl", xl: "3xl" }}>
                 {story.content.event_title}
               </Heading>
-              <Text fontSize={{ base: "xl", xl: "2xl" }}>
+              <Text fontSize={{ base: "md", xl: "lg" }}>
                 {story.content.event_description}
               </Text>
             </Stack>
@@ -103,10 +103,10 @@ export default function Home(
         <Section paddingTop={0} bg="gray.100" color="black">
           <Stack spacing={6}>
             <Stack maxW={{ base: "xl", xl: "2xl" }}>
-              <Heading fontSize={{ base: "2xl", xl: "4xl" }}>
+              <Heading fontSize={{ base: "2xl", xl: "3xl" }}>
                 {story?.content.option_title}
               </Heading>
-              <Text fontSize={{ base: "xl", xl: "2xl" }}>
+              <Text fontSize={{ base: "md", xl: "lg" }}>
                 {story?.content.option_description}
               </Text>
             </Stack>

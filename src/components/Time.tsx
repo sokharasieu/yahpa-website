@@ -24,6 +24,7 @@ export default function Time({ time, format = "LL", ...textProps }: TimeProps) {
   return (
     <Text
       as="time"
+      fontSize={{ base: "md", xl: "lg" }}
       dateTime={dayjs(time)
         .locale(locale as string)
         .format(format)}
