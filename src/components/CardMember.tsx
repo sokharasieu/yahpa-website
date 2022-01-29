@@ -39,7 +39,7 @@ export default function CardMember({ member }: CardMemberProps) {
   const spring: Spring = {
     type: "spring",
     damping: 10,
-    stiffness: 100,
+    stiffness: 50,
   };
 
   return (

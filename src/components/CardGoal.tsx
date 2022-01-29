@@ -38,7 +38,16 @@ export default function CardGoal(props: Option) {
         justifyContent="space-between"
         p={4}
       >
-        <Text fontWeight={700} color="black" fontSize={{ base: "xl" }}>
+        <Text
+          fontWeight={700}
+          lineHeight={2}
+          color="black"
+          bg="white"
+          width="fit-content"
+          px={2}
+          borderRadius="md"
+          fontSize={{ base: "xl" }}
+        >
           {props.title}
         </Text>
         <Flex justifyContent="flex-end">
