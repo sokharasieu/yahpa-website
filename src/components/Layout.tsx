@@ -1,10 +1,12 @@
 import { Box, Flex, useBreakpoint } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import isDev from "utils/isDev";
 import Footer from "./Footer";
 import Header from "./Header";
 
 export default function Layout({ children }: React.PropsWithChildren<{}>) {
   const currentBreakpoint = useBreakpoint();
+  const router = useRouter();
 
   return (
     <Flex
@@ -13,6 +15,8 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
         flexDirection: "column",
         minHeight: "100vh",
         display: "flex",
+        //Arial is the most well read font for Vietnamese characters
+        fontFamily: router.locale === "vi" ? "Arial" : undefined,
       }}
     >
       <Header />

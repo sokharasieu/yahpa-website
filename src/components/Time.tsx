@@ -3,6 +3,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/en";
 import "dayjs/locale/fr";
 import "dayjs/locale/zh";
+import "dayjs/locale/vi";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
 import { useRouter } from "next/router";
