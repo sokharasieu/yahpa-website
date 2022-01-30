@@ -17,7 +17,7 @@ export default function Hero({
   children,
   ...imageProps
 }: HeroProps) {
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
   return (
     <Stack direction={{ base: "column", xl: "row" }} spacing={6}>
       <VStack
@@ -58,6 +58,8 @@ export default function Hero({
           paddingX={{ sm: 6, lg: 8 }}
           paddingY={{ base: 3, lg: 4 }}
           textAlign="center"
+          display="flex"
+          justifyContent="center"
           fontSize={{ base: "xl" }}
           fontWeight={400}
           bg="orange.400"

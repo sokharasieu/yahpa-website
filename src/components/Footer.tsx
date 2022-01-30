@@ -10,7 +10,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import useTranslation, { Resource } from "hooks/useTranslation";
-import { useRouter } from "next/router";
 import SocialMedia from "./SocialMedia";
 import Link from "./Link";
 
