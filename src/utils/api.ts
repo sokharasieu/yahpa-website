@@ -5,6 +5,7 @@ import {
   LinkPath,
   PageAboutStory,
   PageLandingStory,
+  PageLandingCovidStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -32,6 +33,17 @@ export async function getAbout(params?: StoryParams): Promise<PageAboutStory> {
   });
 
   return aboutPageStory.data.story;
+}
+
+export async function getCovid(
+  params?: StoryParams
+): Promise<PageLandingCovidStory> {
+  const covidPageStory = await Storyblok.getStory("covid-19", {
+    ...defaultParams,
+    ...params,
+  });
+
+  return covidPageStory.data.story;
 }
 
 // getStoriesPaths returns all possible paths by locale

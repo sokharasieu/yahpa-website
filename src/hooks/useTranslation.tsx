@@ -132,5 +132,9 @@ export default function useTranslation() {
     router.push({ pathname, query }, asPath, { locale });
   }
 
-  return { t, locales, locale, languages, updateLocale };
+  function getCurrentLocaleName() {
+    return languages[locale as Resource];
+  }
+
+  return { t, locales, locale, languages, updateLocale, getCurrentLocaleName };
 }

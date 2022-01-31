@@ -26,6 +26,7 @@ export type StoryResult<T> = StoryData<StoryblokComponent<string> & T>;
 export type PageLandingStory = StoryResult<PageLandingBlok>;
 export type PageAboutStory = StoryResult<PageAboutBlok>;
 export type ArticleEventStory = StoryResult<ArticleEventBlok>;
+export type PageLandingCovidStory = StoryResult<PageLandingCovidBlok>;
 
 export type PageLandingBlok = {
   title?: string;
@@ -53,6 +54,15 @@ export type PageAboutBlok = {
   goals_table?: ItemGoalBlok[];
   members_title?: string;
   members?: ListMembersBlok[];
+  seo?: SeoBlok;
+};
+
+export type PageLandingCovidBlok = {
+  page_title?: string;
+  page_description?: Richtext;
+  page_image?: SingleImageAsset;
+  documents_title?: string;
+  documents?: DocumentCovidBlok[];
   seo?: SeoBlok;
 };
 
@@ -84,6 +94,14 @@ export type TeamMemberBlok = {
   image?: SingleImageAsset;
   description?: Richtext;
   languages?: string[];
+};
+
+export type DocumentCovidBlok = {
+  title?: string;
+  description?: Richtext;
+  image?: SingleImageAsset;
+  documents?: SingleImageAsset[];
+  _uid?: string;
 };
 
 export type SeoBlok = {
