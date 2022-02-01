@@ -53,7 +53,9 @@ export default function About(
           columns={{ base: 1, lg: 2 }}
           templateRows="auto"
         >
-          <Box>{RenderRichText(story.content.mission_text)}</Box>
+          <Box bg="white" p={4} borderRadius="lg">
+            {RenderRichText(story.content.mission_text)}
+          </Box>
           <Box w="full" h="full">
             <Image
               borderRadius="lg"

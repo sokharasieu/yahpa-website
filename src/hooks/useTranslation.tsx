@@ -23,6 +23,7 @@ const en = {
   show_more: "Show more",
   show_less: "Show less",
   support: "Support",
+  updated_on: "Updated on",
   yahpa: "YAHPA",
   yahpa_full: "Young Asian Health Professional Association",
 };
@@ -48,6 +49,7 @@ const fr: DefaultLanguageResource = {
   show_more: "voir plus",
   show_less: "voir moin",
   support: "Support",
+  updated_on: "Dernière mise à jour le",
   yahpa: "AJPAS",
   yahpa_full: "Association des Jeunes Professionnels Asiatique de la Santé",
 };
@@ -72,6 +74,7 @@ const zh: DefaultLanguageResource = {
   show_more: "显示更多",
   show_less: "显示较少",
   support: "支持",
+  updated_on: "最后更新",
   yahpa: "YAHPA",
   yahpa_full: "亚洲青年健康专业协会",
 };
@@ -96,6 +99,7 @@ const vi: DefaultLanguageResource = {
   show_more: "Cho xem nhiều hơn",
   show_less: "Hiện ít hơn",
   support: "Hỗ trợ",
+  updated_on: "ngày cập nhật",
   yahpa: "YAHPA",
   yahpa_full: "Hiệp hội Chuyên gia Y tế Trẻ Châu Á",
 };
@@ -132,5 +136,9 @@ export default function useTranslation() {
     router.push({ pathname, query }, asPath, { locale });
   }
 
-  return { t, locales, locale, languages, updateLocale };
+  function getCurrentLocaleName() {
+    return languages[locale as Resource];
+  }
+
+  return { t, locales, locale, languages, updateLocale, getCurrentLocaleName };
 }

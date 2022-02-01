@@ -10,7 +10,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import useTranslation, { Resource } from "hooks/useTranslation";
-import { useRouter } from "next/router";
 import SocialMedia from "./SocialMedia";
 import Link from "./Link";
 
@@ -32,6 +31,7 @@ export default function Footer() {
           <Stack align={"flex-start"}>
             <ListHeader>{t("organization")}</ListHeader>
             <Link href="/about">{t("about")}</Link>
+            <Link href="/covid-19">COVID-19</Link>
             {/* <Link href="/projects">{t("projects")}</Link>
             <Link href="/contribute">{t("contribute")}</Link> */}
           </Stack>
