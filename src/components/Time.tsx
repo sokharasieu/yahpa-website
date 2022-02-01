@@ -15,10 +15,16 @@ type TimeFormats = "LL";
 
 type TimeProps = {
   time: Date;
+  text?: string;
   format?: TimeFormats;
 } & TextProps;
 
-export default function Time({ time, format = "LL", ...textProps }: TimeProps) {
+export default function Time({
+  time,
+  format = "LL",
+  text,
+  ...textProps
+}: TimeProps) {
   const { locale } = useRouter();
 
   return (
@@ -30,6 +36,7 @@ export default function Time({ time, format = "LL", ...textProps }: TimeProps) {
         .format(format)}
       {...textProps}
     >
+      {text && text}{" "}
       {dayjs(time)
         .locale(locale as string)
         .format(format)}

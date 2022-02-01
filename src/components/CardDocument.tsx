@@ -1,17 +1,10 @@
-import {
-  Box,
-  Heading,
-  Icon,
-  Link,
-  Select,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Icon, Link, Select, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { FiDownload } from "react-icons/fi";
 import { DocumentCovidBlok } from "types/story";
-import Image from "./Image";
+import useTranslation from "../hooks/useTranslation";
 import RenderRichText from "./RenderRichText";
+import Time from "./Time";
 
 type CardDocumentProps = {
   document: DocumentCovidBlok;
@@ -20,6 +13,7 @@ type CardDocumentProps = {
 export default function CardDocument({ document }: CardDocumentProps) {
   const [selectedLanguage, setSelectedLanguage] = useState("");
   const [linkToFile, setLinkToFile] = useState("");
+  const { t } = useTranslation();
 
   useEffect(() => {
     const selectedDocument = document.documents?.find(
@@ -30,92 +24,83 @@ export default function CardDocument({ document }: CardDocumentProps) {
 
   return (
     <Stack
-      direction={{ base: "row", lg: "column" }}
-      p={4}
+      p={3}
       bg="white"
       borderRadius="lg"
-      spacing={{ base: 0, sm: 3 }}
+      justifyContent="space-between"
+      h="full"
     >
-      <Box display={{ base: "none", md: "block" }} width={{ lg: "full" }}>
-        <Image
-          src={document.image?.filename}
-          alt={document.image?.name}
-          ratio={{ base: 4 / 3, lg: 16 / 9 }}
-          w={{ base: "180px", lg: "full" }}
+      <Stack>
+        <Time
+          fontSize="sm"
+          fontWeight={400}
+          text={t("updated_on")}
+          time={document?.date_updated as Date}
+          fontStyle="italic"
         />
-      </Box>
-      <Stack p={3} justifyContent="space-between" h="full">
-        <Stack>
-          <Heading fontSize="lg" as="h3">
-            {document.title}
-          </Heading>
-          {RenderRichText(document.description)}
+        <Box>{RenderRichText(document.description)}</Box>
+      </Stack>
+      {/* For English, we present all document versions */}
+      {document.documents && document.documents?.length >= 3 ? (
+        <Stack direction={{ base: "column", sm: "row" }}>
+          <Select
+            placeholder="Select your language"
+            width={{ base: "full", sm: "max-content" }}
+            onChange={(e) => setSelectedLanguage(e.target.value)}
+          >
+            {document.documents?.map((file) => (
+              <Box as="option" key={file.id}>
+                {file.title}
+              </Box>
+            ))}
+          </Select>
+          <Link
+            bg="primary.100"
+            px={3}
+            py={2}
+            textAlign="center"
+            borderRadius="md"
+            _hover={{
+              textDecoration: "none",
+              backgroundColor: selectedLanguage ? "primary.200" : "primary.100",
+              cursor: selectedLanguage ? "pointer" : "default",
+            }}
+            sx={{
+              opacity: selectedLanguage ? 1 : 0.5,
+            }}
+            isExternal
+            href={selectedLanguage ? linkToFile : undefined}
+          >
+            View File
+          </Link>
         </Stack>
-
-        {/* For English, we present all document versions */}
-        {document.documents && document.documents?.length >= 3 ? (
-          <Stack direction="row">
-            <Select
-              placeholder="Select your language"
-              width="max-content"
-              onChange={(e) => setSelectedLanguage(e.target.value)}
-            >
-              {document.documents?.map((file) => (
-                <Box as="option" key={file.id}>
-                  {file.title}
-                </Box>
-              ))}
-            </Select>
+      ) : (
+        <Stack spacing={3} direction="row">
+          {document.documents?.map((file) => (
             <Link
               bg="primary.100"
-              px={3}
-              py={2}
-              textAlign="center"
+              px={2}
+              py={1}
               borderRadius="md"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              width="max-content"
               _hover={{
                 textDecoration: "none",
-                backgroundColor: selectedLanguage
-                  ? "primary.200"
-                  : "primary.100",
-                cursor: selectedLanguage ? "pointer" : "default",
+                backgroundColor: "primary.200",
               }}
-              sx={{
-                opacity: selectedLanguage ? 1 : 0.5,
-              }}
+              key={file.id}
+              href={file.filename}
+              download={file.title}
               isExternal
-              href={selectedLanguage ? linkToFile : undefined}
             >
-              View File
+              <Text>{file.name}</Text>
+              <Icon ml={1} as={FiDownload} />
             </Link>
-          </Stack>
-        ) : (
-          <Stack spacing={3} direction="row">
-            {document.documents?.map((file) => (
-              <Link
-                bg="primary.100"
-                px={2}
-                py={1}
-                borderRadius="md"
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                width="max-content"
-                _hover={{
-                  textDecoration: "none",
-                  backgroundColor: "primary.200",
-                }}
-                key={file.id}
-                href={file.filename}
-                download={file.title}
-                isExternal
-              >
-                <Text>{file.name}</Text>
-                <Icon ml={1} as={FiDownload} />
-              </Link>
-            ))}
-          </Stack>
-        )}
-      </Stack>
+          ))}
+        </Stack>
+      )}
     </Stack>
   );
 }

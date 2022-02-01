@@ -1,4 +1,15 @@
-import { Box, Heading, SimpleGrid, Stack } from "@chakra-ui/react";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
+  Box,
+  Heading,
+  SimpleGrid,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import CardDocument from "components/CardDocument";
 import Image from "components/Image";
 import Page from "components/Page";
@@ -73,18 +84,35 @@ export default function CovidPage(
             {story.content.documents_title}
           </Heading>
         </Stack>
-        <SimpleGrid
-          spacing={5}
-          gridTemplateColumns={{
-            base: "repeat(1, 1fr)",
-            lg: "repeat(2,1fr)",
-            xl: "repeat(3,1fr)",
-          }}
-        >
+        <Accordion defaultIndex={[0]}>
           {story.content?.documents?.map((doc) => (
-            <CardDocument key={doc._uid} document={doc} />
+            <AccordionItem
+              key={doc._uid}
+              borderTop="0.5px solid gray.100"
+              borderBottom="0.5px gray.100"
+              borderColor="gray.300"
+            >
+              <h2>
+                <AccordionButton py={3}>
+                  <Text
+                    color="primary.500"
+                    flex={1}
+                    textAlign="left"
+                    fontSize="lg"
+                    as="h3"
+                  >
+                    {doc.title}
+                  </Text>
+
+                  <AccordionIcon w="1.5rem" h="1.5rem" color="primary.500" />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel px={0}>
+                <CardDocument document={doc} />
+              </AccordionPanel>
+            </AccordionItem>
           ))}
-        </SimpleGrid>
+        </Accordion>
       </Section>
     </Page>
   );

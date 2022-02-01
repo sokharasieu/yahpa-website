@@ -98,6 +98,7 @@ export type TeamMemberBlok = {
 
 export type DocumentCovidBlok = {
   title?: string;
+  date_updated?: Date;
   description?: Richtext;
   image?: SingleImageAsset;
   documents?: SingleImageAsset[];
