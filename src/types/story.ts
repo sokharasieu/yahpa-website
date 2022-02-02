@@ -52,6 +52,8 @@ export type PageAboutBlok = {
   mission_image?: SingleImageAsset;
   goals_text?: Richtext;
   goals_table?: ItemGoalBlok[];
+  values_text?: Richtext;
+  values_image?: SingleImageAsset;
   members_title?: string;
   members?: ListMembersBlok[];
   seo?: SeoBlok;
