@@ -25,8 +25,8 @@ export default function CardEvent({ story }: CardProps) {
     >
       <Flex flex={{ base: 2, lg: 1 }}>
         <Image
-          src={story?.content.image?.filename ?? ""}
-          alt={story?.content.image?.name}
+          src={story?.content?.image?.filename ?? "/images/logo_white.png"}
+          alt={story?.content?.image?.name}
           ratio={16 / 9}
           w={{ base: "full" }}
           borderRadius={{ md: "md" }}
@@ -40,11 +40,11 @@ export default function CardEvent({ story }: CardProps) {
       >
         <Stack>
           <Heading color="primary.400" fontSize={{ base: "xl" }}>
-            {story?.content.title}
+            {story?.content?.title}
           </Heading>
           <Time time={story?.content?.date as Date} />
           <Box sx={{ p: { margin: 0 } }}>
-            {RenderRichText(story?.content.description)}
+            {RenderRichText(story?.content?.description)}
           </Box>
         </Stack>
       </Stack>

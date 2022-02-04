@@ -92,9 +92,13 @@ export default function Home(
             {story.content.event_latest?.map((event) =>
               event.events
                 ?.sort((a, b) => {
-                  return (
-                    +new Date(b.content.date!!) - +new Date(a.content.date!!)
-                  );
+                  if (a.content?.date && b.content?.date) {
+                    return (
+                      +new Date(b.content?.date) - +new Date(a.content?.date)
+                    );
+                  } else {
+                    return 0;
+                  }
                 })
                 .map((story) => <CardEvent key={story.uuid} story={story} />)
             )}
