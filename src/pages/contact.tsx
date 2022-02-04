@@ -61,8 +61,8 @@ const FbChat = React.forwardRef(function renderShit(
         <Icon
           color="#006AFF"
           as={RiMessengerFill}
-          w={{ base: "2rem", lg: "3rem" }}
-          h={{ base: "2rem", lg: "3rem" }}
+          w={"3rem"}
+          h={"3rem"}
           _hover={{
             transform: "scale(1.1)",
             transition: "all 0.3s ease-in-out",
