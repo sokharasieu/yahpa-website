@@ -5,15 +5,17 @@ import { FiExternalLink } from "react-icons/fi";
 
 export default function Link({
   children,
+  hideIcon = false,
   ...props
-}: React.PropsWithChildren<LinkProps>) {
+}: React.PropsWithChildren<LinkProps & { hideIcon?: boolean }>) {
   const { locale } = useTranslation();
 
   if (!props.href) {
     return <Text>{children}</Text>;
   }
 
-  const isExternal = !!(props?.href as string).match(/^(https?:)?\/\//);
+  const isExternal =
+    !hideIcon && !!(props?.href as string).match(/^(https?:)?\/\//);
   return (
     <NextLink href={props.href as string} passHref>
       <ChakraLink

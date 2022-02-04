@@ -9,10 +9,10 @@ function OuterSection({ children, ...containerProps }: SectionProps) {
       as="section"
       maxW="full"
       bg="gray.100"
-      paddingLeft={{ base: "2rem", md: "5rem" }}
-      paddingRight={{ base: "2rem", md: "5rem" }}
-      paddingTop={{ base: "2rem", md: "5rem" }}
-      paddingBottom={{ base: "2rem", md: "5rem" }}
+      paddingLeft={{ base: "1rem", md: "5rem" }}
+      paddingRight={{ base: "1rem", md: "5rem" }}
+      paddingTop={{ base: "1rem", md: "5rem" }}
+      paddingBottom={{ base: "1rem", md: "5rem" }}
       {...containerProps}
     >
       {children}
