@@ -6,6 +6,7 @@ import {
   PageAboutStory,
   PageLandingStory,
   PageLandingCovidStory,
+  PageContactStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -39,6 +40,17 @@ export async function getCovid(
   params?: StoryParams
 ): Promise<PageLandingCovidStory> {
   const covidPageStory = await Storyblok.getStory("covid-19", {
+    ...defaultParams,
+    ...params,
+  });
+
+  return covidPageStory.data.story;
+}
+
+export async function getContact(
+  params?: StoryParams
+): Promise<PageContactStory> {
+  const covidPageStory = await Storyblok.getStory("contact", {
     ...defaultParams,
     ...params,
   });
