@@ -5,6 +5,7 @@ import Page from "components/Page";
 import PageTitle from "components/PageTitle";
 import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
+import SEO from "components/SEO";
 import useTranslation from "hooks/useTranslation";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import React from "react";
@@ -80,6 +81,7 @@ export default function ContactPage(
   const { t } = useTranslation();
   return (
     <Page>
+      <SEO meta={story.content.seo} />
       <PageTitle
         title={story.content.page_title}
         language={story.lang}
