@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Collapse,
   Flex,
@@ -9,7 +10,9 @@ import {
 } from "@chakra-ui/react";
 import CardEvent from "components/CardEvent";
 import CardGoal from "components/CardGoal";
+import Carousel, { defaultResponsiveConfig } from "components/Carousel";
 import Hero from "components/Hero";
+import Image from "components/Image";
 import Link from "components/Link";
 import Page from "components/Page";
 import RenderRichText from "components/RenderRichText";
@@ -120,6 +123,53 @@ export default function Home(
               ))}
             </SimpleGrid>
           </Stack>
+        </Section>
+        <Section
+          overflow="hidden"
+          bgGradient="linear(to-b, gray.100 5%, primary.100 30%, primary.200 50%, primary.300)"
+        >
+          <Carousel
+            overflow="visible"
+            responsive={defaultResponsiveConfig}
+            title={story.content?.members_title}
+          >
+            {story.content.members?.map((item) =>
+              item.members?.map((member) => {
+                return (
+                  <Box key={member.id} paddingLeft={"1rem"}>
+                    <Box w="full" position="relative">
+                      <Image
+                        ratio={2 / 3}
+                        src={
+                          member.content?.image?.filename ??
+                          "/images/image2.jpg"
+                        }
+                        alt=""
+                        width={"full"}
+                        borderRadius="2xl"
+                      />
+                      {member.content?.name && (
+                        <Text
+                          padding={1}
+                          color="black"
+                          borderRadius="md"
+                          bg="orange.400"
+                          width="max-content"
+                          position="absolute"
+                          left={"1rem"}
+                          bottom={"1rem"}
+                          right={"2rem"}
+                          textAlign="center"
+                        >
+                          {member.content?.name}
+                        </Text>
+                      )}
+                    </Box>
+                  </Box>
+                );
+              })
+            )}
+          </Carousel>
         </Section>
         <Section.Parallax backgroundImageUrl={"/images/bg.jpg"}>
           <SimpleGrid

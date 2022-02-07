@@ -20,7 +20,7 @@ export async function getHome(params?: StoryParams): Promise<PageLandingStory> {
   const homepageStory = await Storyblok.getStory("home", {
     ...defaultParams,
     ...params,
-    resolve_relations: "card_event.events",
+    resolve_relations: "card_event.events,list_members.members",
   });
 
   return homepageStory.data.story;

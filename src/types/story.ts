@@ -38,6 +38,8 @@ export type PageLandingBlok = {
   register_description?: Richtext;
   register_video_link?: LinkAsset;
   register_links?: ButtonLinkBlok[];
+  members_title?: string;
+  members?: ListMembersBlok[];
   option_title?: string;
   option_description?: string;
   option_items?: Option[];
