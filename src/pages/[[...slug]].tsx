@@ -151,7 +151,7 @@ export default function Home(
                       {member.content?.name && (
                         <Text
                           padding={1}
-                          color="black"
+                          color="white"
                           borderRadius="md"
                           bg="orange.400"
                           width="max-content"
