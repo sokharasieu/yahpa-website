@@ -4,9 +4,10 @@ import {
   LinkParams,
   LinkPath,
   PageAboutStory,
-  PageLandingStory,
-  PageLandingCovidStory,
   PageContactStory,
+  PageDonationStory,
+  PageLandingCovidStory,
+  PageLandingStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -31,6 +32,17 @@ export async function getAbout(params?: StoryParams): Promise<PageAboutStory> {
     ...defaultParams,
     ...params,
     resolve_relations: "list_members.members",
+  });
+
+  return aboutPageStory.data.story;
+}
+
+export async function getDonation(
+  params?: StoryParams
+): Promise<PageDonationStory> {
+  const aboutPageStory = await Storyblok.getStory("donate", {
+    ...defaultParams,
+    ...params,
   });
 
   return aboutPageStory.data.story;

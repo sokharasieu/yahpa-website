@@ -28,6 +28,7 @@ export type PageAboutStory = StoryResult<PageAboutBlok>;
 export type ArticleEventStory = StoryResult<ArticleEventBlok>;
 export type PageLandingCovidStory = StoryResult<PageLandingCovidBlok>;
 export type PageContactStory = StoryResult<PageContactBlok>;
+export type PageDonationStory = StoryResult<PageDonationBlok>;
 
 export type PageLandingBlok = {
   title?: string;
@@ -59,6 +60,11 @@ export type PageAboutBlok = {
   values_image?: SingleImageAsset;
   members_title?: string;
   members?: ListMembersBlok[];
+  seo?: SeoBlok;
+};
+
+export type PageDonationBlok = {
+  page_title?: string;
   seo?: SeoBlok;
 };
 
