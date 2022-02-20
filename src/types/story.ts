@@ -65,6 +65,9 @@ export type PageAboutBlok = {
 
 export type PageDonationBlok = {
   page_title?: string;
+  page_description?: Richtext;
+  page_image?: SingleImageAsset;
+  link_form?: LinkAsset;
   seo?: SeoBlok;
 };
 
