@@ -32,6 +32,7 @@ export default function Footer() {
             <ListHeader>{t("organization")}</ListHeader>
             <Link href="/about">{t("about")}</Link>
             <Link href="/covid-19">COVID-19</Link>
+
             {/* <Link href="/projects">{t("projects")}</Link>
             <Link href="/contribute">{t("contribute")}</Link> */}
           </Stack>
@@ -48,20 +49,12 @@ export default function Footer() {
               </ChakraLink>
             ))}
           </Stack>
-          {/* <Stack align={"flex-start"}>
+          <Stack align={"flex-start"}>
             <ListHeader>{t("support")}</ListHeader>
             <Stack direction={"row"} align={"center"} spacing={2}>
               <Link href="/contact">{t("contact")}</Link>
-              <Tag
-                size={"sm"}
-                bg={useColorModeValue("red.300", "red.800")}
-                ml={2}
-                color={"white"}
-              >
-                {t("coming_soon")}
-              </Tag>
             </Stack>
-          </Stack> */}
+          </Stack>
         </SimpleGrid>
       </Container>
       <Container maxW={"6xl"} mt={4} py={4}>

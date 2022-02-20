@@ -25,7 +25,7 @@ export function useStoryblok<T extends StoryData>(originalStory: T) {
 
   // adds the events for updating the visual editor
   const initEventListeners = () => {
-    const { StoryblokBridge } = window;
+    const { StoryblokBridge, location } = window;
     if (typeof StoryblokBridge !== "undefined") {
       const storyblokInstance: StoryblokBridge = new (StoryblokBridge as any)();
 
@@ -51,6 +51,7 @@ export function useStoryblok<T extends StoryData>(originalStory: T) {
         Storyblok.get(`cdn/stories/${event.storyId}`, {
           version: "draft",
           language: locale,
+          resolve_relations: ["list_members.members", "card_event.events"],
         })
           .then(({ data }) => {
             if (data.story) {

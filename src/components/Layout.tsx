@@ -38,7 +38,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
           color="white"
           sx={{
             position: "fixed",
-            right: "0.5rem",
+            left: "0.5rem",
             bottom: "0.5rem",
             zIndex: 999,
           }}

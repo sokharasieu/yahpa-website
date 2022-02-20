@@ -70,7 +70,10 @@ export default function About(
           </Box>
         </SimpleGrid>
       </Section>
-      <Section.Outer paddingTop={0}>
+      <Section.Outer
+        paddingTop={0}
+        paddingBottom={{ base: "8rem", md: "5rem" }}
+      >
         <Section.Inner borderRadius="lg" backgroundColor="white" padding={4}>
           <Box>{RenderRichText(story.content.goals_text)}</Box>
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mt="2rem">
@@ -85,6 +88,30 @@ export default function About(
           </SimpleGrid>
         </Section.Inner>
       </Section.Outer>
+      <Section bg="primary.100">
+        <Box marginTop={{ base: "-8rem", md: 0 }}>
+          <SimpleGrid
+            spacing={8}
+            columns={{ base: 1, md: 2 }}
+            templateRows="auto"
+          >
+            <Box bg="white" p={4} borderRadius="lg" h="fit-content">
+              {RenderRichText(story.content.values_text)}
+            </Box>
+            <Box w="full" h="full">
+              <Image
+                borderRadius="lg"
+                boxShadow="md"
+                ratio={4 / 3}
+                src={
+                  story.content.values_image?.filename ?? "/images/image2.jpg"
+                }
+                alt={story.content.values_image?.name}
+              />
+            </Box>
+          </SimpleGrid>
+        </Box>
+      </Section>
       <Section.Parallax backgroundImageUrl="/images/bg2.jpg">
         <Heading
           color="white"

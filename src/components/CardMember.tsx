@@ -29,7 +29,7 @@ export default function CardMember({ member }: CardMemberProps) {
 
   const { t } = useTranslation();
 
-  const hasContent = !!member.content.description;
+  const hasContent = !!member.content?.description;
 
   const variants: Variants = {
     open: { top: "100%", translateY: "-100%" },
@@ -55,8 +55,8 @@ export default function CardMember({ member }: CardMemberProps) {
             ratio={2 / 3}
             w={{ base: 150, lg: 200 }}
             h={{ base: 200, lg: 280 }}
-            src={member.content.image?.filename ?? "/images/logo_white.png"}
-            alt={member.content.name}
+            src={member.content?.image?.filename ?? "/images/logo_white.png"}
+            alt={member.content?.name}
             borderRadius="md"
             boxShadow="md"
           />
@@ -72,13 +72,13 @@ export default function CardMember({ member }: CardMemberProps) {
           >
             <Stack spacing={1}>
               <Heading as="h3" fontSize={{ base: "lg", lg: "xl" }}>
-                {member.content.name}
+                {member.content?.name}
               </Heading>
               <Text color="primary.600" fontStyle="italic">
-                {member.content.position}
+                {member.content?.position}
               </Text>
               <Wrap>
-                {member.content.languages?.map((language) => (
+                {member.content?.languages?.map((language) => (
                   <WrapItem key={language}>
                     <Tag colorScheme="primary" size="sm">
                       {language}

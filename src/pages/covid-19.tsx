@@ -17,6 +17,7 @@ import PageTitle from "components/PageTitle";
 import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
 import SEO from "components/SEO";
+import { useReducedMotion } from "framer-motion";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { getCovid } from "utils/api";
 import { useStoryblok } from "utils/storyblokClient";
@@ -47,6 +48,7 @@ export default function CovidPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const story = useStoryblok(props?.story!!);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <Page>
@@ -84,7 +86,7 @@ export default function CovidPage(
             {story.content.documents_title}
           </Heading>
         </Stack>
-        <Accordion defaultIndex={[0]}>
+        <Accordion defaultIndex={[0]} reduceMotion={!!shouldReduceMotion}>
           {story.content?.documents?.map((doc) => (
             <AccordionItem
               key={doc._uid}
@@ -92,24 +94,25 @@ export default function CovidPage(
               borderBottom="0.5px gray.100"
               borderColor="gray.300"
             >
-              <h2>
-                <AccordionButton py={3}>
-                  <Text
-                    color="primary.500"
-                    flex={1}
-                    textAlign="left"
-                    fontSize="lg"
-                    as="h3"
-                  >
-                    {doc.title}
-                  </Text>
+              {({ isExpanded }) => (
+                <>
+                  <h3>
+                    <AccordionButton
+                      py={3}
+                      color={isExpanded ? "primary.500" : "black"}
+                    >
+                      <Text flex={1} textAlign="left" fontSize="lg" as="h3">
+                        {doc.title}
+                      </Text>
 
-                  <AccordionIcon w="1.5rem" h="1.5rem" color="primary.500" />
-                </AccordionButton>
-              </h2>
-              <AccordionPanel px={0}>
-                <CardDocument document={doc} />
-              </AccordionPanel>
+                      <AccordionIcon w="1.5rem" h="1.5rem" />
+                    </AccordionButton>
+                  </h3>
+                  <AccordionPanel px={0}>
+                    <CardDocument document={doc} />
+                  </AccordionPanel>
+                </>
+              )}
             </AccordionItem>
           ))}
         </Accordion>

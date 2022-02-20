@@ -6,6 +6,7 @@ module.exports = {
     storyblokPreviewToken: process.env.STORYBLOK_PREVIEW_TOKEN,
     storyblokPreviewSecret: process.env.STORYBLOK_PREVIEW_SECRET,
     baseUrl: "https://www.yahpa.org",
+    emailJsUserID: process.env.EMAILJS_USER_ID,
   },
   i18n: {
     locales: ["en", "fr", "zh", "vi"],

@@ -27,6 +27,7 @@ export type PageLandingStory = StoryResult<PageLandingBlok>;
 export type PageAboutStory = StoryResult<PageAboutBlok>;
 export type ArticleEventStory = StoryResult<ArticleEventBlok>;
 export type PageLandingCovidStory = StoryResult<PageLandingCovidBlok>;
+export type PageContactStory = StoryResult<PageContactBlok>;
 
 export type PageLandingBlok = {
   title?: string;
@@ -37,6 +38,8 @@ export type PageLandingBlok = {
   register_description?: Richtext;
   register_video_link?: LinkAsset;
   register_links?: ButtonLinkBlok[];
+  members_title?: string;
+  members?: ListMembersBlok[];
   option_title?: string;
   option_description?: string;
   option_items?: Option[];
@@ -52,6 +55,8 @@ export type PageAboutBlok = {
   mission_image?: SingleImageAsset;
   goals_text?: Richtext;
   goals_table?: ItemGoalBlok[];
+  values_text?: Richtext;
+  values_image?: SingleImageAsset;
   members_title?: string;
   members?: ListMembersBlok[];
   seo?: SeoBlok;
@@ -63,6 +68,13 @@ export type PageLandingCovidBlok = {
   page_image?: SingleImageAsset;
   documents_title?: string;
   documents?: DocumentCovidBlok[];
+  seo?: SeoBlok;
+};
+
+export type PageContactBlok = {
+  page_title?: string;
+  page_text?: string;
+  options?: any[];
   seo?: SeoBlok;
 };
 
