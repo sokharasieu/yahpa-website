@@ -102,7 +102,7 @@ const zh: DefaultLanguageResource = {
   email_name_required: "您的姓名是必填项",
   email_reason_required: "请选择您与我们联系的原因",
   error_404_title: "找不到网页",
-  error_404_message: "您要找的页面似乎不存在",
+  error_404_message: "您在找的页面似乎不存在",
   error_404_button: "返回主页",
   follow_social: "在社交媒体上关注我们",
   home: "主页",
@@ -110,14 +110,14 @@ const zh: DefaultLanguageResource = {
   learn_more: "学到更多",
   organization: "组织",
   projects: "项目",
-  register_cta: "我想注册成为会员",
+  register_cta: "成为注册会员",
   register_video_title: "蒙特利尔 YAHPA 登记处",
   show_more: "显示更多",
-  show_less: "显示较少",
+  show_less: "收起",
   support: "支持",
   updated_on: "最后更新",
   yahpa: "YAHPA",
-  yahpa_full: "亚洲青年健康专业协会",
+  yahpa_full: "亚裔青年健康专业协会",
 };
 
 const vi: DefaultLanguageResource = {
