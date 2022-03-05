@@ -1,4 +1,4 @@
-import { SimpleGrid, Box } from "@chakra-ui/react";
+import { SimpleGrid, Box, Heading, Text, Flex } from "@chakra-ui/react";
 import Page from "components/Page";
 import PageTitle from "components/PageTitle";
 import RenderRichText from "components/RenderRichText";
@@ -8,9 +8,10 @@ import SEO from "components/SEO";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { getProjects } from "utils/api";
 import { useStoryblok } from "utils/storyblokClient";
+import { PageProjectStory } from "types/story";
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const story = await getProjects({
+  const stories = await getProjects({
     language: context.locale,
   });
 
@@ -24,7 +25,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
   return {
     props: {
-      story,
+      stories,
       locale: context.locale,
     },
     revalidate: 60 * 60,
@@ -34,7 +35,12 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 export default function Projects(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const story = useStoryblok(props?.story!!);
+  const story = useStoryblok(
+    props?.stories?.find((story) => story.is_startpage === true)!!
+  );
+  const posts = props.stories?.filter(
+    (story) => story.is_startpage === false
+  ) as PageProjectStory[];
 
   return (
     <Page>
@@ -64,6 +70,14 @@ export default function Projects(
               alt={story.content.page_image?.name}
             />
           </Box>
+        </SimpleGrid>
+      </Section>
+      <Section>
+        <Heading>Latest Projects</Heading>
+        <SimpleGrid>
+          {posts?.map((post) => (
+            <Text key={post.id}>{post.content.project_title}</Text>
+          ))}
         </SimpleGrid>
       </Section>
     </Page>
