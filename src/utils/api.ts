@@ -5,7 +5,7 @@ import {
   LinkPath,
   PageAboutStory,
   PageContactStory,
-  PageDonationStory,
+  PageProjectsStory,
   PageLandingCovidStory,
   PageLandingStory,
 } from "types/story";
@@ -37,10 +37,10 @@ export async function getAbout(params?: StoryParams): Promise<PageAboutStory> {
   return aboutPageStory.data.story;
 }
 
-export async function getDonation(
+export async function getProjects(
   params?: StoryParams
-): Promise<PageDonationStory> {
-  const aboutPageStory = await Storyblok.getStory("donate", {
+): Promise<PageProjectsStory> {
+  const aboutPageStory = await Storyblok.getStory("projects", {
     ...defaultParams,
     ...params,
   });

@@ -171,8 +171,8 @@ export default function Nav() {
               <NavLink href="/about">{t("about")}</NavLink>
               <NavLink href="/covid-19">COVID-19</NavLink>
               <NavLink href="/contact">{t("contact")}</NavLink>
-              <NavLink href="/donate">{t("donate")}</NavLink>
-              {/* <NavLink href="/projects">{t("projects")}</NavLink>
+              <NavLink href="/projects">{t("projects")}</NavLink>
+              {/*
               <NavLink href="/contribute">{t("contribute")}</NavLink> */}
             </HStack>
           </Box>
@@ -200,8 +200,8 @@ export default function Nav() {
             <MenuLink href="/about">{t("about")}</MenuLink>
             <MenuLink href="/covid-19">COVID-19</MenuLink>
             <MenuLink href="/contact">{t("contact")}</MenuLink>
-            <MenuLink href="/donate">{t("donate")}</MenuLink>
-            {/* <MenuLink href="/projects">{t("projects")}</MenuLink>
+            <MenuLink href="/projects">{t("projects")}</MenuLink>
+            {/*
             <MenuLink href="/contribute">{t("contribute")}</MenuLink> */}
           </Stack>
           <Stack

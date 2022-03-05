@@ -32,9 +32,9 @@ export default function Footer() {
             <ListHeader>{t("organization")}</ListHeader>
             <Link href="/about">{t("about")}</Link>
             <Link href="/covid-19">COVID-19</Link>
-            <Link href="/donate">{t("donate")}</Link>
+            <Link href="/projects">{t("projects")}</Link>
 
-            {/* <Link href="/projects">{t("projects")}</Link>
+            {/*
             <Link href="/contribute">{t("contribute")}</Link> */}
           </Stack>
           <Stack align={"flex-start"}>
