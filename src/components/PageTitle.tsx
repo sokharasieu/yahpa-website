@@ -28,7 +28,9 @@ export default function PageTitle(props: PageTitleProps) {
       if (item.lang === locale) return item;
     });
   } else {
-    slugs = [{ name: props.defaultSlug, path: props.defaultSlug }];
+    slugs = [
+      { name: props.defaultSlug?.replace("/", ""), path: props.defaultSlug },
+    ];
   }
 
   function capitalizeFirstLetter(string: string) {

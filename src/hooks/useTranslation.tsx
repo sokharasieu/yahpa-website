@@ -70,7 +70,7 @@ const fr: DefaultLanguageResource = {
   languages: "Langages",
   learn_more: "En savoir plus",
   organization: "Notre Organisation",
-  projects: "Projets",
+  projects: "Nos projets",
   register_cta: "Je veux m'inscrire en tant que membre",
   register_video_title:
     "Registre des professionnels asiatiques de la santé de Montréal - YAHPA",

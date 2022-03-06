@@ -31,8 +31,8 @@ export default function Footer() {
           <Stack align={"flex-start"}>
             <ListHeader>{t("organization")}</ListHeader>
             <Link href="/about">{t("about")}</Link>
-            <Link href="/covid-19">COVID-19</Link>
             <Link href="/projects">{t("projects")}</Link>
+            <Link href="/covid-19">COVID-19</Link>
 
             {/*
             <Link href="/contribute">{t("contribute")}</Link> */}
