@@ -73,6 +73,10 @@ export type PageLandingProjectsBlok = {
 
 export type PageProjectBlok = {
   project_title?: string;
+  project_date?: Date;
+  project_image?: SingleImageAsset;
+  project_description?: Richtext;
+  project_links?: ButtonLinkBlok[];
 };
 
 export type PageLandingCovidBlok = {

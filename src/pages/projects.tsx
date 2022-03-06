@@ -1,4 +1,5 @@
-import { Box, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, SimpleGrid, Stack } from "@chakra-ui/react";
+import CardProject from "components/CardProject";
 import Image from "components/Image";
 import Page from "components/Page";
 import PageTitle from "components/PageTitle";
@@ -44,16 +45,12 @@ export default function Projects(
         translatedSlugs={story.translated_slugs}
         defaultSlug={story.full_slug}
       />
-      <Section>
-        <SimpleGrid
-          spacing={8}
-          columns={{ base: 1, lg: 2 }}
-          templateRows="auto"
-        >
-          <Box bg="white" p={4} borderRadius="lg">
+      <Section paddingBottom={0}>
+        <Stack direction={{ base: "column", lg: "row" }} spacing={8}>
+          <Flex flex={1} bg="white" p={4} borderRadius="lg" h="min-content">
             {RenderRichText(story.content.page_description)}
-          </Box>
-          <Box w="full" h="full">
+          </Flex>
+          <Box width={{ base: "full", lg: "50%" }}>
             <Image
               borderRadius="lg"
               boxShadow="md"
@@ -63,13 +60,13 @@ export default function Projects(
               alt={story.content.page_image?.name}
             />
           </Box>
-        </SimpleGrid>
+        </Stack>
       </Section>
       <Section>
-        <Heading>Latest Projects</Heading>
-        <SimpleGrid>
+        <Heading marginBottom={8}>Latest Projects</Heading>
+        <SimpleGrid spacing={8} columns={{ base: 1 }} gridAutoRows="1fr">
           {props.projects?.map((project) => (
-            <Text key={project.id}>{project.content.project_title}</Text>
+            <CardProject key={project.id} {...project} />
           ))}
         </SimpleGrid>
       </Section>

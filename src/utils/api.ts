@@ -32,6 +32,7 @@ export async function getAbout(params?: StoryParams): Promise<PageAboutStory> {
   const aboutPageStory = await Storyblok.getStory("about", {
     ...defaultParams,
     ...params,
+    resolve_relations: "list_members.members",
   });
 
   return aboutPageStory.data.story;
@@ -45,6 +46,7 @@ export async function getProjects(params?: StoriesParams): Promise<{
     ...defaultParams,
     ...params,
     starts_with: "projects",
+    sort_by: "content.project_date:desc",
   });
 
   const landing = data.stories.find(
