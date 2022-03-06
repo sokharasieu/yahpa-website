@@ -1,8 +1,8 @@
 import {
-  StoryData,
+  Richtext,
   StoryblokComponent,
   StoryblokResult,
-  Richtext,
+  StoryData,
 } from "storyblok-js-client";
 
 export type SingleImageAsset = {
@@ -28,7 +28,7 @@ export type PageAboutStory = StoryResult<PageAboutBlok>;
 export type ArticleEventStory = StoryResult<ArticleEventBlok>;
 export type PageLandingCovidStory = StoryResult<PageLandingCovidBlok>;
 export type PageContactStory = StoryResult<PageContactBlok>;
-export type PageProjectsStory = StoryResult<PageProjectsBlok>;
+export type PageLandingProjectsStory = StoryResult<PageLandingProjectsBlok>;
 export type PageProjectStory = StoryResult<PageProjectBlok>;
 
 export type PageLandingBlok = {
@@ -64,7 +64,7 @@ export type PageAboutBlok = {
   seo?: SeoBlok;
 };
 
-export type PageProjectsBlok = {
+export type PageLandingProjectsBlok = {
   page_title?: string;
   page_description?: Richtext;
   page_image?: SingleImageAsset;

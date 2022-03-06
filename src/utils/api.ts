@@ -6,8 +6,9 @@ import {
   PageAboutStory,
   PageContactStory,
   PageLandingCovidStory,
+  PageLandingProjectsStory,
   PageLandingStory,
-  PageProjectsStory,
+  PageProjectStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -36,18 +37,24 @@ export async function getAbout(params?: StoryParams): Promise<PageAboutStory> {
   return aboutPageStory.data.story;
 }
 
-export async function getProjects(
-  params?: StoriesParams
-): Promise<PageProjectsStory[]> {
-  const aboutPageStory = await Storyblok.getStories({
+export async function getProjects(params?: StoriesParams): Promise<{
+  landing: PageLandingProjectsStory;
+  projects: PageProjectStory[];
+}> {
+  const { data } = await Storyblok.getStories({
     ...defaultParams,
     ...params,
     starts_with: "projects",
   });
 
+  const landing = data.stories.find(
+    (story) => story.is_startpage === true
+  ) as PageProjectStory;
+
+  const projects = data.stories.filter((story) => story.is_startpage === false);
   //filter landing and projects here instead
 
-  return aboutPageStory.data.stories;
+  return { landing, projects };
 }
 
 export async function getCovid(
