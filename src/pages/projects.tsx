@@ -6,6 +6,7 @@ import PageTitle from "components/PageTitle";
 import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
 import SEO from "components/SEO";
+import useTranslation from "hooks/useTranslation";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { getProjects } from "utils/api";
 import { useStoryblok } from "utils/storyblokClient";
@@ -35,6 +36,7 @@ export default function Projects(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const story = useStoryblok(props?.landing!!);
+  const { t } = useTranslation();
 
   return (
     <Page>
@@ -63,7 +65,7 @@ export default function Projects(
         </Stack>
       </Section>
       <Section>
-        <Heading marginBottom={8}>Latest Projects</Heading>
+        <Heading marginBottom={8}>{t("latest_projects")}</Heading>
         <SimpleGrid spacing={8} columns={{ base: 1 }} gridAutoRows="1fr">
           {props.projects?.map((project) => (
             <CardProject key={project.id} {...project} />
