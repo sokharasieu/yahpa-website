@@ -169,9 +169,11 @@ export default function Nav() {
           <Box width="100%" display={{ base: "none", xl: "block" }}>
             <HStack as="nav" spacing={6} mx={6} justifyContent="flex-start">
               <NavLink href="/about">{t("about")}</NavLink>
+              <NavLink href="/projects">{t("projects")}</NavLink>
               <NavLink href="/covid-19">COVID-19</NavLink>
               <NavLink href="/contact">{t("contact")}</NavLink>
-              {/* <NavLink href="/projects">{t("projects")}</NavLink>
+
+              {/*
               <NavLink href="/contribute">{t("contribute")}</NavLink> */}
             </HStack>
           </Box>
@@ -182,6 +184,12 @@ export default function Nav() {
             width={{ base: "full", xl: "auto" }}
             spacing={{ base: 3, lg: 5 }}
           >
+            <SocialMedia spacing={4} display={{ base: "none", xl: "flex" }}>
+              <SocialMedia.Facebook />
+              <SocialMedia.Youtube />
+              <SocialMedia.Instagram />
+              <SocialMedia.WeChat />
+            </SocialMedia>
             <LanguagePicker />
             <IconButton
               display={{ base: "inline-flex", xl: "none" }}
@@ -197,9 +205,11 @@ export default function Nav() {
         <Collapse in={isOpen} animateOpacity>
           <Stack as="nav" spacing={0} py={4} background="white">
             <MenuLink href="/about">{t("about")}</MenuLink>
+            <MenuLink href="/projects">{t("projects")}</MenuLink>
             <MenuLink href="/covid-19">COVID-19</MenuLink>
             <MenuLink href="/contact">{t("contact")}</MenuLink>
-            {/* <MenuLink href="/projects">{t("projects")}</MenuLink>
+
+            {/*
             <MenuLink href="/contribute">{t("contribute")}</MenuLink> */}
           </Stack>
           <Stack

@@ -1,12 +1,14 @@
-import { StoryParams } from "storyblok-js-client";
+import { StoriesParams, StoryParams } from "storyblok-js-client";
 import {
   GetPathsResult,
   LinkParams,
   LinkPath,
   PageAboutStory,
-  PageLandingStory,
-  PageLandingCovidStory,
   PageContactStory,
+  PageLandingCovidStory,
+  PageLandingProjectsStory,
+  PageLandingStory,
+  PageProjectStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -34,6 +36,27 @@ export async function getAbout(params?: StoryParams): Promise<PageAboutStory> {
   });
 
   return aboutPageStory.data.story;
+}
+
+export async function getProjects(params?: StoriesParams): Promise<{
+  landing: PageLandingProjectsStory;
+  projects: PageProjectStory[];
+}> {
+  const { data } = await Storyblok.getStories({
+    ...defaultParams,
+    ...params,
+    starts_with: "projects",
+    sort_by: "content.project_date:desc",
+  });
+
+  const landing = data.stories.find(
+    (story) => story.is_startpage === true
+  ) as PageProjectStory;
+
+  const projects = data.stories.filter((story) => story.is_startpage === false);
+  //filter landing and projects here instead
+
+  return { landing, projects };
 }
 
 export async function getCovid(

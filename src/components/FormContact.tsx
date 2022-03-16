@@ -99,7 +99,6 @@ export default function FormContact(props: FormContactProps) {
       borderRadius="lg"
       width="full"
       maxW={{ base: "full", lg: "2xl" }}
-      spacing={0}
     >
       <Box
         as="form"
