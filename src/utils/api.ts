@@ -9,6 +9,7 @@ import {
   PageLandingProjectsStory,
   PageLandingStory,
   PageProjectStory,
+  MemberStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -79,6 +80,17 @@ export async function getContact(
   });
 
   return covidPageStory.data.story;
+}
+
+export async function getSearch(
+  params?: StoriesParams
+): Promise<MemberStory[]> {
+  const membersStories = await Storyblok.getStories({
+    ...defaultParams,
+    ...params,
+  });
+
+  return membersStories.data.stories;
 }
 
 // getStoriesPaths returns all possible paths by locale
