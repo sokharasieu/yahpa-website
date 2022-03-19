@@ -1,4 +1,4 @@
-import { StoriesParams, StoryParams } from "storyblok-js-client";
+import { StoriesParams, StoryParams, Stories } from "storyblok-js-client";
 import {
   GetPathsResult,
   LinkParams,
@@ -82,15 +82,22 @@ export async function getContact(
   return covidPageStory.data.story;
 }
 
-export async function getSearch(
-  params?: StoriesParams
-): Promise<MemberStory[]> {
+export async function getSearch(params?: StoriesParams): Promise<{
+  stories: MemberStory[];
+  perPage: Stories["perPage"];
+  totalResults: Stories["total"];
+}> {
   const membersStories = await Storyblok.getStories({
     ...defaultParams,
     ...params,
+    per_page: 25,
   });
 
-  return membersStories.data.stories;
+  return {
+    stories: membersStories.data.stories,
+    perPage: membersStories.perPage,
+    totalResults: membersStories.total,
+  };
 }
 
 // getStoriesPaths returns all possible paths by locale
