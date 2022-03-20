@@ -26,7 +26,6 @@ export type StoryResult<T> = StoryData<StoryblokComponent<string> & T>;
 export type PageLandingStory = StoryResult<PageLandingBlok>;
 export type PageAboutStory = StoryResult<PageAboutBlok>;
 export type ArticleEventStory = StoryResult<ArticleEventBlok>;
-export type MemberStory = StoryResult<TeamMemberBlok>;
 export type PageLandingCovidStory = StoryResult<PageLandingCovidBlok>;
 export type PageContactStory = StoryResult<PageContactBlok>;
 export type PageLandingProjectsStory = StoryResult<PageLandingProjectsBlok>;

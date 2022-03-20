@@ -9,7 +9,6 @@ import {
   PageLandingProjectsStory,
   PageLandingStory,
   PageProjectStory,
-  MemberStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -80,24 +79,6 @@ export async function getContact(
   });
 
   return covidPageStory.data.story;
-}
-
-export async function getSearch(params?: StoriesParams): Promise<{
-  stories: MemberStory[];
-  perPage: Stories["perPage"];
-  totalResults: Stories["total"];
-}> {
-  const membersStories = await Storyblok.getStories({
-    ...defaultParams,
-    ...params,
-    per_page: 25,
-  });
-
-  return {
-    stories: membersStories.data.stories,
-    perPage: membersStories.perPage,
-    totalResults: membersStories.total,
-  };
 }
 
 // getStoriesPaths returns all possible paths by locale
