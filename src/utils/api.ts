@@ -1,4 +1,4 @@
-import { StoriesParams, StoryParams } from "storyblok-js-client";
+import { StoriesParams, StoryParams, Stories } from "storyblok-js-client";
 import {
   GetPathsResult,
   LinkParams,
