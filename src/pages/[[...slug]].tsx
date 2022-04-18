@@ -82,6 +82,67 @@ export default function Home(
             subtitle={story.content.description}
           />
         </Section>
+        <Section.Parallax backgroundImageUrl={"/images/bg.jpg"}>
+          <SimpleGrid
+            columns={{ base: 1, lg: 2 }}
+            templateRows="auto"
+            spacing={4}
+          >
+            <Stack
+              height="full"
+              width="full"
+              justifyContent="center"
+              spacing={5}
+              color="white"
+            >
+              <Heading color="primary.400">
+                {story.content.register_title}
+              </Heading>
+              {RenderRichText(story?.content.register_description)}
+              <Flex justifyContent="flex-start" width="100%" margin="auto">
+                <Collapse animateOpacity in={!showRegisterForm} unmountOnExit>
+                  <Button
+                    onClick={openFormLinks}
+                    bg="primary.500"
+                    fontWeight={400}
+                    _hover={{ bg: "primary.600" }}
+                  >
+                    {t("register_cta")}
+                  </Button>
+                </Collapse>
+              </Flex>
+              <Collapse animateOpacity in={showRegisterForm} unmountOnExit>
+                <Flex justifyContent={{ base: "center", lg: "start" }}>
+                  <Stack spacing={4}>
+                    {story.content.register_links?.map((item) => (
+                      <Link
+                        key={item.title}
+                        href={item.link?.url}
+                        borderRadius="xl"
+                        paddingY={2}
+                        paddingX={3}
+                        display="flex"
+                        textAlign="center"
+                        justifyContent="center"
+                        bg="orange.400"
+                        _hover={{ backgroundColor: "orange.500" }}
+                        sx={{
+                          svg: { display: "none" },
+                        }}
+                      >
+                        {item.title}
+                      </Link>
+                    ))}
+                  </Stack>
+                </Flex>
+              </Collapse>
+            </Stack>
+            <LazyVideoEmbed
+              title={story?.content.title}
+              url={story?.content.register_video_link?.url ?? ""}
+            />
+          </SimpleGrid>
+        </Section.Parallax>
         <Section color="black">
           <Stack spacing={8}>
             <Stack maxW={{ base: "xl", xl: "2xl" }}>
@@ -171,67 +232,6 @@ export default function Home(
             )}
           </Carousel>
         </Section>
-        <Section.Parallax backgroundImageUrl={"/images/bg.jpg"}>
-          <SimpleGrid
-            columns={{ base: 1, lg: 2 }}
-            templateRows="auto"
-            spacing={4}
-          >
-            <Stack
-              height="full"
-              width="full"
-              justifyContent="center"
-              spacing={5}
-              color="white"
-            >
-              <Heading color="primary.400">
-                {story.content.register_title}
-              </Heading>
-              {RenderRichText(story?.content.register_description)}
-              <Flex justifyContent="flex-start" width="100%" margin="auto">
-                <Collapse animateOpacity in={!showRegisterForm} unmountOnExit>
-                  <Button
-                    onClick={openFormLinks}
-                    bg="primary.500"
-                    fontWeight={400}
-                    _hover={{ bg: "primary.600" }}
-                  >
-                    {t("register_cta")}
-                  </Button>
-                </Collapse>
-              </Flex>
-              <Collapse animateOpacity in={showRegisterForm} unmountOnExit>
-                <Flex justifyContent={{ base: "center", lg: "start" }}>
-                  <Stack spacing={4}>
-                    {story.content.register_links?.map((item) => (
-                      <Link
-                        key={item.title}
-                        href={item.link?.url}
-                        borderRadius="xl"
-                        paddingY={2}
-                        paddingX={3}
-                        display="flex"
-                        textAlign="center"
-                        justifyContent="center"
-                        bg="orange.400"
-                        _hover={{ backgroundColor: "orange.500" }}
-                        sx={{
-                          svg: { display: "none" },
-                        }}
-                      >
-                        {item.title}
-                      </Link>
-                    ))}
-                  </Stack>
-                </Flex>
-              </Collapse>
-            </Stack>
-            <LazyVideoEmbed
-              title={story?.content.title}
-              url={story?.content.register_video_link?.url ?? ""}
-            />
-          </SimpleGrid>
-        </Section.Parallax>
       </Page>
     </>
   );
