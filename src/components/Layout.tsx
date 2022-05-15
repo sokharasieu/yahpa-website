@@ -10,7 +10,6 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
 
   return (
     <Flex
-      bg="whiteAlpha.900"
       sx={{
         flexDirection: "column",
         minHeight: "100vh",

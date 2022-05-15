@@ -88,16 +88,13 @@ export default function About(
           </SimpleGrid>
         </Section.Inner>
       </Section.Outer>
-      <Section bg="primary.100">
+      <Section>
         <Box marginTop={{ base: "-8rem", md: 0 }}>
           <SimpleGrid
             spacing={8}
             columns={{ base: 1, md: 2 }}
             templateRows="auto"
           >
-            <Box bg="white" p={4} borderRadius="lg" h="fit-content">
-              {RenderRichText(story.content.values_text)}
-            </Box>
             <Box w="full" h="full">
               <Image
                 borderRadius="lg"
@@ -108,6 +105,9 @@ export default function About(
                 }
                 alt={story.content.values_image?.name}
               />
+            </Box>
+            <Box bg="white" p={4} borderRadius="lg" h="fit-content">
+              {RenderRichText(story.content.values_text)}
             </Box>
           </SimpleGrid>
         </Box>
@@ -137,7 +137,7 @@ export default function About(
           spacing={{ base: 5 }}
           gridTemplateColumns={{
             base: "repeat(1, 1fr)",
-            md: "repeat(2,1fr)",
+            lg: "repeat(2,1fr)",
           }}
         >
           <LayoutGroup>

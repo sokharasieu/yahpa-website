@@ -8,7 +8,7 @@ function OuterSection({ children, ...containerProps }: SectionProps) {
     <Container
       as="section"
       maxW="full"
-      bg="gray.100"
+      bg="white"
       paddingLeft={{ base: "1rem", md: "5rem" }}
       paddingRight={{ base: "1rem", md: "5rem" }}
       paddingTop={{ base: "1rem", md: "5rem" }}
@@ -24,7 +24,7 @@ function InnerSection({ children, ...containerProps }: SectionProps) {
   return (
     <Container
       padding={0}
-      maxW={{ base: "full", md: "2xl", lg: "4xl", xl: "6xl" }}
+      maxW={{ base: "full", md: "3xl", lg: "5xl", xl: "8xl" }}
       {...containerProps}
     >
       {children}
