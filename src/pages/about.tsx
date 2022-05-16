@@ -6,7 +6,6 @@ import PageTitle from "components/PageTitle";
 import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
 import SEO from "components/SEO";
-import { LayoutGroup } from "framer-motion";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { getAbout } from "utils/api";
 import { useStoryblok } from "utils/storyblokClient";
@@ -141,13 +140,11 @@ export default function About(
             lg: "repeat(2,1fr)",
           }}
         >
-          <LayoutGroup>
-            {story.content.members?.map((item) =>
-              item.members?.map((member) => {
-                return <CardMember key={member.id} member={member} />;
-              })
-            )}
-          </LayoutGroup>
+          {story.content.members?.map((item) =>
+            item.members?.map((member) => {
+              return <CardMember key={member.id} member={member} />;
+            })
+          )}
         </SimpleGrid>
       </Section>
     </Page>
