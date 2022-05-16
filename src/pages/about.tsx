@@ -71,15 +71,16 @@ export default function About(
         </SimpleGrid>
       </Section>
       <Section.Outer
-        paddingTop={0}
+        bg="gray.700"
         paddingBottom={{ base: "8rem", md: "5rem" }}
+        color="whiteAlpha.900"
       >
-        <Section.Inner borderRadius="lg" backgroundColor="white" padding={4}>
+        <Section.Inner borderRadius="lg" padding={4}>
           <Box>{RenderRichText(story.content.goals_text)}</Box>
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mt="2rem">
             {story.content?.goals_table?.map((goal, index) => (
               <HStack key={goal._uid} alignItems="baseline">
-                <Heading fontSize="xl" color="primary.500" as="span">
+                <Heading fontSize="xl" as="span">
                   {index + 1}.
                 </Heading>
                 <Text fontSize={{ base: "md", xl: "lg" }}>{goal.text}</Text>
