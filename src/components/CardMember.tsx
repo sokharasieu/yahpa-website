@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Heading,
   Stack,
   Tag,
@@ -9,8 +8,6 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
-import { AnimatePresence, motion, Variants, Spring } from "framer-motion";
-import useTranslation from "hooks/useTranslation";
 import { StoryResult, TeamMemberBlok } from "types/story";
 import Image from "./Image";
 import RenderRichText from "./RenderRichText";
@@ -19,34 +16,24 @@ type CardMemberProps = {
   member: StoryResult<TeamMemberBlok>;
 };
 
-const MotionStack = motion(Stack);
-const MotionBox = motion(Box);
-
 export default function CardMember({ member }: CardMemberProps) {
-  const { isOpen, onToggle } = useDisclosure({
+  const { onToggle } = useDisclosure({
     defaultIsOpen: false,
   });
 
-  const { t } = useTranslation();
-
   const hasContent = !!member.content?.description;
 
-  const variants: Variants = {
-    open: { top: "100%", translateY: "-100%" },
-    closed: { top: 0 },
-  };
-
-  const spring: Spring = {
-    type: "spring",
-    damping: 10,
-    stiffness: 50,
-  };
-
   return (
-    <MotionStack layout as="li" listStyleType="none" spacing={5}>
-      <MotionStack layout direction="row" spacing={4}>
-        <MotionBox
-          layout
+    <Stack
+      as="li"
+      listStyleType="none"
+      spacing={5}
+      p={4}
+      borderRadius="md"
+      bg="gray.100"
+    >
+      <Stack direction="row" spacing={4}>
+        <Box
           width="auto"
           onClick={hasContent ? onToggle : undefined}
           _hover={{ cursor: hasContent ? "pointer" : undefined }}
@@ -60,15 +47,13 @@ export default function CardMember({ member }: CardMemberProps) {
             borderRadius="md"
             boxShadow="md"
           />
-        </MotionBox>
-        <MotionBox layout w="full" position="relative">
-          <MotionStack
+        </Box>
+        <Box w="full" position="relative">
+          <Stack
             spacing={{ base: 3, md: 2, lg: 3 }}
             width="full"
-            position="absolute"
-            animate={isOpen ? "open" : "closed"}
-            variants={variants}
-            transition={spring}
+            height="full"
+            justify="center"
           >
             <Stack spacing={1}>
               <Heading as="h3" fontSize={{ base: "lg", lg: "xl" }}>
@@ -87,39 +72,14 @@ export default function CardMember({ member }: CardMemberProps) {
                 ))}
               </Wrap>
             </Stack>
-            {hasContent && (
-              <Button
-                size="sm"
-                width="fit-content"
-                backgroundColor="transparent"
-                p={0}
-                aria-expanded={isOpen}
-                _hover={{ textDecoration: "underline" }}
-                onClick={onToggle}
-              >
-                {isOpen ? t("show_less") : t("show_more")}
-              </Button>
-            )}
-          </MotionStack>
-        </MotionBox>
-      </MotionStack>
+          </Stack>
+        </Box>
+      </Stack>
       {hasContent && (
-        <AnimatePresence>
-          {isOpen && (
-            <MotionBox
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              bg="primary.100"
-              padding={3}
-              borderRadius="md"
-            >
-              {RenderRichText(member.content?.description)}
-            </MotionBox>
-          )}
-        </AnimatePresence>
+        <Box padding={3} borderRadius="md">
+          {RenderRichText(member.content?.description)}
+        </Box>
       )}
-    </MotionStack>
+    </Stack>
   );
 }

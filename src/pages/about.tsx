@@ -6,7 +6,6 @@ import PageTitle from "components/PageTitle";
 import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
 import SEO from "components/SEO";
-import { LayoutGroup } from "framer-motion";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { getAbout } from "utils/api";
 import { useStoryblok } from "utils/storyblokClient";
@@ -71,15 +70,16 @@ export default function About(
         </SimpleGrid>
       </Section>
       <Section.Outer
-        paddingTop={0}
+        bg="gray.700"
         paddingBottom={{ base: "8rem", md: "5rem" }}
+        color="whiteAlpha.900"
       >
-        <Section.Inner borderRadius="lg" backgroundColor="white" padding={4}>
+        <Section.Inner borderRadius="lg" padding={4}>
           <Box>{RenderRichText(story.content.goals_text)}</Box>
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mt="2rem">
             {story.content?.goals_table?.map((goal, index) => (
               <HStack key={goal._uid} alignItems="baseline">
-                <Heading fontSize="xl" color="primary.500" as="span">
+                <Heading fontSize="xl" as="span">
                   {index + 1}.
                 </Heading>
                 <Text fontSize={{ base: "md", xl: "lg" }}>{goal.text}</Text>
@@ -88,16 +88,13 @@ export default function About(
           </SimpleGrid>
         </Section.Inner>
       </Section.Outer>
-      <Section bg="primary.100">
+      <Section>
         <Box marginTop={{ base: "-8rem", md: 0 }}>
           <SimpleGrid
             spacing={8}
             columns={{ base: 1, md: 2 }}
             templateRows="auto"
           >
-            <Box bg="white" p={4} borderRadius="lg" h="fit-content">
-              {RenderRichText(story.content.values_text)}
-            </Box>
             <Box w="full" h="full">
               <Image
                 borderRadius="lg"
@@ -108,6 +105,9 @@ export default function About(
                 }
                 alt={story.content.values_image?.name}
               />
+            </Box>
+            <Box bg="white" p={4} borderRadius="lg" h="fit-content">
+              {RenderRichText(story.content.values_text)}
             </Box>
           </SimpleGrid>
         </Box>
@@ -137,16 +137,14 @@ export default function About(
           spacing={{ base: 5 }}
           gridTemplateColumns={{
             base: "repeat(1, 1fr)",
-            md: "repeat(2,1fr)",
+            lg: "repeat(2,1fr)",
           }}
         >
-          <LayoutGroup>
-            {story.content.members?.map((item) =>
-              item.members?.map((member) => {
-                return <CardMember key={member.id} member={member} />;
-              })
-            )}
-          </LayoutGroup>
+          {story.content.members?.map((item) =>
+            item.members?.map((member) => {
+              return <CardMember key={member.id} member={member} />;
+            })
+          )}
         </SimpleGrid>
       </Section>
     </Page>

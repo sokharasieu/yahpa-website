@@ -3,14 +3,20 @@ import { useRouter } from "next/router";
 import isDev from "utils/isDev";
 import Footer from "./Footer";
 import Header from "./Header";
+import { useState, useEffect } from "react";
 
 export default function Layout({ children }: React.PropsWithChildren<{}>) {
   const currentBreakpoint = useBreakpoint();
   const router = useRouter();
 
+  const [isSSR, setIsSSR] = useState(true);
+
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
+
   return (
     <Flex
-      bg="whiteAlpha.900"
       sx={{
         flexDirection: "column",
         minHeight: "100vh",
@@ -30,7 +36,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
         {children}
       </Flex>
       <Footer />
-      {isDev() && (
+      {isDev() && !isSSR && (
         <Box
           px={2}
           bg="black"
@@ -43,7 +49,7 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
             zIndex: 999,
           }}
         >
-          {currentBreakpoint}
+          <p>{currentBreakpoint}</p>
         </Box>
       )}
     </Flex>
