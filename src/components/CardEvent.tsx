@@ -3,6 +3,7 @@ import { ArticleEventStory } from "types/story";
 import Image from "./Image";
 import RenderRichText from "./RenderRichText";
 import Time from "./Time";
+import Link from "./Link";
 
 type CardProps = {
   story?: ArticleEventStory;
@@ -39,9 +40,12 @@ export default function CardEvent({ story }: CardProps) {
         px={4}
       >
         <Stack>
-          <Heading color="primary.400" fontSize={{ base: "xl" }}>
+          <Link href={ story?.content?.title}>
+            <Heading color="primary.400" fontSize={{ base: "xl" }}>
             {story?.content?.title}
           </Heading>
+          </Link>
+
           <Time time={story?.content?.date as Date} />
           <Box sx={{ p: { margin: 0 } }}>
             {RenderRichText(story?.content?.description)}

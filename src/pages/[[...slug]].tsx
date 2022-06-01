@@ -96,7 +96,7 @@ export default function Home(
               color="white"
             >
               <Heading color="primary.400">
-                {story.content.register_title}
+                {story.content.register_title} 
               </Heading>
               {RenderRichText(story?.content.register_description)}
               <Flex justifyContent="flex-start" width="100%" margin="auto">
@@ -143,17 +143,21 @@ export default function Home(
             />
           </SimpleGrid>
         </Section.Parallax>
+          {/*
+            event section in home */}
         <Section color="black">
           <Stack spacing={8}>
             <Stack maxW={{ base: "xl", xl: "2xl" }}>
               <Heading as="h2" fontSize={{ base: "2xl", xl: "3xl" }}>
                 {story.content.event_title}
               </Heading>
+
               <Text fontSize={{ base: "md", xl: "lg" }}>
                 {story.content.event_description}
               </Text>
             </Stack>
             {story.content.event_latest?.map((event) =>
+              
               event.events
                 ?.sort((a, b) => {
                   if (a.content?.date && b.content?.date) {
@@ -168,6 +172,8 @@ export default function Home(
             )}
           </Stack>
         </Section>
+
+
         <Section paddingTop={0} bg="gray.100" color="black">
           <Stack spacing={6}>
             <Stack maxW={{ base: "xl", xl: "2xl" }}>
