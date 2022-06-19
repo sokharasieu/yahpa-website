@@ -1,17 +1,19 @@
 import {
+  Avatar,
   Box,
   Button,
   Collapse,
+  Container,
   Flex,
   Heading,
   SimpleGrid,
   Stack,
   Text,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import CardGoal from "components/CardGoal";
-import Carousel, { defaultResponsiveConfig } from "components/Carousel";
 import Hero from "components/Hero";
-import Image from "components/Image";
 import LatestNews from "components/LatestEvents";
 import Link from "components/Link";
 import Page from "components/Page";
@@ -180,52 +182,52 @@ export default function Home(
             </SimpleGrid>
           </Stack>
         </Section>
-        <Section
-          overflow="hidden"
-          bgGradient="linear(to-b, white 5%, primary.100 30%, primary.200 50%, primary.300)"
-        >
-          <Carousel
-            overflow="visible"
-            responsive={defaultResponsiveConfig}
-            title={story.content?.members_title}
+        <Section bgGradient="linear(to-b, white 5%, primary.100 30%, primary.200 50%, primary.300)">
+          <Stack maxW={{ base: "xl", xl: "2xl" }} mb={5}>
+            <Heading as="h2" fontSize={{ base: "2xl", xl: "3xl" }}>
+              {story.content?.members_title}
+            </Heading>
+            <Text fontSize={{ base: "md", xl: "lg" }}>
+              {story?.content.members_description}
+            </Text>
+          </Stack>
+          <Wrap
+            position="relative"
+            align="center"
+            justify="center"
+            spacing={{ base: "-12px", md: 4, xl: 6 }}
+            maxW={{ base: "full", xl: "8xl" }}
           >
             {story.content.members?.map((item) =>
               item.members?.map((member) => {
                 return (
-                  <Box key={member.id} paddingLeft={"1rem"}>
-                    <Box w="full" position="relative">
-                      <Image
-                        ratio={2 / 3}
+                  <WrapItem key={member.id}>
+                    <Stack h="full" position="relative" align="center">
+                      <Avatar
                         src={
                           member.content?.image?.filename ??
                           "/images/image2.jpg"
                         }
-                        alt=""
-                        width={"full"}
-                        borderRadius="2xl"
+                        width={{ base: "150px", md: "200px" }}
+                        height={{ base: "150px", md: "200px" }}
                       />
-                      {member.content?.name && (
-                        <Text
-                          padding={1}
-                          color="white"
-                          borderRadius="md"
-                          bg="orange.400"
-                          width="max-content"
-                          position="absolute"
-                          left={"1rem"}
-                          bottom={"1rem"}
-                          right={"2rem"}
-                          textAlign="center"
-                        >
-                          {member.content?.name}
-                        </Text>
-                      )}
-                    </Box>
-                  </Box>
+                      <Text
+                        padding={1}
+                        color="white"
+                        borderRadius="md"
+                        bg="orange.400"
+                        textAlign="center"
+                        position="relative"
+                        bottom="3rem"
+                      >
+                        {member.content.name}
+                      </Text>
+                    </Stack>
+                  </WrapItem>
                 );
               })
             )}
-          </Carousel>
+          </Wrap>
         </Section>
       </Page>
     </>
