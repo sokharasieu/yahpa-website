@@ -8,11 +8,11 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import CardEvent from "components/CardEvent";
 import CardGoal from "components/CardGoal";
 import Carousel, { defaultResponsiveConfig } from "components/Carousel";
 import Hero from "components/Hero";
 import Image from "components/Image";
+import LatestNews from "components/LatestEvents";
 import Link from "components/Link";
 import Page from "components/Page";
 import RenderRichText from "components/RenderRichText";
@@ -70,6 +70,14 @@ export default function Home(
 
   const openFormLinks = () => setShowRegisterForm(!showRegisterForm);
 
+  const sortedEvents = story.content.event_latest?.[0].events?.sort((a, b) => {
+    if (a.content?.date && b.content?.date) {
+      return +new Date(b.content?.date) - +new Date(a.content?.date);
+    } else {
+      return 0;
+    }
+  });
+
   return (
     <>
       <SEO meta={story.content?.seo} />
@@ -82,6 +90,7 @@ export default function Home(
             subtitle={story.content.description}
           />
         </Section>
+
         <Section.Parallax backgroundImageUrl={"/images/bg.jpg"}>
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}
@@ -143,32 +152,18 @@ export default function Home(
             />
           </SimpleGrid>
         </Section.Parallax>
-        <Section color="black">
-          <Stack spacing={8}>
-            <Stack maxW={{ base: "xl", xl: "2xl" }}>
-              <Heading as="h2" fontSize={{ base: "2xl", xl: "3xl" }}>
-                {story.content.event_title}
-              </Heading>
-              <Text fontSize={{ base: "md", xl: "lg" }}>
-                {story.content.event_description}
-              </Text>
-            </Stack>
-            {story.content.event_latest?.map((event) =>
-              event.events
-                ?.sort((a, b) => {
-                  if (a.content?.date && b.content?.date) {
-                    return (
-                      +new Date(b.content?.date) - +new Date(a.content?.date)
-                    );
-                  } else {
-                    return 0;
-                  }
-                })
-                .map((story) => <CardEvent key={story.uuid} story={story} />)
-            )}
+        <Section>
+          <Stack maxW={{ base: "xl", xl: "2xl" }}>
+            <Heading as="h2" fontSize={{ base: "2xl", xl: "3xl" }}>
+              {story.content.event_title}
+            </Heading>
+            <Text fontSize={{ base: "md", xl: "lg" }}>
+              {story.content.event_description}
+            </Text>
           </Stack>
+          <LatestNews events={sortedEvents} />
         </Section>
-        <Section paddingTop={0} bg="gray.100" color="black">
+        <Section paddingTop={0} color="black">
           <Stack spacing={6}>
             <Stack maxW={{ base: "xl", xl: "2xl" }}>
               <Heading fontSize={{ base: "2xl", xl: "3xl" }}>
@@ -187,7 +182,7 @@ export default function Home(
         </Section>
         <Section
           overflow="hidden"
-          bgGradient="linear(to-b, gray.100 5%, primary.100 30%, primary.200 50%, primary.300)"
+          bgGradient="linear(to-b, white 5%, primary.100 30%, primary.200 50%, primary.300)"
         >
           <Carousel
             overflow="visible"
