@@ -172,6 +172,7 @@ export default function Nav() {
               <NavLink href="/projects">{t("projects")}</NavLink>
               <NavLink href="/covid-19">COVID-19</NavLink>
               <NavLink href="/contact">{t("contact")}</NavLink>
+
               {/*
               <NavLink href="/contribute">{t("contribute")}</NavLink> */}
             </HStack>
