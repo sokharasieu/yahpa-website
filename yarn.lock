@@ -771,10 +771,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.5.8.tgz#20acb60d0895cc82723b4999492c70b1f9816460"
   integrity sha512-IoSvhhzHsSzJu5XEOmDqzqcSmtfcJ788nz2TDgGXac076DApUsYIPHHBd0dh9guMBIVuHZ8Y2dlXNHFl4bCyLA==
 
-"@fontsource/merriweather@^4.5.11":
-  version "4.5.11"
-  resolved "https://registry.yarnpkg.com/@fontsource/merriweather/-/merriweather-4.5.11.tgz#83336e4fe0af0cb872ed23d9e49bab3948a8797a"
-  integrity sha512-lhpcHRyxrnV7yIPA+2FD4rfYWQcbxV+lDirx5VHq4/505g823TlscONA7hDaBWZ8wN3LyGF6N6EYekaYIdeePg==
+"@fontsource/source-sans-pro@^4.5.10":
+  version "4.5.10"
+  resolved "https://registry.yarnpkg.com/@fontsource/source-sans-pro/-/source-sans-pro-4.5.10.tgz#24f90a6767137a01897c6c42ff2dfeb0ffed8528"
+  integrity sha512-8+MeEY0I3cBRmnzWBG3y4QsStbugPY3YGi20m71ElR7LUfSJt5UZNiCC6MI7V2wdsVGhiYORNW9J3aVo4LwFsw==
 
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.2"

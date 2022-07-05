@@ -45,7 +45,7 @@ const theme = extendTheme({
   breakpoints,
   fonts: {
     body: "Lato",
-    heading: "Merriweather",
+    heading: "Source Sans Pro",
   },
   colors: {
     ...BaseTheme.colors,

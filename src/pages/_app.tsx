@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import theme from "styles/theme";
 import emailjs from "emailjs-com";
 import "@fontsource/lato";
-import "@fontsource/merriweather";
+import "@fontsource/source-sans-pro";
 
 emailjs.init(process?.env?.emailJsUserID as string);
 
