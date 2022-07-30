@@ -8,7 +8,9 @@ import {
   PageLandingCovidStory,
   PageLandingProjectsStory,
   PageLandingStory,
+  PageLandingRegistryStory,
   PageProjectStory,
+  RegistryMemberStory,
 } from "types/story";
 import isDev from "./isDev";
 import { Storyblok } from "./storyblokClient";
@@ -59,6 +61,22 @@ export async function getProjects(params?: StoriesParams): Promise<{
   return { landing, projects };
 }
 
+export async function getRegistry(params?: StoriesParams): Promise<{
+  landing: PageLandingRegistryStory;
+}> {
+  const { data } = await Storyblok.getStories({
+    ...defaultParams,
+    ...params,
+    starts_with: "registry",
+  });
+
+  const landing = data.stories.find(
+    (story) => story.is_startpage === true
+  ) as PageProjectStory;
+
+  return { landing };
+}
+
 export async function getCovid(
   params?: StoryParams
 ): Promise<PageLandingCovidStory> {
@@ -79,6 +97,29 @@ export async function getContact(
   });
 
   return covidPageStory.data.story;
+}
+
+export async function getSearch(params?: StoriesParams): Promise<{
+  stories: RegistryMemberStory[];
+  perPage: Stories["perPage"];
+  totalResults: Stories["total"];
+}> {
+  const membersStories = await Storyblok.getStories({
+    ...defaultParams,
+    ...params,
+    per_page: 25,
+    sort_by: "content.name:asc",
+  });
+
+  const members = membersStories.data.stories.filter(
+    (story) => story.is_startpage === false
+  );
+
+  return {
+    stories: members,
+    perPage: membersStories.perPage - 1,
+    totalResults: members.length,
+  };
 }
 
 // getStoriesPaths returns all possible paths by locale
