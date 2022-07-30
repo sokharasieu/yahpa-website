@@ -61,20 +61,15 @@ export async function getProjects(params?: StoriesParams): Promise<{
   return { landing, projects };
 }
 
-export async function getRegistry(params?: StoriesParams): Promise<{
-  landing: PageLandingRegistryStory;
-}> {
-  const { data } = await Storyblok.getStories({
+export async function getRegistry(
+  params?: StoriesParams
+): Promise<PageLandingRegistryStory> {
+  const registryPageStory = await Storyblok.getStory("registry", {
     ...defaultParams,
     ...params,
-    starts_with: "registry",
   });
 
-  const landing = data.stories.find(
-    (story) => story.is_startpage === true
-  ) as PageProjectStory;
-
-  return { landing };
+  return registryPageStory.data.story;
 }
 
 export async function getCovid(

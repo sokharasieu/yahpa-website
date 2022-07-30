@@ -39,7 +39,7 @@ export default function CardSearchResult(props: CardSearchResultProps) {
         </Text>
         <Wrap justify={{ base: "center", md: "start" }}>
           {props.content.languages?.map((lang) => (
-            <Text bg="orange.300" px={2} borderRadius="md" key={lang}>
+            <Text bg="primary.100" px={2} borderRadius="md" key={lang}>
               {lang}
             </Text>
           ))}

@@ -35,7 +35,7 @@ const en = {
   register_cta: "I want to join the registry",
   register_video_title: "Montreal YAHPA registery",
   registry_search_placeholder:
-    "Search for a health care professional, by language, or by postal code",
+    "Search for a health care professional, by their language, or by their specialty",
   results_found: "result(s) found",
   results_not_found: "No results found",
   show_more: "Show more",
@@ -81,7 +81,7 @@ const fr: DefaultLanguageResource = {
   register_video_title:
     "Registre des professionnels asiatiques de la santé de Montréal - YAHPA",
   registry_search_placeholder:
-    "Rechercher un professionnel de la santé, par langue ou par code postal",
+    "Rechercher un professionnel de la santé, par sa langue ou par sa spécialité",
   results_found: "résultat(s) trouvé(s)",
   results_not_found: "Aucun résultat trouvé",
   show_more: "voir plus",
@@ -123,7 +123,7 @@ const zh: DefaultLanguageResource = {
   projects: "项目",
   register_cta: "我想加入注册表",
   register_video_title: "蒙特利尔 YAHPA 登记处",
-  registry_search_placeholder: "按语言或邮政编码搜索医疗保健专业人员",
+  registry_search_placeholder: "按语言或专业搜索专业人士",
   results_found: "个结果",
   results_not_found: "未找到结果",
   show_more: "显示更多",
@@ -166,7 +166,7 @@ const vi: DefaultLanguageResource = {
   register_cta: "Tôi muốn tham gia sổ đăng ký",
   register_video_title: "Cơ quan đăng ký YAHPA Montreal",
   registry_search_placeholder:
-    "Tìm kiếm chuyên gia chăm sóc sức khỏe, theo ngôn ngữ hoặc theo mã bưu điện",
+    "Tìm kiếm chuyên gia, theo ngôn ngữ hoặc nghề nghiệp",
   results_found: "kết quả",
   results_not_found: "Không có kết quả",
   show_more: "Cho xem nhiều hơn",
