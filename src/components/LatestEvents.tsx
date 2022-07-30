@@ -25,7 +25,7 @@ function CardTopEvent({ event }: LatestStoryProps) {
     <Box
       marginTop={{ base: "1", sm: "5" }}
       display="flex"
-      flexDirection={{ base: "column", sm: "row" }}
+      flexDirection={{ base: "column", md: "row" }}
       justifyContent="space-between"
     >
       <Box
@@ -118,9 +118,9 @@ export default function LatestEvents({ events }: LatestEventsProps) {
             index !== 0 && (
               <WrapItem
                 key={event?.uuid}
-                width={{ base: "100%", sm: "45%", md: "45%", lg: "30%" }}
+                width={{ base: "100%", md: "45%", lg: "30%" }}
               >
-                <CardEvent event={event} />{" "}
+                <CardEvent event={event} />
               </WrapItem>
             )
         )}
