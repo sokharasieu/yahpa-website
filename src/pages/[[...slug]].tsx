@@ -230,19 +230,14 @@ export default function Home(
         </Section>
         
         <Section >
-          <Heading paddingBottom={5}>{story.content?.sponsor_title} </Heading>
-          <Stack
-          direction={{ base: "column-reverse", md: "row" }}
-          alignItems="center"
-          justifyContent={{ base: "center", md: "flex-start" }} spacing={"50px"}
-          maxW={{ base: "full", sm: "xl" }}
-          width={{ base: "full", md: "auto" }}
-           
-          >
+            <Heading fontSize={{ base: "2xl", xl: "3xl" }}>
+                {story?.content.sponsor_title}
+            </Heading>
+          <SimpleGrid justifyContent={"center"} padding={4} spacing={6} columns={2} maxW={"800px"}>
             {story.content.sponsors?.map((item) =>
               item.sponsors?.map((sponsors) => {
                 return (
-                  <Box maxW={{base: "full", sm:"200px"}} w="full" key={sponsors.id} alignItems={{ base: "center", xl: "flex-start" }}  >
+                  <Box key={sponsors.id}  >
                       <Image
                         ratio={3}
                         src={
@@ -250,14 +245,15 @@ export default function Home(
                           "/images/image2.jpg"
                         }
                         alt=""
-                        width={"auto"}
+                      width={"auto"}
+                      
                         />
                         {/* {sponsors.content.sponsor_name} */}
                   </Box>
                 );
               })
             )}
-          </Stack>
+          </SimpleGrid>
           
         </Section>
       </Page>
