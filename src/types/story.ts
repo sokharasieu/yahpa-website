@@ -31,6 +31,8 @@ export type PageContactStory = StoryResult<PageContactBlok>;
 export type PageLandingProjectsStory = StoryResult<PageLandingProjectsBlok>;
 export type PageProjectStory = StoryResult<PageProjectBlok>;
 
+
+
 export type PageLandingBlok = {
   title?: string;
   description?: string;
@@ -48,6 +50,8 @@ export type PageLandingBlok = {
   event_title?: string;
   event_description?: string;
   event_latest?: CardEventBlok[];
+  sponsor_title?: string;
+  sponsors?: ListSponsorsBlok[];
   seo?: SeoBlok;
 };
 
@@ -110,6 +114,11 @@ export type ListMembersBlok = {
   members?: StoryResult<TeamMemberBlok>[];
 };
 
+export type ListSponsorsBlok = {
+  component?: string;
+  sponsors?: StoryResult<SponsorBlok>[];
+};
+
 export type ArticleEventBlok = {
   title?: string;
   date?: Date;
@@ -123,6 +132,11 @@ export type TeamMemberBlok = {
   image?: SingleImageAsset;
   description?: Richtext;
   languages?: string[];
+};
+
+export type SponsorBlok = {
+  sponsor_name?: string;
+  sponsor_logo?: SingleImageAsset;
 };
 
 export type DocumentCovidBlok = {
