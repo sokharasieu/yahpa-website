@@ -109,7 +109,7 @@ export function Topbar() {
   );
 }
 
-export default function Nav() {
+export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
   const ref = useRef(null);
@@ -169,12 +169,10 @@ export default function Nav() {
           <Box width="100%" display={{ base: "none", xl: "block" }}>
             <HStack as="nav" spacing={6} mx={6} justifyContent="flex-start">
               <NavLink href="/about">{t("about")}</NavLink>
+              <NavLink href="/registry">{t("registry")}</NavLink>
               <NavLink href="/projects">{t("projects")}</NavLink>
               <NavLink href="/covid-19">COVID-19</NavLink>
               <NavLink href="/contact">{t("contact")}</NavLink>
-
-              {/*
-              <NavLink href="/contribute">{t("contribute")}</NavLink> */}
             </HStack>
           </Box>
           <Stack
@@ -205,12 +203,10 @@ export default function Nav() {
         <Collapse in={isOpen} animateOpacity>
           <Stack as="nav" spacing={0} py={4} background="white">
             <MenuLink href="/about">{t("about")}</MenuLink>
+            <MenuLink href="/registry">{t("registry")}</MenuLink>
             <MenuLink href="/projects">{t("projects")}</MenuLink>
             <MenuLink href="/covid-19">COVID-19</MenuLink>
             <MenuLink href="/contact">{t("contact")}</MenuLink>
-
-            {/*
-            <MenuLink href="/contribute">{t("contribute")}</MenuLink> */}
           </Stack>
           <Stack
             direction="row"

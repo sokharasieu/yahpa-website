@@ -32,6 +32,7 @@ const en = {
   learn_more: "Learn More",
   organization: "Organization",
   projects: "Projects",
+  registry: "Registry",
   register_cta: "I want to join the registry",
   register_video_title: "Montreal YAHPA registery",
   registry_search_placeholder:
@@ -77,6 +78,7 @@ const fr: DefaultLanguageResource = {
   learn_more: "En savoir plus",
   organization: "Notre Organisation",
   projects: "Nos projets",
+  registry: "Notre registre",
   register_cta: "Je veux m'inscrire au registre",
   register_video_title:
     "Registre des professionnels asiatiques de la santé de Montréal - YAHPA",
@@ -121,6 +123,7 @@ const zh: DefaultLanguageResource = {
   learn_more: "学到更多",
   organization: "组织",
   projects: "项目",
+  registry: "登记处",
   register_cta: "我想加入注册表",
   register_video_title: "蒙特利尔 YAHPA 登记处",
   registry_search_placeholder: "按语言或专业搜索专业人士",
@@ -163,6 +166,7 @@ const vi: DefaultLanguageResource = {
   learn_more: "Tìm hiểu thêm",
   organization: "Tổ chức",
   projects: "Dự án",
+  registry: "Đăng ký",
   register_cta: "Tôi muốn tham gia sổ đăng ký",
   register_video_title: "Cơ quan đăng ký YAHPA Montreal",
   registry_search_placeholder:

@@ -43,7 +43,7 @@ export default function Registry(
         translatedSlugs={story.translated_slugs}
         defaultSlug={story.full_slug}
       />
-      <Section>
+      <Section paddingTop={8}>
         <Box fontSize="xl" textAlign="center">
           {RenderRichText(story.content.page_description)}
         </Box>

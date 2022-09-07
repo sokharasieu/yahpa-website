@@ -105,9 +105,11 @@ export default function FormSearchRegistry() {
               <CardSearchResult key={result.id} {...result} />
             ))}
             {data?.stories.length === 0 && (
-              <Text fontSize="2xl" fontWeight="bold">
-                {t("results_not_found")}
-              </Text>
+              <Stack flexDirection="row" justifyContent="center" paddingY={12}>
+                <Text fontSize="2xl" fontWeight="bold">
+                  {t("results_not_found")}
+                </Text>
+              </Stack>
             )}
           </SimpleGrid>
         </Stack>
