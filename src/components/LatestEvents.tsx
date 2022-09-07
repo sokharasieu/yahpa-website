@@ -25,7 +25,7 @@ function CardTopEvent({ event }: LatestStoryProps) {
     <Box
       marginTop={{ base: "1", sm: "5" }}
       display="flex"
-      flexDirection={{ base: "column", sm: "row" }}
+      flexDirection={{ base: "column", md: "row" }}
       justifyContent="space-between"
     >
       <Box
@@ -41,14 +41,12 @@ function CardTopEvent({ event }: LatestStoryProps) {
           marginLeft={{ base: "0", sm: "5%" }}
           marginTop="5%"
         >
-          <Link textDecoration="none" _hover={{ textDecoration: "none" }}>
-            <Image
-              borderRadius="lg"
-              src={event?.content?.image?.filename ?? "/images/logo_white.png"}
-              alt={event?.content?.image?.name}
-              objectFit="contain"
-            />
-          </Link>
+          <Image
+            borderRadius="lg"
+            src={event?.content?.image?.filename ?? "/images/logo_white.png"}
+            alt={event?.content?.image?.name}
+            objectFit="contain"
+          />
         </Box>
         <Box zIndex="1" width="100%" position="absolute" height="100%">
           <Box
@@ -75,9 +73,7 @@ function CardTopEvent({ event }: LatestStoryProps) {
           </Link>
         </Heading>
         <Time time={event?.content.date as Date} />
-        <Box as="p" marginTop="2">
-          {RenderRichText(event?.content?.description)}
-        </Box>
+        <Box marginTop="2">{RenderRichText(event?.content?.description)}</Box>
       </Box>
     </Box>
   );
@@ -87,19 +83,17 @@ function CardEvent({ event }: LatestStoryProps) {
   return (
     <Box>
       <Box borderRadius="lg" overflow="hidden">
-        <Link textDecoration="none" _hover={{ textDecoration: "none" }}>
-          <Image
-            transform="scale(1.0)"
-            src={event?.content?.image?.filename ?? "/images/logo_white.png"}
-            alt={event?.content?.image?.name}
-            objectFit="contain"
-            width="100%"
-            transition="0.3s ease-in-out"
-            _hover={{
-              transform: "scale(1.05)",
-            }}
-          />
-        </Link>
+        <Image
+          transform="scale(1.0)"
+          src={event?.content?.image?.filename ?? "/images/logo_white.png"}
+          alt={event?.content?.image?.name}
+          objectFit="contain"
+          width="100%"
+          transition="0.3s ease-in-out"
+          _hover={{
+            transform: "scale(1.05)",
+          }}
+        />
       </Box>
       <Stack px={3}>
         <Heading fontSize="xl" marginTop="2">
@@ -124,9 +118,9 @@ export default function LatestEvents({ events }: LatestEventsProps) {
             index !== 0 && (
               <WrapItem
                 key={event?.uuid}
-                width={{ base: "100%", sm: "45%", md: "45%", lg: "30%" }}
+                width={{ base: "100%", md: "45%", lg: "30%" }}
               >
-                <CardEvent event={event} />{" "}
+                <CardEvent event={event} />
               </WrapItem>
             )
         )}
