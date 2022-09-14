@@ -26,6 +26,8 @@ export type StoryResult<T> = StoryData<StoryblokComponent<string> & T>;
 export type PageLandingStory = StoryResult<PageLandingBlok>;
 export type PageAboutStory = StoryResult<PageAboutBlok>;
 export type ArticleEventStory = StoryResult<ArticleEventBlok>;
+export type RegistryMemberStory = StoryResult<RegistryMemberBlok>;
+export type PageLandingRegistryStory = StoryResult<PageLandingRegistryBlok>;
 export type PageLandingCovidStory = StoryResult<PageLandingCovidBlok>;
 export type PageContactStory = StoryResult<PageContactBlok>;
 export type PageLandingProjectsStory = StoryResult<PageLandingProjectsBlok>;
@@ -43,6 +45,7 @@ export type PageLandingBlok = {
   register_video_link?: LinkAsset;
   register_links?: ButtonLinkBlok[];
   members_title?: string;
+  members_description?: string;
   members?: ListMembersBlok[];
   option_title?: string;
   option_description?: string;
@@ -72,6 +75,12 @@ export type PageLandingProjectsBlok = {
   page_title?: string;
   page_description?: Richtext;
   page_image?: SingleImageAsset;
+  seo?: SeoBlok;
+};
+
+export type PageLandingRegistryBlok = {
+  page_title?: string;
+  page_description?: Richtext;
   seo?: SeoBlok;
 };
 
@@ -137,6 +146,18 @@ export type TeamMemberBlok = {
 export type SponsorBlok = {
   sponsor_name?: string;
   sponsor_logo?: SingleImageAsset;
+};
+export type RegistryMemberBlok = {
+  name?: string;
+  profession?: string;
+  workplace?: string;
+  website?: string;
+  image?: SingleImageAsset;
+  address?: string;
+  phone_number?: string;
+  email?: string;
+  description?: Richtext;
+  languages?: string[];
 };
 
 export type DocumentCovidBlok = {

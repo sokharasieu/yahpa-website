@@ -31,11 +31,9 @@ export default function Footer() {
           <Stack align={"flex-start"}>
             <ListHeader>{t("organization")}</ListHeader>
             <Link href="/about">{t("about")}</Link>
+            <Link href="/registry">{t("registry")}</Link>
             <Link href="/projects">{t("projects")}</Link>
             <Link href="/covid-19">COVID-19</Link>
-
-            {/*
-            <Link href="/contribute">{t("contribute")}</Link> */}
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>{t("languages")}</ListHeader>
@@ -90,12 +88,15 @@ export default function Footer() {
               objectFit="cover"
             />
           </AspectRatio>
-          <AspectRatio maxW="250px"  width="full" ratio={212 / 44}  >
-            <Link href="https://vercel.com/home?utm_source=next-site&utm_medium=footer&utm_campaign=next-website" hideIcon >
-            <Image
-              src="/images/vercel_logo.svg"
-              alt="vercel logo"
-              objectFit="cover"
+          <AspectRatio maxW="250px" width="full" ratio={212 / 44}>
+            <Link
+              href="https://vercel.com/home?utm_source=next-site&utm_medium=footer&utm_campaign=next-website"
+              hideIcon
+            >
+              <Image
+                src="/images/vercel_logo.svg"
+                alt="vercel logo"
+                objectFit="cover"
               />
             </Link>
           </AspectRatio>
