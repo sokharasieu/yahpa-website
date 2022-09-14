@@ -11,7 +11,6 @@ import {
   Stack,
   Text,
   Wrap,
-  Image,
   WrapItem,
 } from "@chakra-ui/react";
 import CardGoal from "components/CardGoal";
@@ -22,6 +21,7 @@ import Page from "components/Page";
 import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
 import SEO from "components/SEO";
+import Image from "components/Image"
 import useTranslation from "hooks/useTranslation";
 import {
   GetStaticPathsContext,
@@ -233,31 +233,30 @@ export default function Home(
         </Section>
         
         <Section >
-            <Heading fontSize={{ base: "2xl", xl: "3xl" }}>
+            <Heading fontSize={{ base: "2xl", xl: "3xl" }} >
                 {story?.content.sponsor_title}
-            </Heading>
-          <SimpleGrid justifyContent={"center"} padding={4} spacing={6} columns={2} maxW={"800px"}>
+          </Heading>
+          
+          <Box  paddingLeft={20} paddingRight={20} >
+          
+          <SimpleGrid   padding={4} spacing={6} columns={2} >
             {story.content.sponsors?.map((item) =>
               item.sponsors?.map((sponsors) => {
                 return (
                   <Box key={sponsors.id}  >
                       <Image
-                        ratio={3}
                         src={
                           sponsors.content?.sponsor_logo?.filename ??
-                          "/images/image2.jpg"
-                        }
+                          "/images/image2.jpg"}
                         alt=""
-                      width={"auto"}
-                      
-                        />
-                        {/* {sponsors.content.sponsor_name} */}
+                        ratio = {3}
+                        width={"auto"}/>
                   </Box>
                 );
               })
             )}
           </SimpleGrid>
-          
+          </Box>  
         </Section>
       </Page>
     </>
