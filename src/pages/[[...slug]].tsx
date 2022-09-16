@@ -235,11 +235,11 @@ export default function Home(
         <Section >
             <Heading fontSize={{ base: "2xl", xl: "3xl" }} >
                 {story?.content.sponsor_title}
-          </Heading>
-          
+            </Heading>
+          {/* add small message */}
           <Box  paddingLeft={20} paddingRight={20} >
           
-          <SimpleGrid   padding={4} spacing={6} columns={2} >
+          <SimpleGrid   padding={4} spacing={6} columns={{ base: 1, md: 2 }} >
             {story.content.sponsors?.map((item) =>
               item.sponsors?.map((sponsors) => {
                 return (
