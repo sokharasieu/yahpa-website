@@ -1,4 +1,5 @@
 import {
+  AspectRatio,
   Avatar,
   Box,
   Button,
@@ -20,6 +21,7 @@ import Page from "components/Page";
 import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
 import SEO from "components/SEO";
+import Image from "components/Image"
 import useTranslation from "hooks/useTranslation";
 import {
   GetStaticPathsContext,
@@ -229,7 +231,35 @@ export default function Home(
             )}
           </Wrap>
         </Section>
+        
+        <Section >
+            <Heading fontSize={{ base: "2xl", xl: "3xl" }} >
+                {story?.content.sponsor_title}
+            </Heading>
+          {/* add small message */}
+          <Box  paddingLeft={20} paddingRight={20} >
+          
+          <SimpleGrid   padding={4} spacing={6} columns={{ base: 1, md: 2 }} >
+            {story.content.sponsors?.map((item) =>
+              item.sponsors?.map((sponsors) => {
+                return (
+                  <Box key={sponsors.id}  >
+                      <Image
+                        src={
+                          sponsors.content?.sponsor_logo?.filename ??
+                          "/images/image2.jpg"}
+                        alt=""
+                        ratio = {3}
+                        width={"auto"}/>
+                  </Box>
+                );
+              })
+            )}
+          </SimpleGrid>
+          </Box>  
+        </Section>
       </Page>
     </>
   );
 }
+//2819 × 949
