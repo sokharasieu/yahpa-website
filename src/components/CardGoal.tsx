@@ -67,7 +67,7 @@ export default function CardGoal(props: Option) {
               {props.call_to_action}
             </Link>
           ) : (
-            <Tag size="lg" colorScheme="red">
+            <Tag size="lg" colorScheme="red" variant={"solid"}>
               {t("coming_soon")}
             </Tag>
           )}

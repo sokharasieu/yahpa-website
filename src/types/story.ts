@@ -210,6 +210,7 @@ export type StoryblokLink = {
 };
 
 export type Option = {
+  _uid: string;
   image?: SingleImageAsset;
   title?: string;
   call_to_action: string;
