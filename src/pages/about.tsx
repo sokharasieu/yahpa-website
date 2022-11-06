@@ -1,4 +1,5 @@
 import { Box, Heading, HStack, SimpleGrid, Text } from "@chakra-ui/react";
+import { useStoryblokState } from "@storyblok/react";
 import CardMember from "components/CardMember";
 import Image from "components/Image";
 import Page from "components/Page";
@@ -7,11 +8,11 @@ import RenderRichText from "components/RenderRichText";
 import Section from "components/Section";
 import SEO from "components/SEO";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-import { getAbout } from "utils/api";
-import { useStoryblok } from "utils/storyblokClient";
+import { PageAboutBlok } from "types/story";
+import { getAboutV2 } from "utils/sbApi";
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const story = await getAbout({
+  const story = await getAboutV2({
     language: context.locale,
   });
 
@@ -35,7 +36,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 export default function About(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const story = useStoryblok(props?.story!!);
+  const story = useStoryblokState<PageAboutBlok>(props?.story);
 
   return (
     <Page>

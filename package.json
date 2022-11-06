@@ -16,6 +16,7 @@
     "@emotion/styled": "^11.8.1",
     "@fontsource/lato": "^4.5.10",
     "@fontsource/source-sans-pro": "^4.5.11",
+    "@storyblok/react": "^1.3.3",
     "axios": "^0.27.2",
     "dayjs": "^1.11.6",
     "emailjs-com": "^3.2.0",
