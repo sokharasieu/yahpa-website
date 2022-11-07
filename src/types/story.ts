@@ -54,6 +54,7 @@ export type PageLandingBlok = {
   event_description?: string;
   event_latest?: CardEventBlok[];
   sponsor_title?: string;
+  sponsor_description?: string;
   sponsors?: ListSponsorsBlok[];
   seo?: SeoBlok;
 };

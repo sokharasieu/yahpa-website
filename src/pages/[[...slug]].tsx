@@ -230,16 +230,18 @@ export default function Home(
               })
             )}
           </Wrap>
-        </Section>
+        </Section >
         
         <Section >
             <Heading fontSize={{ base: "2xl", xl: "3xl" }} >
                 {story?.content.sponsor_title}
             </Heading>
           {/* add small message */}
-          <Box  paddingLeft={20} paddingRight={20} >
-          
-          <SimpleGrid   padding={4} spacing={6} columns={{ base: 1, md: 2 }} >
+          <Text fontSize={{ base: "md", xl: "lg" }}>
+            {story?.content.sponsor_description}
+          </Text>
+           
+          <SimpleGrid   padding={4} spacing={6} columns={{ base: 1, md: 2 }} marginX={20}>
             {story.content.sponsors?.map((item) =>
               item.sponsors?.map((sponsors) => {
                 return (
@@ -256,7 +258,7 @@ export default function Home(
               })
             )}
           </SimpleGrid>
-          </Box>  
+          
         </Section>
       </Page>
     </>
