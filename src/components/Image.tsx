@@ -70,10 +70,12 @@ export default function Image({
         {...AspectRatioProps}
       >
         <NextImage
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{
+            objectFit: "cover",
+          }}
           src={src ?? "/images/logo_white.png"}
-          alt={alt}
+          alt={alt ?? ""}
           priority
         />
       </AspectRatio>
@@ -85,11 +87,13 @@ export default function Image({
       <>
         <Shimmer isLoading={loading} />
         <NextImage
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{
+            objectFit: "cover",
+          }}
           onLoadingComplete={() => setLoading(false)}
           src={src ?? "/images/logo_white.png"}
-          alt={alt}
+          alt={alt ?? ""}
         />
       </>
     </AspectRatio>

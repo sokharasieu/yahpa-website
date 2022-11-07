@@ -19,6 +19,7 @@ export default function Link({
   return (
     <NextLink href={props.href as string} passHref>
       <ChakraLink
+        as="span"
         display="inline-flex"
         alignItems="center"
         isExternal={isExternal}

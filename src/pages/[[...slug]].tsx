@@ -179,7 +179,7 @@ export default function Home(
             </Stack>
             <SimpleGrid spacing={6} columns={{ base: 1, lg: 2 }}>
               {story?.content?.option_items?.map((option) => (
-                <CardGoal key={option.title} {...option} />
+                <CardGoal key={option._uid} {...option} />
               ))}
             </SimpleGrid>
           </Stack>
