@@ -77,9 +77,19 @@ export default function About(
       >
         <Section.Inner borderRadius="lg" padding={4}>
           <Box>{RenderRichText(story.content.goals_text)}</Box>
-          <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={6} mt="2rem">
+          <SimpleGrid
+            columns={{ base: 1, lg: 2 }}
+            gridTemplateRows={"repeat(3,1fr)"}
+            gridAutoFlow={{ base: "row", lg: "column" }}
+            spacing={6}
+            mt="2rem"
+          >
             {story.content?.goals_table?.map((goal, index) => (
-              <HStack key={goal._uid} alignItems="baseline">
+              <HStack
+                key={goal._uid}
+                alignItems="baseline"
+                css={{ float: "left" }}
+              >
                 <Heading fontSize="xl" as="span">
                   {index + 1}.
                 </Heading>
