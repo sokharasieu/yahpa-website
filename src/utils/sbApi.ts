@@ -1,5 +1,5 @@
 import { StoryParams } from "@storyblok/react";
-import { PageAboutStory, PageLandingBlok } from "types/story";
+import { PageAboutStory, PageLandingBlok, PageLandingStory } from "types/story";
 import { storyblokApi } from "./storyblok";
 
 type sbLinkObject = {
@@ -44,7 +44,7 @@ export async function getHomeV2(params?: StoryParams) {
       resolve_relations: "card_event.events,list_members.members",
     });
 
-    const story = data.story as PageLandingBlok;
+    const story = data.story as PageLandingStory;
 
     return story;
   } catch (error) {

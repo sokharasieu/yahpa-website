@@ -1,9 +1,7 @@
 import {
   Avatar,
-  Box,
   Button,
   Collapse,
-  Container,
   Flex,
   Heading,
   SimpleGrid,
@@ -12,6 +10,7 @@ import {
   Wrap,
   WrapItem,
 } from "@chakra-ui/react";
+import { useStoryblokState } from "@storyblok/react";
 import CardGoal from "components/CardGoal";
 import Hero from "components/Hero";
 import LatestNews from "components/LatestEvents";
@@ -28,13 +27,14 @@ import {
 } from "next";
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { getHome, getStoriesPaths } from "utils/api";
-import { useStoryblok } from "utils/storyblokClient";
+import { PageLandingBlok } from "types/story";
+import { getStoriesPaths } from "utils/api";
+import { getHomeV2 } from "utils/sbApi";
 
 const LazyVideoEmbed = dynamic(() => import("components/VideoEmbed"));
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const story = await getHome({
+  const story = await getHomeV2({
     language: context.locale,
   });
 
@@ -66,7 +66,8 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
 export default function Home(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const story = useStoryblok(props?.story!!);
+  const story = useStoryblokState(props?.story);
+
   const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false);
   const { t } = useTranslation();
 
@@ -92,7 +93,6 @@ export default function Home(
             subtitle={story.content.description}
           />
         </Section>
-
         <Section.Parallax backgroundImageUrl={"/images/bg.jpg"}>
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}
