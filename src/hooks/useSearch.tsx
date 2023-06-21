@@ -1,16 +1,15 @@
-import { useRouter } from "next/router";
-import useSWR from "swr";
-import { getSearch } from "utils/api";
+import { useRouter } from 'next/router'
+import useSWR from 'swr'
+import { getSearch } from 'utils/api'
 
 export default function useSearch(searchTerm: string, language?: string) {
-  const router = useRouter();
-  const { locale } = router;
+  const router = useRouter()
+  const { locale } = router
   const { data } = useSWR(
-    ["getSearch", searchTerm, language, locale],
-    ([_key, search_term, language, locale]) => {
-      console.log("search_term", search_term);
+    ['getSearch', searchTerm, language, locale],
+    ([, search_term, language, locale]) => {
       return getSearch({
-        starts_with: "registry",
+        starts_with: 'registry',
         search_term: search_term,
         language: locale,
         filter_query: {
@@ -18,8 +17,8 @@ export default function useSearch(searchTerm: string, language?: string) {
             in_array: language,
           },
         },
-      });
+      })
     }
-  );
-  return { data };
+  )
+  return { data }
 }

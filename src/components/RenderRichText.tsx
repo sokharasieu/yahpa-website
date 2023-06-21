@@ -1,13 +1,13 @@
-import { Box, Heading, ListItem, Text, UnorderedList } from "@chakra-ui/react";
+import { Box, Heading, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 import {
   render,
   RenderOptionsProps,
-} from "storyblok-rich-text-react-renderer-ts";
+} from 'storyblok-rich-text-react-renderer-ts'
 
 export const StoryblokResolvers: RenderOptionsProps = {
   nodeResolvers: {
     paragraph: (children) => (
-      <Text fontSize={{ base: "md", xl: "lg" }} mb={6}>
+      <Text fontSize={{ base: 'md', xl: 'lg' }} mb={6}>
         {children}
       </Text>
     ),
@@ -15,19 +15,19 @@ export const StoryblokResolvers: RenderOptionsProps = {
       return (
         <Heading
           mb={3}
-          fontSize={{ base: "2xl", lg: "3xl" }}
+          fontSize={{ base: '2xl', lg: '3xl' }}
           fontWeight="bold"
           as={`h${attrs.level}`}
         >
           {children}
         </Heading>
-      );
+      )
     },
     bullet_list: (children) => (
       <UnorderedList spacing={3}>{children}</UnorderedList>
     ),
     list_item: (children) => {
-      return <ListItem sx={{ p: { marginBottom: 0 } }}>{children}</ListItem>;
+      return <ListItem sx={{ p: { marginBottom: 0 } }}>{children}</ListItem>
     },
   },
   blokResolvers: {
@@ -47,8 +47,8 @@ export const StoryblokResolvers: RenderOptionsProps = {
       No blok resolver found for {name}
     </Text>
   ),
-};
+}
 
 export default function RenderRichText(document: any) {
-  return render(document, StoryblokResolvers);
+  return render(document, StoryblokResolvers)
 }

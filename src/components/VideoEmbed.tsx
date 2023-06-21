@@ -1,18 +1,18 @@
-import { AspectRatio, AspectRatioProps, Box } from "@chakra-ui/react";
-import { useState } from "react";
-import { Shimmer } from "./Image";
+import { AspectRatio, AspectRatioProps, Box } from '@chakra-ui/react'
+import { useState } from 'react'
+import { Shimmer } from './Image'
 
 type VideoEmbedProps = {
-  url: string;
-  title?: string;
-} & AspectRatioProps;
+  url: string
+  title?: string
+} & AspectRatioProps
 
 export default function VideoEmbed({
   url,
   title,
   ...aspectRatioProps
 }: VideoEmbedProps) {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true)
   return (
     <AspectRatio
       ratio={4 / 3}
@@ -35,5 +35,5 @@ export default function VideoEmbed({
         />
       </>
     </AspectRatio>
-  );
+  )
 }

@@ -1,28 +1,30 @@
-import { Box, Flex, useBreakpoint } from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import isDev from "utils/isDev";
-import Footer from "./Footer";
-import Header from "./Header";
-import { useState, useEffect } from "react";
+import { Box, Flex, useBreakpoint } from '@chakra-ui/react'
+import { useRouter } from 'next/router'
+import isDev from 'utils/isDev'
+import Footer from './Footer'
+import Header from './Header'
+import { useState, useEffect } from 'react'
 
-export default function Layout({ children }: React.PropsWithChildren<{}>) {
-  const currentBreakpoint = useBreakpoint();
-  const router = useRouter();
+export default function Layout({
+  children,
+}: React.PropsWithChildren<Record<never, never>>) {
+  const currentBreakpoint = useBreakpoint()
+  const router = useRouter()
 
-  const [isSSR, setIsSSR] = useState(true);
+  const [isSSR, setIsSSR] = useState(true)
 
   useEffect(() => {
-    setIsSSR(false);
-  }, []);
+    setIsSSR(false)
+  }, [])
 
   return (
     <Flex
       sx={{
-        flexDirection: "column",
-        minHeight: "100vh",
-        display: "flex",
+        flexDirection: 'column',
+        minHeight: '100vh',
+        display: 'flex',
         //Arial is the most well read font for Vietnamese characters
-        fontFamily: router.locale === "vi" ? "Arial" : undefined,
+        fontFamily: router.locale === 'vi' ? 'Arial' : undefined,
       }}
     >
       <Header />
@@ -43,9 +45,9 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
           borderRadius="md"
           color="white"
           sx={{
-            position: "fixed",
-            left: "0.5rem",
-            bottom: "0.5rem",
+            position: 'fixed',
+            left: '0.5rem',
+            bottom: '0.5rem',
             zIndex: 999,
           }}
         >
@@ -53,5 +55,5 @@ export default function Layout({ children }: React.PropsWithChildren<{}>) {
         </Box>
       )}
     </Flex>
-  );
+  )
 }

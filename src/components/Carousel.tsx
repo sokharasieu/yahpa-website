@@ -6,81 +6,82 @@ import {
   IconButton,
   IconButtonProps,
   useMediaQuery,
-} from "@chakra-ui/react";
-import React, { useCallback, useEffect, useState } from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+} from '@chakra-ui/react'
+import React, { useCallback, useEffect, useState } from 'react'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 function ButtonNavigation({
-  children,
   ...props
 }: React.PropsWithChildren<IconButtonProps>) {
   return (
     <IconButton
       bg="blackAlpha.500"
       _hover={{
-        background: "blackAlpha.600",
+        background: 'blackAlpha.600',
       }}
       _active={{
-        background: "blackAlpha.700",
+        background: 'blackAlpha.700',
       }}
       color="white"
       position="absolute"
-      top={{ base: "50%" }}
-      height={{ base: "auto" }}
+      top={{ base: '50%' }}
+      height={{ base: 'auto' }}
       p={8}
       zIndex={10}
       {...props}
     />
-  );
+  )
 }
 
-export default function Carousel({ children }: React.PropsWithChildren<{}>) {
-  const [isMobile] = useMediaQuery("(max-width: 768px)");
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [showNavigation, setShowNavigation] = useState(false);
-  const [autoSlide, setAutoSlide] = useState(true);
-  const slidesCount = React.Children.count(children);
+export default function Carousel({
+  children,
+}: React.PropsWithChildren<Record<never, never>>) {
+  const [isMobile] = useMediaQuery('(max-width: 768px)')
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [showNavigation, setShowNavigation] = useState(false)
+  const [autoSlide, setAutoSlide] = useState(true)
+  const slidesCount = React.Children.count(children)
 
-  const SLIDES_INTERVAL_TIME = 3000;
+  const SLIDES_INTERVAL_TIME = 3000
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide((s) => (s === 0 ? slidesCount - 1 : s - 1));
-  }, [slidesCount]);
+    setCurrentSlide((s) => (s === 0 ? slidesCount - 1 : s - 1))
+  }, [slidesCount])
 
   const nextSlide = useCallback(() => {
-    setCurrentSlide((s) => (s === slidesCount - 1 ? 0 : s + 1));
-  }, [slidesCount]);
+    setCurrentSlide((s) => (s === slidesCount - 1 ? 0 : s + 1))
+  }, [slidesCount])
 
   const setSlide = (slide: number) => {
-    setCurrentSlide(slide);
-  };
+    setCurrentSlide(slide)
+  }
 
   // automatically shows the navigation buttons on mobile
   useEffect(() => {
     if (isMobile) {
-      setShowNavigation(true);
+      setShowNavigation(true)
     } else {
-      setShowNavigation(false);
+      setShowNavigation(false)
     }
-  }, [isMobile]);
+  }, [isMobile])
 
   // automatically change slides
   useEffect(() => {
     const automatedSlide = setInterval(() => {
-      autoSlide ? nextSlide() : null;
-    }, SLIDES_INTERVAL_TIME);
+      autoSlide ? nextSlide() : null
+    }, SLIDES_INTERVAL_TIME)
 
-    return () => clearInterval(automatedSlide);
-  }, [slidesCount, nextSlide, autoSlide]);
+    return () => clearInterval(automatedSlide)
+  }, [slidesCount, nextSlide, autoSlide])
 
   const onMouseEnterHandler = () => {
-    !isMobile && setShowNavigation(true);
-    setAutoSlide(false);
-  };
+    !isMobile && setShowNavigation(true)
+    setAutoSlide(false)
+  }
   const onMouseLeaveHandler = () => {
-    !isMobile && setShowNavigation(false);
-    setAutoSlide(true);
-  };
+    !isMobile && setShowNavigation(false)
+    setAutoSlide(true)
+  }
 
   return (
     <Flex
@@ -115,7 +116,7 @@ export default function Carousel({ children }: React.PropsWithChildren<{}>) {
         w="full"
         position="relative"
         overflow="hidden"
-        borderRadius={{ base: "none", lg: "xl" }}
+        borderRadius={{ base: 'none', lg: 'xl' }}
       >
         <Flex
           h="500px" //TODO: height might need to be predefined in a config file
@@ -133,21 +134,21 @@ export default function Carousel({ children }: React.PropsWithChildren<{}>) {
           <Box
             key={`dots-${slide}`}
             cursor="pointer"
-            boxSize={["7px", null, "15px"]}
+            boxSize={['7px', null, '15px']}
             m="0 2px"
-            bg={currentSlide === slide ? "primary.800" : "primary.500"}
+            bg={currentSlide === slide ? 'primary.800' : 'primary.500'}
             rounded="50%"
             display="inline-block"
             transition="background-color 0.6s ease"
             _hover={{
-              bg: "primary.800",
+              bg: 'primary.800',
             }}
             onClick={() => setSlide(slide)}
           />
         ))}
       </HStack>
     </Flex>
-  );
+  )
 }
 
 Carousel.Item = function CarouselItem({
@@ -158,5 +159,5 @@ Carousel.Item = function CarouselItem({
     <Flex boxSize="full" flex="none" {...props}>
       {children}
     </Flex>
-  );
-};
+  )
+}

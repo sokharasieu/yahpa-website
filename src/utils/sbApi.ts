@@ -1,70 +1,70 @@
-import { StoryParams } from "@storyblok/react";
-import { PageAboutStory, PageLandingBlok, PageLandingStory } from "types/story";
-import { storyblokApi } from "./storyblok";
+import { StoryParams } from '@storyblok/react'
+import { PageAboutStory, PageLandingStory } from 'types/story'
+import { storyblokApi } from './storyblok'
 
 type sbLinkObject = {
-  id: number;
-  slug?: string;
-  name: string;
-  is_folder: boolean;
-  parent_id: number;
-  published: boolean;
-  path?: string;
-  uuid: string;
-  is_startpage: boolean;
-  real_path: string;
-};
+  id: number
+  slug?: string
+  name: string
+  is_folder: boolean
+  parent_id: number
+  published: boolean
+  path?: string
+  uuid: string
+  is_startpage: boolean
+  real_path: string
+}
 
 type sbLinksResult = {
   links: {
-    [key in string]: sbLinkObject;
-  };
-};
+    [key in string]: sbLinkObject
+  }
+}
 
 export type LinkPath = {
   params: {
-    slug: string[];
-  };
-};
+    slug: string[]
+  }
+}
 
 export type LinkParams = {
-  starts_with?: string;
-};
+  starts_with?: string
+}
 
 const defaultParams: Partial<StoryParams> = {
-  version: "published",
+  version: 'published',
   cv: Date.now(),
-};
+}
 
 export async function getHomeV2(params?: StoryParams) {
   try {
-    const { data } = await storyblokApi.getStory("home", {
+    const { data } = await storyblokApi.getStory('home', {
       ...defaultParams,
       ...params,
-      resolve_relations: "card_event.events,list_members.members",
-    });
+      resolve_relations: 'card_event.events,list_members.members',
+    })
 
-    const story = data.story as PageLandingStory;
+    const story = data.story as PageLandingStory
 
-    return story;
+    return story
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 
 export async function getAboutV2(params?: StoryParams) {
   try {
-    const { data } = await storyblokApi.getStory("about", {
+    const { data } = await storyblokApi.getStory('about', {
       ...defaultParams,
       ...params,
-      resolve_relations: "list_members.members",
-    });
+      resolve_relations: 'list_members.members',
+    })
 
-    const story = data.story as PageAboutStory;
+    const story = data.story as PageAboutStory
 
-    return story;
+    return story
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
 
@@ -72,10 +72,10 @@ export async function getStoriesPathsV2(
   params?: LinkParams,
   locales?: string[]
 ) {
-  const { data } = await storyblokApi.get("cdn/links", params);
-  const links = data.links as sbLinksResult["links"];
+  const { data } = await storyblokApi.get('cdn/links', params)
+  const links = data.links as sbLinksResult['links']
 
-  let paths: LinkPath[] = [];
+  const paths: LinkPath[] = []
 
   if (locales) {
     for (const locale of locales) {
@@ -86,11 +86,11 @@ export async function getStoriesPathsV2(
               slug: [locale],
               locale,
             },
-          };
-          paths.push(result);
+          }
+          paths.push(result)
         }
-      });
+      })
     }
   }
-  return paths;
+  return paths
 }

@@ -1,5 +1,5 @@
-import { apiPlugin, getStoryblokApi, storyblokInit } from "@storyblok/react";
-import isDev from "./isDev";
+import { apiPlugin, getStoryblokApi, storyblokInit } from '@storyblok/react'
+import isDev from './isDev'
 
 storyblokInit({
   accessToken: isDev()
@@ -7,6 +7,6 @@ storyblokInit({
     : process.env.storyblokAcessToken,
   bridge: true,
   use: [apiPlugin],
-});
+})
 
-export const storyblokApi = getStoryblokApi();
+export const storyblokApi = getStoryblokApi()
