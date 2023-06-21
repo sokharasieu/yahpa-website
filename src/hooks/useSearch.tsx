@@ -7,17 +7,19 @@ export default function useSearch(searchTerm: string, language?: string) {
   const { locale } = router;
   const { data } = useSWR(
     ["getSearch", searchTerm, language, locale],
-    (_, search_term) =>
-      getSearch({
+    ([_key, search_term, language, locale]) => {
+      console.log("search_term", search_term);
+      return getSearch({
         starts_with: "registry",
-        search_term,
+        search_term: search_term,
         language: locale,
         filter_query: {
           languages: {
             in_array: language,
           },
         },
-      })
+      });
+    }
   );
   return { data };
 }
