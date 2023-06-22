@@ -41,7 +41,8 @@ export async function getHomeV2(params?: StoryParams) {
     const { data } = await storyblokApi.getStory('home', {
       ...defaultParams,
       ...params,
-      resolve_relations: 'card_event.events,list_members.members',
+      resolve_relations:
+        'card_event.events,list_members.members,list_sponsors.sponsors',
     })
 
     const story = data.story as PageLandingStory
