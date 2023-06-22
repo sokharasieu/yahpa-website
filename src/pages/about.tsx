@@ -1,27 +1,27 @@
-import { Box, Heading, HStack, SimpleGrid, Text } from "@chakra-ui/react";
-import { useStoryblokState } from "@storyblok/react";
-import CardMember from "components/CardMember";
-import Image from "components/Image";
-import Page from "components/Page";
-import PageTitle from "components/PageTitle";
-import RenderRichText from "components/RenderRichText";
-import Section from "components/Section";
-import SEO from "components/SEO";
-import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-import { PageAboutBlok } from "types/story";
-import { getAboutV2 } from "utils/sbApi";
+import { Box, Heading, HStack, SimpleGrid, Text } from '@chakra-ui/react'
+import { useStoryblokState } from '@storyblok/react'
+import CardMember from 'components/CardMember'
+import Image from 'components/Image'
+import Page from 'components/Page'
+import PageTitle from 'components/PageTitle'
+import RenderRichText from 'components/RenderRichText'
+import Section from 'components/Section'
+import SEO from 'components/SEO'
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { PageAboutBlok } from 'types/story'
+import { getAboutV2 } from 'utils/sbApi'
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const story = await getAboutV2({
     language: context.locale,
-  });
+  })
 
   //because of [[...slug]] its hard to catch 404s i.e. /fr/this-is-not-real
   if (context?.params?.slug) {
     return {
       props: {},
       notFound: true,
-    };
+    }
   }
 
   return {
@@ -30,13 +30,13 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       locale: context.locale,
     },
     revalidate: 60 * 60,
-  };
+  }
 }
 
 export default function About(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const story = useStoryblokState<PageAboutBlok>(props?.story);
+  const story = useStoryblokState<PageAboutBlok>(props?.story)
 
   return (
     <Page>
@@ -63,7 +63,7 @@ export default function About(
               ratio={16 / 9}
               priority
               src={
-                story.content.mission_image?.filename ?? "/images/image2.jpg"
+                story.content.mission_image?.filename ?? '/images/image2.jpg'
               }
               alt={story.content.mission_image?.name}
             />
@@ -72,15 +72,15 @@ export default function About(
       </Section>
       <Section.Outer
         bg="gray.700"
-        paddingBottom={{ base: "8rem", md: "5rem" }}
+        paddingBottom={{ base: '8rem', md: '5rem' }}
         color="whiteAlpha.900"
       >
         <Section.Inner borderRadius="lg" padding={4}>
           <Box>{RenderRichText(story.content.goals_text)}</Box>
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}
-            gridTemplateRows={"repeat(3,1fr)"}
-            gridAutoFlow={{ base: "row", lg: "column" }}
+            gridTemplateRows={'repeat(3,1fr)'}
+            gridAutoFlow={{ base: 'row', lg: 'column' }}
             spacing={6}
             mt="2rem"
           >
@@ -88,19 +88,19 @@ export default function About(
               <HStack
                 key={goal._uid}
                 alignItems="baseline"
-                css={{ float: "left" }}
+                css={{ float: 'left' }}
               >
                 <Heading fontSize="xl" as="span">
                   {index + 1}.
                 </Heading>
-                <Text fontSize={{ base: "md", xl: "lg" }}>{goal.text}</Text>
+                <Text fontSize={{ base: 'md', xl: 'lg' }}>{goal.text}</Text>
               </HStack>
             ))}
           </SimpleGrid>
         </Section.Inner>
       </Section.Outer>
       <Section>
-        <Box marginTop={{ base: "-8rem", md: 0 }}>
+        <Box marginTop={{ base: '-8rem', md: 0 }}>
           <SimpleGrid
             spacing={8}
             columns={{ base: 1, md: 2 }}
@@ -112,7 +112,7 @@ export default function About(
                 boxShadow="md"
                 ratio={4 / 3}
                 src={
-                  story.content.values_image?.filename ?? "/images/image2.jpg"
+                  story.content.values_image?.filename ?? '/images/image2.jpg'
                 }
                 alt={story.content.values_image?.name}
               />
@@ -126,38 +126,38 @@ export default function About(
       <Section.Parallax backgroundImageUrl="/images/bg2.jpg">
         <Heading
           color="white"
-          fontSize={{ base: "2xl", lg: "3xl" }}
+          fontSize={{ base: '2xl', lg: '3xl' }}
           width="fit-content"
           _after={{
             content: "' '",
-            backgroundColor: "primary.500",
-            width: "100%",
+            backgroundColor: 'primary.500',
+            width: '100%',
             height: 1,
-            borderRadius: "md",
-            display: "block",
+            borderRadius: 'md',
+            display: 'block',
           }}
         >
           {story.content.members_title}
         </Heading>
       </Section.Parallax>
       <Section
-        paddingTop={{ base: "2rem", lg: "3rem" }}
-        paddingBottom={{ base: "2rem", lg: "3rem" }}
+        paddingTop={{ base: '2rem', lg: '3rem' }}
+        paddingBottom={{ base: '2rem', lg: '3rem' }}
       >
         <SimpleGrid
           spacing={{ base: 5 }}
           gridTemplateColumns={{
-            base: "repeat(1, 1fr)",
-            lg: "repeat(2,1fr)",
+            base: 'repeat(1, 1fr)',
+            lg: 'repeat(2,1fr)',
           }}
         >
           {story.content.members?.map((item) =>
             item.members?.map((member) => {
-              return <CardMember key={member.id} member={member} />;
+              return <CardMember key={member.id} member={member} />
             })
           )}
         </SimpleGrid>
       </Section>
     </Page>
-  );
+  )
 }

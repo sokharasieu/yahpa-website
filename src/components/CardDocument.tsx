@@ -1,26 +1,26 @@
-import { Box, Icon, Link, Select, Stack, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { FiDownload } from "react-icons/fi";
-import { DocumentCovidBlok } from "types/story";
-import useTranslation from "../hooks/useTranslation";
-import RenderRichText from "./RenderRichText";
-import Time from "./Time";
+import { Box, Icon, Link, Select, Stack, Text } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
+import { FiDownload } from 'react-icons/fi'
+import { DocumentCovidBlok } from 'types/story'
+import useTranslation from '../hooks/useTranslation'
+import RenderRichText from './RenderRichText'
+import Time from './Time'
 
 type CardDocumentProps = {
-  document: DocumentCovidBlok;
-};
+  document: DocumentCovidBlok
+}
 
 export default function CardDocument({ document }: CardDocumentProps) {
-  const [selectedLanguage, setSelectedLanguage] = useState("");
-  const [linkToFile, setLinkToFile] = useState("");
-  const { t } = useTranslation();
+  const [selectedLanguage, setSelectedLanguage] = useState('')
+  const [linkToFile, setLinkToFile] = useState('')
+  const { t } = useTranslation()
 
   useEffect(() => {
     const selectedDocument = document.documents?.find(
       (doc) => doc.title === selectedLanguage
-    );
-    setLinkToFile(selectedDocument?.filename ?? "");
-  }, [selectedLanguage, document.documents]);
+    )
+    setLinkToFile(selectedDocument?.filename ?? '')
+  }, [selectedLanguage, document.documents])
 
   return (
     <Stack
@@ -34,7 +34,7 @@ export default function CardDocument({ document }: CardDocumentProps) {
         <Time
           fontSize="sm"
           fontWeight={400}
-          text={t("updated_on")}
+          text={t('updated_on')}
           time={document?.date_updated as Date}
           fontStyle="italic"
         />
@@ -42,10 +42,10 @@ export default function CardDocument({ document }: CardDocumentProps) {
       </Stack>
       {/* For English, we present all document versions */}
       {document.documents && document.documents?.length >= 3 ? (
-        <Stack direction={{ base: "column", sm: "row" }}>
+        <Stack direction={{ base: 'column', sm: 'row' }}>
           <Select
             placeholder="Select your language"
-            width={{ base: "full", sm: "max-content" }}
+            width={{ base: 'full', sm: 'max-content' }}
             onChange={(e) => setSelectedLanguage(e.target.value)}
           >
             {document.documents?.map((file) => (
@@ -61,9 +61,9 @@ export default function CardDocument({ document }: CardDocumentProps) {
             textAlign="center"
             borderRadius="md"
             _hover={{
-              textDecoration: "none",
-              backgroundColor: selectedLanguage ? "primary.200" : "primary.100",
-              cursor: selectedLanguage ? "pointer" : "default",
+              textDecoration: 'none',
+              backgroundColor: selectedLanguage ? 'primary.200' : 'primary.100',
+              cursor: selectedLanguage ? 'pointer' : 'default',
             }}
             sx={{
               opacity: selectedLanguage ? 1 : 0.5,
@@ -87,8 +87,8 @@ export default function CardDocument({ document }: CardDocumentProps) {
               alignItems="center"
               width="max-content"
               _hover={{
-                textDecoration: "none",
-                backgroundColor: "primary.200",
+                textDecoration: 'none',
+                backgroundColor: 'primary.200',
               }}
               key={file.id}
               href={file.filename}
@@ -102,5 +102,5 @@ export default function CardDocument({ document }: CardDocumentProps) {
         </Stack>
       )}
     </Stack>
-  );
+  )
 }

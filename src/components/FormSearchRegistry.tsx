@@ -7,59 +7,59 @@ import {
   Spinner,
   Stack,
   Text,
-} from "@chakra-ui/react";
-import useDebounce from "hooks/useDebounce";
-import useSearch from "hooks/useSearch";
-import useTranslation from "hooks/useTranslation";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { FiSearch } from "react-icons/fi";
-import CardSearchResult from "./CardSearchResult";
+} from '@chakra-ui/react'
+import useDebounce from 'hooks/useDebounce'
+import useSearch from 'hooks/useSearch'
+import useTranslation from 'hooks/useTranslation'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { FiSearch } from 'react-icons/fi'
+import CardSearchResult from './CardSearchResult'
 
 type SearchInputForm = {
-  value: string;
-};
+  value: string
+}
 
 export default function FormSearchRegistry() {
-  const router = useRouter();
-  const [searchTerm, setSearchTerm] = useState("");
-  const debouncedTerm = useDebounce(searchTerm, 200);
-  const { data } = useSearch(debouncedTerm, "");
-  const { t } = useTranslation();
+  const router = useRouter()
+  const [searchTerm, setSearchTerm] = useState('')
+  const debouncedTerm = useDebounce(searchTerm, 200)
+  const { data } = useSearch(debouncedTerm, '')
+  const { t } = useTranslation()
 
   const {
     handleSubmit,
     register,
     reset,
     setValue: setSearchDefaultValue,
-  } = useForm<SearchInputForm>();
+  } = useForm<SearchInputForm>()
 
   const handleReset = () => {
-    reset();
-    setSearchTerm("");
+    reset()
+    setSearchTerm('')
     router.replace(
       {
         pathname: router.pathname,
       },
       undefined,
       { shallow: true }
-    );
-  };
+    )
+  }
 
   const onSubmit = async ({ value }: SearchInputForm) => {
-    setSearchTerm(value);
-    router.query.term = value;
-    router.push(router);
-  };
+    setSearchTerm(value)
+    router.query.term = value
+    router.push(router)
+  }
 
   useEffect(() => {
     if (router.query.term) {
-      setSearchTerm(router.query.term as string);
-      setSearchDefaultValue("value", router.query.term as string);
+      setSearchTerm(router.query.term as string)
+      setSearchDefaultValue('value', router.query.term as string)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.query]);
+  }, [router.query])
 
   return (
     <>
@@ -68,7 +68,7 @@ export default function FormSearchRegistry() {
         justifyContent="center"
         alignItems="center"
         direction="row"
-        width={{ base: "100%", md: "80%" }}
+        width={{ base: '100%', md: '80%' }}
         mx="auto"
         onChange={handleSubmit(onSubmit)}
         bg="gray.100"
@@ -78,9 +78,9 @@ export default function FormSearchRegistry() {
       >
         <Icon as={FiSearch} w={22} h={22} />
         <Input
-          placeholder={t("registry_search_placeholder")}
+          placeholder={t('registry_search_placeholder')}
           bg="white"
-          {...register("value")}
+          {...register('value')}
         />
         {debouncedTerm.length > 2 && (
           <Button colorScheme="red" onClick={handleReset}>
@@ -97,7 +97,7 @@ export default function FormSearchRegistry() {
           )}
           {data?.totalResults && (
             <Text fontSize="2xl" fontWeight="bold" my={2}>
-              {data?.totalResults} {t("results_found")}
+              {data?.totalResults} {t('results_found')}
             </Text>
           )}
           <SimpleGrid spacing={6} columns={1}>
@@ -107,7 +107,7 @@ export default function FormSearchRegistry() {
             {data?.stories.length === 0 && (
               <Stack flexDirection="row" justifyContent="center" paddingY={12}>
                 <Text fontSize="2xl" fontWeight="bold">
-                  {t("results_not_found")}
+                  {t('results_not_found')}
                 </Text>
               </Stack>
             )}
@@ -115,5 +115,5 @@ export default function FormSearchRegistry() {
         </Stack>
       </Stack>
     </>
-  );
+  )
 }

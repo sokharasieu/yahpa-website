@@ -1,10 +1,8 @@
 import {
-  AspectRatio,
   Avatar,
   Box,
   Button,
   Collapse,
-  Container,
   Flex,
   Heading,
   SimpleGrid,
@@ -12,40 +10,41 @@ import {
   Text,
   Wrap,
   WrapItem,
-} from "@chakra-ui/react";
-import CardGoal from "components/CardGoal";
-import Hero from "components/Hero";
-import LatestNews from "components/LatestEvents";
-import Link from "components/Link";
-import Page from "components/Page";
-import RenderRichText from "components/RenderRichText";
-import Section from "components/Section";
-import SEO from "components/SEO";
-import Image from "components/Image"
-import useTranslation from "hooks/useTranslation";
+} from '@chakra-ui/react'
+import { useStoryblokState } from '@storyblok/react'
+import CardGoal from 'components/CardGoal'
+import Hero from 'components/Hero'
+import Image from 'components/Image'
+import LatestNews from 'components/LatestEvents'
+import Link from 'components/Link'
+import Page from 'components/Page'
+import RenderRichText from 'components/RenderRichText'
+import SEO from 'components/SEO'
+import Section from 'components/Section'
+import useTranslation from 'hooks/useTranslation'
 import {
   GetStaticPathsContext,
   GetStaticPropsContext,
   InferGetStaticPropsType,
-} from "next";
-import dynamic from "next/dynamic";
-import { useState } from "react";
-import { getHome, getStoriesPaths } from "utils/api";
-import { useStoryblok } from "utils/storyblokClient";
+} from 'next'
+import dynamic from 'next/dynamic'
+import { useState } from 'react'
+import { getStoriesPaths } from 'utils/api'
+import { getHomeV2 } from 'utils/sbApi'
 
-const LazyVideoEmbed = dynamic(() => import("components/VideoEmbed"));
+const LazyVideoEmbed = dynamic(() => import('components/VideoEmbed'))
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const story = await getHome({
+  const story = await getHomeV2({
     language: context.locale,
-  });
+  })
 
   //because of [[...slug]] its hard to catch 404s i.e. /fr/this-is-not-real
   if (context?.params?.slug) {
     return {
       props: {},
       notFound: true,
-    };
+    }
   }
 
   return {
@@ -54,33 +53,34 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       locale: context.locale,
     },
     revalidate: 60 * 60,
-  };
+  }
 }
 
 export async function getStaticPaths({ locales }: GetStaticPathsContext) {
-  const paths = await getStoriesPaths({ starts_with: "home" }, locales);
+  const paths = await getStoriesPaths({ starts_with: 'home' }, locales)
   return {
     paths,
-    fallback: "blocking",
-  };
+    fallback: 'blocking',
+  }
 }
 
 export default function Home(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const story = useStoryblok(props?.story!!);
-  const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false);
-  const { t } = useTranslation();
+  const story = useStoryblokState(props?.story)
 
-  const openFormLinks = () => setShowRegisterForm(!showRegisterForm);
+  const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false)
+  const { t } = useTranslation()
+
+  const openFormLinks = () => setShowRegisterForm(!showRegisterForm)
 
   const sortedEvents = story.content.event_latest?.[0].events?.sort((a, b) => {
     if (a.content?.date && b.content?.date) {
-      return +new Date(b.content?.date) - +new Date(a.content?.date);
+      return +new Date(b.content?.date) - +new Date(a.content?.date)
     } else {
-      return 0;
+      return 0
     }
-  });
+  })
 
   return (
     <>
@@ -88,14 +88,13 @@ export default function Home(
       <Page>
         <Section bgGradient="linear(145deg, primary.100 20%, primary.200 50%, primary.300 70%, primary.400 100%)">
           <Hero
-            src={story.content.image?.filename ?? "/images/image2.jpg"}
+            src={story.content.image?.filename ?? '/images/image2.jpg'}
             alt={story.content.image?.name}
             title={story.content.title}
             subtitle={story.content.description}
           />
         </Section>
-
-        <Section.Parallax backgroundImageUrl={"/images/bg.jpg"}>
+        <Section.Parallax backgroundImageUrl={'/images/bg.jpg'}>
           <SimpleGrid
             columns={{ base: 1, lg: 2 }}
             templateRows="auto"
@@ -118,14 +117,14 @@ export default function Home(
                     onClick={openFormLinks}
                     bg="primary.500"
                     fontWeight={400}
-                    _hover={{ bg: "primary.600" }}
+                    _hover={{ bg: 'primary.600' }}
                   >
-                    {t("register_cta")}
+                    {t('register_cta')}
                   </Button>
                 </Collapse>
               </Flex>
               <Collapse animateOpacity in={showRegisterForm} unmountOnExit>
-                <Flex justifyContent={{ base: "center", lg: "start" }}>
+                <Flex justifyContent={{ base: 'center', lg: 'start' }}>
                   <Stack spacing={4}>
                     {story.content.register_links?.map((item) => (
                       <Link
@@ -138,9 +137,9 @@ export default function Home(
                         textAlign="center"
                         justifyContent="center"
                         bg="orange.400"
-                        _hover={{ backgroundColor: "orange.500" }}
+                        _hover={{ backgroundColor: 'orange.500' }}
                         sx={{
-                          svg: { display: "none" },
+                          svg: { display: 'none' },
                         }}
                       >
                         {item.title}
@@ -152,16 +151,16 @@ export default function Home(
             </Stack>
             <LazyVideoEmbed
               title={story?.content.title}
-              url={story?.content.register_video_link?.url ?? ""}
+              url={story?.content.register_video_link?.url ?? ''}
             />
           </SimpleGrid>
         </Section.Parallax>
         <Section>
-          <Stack maxW={{ base: "xl", xl: "2xl" }}>
-            <Heading as="h2" fontSize={{ base: "2xl", xl: "3xl" }}>
+          <Stack maxW={{ base: 'xl', xl: '2xl' }}>
+            <Heading as="h2" fontSize={{ base: '2xl', xl: '3xl' }}>
               {story.content.event_title}
             </Heading>
-            <Text fontSize={{ base: "md", xl: "lg" }}>
+            <Text fontSize={{ base: 'md', xl: 'lg' }}>
               {story.content.event_description}
             </Text>
           </Stack>
@@ -169,11 +168,11 @@ export default function Home(
         </Section>
         <Section paddingTop={0} color="black">
           <Stack spacing={6}>
-            <Stack maxW={{ base: "xl", xl: "2xl" }}>
-              <Heading fontSize={{ base: "2xl", xl: "3xl" }}>
+            <Stack maxW={{ base: 'xl', xl: '2xl' }}>
+              <Heading fontSize={{ base: '2xl', xl: '3xl' }}>
                 {story?.content.option_title}
               </Heading>
-              <Text fontSize={{ base: "md", xl: "lg" }}>
+              <Text fontSize={{ base: 'md', xl: 'lg' }}>
                 {story?.content.option_description}
               </Text>
             </Stack>
@@ -185,11 +184,11 @@ export default function Home(
           </Stack>
         </Section>
         <Section bgGradient="linear(to-b, white 5%, primary.100 30%, primary.200 50%, primary.300)">
-          <Stack maxW={{ base: "xl", xl: "2xl" }} mb={5}>
-            <Heading as="h2" fontSize={{ base: "2xl", xl: "3xl" }}>
+          <Stack maxW={{ base: 'xl', xl: '2xl' }} mb={5}>
+            <Heading as="h2" fontSize={{ base: '2xl', xl: '3xl' }}>
               {story.content?.members_title}
             </Heading>
-            <Text fontSize={{ base: "md", xl: "lg" }}>
+            <Text fontSize={{ base: 'md', xl: 'lg' }}>
               {story?.content.members_description}
             </Text>
           </Stack>
@@ -197,8 +196,8 @@ export default function Home(
             position="relative"
             align="center"
             justify="center"
-            spacing={{ base: "-12px", md: 4, xl: 6 }}
-            maxW={{ base: "full", xl: "8xl" }}
+            spacing={{ base: '-12px', md: 4, xl: 6 }}
+            maxW={{ base: 'full', xl: '8xl' }}
           >
             {story.content.members?.map((item) =>
               item.members?.map((member) => {
@@ -208,10 +207,10 @@ export default function Home(
                       <Avatar
                         src={
                           member.content?.image?.filename ??
-                          "/images/image2.jpg"
+                          '/images/image2.jpg'
                         }
-                        width={{ base: "150px", md: "200px" }}
-                        height={{ base: "150px", md: "200px" }}
+                        width={{ base: '150px', md: '200px' }}
+                        height={{ base: '150px', md: '200px' }}
                       />
                       <Text
                         padding={1}
@@ -226,40 +225,41 @@ export default function Home(
                       </Text>
                     </Stack>
                   </WrapItem>
-                );
+                )
               })
             )}
           </Wrap>
         </Section>
-        
-        <Section >
-            <Heading fontSize={{ base: "2xl", xl: "3xl" }} >
-                {story?.content.sponsor_title}
-            </Heading>
+
+        <Section>
+          <Heading fontSize={{ base: '2xl', xl: '3xl' }}>
+            {story?.content.sponsor_title}
+          </Heading>
           {/* add small message */}
-          <Box  paddingLeft={20} paddingRight={20} >
-          
-          <SimpleGrid   padding={4} spacing={6} columns={{ base: 1, md: 2 }} >
-            {story.content.sponsors?.map((item) =>
-              item.sponsors?.map((sponsors) => {
-                return (
-                  <Box key={sponsors.id}  >
+          <Box paddingLeft={20} paddingRight={20}>
+            <SimpleGrid padding={4} spacing={6} columns={{ base: 1, md: 2 }}>
+              {story.content.sponsors?.map((item) =>
+                item.sponsors?.map((sponsors) => {
+                  return (
+                    <Box key={sponsors.id}>
                       <Image
                         src={
                           sponsors.content?.sponsor_logo?.filename ??
-                          "/images/image2.jpg"}
+                          '/images/image2.jpg'
+                        }
                         alt=""
-                        ratio = {3}
-                        width={"auto"}/>
-                  </Box>
-                );
-              })
-            )}
-          </SimpleGrid>
-          </Box>  
+                        ratio={3}
+                        width={'auto'}
+                      />
+                    </Box>
+                  )
+                })
+              )}
+            </SimpleGrid>
+          </Box>
         </Section>
       </Page>
     </>
-  );
+  )
 }
 //2819 × 949

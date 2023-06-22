@@ -1,11 +1,11 @@
-import { Box, Flex, Tag, Text } from "@chakra-ui/react";
-import useTranslation from "hooks/useTranslation";
-import type { Option } from "types/story";
-import Image from "./Image";
-import Link from "./Link";
+import { Box, Flex, Tag, Text } from '@chakra-ui/react'
+import useTranslation from 'hooks/useTranslation'
+import type { Option } from 'types/story'
+import Image from './Image'
+import Link from './Link'
 
 export default function CardGoal(props: Option) {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <Box
@@ -13,13 +13,13 @@ export default function CardGoal(props: Option) {
       overflow="hidden"
       _hover={{
         img: {
-          transform: "scale(1.1)",
-          transition: "transform 0.3s ease-in-out",
+          transform: 'scale(1.1)',
+          transition: 'transform 0.3s ease-in-out',
         },
       }}
     >
       <Image
-        src={props.image?.filename ?? ""}
+        src={props.image?.filename ?? ''}
         alt={props.image?.name}
         bg="white"
         borderRadius="md"
@@ -47,7 +47,7 @@ export default function CardGoal(props: Option) {
             width="fit-content"
             px={2}
             borderRadius="md"
-            fontSize={{ base: "xl" }}
+            fontSize={{ base: 'xl' }}
           >
             {props.title}
           </Text>
@@ -62,17 +62,17 @@ export default function CardGoal(props: Option) {
               fontWeight={600}
               bg="white"
               color="black"
-              _hover={{ bg: "gray.100" }}
+              _hover={{ bg: 'gray.100' }}
             >
               {props.call_to_action}
             </Link>
           ) : (
-            <Tag size="lg" colorScheme="red" variant={"solid"}>
-              {t("coming_soon")}
+            <Tag size="lg" colorScheme="red" variant={'solid'}>
+              {t('coming_soon')}
             </Tag>
           )}
         </Flex>
       </Flex>
     </Box>
-  );
+  )
 }

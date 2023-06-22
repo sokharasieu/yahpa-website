@@ -9,30 +9,30 @@ import {
   SimpleGrid,
   Stack,
   Text,
-} from "@chakra-ui/react";
-import CardDocument from "components/CardDocument";
-import Image from "components/Image";
-import Page from "components/Page";
-import PageTitle from "components/PageTitle";
-import RenderRichText from "components/RenderRichText";
-import Section from "components/Section";
-import SEO from "components/SEO";
-import { useReducedMotion } from "framer-motion";
-import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-import { getCovid } from "utils/api";
-import { useStoryblok } from "utils/storyblokClient";
+} from '@chakra-ui/react'
+import CardDocument from 'components/CardDocument'
+import Image from 'components/Image'
+import Page from 'components/Page'
+import PageTitle from 'components/PageTitle'
+import RenderRichText from 'components/RenderRichText'
+import Section from 'components/Section'
+import SEO from 'components/SEO'
+import { useReducedMotion } from 'framer-motion'
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { getCovid } from 'utils/api'
+import { useStoryblok } from 'utils/storyblokClient'
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const story = await getCovid({
     language: context.locale,
-  });
+  })
 
   //because of [[...slug]] its hard to catch 404s i.e. /fr/this-is-not-real
   if (context?.params?.slug) {
     return {
       props: {},
       notFound: true,
-    };
+    }
   }
 
   return {
@@ -41,14 +41,15 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       locale: context.locale,
     },
     revalidate: 60 * 60,
-  };
+  }
 }
 
 export default function CovidPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const story = useStoryblok(props?.story!!);
-  const shouldReduceMotion = useReducedMotion();
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
+  const story = useStoryblok(props?.story!)
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <Page>
@@ -74,7 +75,7 @@ export default function CovidPage(
               boxShadow="md"
               ratio={16 / 9}
               priority
-              src={story.content.page_image?.filename ?? "/images/image2.jpg"}
+              src={story.content.page_image?.filename ?? '/images/image2.jpg'}
               alt={story.content.page_image?.name}
             />
           </Box>
@@ -82,7 +83,7 @@ export default function CovidPage(
       </Section>
       <Section>
         <Stack mb={6}>
-          <Heading fontSize={{ base: "2xl", lg: "3xl" }}>
+          <Heading fontSize={{ base: '2xl', lg: '3xl' }}>
             {story.content.documents_title}
           </Heading>
         </Stack>
@@ -99,7 +100,7 @@ export default function CovidPage(
                   <h3>
                     <AccordionButton
                       py={3}
-                      color={isExpanded ? "primary.500" : "black"}
+                      color={isExpanded ? 'primary.500' : 'black'}
                     >
                       <Text flex={1} textAlign="left" fontSize="lg" as="h3">
                         {doc.title}
@@ -118,5 +119,5 @@ export default function CovidPage(
         </Accordion>
       </Section>
     </Page>
-  );
+  )
 }

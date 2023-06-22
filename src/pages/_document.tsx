@@ -1,6 +1,6 @@
-import { ColorModeScript } from "@chakra-ui/react";
-import NextDocument, { Head, Html, Main, NextScript } from "next/document";
-import isDev from "utils/isDev";
+import { ColorModeScript } from '@chakra-ui/react'
+import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
+import isDev from 'utils/isDev'
 
 export default class Document extends NextDocument {
   render() {
@@ -9,7 +9,7 @@ export default class Document extends NextDocument {
         <Head>
           <link
             rel="canonical"
-            href={isDev() ? "http://localhost:3000" : process.env.baseUrl}
+            href={isDev() ? 'http://localhost:3000' : process.env.baseUrl}
           />
           <meta name="robots" content="all" />
           <meta property="og:site_name" content={process.env.baseUrl} />
@@ -21,6 +21,6 @@ export default class Document extends NextDocument {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }

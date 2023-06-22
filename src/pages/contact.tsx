@@ -1,29 +1,29 @@
-import { Box, Center, Icon, Stack, Tooltip } from "@chakra-ui/react";
-import FormContact from "components/FormContact";
-import Link from "components/Link";
-import Page from "components/Page";
-import PageTitle from "components/PageTitle";
-import RenderRichText from "components/RenderRichText";
-import Section from "components/Section";
-import SEO from "components/SEO";
-import useTranslation from "hooks/useTranslation";
-import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-import React from "react";
-import { RiMessengerFill } from "react-icons/ri";
-import { getContact } from "utils/api";
-import { useStoryblok } from "utils/storyblokClient";
+import { Box, Center, Icon, Stack, Tooltip } from '@chakra-ui/react'
+import FormContact from 'components/FormContact'
+import Link from 'components/Link'
+import Page from 'components/Page'
+import PageTitle from 'components/PageTitle'
+import RenderRichText from 'components/RenderRichText'
+import Section from 'components/Section'
+import SEO from 'components/SEO'
+import useTranslation from 'hooks/useTranslation'
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import React from 'react'
+import { RiMessengerFill } from 'react-icons/ri'
+import { getContact } from 'utils/api'
+import { useStoryblok } from 'utils/storyblokClient'
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const story = await getContact({
     language: context.locale,
-  });
+  })
 
   //because of [[...slug]] its hard to catch 404s i.e. /fr/this-is-not-real
   if (context?.params?.slug) {
     return {
       props: {},
       notFound: true,
-    };
+    }
   }
 
   return {
@@ -32,11 +32,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       locale: context.locale,
     },
     revalidate: 60 * 60,
-  };
+  }
 }
 
 const FbChat = React.forwardRef(function renderShit(
-  { children, ...props }: React.ComponentPropsWithoutRef<typeof Link>,
+  { ...props }: React.ComponentPropsWithoutRef<typeof Link>,
   ref?: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
@@ -62,23 +62,24 @@ const FbChat = React.forwardRef(function renderShit(
         <Icon
           color="#006AFF"
           as={RiMessengerFill}
-          w={"3rem"}
-          h={"3rem"}
+          w={'3rem'}
+          h={'3rem'}
           _hover={{
-            transform: "scale(1.1)",
-            transition: "all 0.3s ease-in-out",
+            transform: 'scale(1.1)',
+            transition: 'all 0.3s ease-in-out',
           }}
         />
       </Center>
     </Link>
-  );
-});
+  )
+})
 
 export default function ContactPage(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const story = useStoryblok(props?.story!!);
-  const { t } = useTranslation();
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
+  const story = useStoryblok(props?.story!)
+  const { t } = useTranslation()
   return (
     <Page>
       <SEO meta={story.content.seo} />
@@ -96,9 +97,9 @@ export default function ContactPage(
           </Box>
         </Stack>
       </Section>
-      <Tooltip label={t("chat")} bg="gray.900" placement="left">
+      <Tooltip label={t('chat')} bg="gray.900" placement="left">
         <FbChat />
       </Tooltip>
     </Page>
-  );
+  )
 }
