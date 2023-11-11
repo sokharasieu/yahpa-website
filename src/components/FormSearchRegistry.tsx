@@ -10,12 +10,12 @@ import {
 } from '@chakra-ui/react'
 import useDebounce from 'hooks/useDebounce'
 import useSearch from 'hooks/useSearch'
-import useTranslation from 'hooks/useTranslation'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FiSearch } from 'react-icons/fi'
 import CardSearchResult from './CardSearchResult'
+import { useTranslations } from 'next-intl'
 
 type SearchInputForm = {
   value: string
@@ -26,7 +26,7 @@ export default function FormSearchRegistry() {
   const [searchTerm, setSearchTerm] = useState('')
   const debouncedTerm = useDebounce(searchTerm, 200)
   const { data } = useSearch(debouncedTerm, '')
-  const { t } = useTranslation()
+  const t = useTranslations('App')
 
   const {
     handleSubmit,

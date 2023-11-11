@@ -2,9 +2,9 @@ import { Box, Icon, Link, Select, Stack, Text } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { FiDownload } from 'react-icons/fi'
 import { DocumentCovidBlok } from 'types/story'
-import useTranslation from '../hooks/useTranslation'
 import RenderRichText from './RenderRichText'
 import Time from './Time'
+import { useTranslations } from 'next-intl'
 
 type CardDocumentProps = {
   document: DocumentCovidBlok
@@ -13,7 +13,7 @@ type CardDocumentProps = {
 export default function CardDocument({ document }: CardDocumentProps) {
   const [selectedLanguage, setSelectedLanguage] = useState('')
   const [linkToFile, setLinkToFile] = useState('')
-  const { t } = useTranslation()
+  const t = useTranslations('App')
 
   useEffect(() => {
     const selectedDocument = document.documents?.find(

@@ -6,8 +6,8 @@ import PageTitle from 'components/PageTitle'
 import RenderRichText from 'components/RenderRichText'
 import Section from 'components/Section'
 import SEO from 'components/SEO'
-import useTranslation from 'hooks/useTranslation'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { useTranslations } from 'next-intl'
 import { getProjects } from 'utils/api'
 import { useStoryblok } from 'utils/storyblokClient'
 
@@ -27,6 +27,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       landing,
       projects,
       locale: context.locale,
+      messages: (await import(`messages/${context.locale}.json`)).default,
     },
     revalidate: 60 * 60,
   }
@@ -37,7 +38,8 @@ export default function Projects(
 ) {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
   const story = useStoryblok(props?.landing!)
-  const { t } = useTranslation()
+  // const { t } = useTranslation()
+  const t = useTranslations('App')
 
   return (
     <Page>

@@ -1,6 +1,6 @@
 import { Icon, Text, Link as ChakraLink, LinkProps } from '@chakra-ui/react'
-import useTranslation from 'hooks/useTranslation'
 import NextLink from 'next/link'
+import { useRouter } from 'next/router'
 import { FiExternalLink } from 'react-icons/fi'
 
 export default function Link({
@@ -8,7 +8,7 @@ export default function Link({
   hideIcon = false,
   ...props
 }: React.PropsWithChildren<LinkProps & { hideIcon?: boolean }>) {
-  const { locale } = useTranslation()
+  const { locale } = useRouter()
 
   if (!props.href) {
     return <Text>{children}</Text>

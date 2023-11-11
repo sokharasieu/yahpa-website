@@ -5,15 +5,18 @@ import theme from 'styles/theme'
 import emailjs from 'emailjs-com'
 import '@fontsource/lato'
 import '@fontsource/source-sans-pro'
+import { NextIntlClientProvider } from 'next-intl'
 
 emailjs.init(process?.env?.emailJsUserID as string)
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ChakraProvider>
+    <NextIntlClientProvider messages={pageProps.messages}>
+      <ChakraProvider theme={theme}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </ChakraProvider>
+    </NextIntlClientProvider>
   )
 }

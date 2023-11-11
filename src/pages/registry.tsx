@@ -24,6 +24,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     props: {
       story,
       locale: context.locale,
+      messages: (await import(`messages/${context.locale}.json`)).default,
     },
     revalidate: 60 * 60,
   }

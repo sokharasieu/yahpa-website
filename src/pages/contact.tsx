@@ -1,17 +1,22 @@
 import { Box, Center, Icon, Stack, Tooltip } from '@chakra-ui/react'
-import FormContact from 'components/FormContact'
 import Link from 'components/Link'
 import Page from 'components/Page'
 import PageTitle from 'components/PageTitle'
 import RenderRichText from 'components/RenderRichText'
 import Section from 'components/Section'
 import SEO from 'components/SEO'
-import useTranslation from 'hooks/useTranslation'
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { useTranslations } from 'next-intl'
 import React from 'react'
 import { RiMessengerFill } from 'react-icons/ri'
 import { getContact } from 'utils/api'
 import { useStoryblok } from 'utils/storyblokClient'
+import dynamic from 'next/dynamic'
+
+// Hydration error caused by data from getStaticProps being passed to component
+const DynamicFormContact = dynamic(() => import('../components/FormContact'), {
+  ssr: false,
+})
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const story = await getContact({
@@ -30,6 +35,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     props: {
       story,
       locale: context.locale,
+      messages: (await import(`messages/${context.locale}.json`)).default,
     },
     revalidate: 60 * 60,
   }
@@ -79,7 +85,7 @@ export default function ContactPage(
 ) {
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
   const story = useStoryblok(props?.story!)
-  const { t } = useTranslation()
+  const t = useTranslations('App')
   return (
     <Page>
       <SEO meta={story.content.seo} />
@@ -93,7 +99,7 @@ export default function ContactPage(
         <Stack>
           <Box>{RenderRichText(story.content.page_text)}</Box>
           <Box>
-            <FormContact options={story.content.options} />
+            <DynamicFormContact options={story.content.options} />
           </Box>
         </Stack>
       </Section>

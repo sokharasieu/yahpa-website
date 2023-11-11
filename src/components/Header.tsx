@@ -10,14 +10,14 @@ import {
   useDisclosure,
   useOutsideClick,
 } from '@chakra-ui/react'
-import useTranslation from 'hooks/useTranslation'
 import { useRouter } from 'next/router'
 import React, { useRef, useEffect } from 'react'
 import { FiChevronLeft, FiMenu, FiX } from 'react-icons/fi'
 import Image from './Image'
-import LanguagePicker from './LanguagePicker'
 import Link from './Link'
 import SocialMedia from './SocialMedia'
+import { useTranslations } from 'next-intl'
+import LanguagePicker from './LanguagePicker'
 
 function NavLink({
   children,
@@ -101,7 +101,7 @@ function MenuLink({
 }
 
 export function Topbar() {
-  const { t } = useTranslation()
+  const t = useTranslations('App')
   return (
     <Flex py={2} px={3} backgroundColor="gray.800">
       <Text color="white">{t('yahpa_full')}</Text>
@@ -114,7 +114,7 @@ export default function Header() {
   const router = useRouter()
   const ref = useRef(null)
   useOutsideClick({ ref: ref, handler: onClose })
-  const { t } = useTranslation()
+  const t = useTranslations('App')
 
   useEffect(() => {
     router.events.on('routeChangeComplete', onClose)

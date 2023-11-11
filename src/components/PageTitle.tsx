@@ -1,9 +1,9 @@
 import { Breadcrumb, BreadcrumbItem, Heading, Stack } from '@chakra-ui/react'
-import useTranslation from 'hooks/useTranslation'
 import { StoryData } from 'storyblok-js-client'
 import Link from './Link'
 import Section from './Section'
 import { useRouter } from 'next/router'
+import { useTranslations } from 'next-intl'
 
 type PageTitleProps = {
   title?: string
@@ -19,8 +19,8 @@ type Slug = {
 }
 
 export default function PageTitle(props: PageTitleProps) {
-  const { t, locale } = useTranslation()
-  const router = useRouter()
+  const t = useTranslations('App')
+  const { locale, asPath } = useRouter()
 
   let slugs: Slug[] | undefined
   if (locale !== 'en') {
@@ -51,7 +51,7 @@ export default function PageTitle(props: PageTitleProps) {
             <Link href="/">{t('home')}</Link>
           </BreadcrumbItem>
           {slugs?.map((slug) => {
-            const slugMatches = '/' + slug.path === router.asPath
+            const slugMatches = '/' + slug.path === asPath
             return (
               <BreadcrumbItem key={slug.name}>
                 <Link href={slugMatches ? undefined : slug.path}>

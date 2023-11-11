@@ -1,11 +1,11 @@
 import { Box, Flex, Tag, Text } from '@chakra-ui/react'
-import useTranslation from 'hooks/useTranslation'
 import type { Option } from 'types/story'
 import Image from './Image'
 import Link from './Link'
+import { useTranslations } from 'next-intl'
 
 export default function CardGoal(props: Option) {
-  const { t } = useTranslation()
+  const t = useTranslations('App')
 
   return (
     <Box

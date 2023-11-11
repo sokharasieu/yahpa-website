@@ -21,12 +21,12 @@ import Page from 'components/Page'
 import RenderRichText from 'components/RenderRichText'
 import SEO from 'components/SEO'
 import Section from 'components/Section'
-import useTranslation from 'hooks/useTranslation'
 import {
   GetStaticPathsContext,
   GetStaticPropsContext,
   InferGetStaticPropsType,
 } from 'next'
+import { useTranslations } from 'next-intl'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { getStoriesPaths } from 'utils/api'
@@ -51,6 +51,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
     props: {
       story,
       locale: context.locale,
+      messages: (await import(`messages/${context.locale}.json`)).default,
     },
     revalidate: 60 * 60,
   }
@@ -70,7 +71,7 @@ export default function Home(
   const story = useStoryblokState(props?.story)
 
   const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false)
-  const { t } = useTranslation()
+  const t = useTranslations('App')
 
   const openFormLinks = () => setShowRegisterForm(!showRegisterForm)
 

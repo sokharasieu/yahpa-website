@@ -9,9 +9,11 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import useTranslation, { Resource } from 'hooks/useTranslation'
 import SocialMedia from './SocialMedia'
 import Link from './Link'
+import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/router'
+import { LANGUAGES } from 'utils/constants'
 
 function ListHeader({
   children,
@@ -24,7 +26,8 @@ function ListHeader({
 }
 
 export default function Footer() {
-  const { t, languages, locales } = useTranslation()
+  const { locales } = useRouter()
+  const t = useTranslations('App')
 
   return (
     <Box bg="gray.700" color="whiteAlpha.800" pt={10}>
@@ -46,7 +49,7 @@ export default function Footer() {
                 lang={language}
                 hrefLang={language}
               >
-                {languages[language as Resource]}
+                {LANGUAGES[language as keyof typeof LANGUAGES]}
               </ChakraLink>
             ))}
           </Stack>

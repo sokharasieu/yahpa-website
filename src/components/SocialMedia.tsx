@@ -1,8 +1,8 @@
 import { HStack, StackProps } from '@chakra-ui/react'
-import useTranslation from 'hooks/useTranslation'
 import { FiFacebook, FiInstagram, FiYoutube } from 'react-icons/fi'
 import { IoLogoWechat } from 'react-icons/io5'
 import Link from './Link'
+import { useRouter } from 'next/router'
 
 type SocialMediaButtonProps = React.PropsWithChildren<
   React.ComponentPropsWithRef<typeof Link>
@@ -86,7 +86,7 @@ SocialMedia.Instagram = function SocialMediaInstagram(
 SocialMedia.WeChat = function SocialMediaWeChat(
   buttonProps: SocialMediaButtonProps
 ) {
-  const { locale } = useTranslation()
+  const { locale } = useRouter()
   return locale === 'zh' ? (
     <SocialMediaButton
       aria-label="wechat"
