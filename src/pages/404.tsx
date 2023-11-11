@@ -1,9 +1,18 @@
 import { Box, Button, Container, Heading, Text } from '@chakra-ui/react'
 import Link from 'components/Link'
-import useTranslation from 'hooks/useTranslation'
+import { GetStaticPropsContext } from 'next'
+import { useTranslations } from 'next-intl'
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`messages/${context.locale}.json`)).default,
+    },
+  }
+}
 
 export default function NotFound() {
-  const { t } = useTranslation()
+  const t = useTranslations('App')
   return (
     <Container maxWidth="full" py={10} backgroundColor="gray.200">
       <Box textAlign="center" py={10} px={6}>

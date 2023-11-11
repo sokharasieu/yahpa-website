@@ -17,7 +17,7 @@ import {
   VisuallyHidden,
 } from '@chakra-ui/react'
 import emailjs from 'emailjs-com'
-import useTranslation from 'hooks/useTranslation'
+import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { BiErrorCircle } from 'react-icons/bi'
 import { BsCheck2Circle, BsPerson } from 'react-icons/bs'
@@ -35,7 +35,7 @@ type FormContactProps = {
 }
 
 export default function FormContact(props: FormContactProps) {
-  const { t } = useTranslation()
+  const t = useTranslations('App')
   const {
     handleSubmit,
     register,
