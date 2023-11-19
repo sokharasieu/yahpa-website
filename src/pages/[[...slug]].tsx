@@ -12,6 +12,7 @@ import {
   GetStaticPropsContext,
   InferGetStaticPropsType,
 } from 'next'
+import { useTranslations } from 'next-intl'
 import { getStoriesPaths } from 'utils/api'
 import { getHomeV2 } from 'utils/sbApi'
 
@@ -49,11 +50,16 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
 export default function HomePage(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
+  const t = useTranslations()
   const story = useStoryblokState(props?.story)
 
   return (
     <>
-      <SEO meta={story.content?.seo} />
+      <SEO
+        title={t('Home.seo_title')}
+        description={t('Home.seo_description')}
+        og_image={'/images/brand.png'}
+      />
       <Page>
         <Hero />
         <Registry />

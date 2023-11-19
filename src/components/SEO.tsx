@@ -1,12 +1,13 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { SeoBlok } from 'types/story'
 
-type SeoProps = {
-  meta?: SeoBlok
+type SeoMetaContent = {
+  title?: string
+  description?: string
+  og_image?: string
 }
 
-export default function SEO({ meta }: SeoProps) {
+export default function SEO(meta: SeoMetaContent) {
   const router = useRouter()
   return (
     <Head>
