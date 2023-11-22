@@ -171,7 +171,7 @@ export default function Header() {
               <NavLink href="/about">{t('about')}</NavLink>
               <NavLink href="/registry">{t('registry')}</NavLink>
               <NavLink href="/projects">{t('projects')}</NavLink>
-              <NavLink href="/covid-19">COVID-19</NavLink>
+
               <NavLink href="/contact">{t('contact')}</NavLink>
             </HStack>
           </Box>
@@ -205,7 +205,6 @@ export default function Header() {
             <MenuLink href="/about">{t('about')}</MenuLink>
             <MenuLink href="/registry">{t('registry')}</MenuLink>
             <MenuLink href="/projects">{t('projects')}</MenuLink>
-            <MenuLink href="/covid-19">COVID-19</MenuLink>
             <MenuLink href="/contact">{t('contact')}</MenuLink>
           </Stack>
           <Stack

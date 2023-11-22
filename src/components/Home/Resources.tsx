@@ -12,11 +12,6 @@ export default function Resources() {
       imageUrl: '/images/gloves.jpg',
     },
     {
-      label: t('Home.resources_option2'),
-      link: '/covid-19',
-      imageUrl: '/images/mask.jpg',
-    },
-    {
       label: t('Home.resources_option3'),
       link: '/contact',
       imageUrl: '/images/pills.jpg',
