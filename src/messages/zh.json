@@ -6,17 +6,6 @@
     "contribute": "贡献",
     "contact": "联系我们",
     "donate": "捐",
-    "email_email": "你的邮件",
-    "email_error": "发生错误，我们无法发送您的消息",
-    "email_message": "您的留言",
-    "email_name": "你的名字",
-    "email_send_message": "发信息",
-    "email_success": "您的留言已发送",
-    "email_reason": "选择联系我们的原因",
-    "email_email_required": "需要有效的电子邮件",
-    "email_message_required": "请给我们留言",
-    "email_name_required": "您的姓名是必填项",
-    "email_reason_required": "请选择您与我们联系的原因",
     "error_404_title": "找不到网页",
     "error_404_message": "您在找的页面似乎不存在",
     "error_404_button": "返回主页",
@@ -94,5 +83,29 @@
     "page_title": "卫生保健专业人员登记处",
     "page_slug": "我们的注册表",
     "page_description": "通过我们致力于为社区服务的会员注册，在大蒙特利尔地区寻找一位在您附近讲一种或多种亚洲语言的医疗保健专业人员。"
+  },
+  "Contact": {
+    "seo_title": " YAHPA - 联络我们",
+    "seo_description": "要索取有关我们组织、我们的卫生专业人员登记册的任何信息，或讨论与我们组织的任何未来合作，请通过我们的官方渠道之一与我们联系。",
+    "page_title": " 联系我们获取更多信息",
+    "page_slug": "联络我们",
+    "form_header": "如何联系我们",
+    "form_description": "要向我们的组织索取更多信息，请填写下面的表格，我们会尽快回复您。",
+    "Form": {
+      "email": "你的邮件",
+      "error": "发生错误，我们无法发送您的消息",
+      "message": "您的留言",
+      "name": "你的名字",
+      "send_message": "发信息",
+      "success": "您的留言已发送",
+      "reason": "选择联系我们的原因",
+      "email_required": "需要有效的电子邮件",
+      "message_required": "请给我们留言",
+      "name_required": "您的姓名是必填项",
+      "reason_required": "请选择您与我们联系的原因",
+      "option1": "要求提供一般信息",
+      "option2": "从我们的登记处索取卫生专业人员的联系信息",
+      "option3": "请求赞助、合作或合作"
+    }
   }
 }

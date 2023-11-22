@@ -6,17 +6,7 @@
     "contribute": "Contribute",
     "contact": "Contact",
     "donate": "Donate",
-    "email_email": "Your email",
-    "email_error": "An error has occured, we are unable to send your message",
-    "email_message": "Your message",
-    "email_name": "Your name",
-    "email_send_message": "Send message",
-    "email_success": "Your message has been sent",
-    "email_reason": "Select the reason for contacting us",
-    "email_email_required": "A valid email is required",
-    "email_message_required": "Please write us your message",
-    "email_name_required": "Your name is required",
-    "email_reason_required": "Please select the reason for your contact with us",
+
     "error_404_title": "Page Not Found",
     "error_404_message": "The page you're looking for does not seem to exist",
     "error_404_button": "Return to Home",
@@ -94,5 +84,29 @@
     "page_title": "Registry of Health Care Professionals",
     "page_slug": "Registry",
     "page_description": "Find a health care professional speaking one or more asian languages near you in the greater Montreal area through our registry of members dedicated to serving their community."
+  },
+  "Contact": {
+    "seo_title": "YAHPA - Contact Us",
+    "seo_description": "To request any information about our organization, our registry of health professionals, or to discuss any future collaboration with our organization, please contact us through one of our official channels.",
+    "page_title": "Contact Us for More Information",
+    "page_slug": "Contact",
+    "form_header": "How to Reach Us",
+    "form_description": "To request further information from our organization please fill out the form below and we will get back to you shortly.",
+    "Form": {
+      "email": "Your email",
+      "error": "An error has occured, we are unable to send your message",
+      "message": "Your message",
+      "name": "Your name",
+      "send_message": "Send message",
+      "success": "Your message has been sent",
+      "reason": "Select the reason for contacting us",
+      "email_required": "A valid email is required",
+      "message_required": "Please write us your message",
+      "name_required": "Your name is required",
+      "reason_required": "Please select the reason for your contact with us",
+      "option1": "Request for general information",
+      "option2": "Request for contact information of health professional from our registry",
+      "option3": "Request for sponsorship, partnership or collaboration"
+    }
   }
 }

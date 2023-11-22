@@ -6,17 +6,6 @@
     "contribute": "Contribuer",
     "contact": "Nous contacter",
     "donate": "Donation",
-    "email_email": "Votre adresse courriel",
-    "email_error": "Une erreur s'est produite, nous ne pouvons pas envoyer votre message",
-    "email_message": "Votre message",
-    "email_name": "Votre nom",
-    "email_send_message": "Envoyer le message",
-    "email_success": "Votre message a été envoyé",
-    "email_reason": "Sélectionnez la raison pour laquelle vous nous contactez",
-    "email_email_required": "Une adresse courriel valide est requise",
-    "email_message_required": "Veuillez nous écrire votre message",
-    "email_name_required": "Votre nom est requis",
-    "email_reason_required": "Veuillez sélectionner la raison de votre contact avec nous",
     "error_404_title": "Page non trouvée",
     "error_404_message": "La page que vous recherchez ne semble pas exister",
     "error_404_button": "Retourner à l'accueil",
@@ -94,5 +83,29 @@
     "page_title": "Registre des professionnels de la santé",
     "page_slug": "Notre registre",
     "page_description": "Trouvez un professionnel de la santé parlant une ou plusieurs langues asiatiques près de chez vous dans la grande région de Montréal grâce à notre registre de membres dédiés au service de leur communauté."
+  },
+  "Contact": {
+    "seo_title": "AJPAS - Contactez-nous",
+    "seo_description": "Pour demander des informations sur notre organisation, notre registre de professionnels de la santé ou pour discuter de toute collaboration future avec notre organisation, veuillez nous contacter via l'un de nos canaux officiels.",
+    "page_title": " Contactez-nous pour plus d'informations",
+    "page_slug": "Contactez-nous",
+    "form_header": "Comment nous joindre",
+    "form_description": "Pour demander de l'informations à notre organisation, veuillez remplir le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+    "Form": {
+      "email": "Votre adresse courriel",
+      "error": "Une erreur s'est produite, nous ne pouvons pas envoyer votre message",
+      "message": "Votre message",
+      "name": "Votre nom",
+      "send_message": "Envoyer le message",
+      "success": "Votre message a été envoyé",
+      "reason": "Sélectionnez la raison pour laquelle vous nous contactez",
+      "email_required": "Une adresse courriel valide est requise",
+      "message_required": "Veuillez nous écrire votre message",
+      "name_required": "Votre nom est requis",
+      "reason_required": "Veuillez sélectionner la raison de votre contact avec nous",
+      "option1": "Demande d'informations générales",
+      "option2": "Demande de coordonnées d'un professionnel de la santé à partir de notre registre",
+      "option3": "Demande de sponsoring, partenariat ou collaboration"
+    }
   }
 }

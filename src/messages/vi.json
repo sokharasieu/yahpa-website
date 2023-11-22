@@ -6,17 +6,6 @@
     "contribute": "Góp phần",
     "contact": "Tiếp xúc",
     "donate": "Quyên tặng",
-    "email_email": "Email của bạn",
-    "email_error": "Đã xảy ra lỗi, chúng tôi không thể gửi tin nhắn của bạn",
-    "email_message": "Tin nhắn của bạn",
-    "email_name": "Tên của bạn",
-    "email_send_message": "Gửi tin nhắn",
-    "email_success": "Tin nhắn của bạn đã được gửi",
-    "email_reason": "Chọn lý do liên hệ với chúng tôi",
-    "email_email_required": "Một email hợp lệ là bắt buộc",
-    "email_message_required": "Hãy viết cho chúng tôi tin nhắn của bạn",
-    "email_name_required": "Tên của bạn là bắt buộc",
-    "email_reason_required": "Vui lòng chọn lý do bạn liên hệ với chúng tôi",
     "error_404_title": "Không tìm thấy trang",
     "error_404_message": "Trang bạn đang tìm kiếm dường như không tồn tại",
     "error_404_button": "Trở về Trang chủ",
@@ -94,5 +83,29 @@
     "page_title": "Đăng ký các chuyên gia chăm sóc sức khỏe",
     "page_slug": "Đăng ký của chúng tôi",
     "page_description": "Tìm một chuyên gia chăm sóc sức khỏe nói một hoặc nhiều ngôn ngữ châu Á gần bạn ở khu vực Montreal rộng lớn hơn thông qua sổ đăng ký của chúng tôi gồm các thành viên tận tâm phục vụ cộng đồng của họ."
+  },
+  "Contact": {
+    "seo_title": "YAHPA - Liên hệ với chúng tôi",
+    "seo_description": "Để yêu cầu bất kỳ thông tin nào về tổ chức của chúng tôi, cơ quan đăng ký các chuyên gia y tế của chúng tôi hoặc để thảo luận về bất kỳ sự hợp tác nào trong tương lai với tổ chức của chúng tôi, vui lòng liên hệ với chúng tôi qua một trong các kênh chính thức của chúng tôi.",
+    "page_title": "Liên hệ với chúng tôi để biết thêm thông tin",
+    "page_slug": "Liên hệ với chúng tôi để biết thông tin",
+    "form_header": "Làm thế nào để tiếp cận chúng tôi",
+    "form_description": "Để biết thêm thông tin từ tổ chức của chúng tôi, vui lòng điền vào biểu mẫu bên dưới và chúng tôi sẽ liên hệ lại với bạn trong thời sớm nhất.",
+    "Form": {
+      "email": "Email của bạn",
+      "error": "Đã xảy ra lỗi, chúng tôi không thể gửi tin nhắn của bạn",
+      "message": "Tin nhắn của bạn",
+      "name": "Tên của bạn",
+      "send_message": "Gửi tin nhắn",
+      "success": "Tin nhắn của bạn đã được gửi",
+      "reason": "Chọn lý do liên hệ với chúng tôi",
+      "email_required": "Một email hợp lệ là bắt buộc",
+      "message_required": "Hãy viết cho chúng tôi tin nhắn của bạn",
+      "name_required": "Tên của bạn là bắt buộc",
+      "reason_required": "Vui lòng chọn lý do bạn liên hệ với chúng tôi",
+      "option1": "Yêu cầu thông tin chung",
+      "option2": "Yêu cầu thông tin liên hệ của chuyên gia y tế từ cơ quan đăng ký của chúng tôi",
+      "option3": "Yêu cầu tài trợ, đối tác hoặc cộng tác"
+    }
   }
 }
