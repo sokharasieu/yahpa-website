@@ -38,7 +38,6 @@ export default function Footer() {
             <Link href="/about">{t('about')}</Link>
             <Link href="/registry">{t('registry')}</Link>
             <Link href="/projects">{t('projects')}</Link>
-            <Link href="/covid-19">COVID-19</Link>
           </Stack>
           <Stack align={'flex-start'}>
             <ListHeader>{t('languages')}</ListHeader>

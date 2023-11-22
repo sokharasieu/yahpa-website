@@ -1,41 +1,15 @@
 import { Breadcrumb, BreadcrumbItem, Heading, Stack } from '@chakra-ui/react'
-import { StoryData } from 'storyblok-js-client'
+import { useTranslations } from 'next-intl'
 import Link from './Link'
 import Section from './Section'
-import { useRouter } from 'next/router'
-import { useTranslations } from 'next-intl'
 
 type PageTitleProps = {
   title?: string
-  language?: string
-  defaultSlug?: StoryData['full_slug']
-  translatedSlugs?: StoryData['translated_slugs']
+  translatedTitle?: string
 }
 
-type Slug = {
-  path?: string
-  name?: string | null
-  lang?: string
-}
-
-export default function PageTitle(props: PageTitleProps) {
+export default function PageTitle({ title, translatedTitle }: PageTitleProps) {
   const t = useTranslations('App')
-  const { locale, asPath } = useRouter()
-
-  let slugs: Slug[] | undefined
-  if (locale !== 'en') {
-    slugs = props.translatedSlugs?.filter((item) => {
-      if (item.lang === locale) return item
-    })
-  } else {
-    slugs = [
-      { name: props.defaultSlug?.replace('/', ''), path: props.defaultSlug },
-    ]
-  }
-
-  function capitalizeFirstLetter(string: string) {
-    return string.charAt(0).toUpperCase() + string.slice(1)
-  }
 
   return (
     <Section
@@ -45,21 +19,14 @@ export default function PageTitle(props: PageTitleProps) {
       bgGradient="linear(70deg,primary.400 30%, primary.500 50%, primary.600 100%)"
     >
       <Stack fontSize="lg">
-        <Heading>{props.title}</Heading>
+        <Heading>{title}</Heading>
         <Breadcrumb alignItems="center">
           <BreadcrumbItem>
             <Link href="/">{t('home')}</Link>
           </BreadcrumbItem>
-          {slugs?.map((slug) => {
-            const slugMatches = '/' + slug.path === asPath
-            return (
-              <BreadcrumbItem key={slug.name}>
-                <Link href={slugMatches ? undefined : slug.path}>
-                  {capitalizeFirstLetter(slug.name ?? '')}
-                </Link>
-              </BreadcrumbItem>
-            )
-          })}
+          <BreadcrumbItem>
+            <Link>{translatedTitle}</Link>
+          </BreadcrumbItem>
         </Breadcrumb>
       </Stack>
     </Section>
