@@ -1,53 +1,39 @@
-import { Box } from '@chakra-ui/react'
+import { Box, Text } from '@chakra-ui/react'
 import FormSearchRegistry from 'components/FormSearchRegistry'
 import Page from 'components/Page'
 import PageTitle from 'components/PageTitle'
-import RenderRichText from 'components/RenderRichText'
 import Section from 'components/Section'
 import SEO from 'components/SEO'
-import { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
-import { getRegistry } from 'utils/api'
-import { useStoryblok } from 'utils/storyblokClient'
+import { GetStaticPropsContext } from 'next'
+import { useTranslations } from 'next-intl'
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const story = await getRegistry({ language: context.locale })
-
-  //because of [[...slug]] its hard to catch 404s i.e. /fr/this-is-not-real
-  if (context?.params?.slug) {
-    return {
-      props: {},
-      notFound: true,
-    }
-  }
-
   return {
     props: {
-      story,
       locale: context.locale,
       messages: (await import(`messages/${context.locale}.json`)).default,
     },
-    revalidate: 60 * 60,
   }
 }
 
-export default function Registry(
-  props: InferGetStaticPropsType<typeof getStaticProps>
-) {
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion, @typescript-eslint/no-non-null-asserted-optional-chain
-  const story = useStoryblok(props?.story!)
+export default function Registry() {
+  const t = useTranslations()
 
   return (
     <Page>
-      <SEO meta={story.content.seo} />
+      <SEO
+        title={t('Registry.seo_title')}
+        description={t('Registry.seo_description')}
+      />
       <PageTitle
-        title={story.content.page_title}
-        language={story.lang}
-        translatedSlugs={story.translated_slugs}
-        defaultSlug={story.full_slug}
+        title={t('Registry.page_title')}
+        translatedTitle={t('Registry.page_slug')}
       />
       <Section paddingTop={8}>
         <Box fontSize="xl" textAlign="center">
-          {RenderRichText(story.content.page_description)}
+          <Text fontSize={{ base: 'md', xl: 'lg' }} mb={6}>
+            {t('Registry.page_description')}
+          </Text>
         </Box>
         <FormSearchRegistry />
       </Section>
