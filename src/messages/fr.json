@@ -59,5 +59,33 @@
     "team_title": "Nos membres",
     "team_description": "Notre équipe s'agrandit, tout comme notre communauté d'étudiants, de professionnels de la santé et de citoyens partageant les mêmes idées.",
     "sponsor_title": "Nos commanditaires "
+  },
+  "About": {
+    "seo_title": "YAHPA - À propos de nous",
+    "seo_description": "Découvrez ce qu'est l'AJPAS (Association des Jeunes Professionnels Asiatique de la Santé), nos objectifs et l'équipe derrière tout cela.",
+    "page_title": "En savoir plus sur les objectifs et la motivation derrière YAHPA",
+    "page_slug": "À propos de nous",
+    "team_image_alt": "Nos membres YAHPA",
+    "part1_header": "Qui sommes nous?",
+    "part1_text": "L'Association des Jeunes Professionnels Asiatiques de la Santé (AJPAS), aussi connue sous le nom de YAHPA (Young Asian Health Professionals Association), a vu jour dans les débuts de la pandémie de la COVID-19 en printemps 2020. À ce moment,  la désinformation et l’accès aux services et aux soins étaient des problématiques de grande ampleur, particulièrement pour les aînés et les immigrants unilingues asiatiques vivant au Québec. Un groupe de professionnels et d’étudiants en santé se sont rassemblés pour venir en aide à cette communauté en créant des guides d’informations sur le coronavirus, en développant des listes de ressources communautaires et en traduisant les annonces des mesures sanitaires, le tout dans les langues maternelles asiatiques. Leurs buts étaient d’optimiser la qualité et l’accès aux soins ainsi que de réduire les inégalités causées par les barrières linguistiques envers la communauté asiatique du Québec.",
+    "part2_header": "Notre mission",
+    "part2_text": "Notre mission est de réduire les écarts d'équité en matière de santé des communautés asiatiques en améliorant la promotion de la santé, la prévention des maladies et l'accès aux soins de santé par l'éducation, les services directs, la création d'une plate-forme interdisciplinaire de professionnels de la santé et le plaidoyer.",
+    "goals_header": "Notre Vision et Nos Objectifs",
+    "goals_description": "Notre vision est de créer une société où les communautés asiatiques ont un accès équitable à des services de santé complets et culturellement adaptés.",
+    "goal1": "Diffuser l'information médicale pertinente aux populations asiatiques du Québec.",
+    "goal2": "Promouvoir les bonnes pratiques en santé physique et mentale.",
+    "goal3": "Améliorer et faciliter l'accès aux soins de santé et aux services sociaux.",
+    "goal4": "Mettre en valeur toutes les professions de la santé : médecine, soins infirmiers, physiothérapie, ergothérapie, psychologie, kinésiologie, nutrition, etc.",
+    "goal5": "Inspirer les jeunes à prendre des initiatives pour aider leurs communautés asiatiques.",
+    "goal6": "Aidez les professionnels de la santé à développer leurs compétences en communication pour améliorer la qualité de leurs soins pour les communautés asiatiques.",
+    "values_image_alt": "Un membre YAHPA avec notre t-shirt",
+    "values_header": "Nos valeurs fondamentales",
+    "value1": "<b>Volontariat:</b> Agir pour le bien de la société.",
+    "value2": "<b>Travail d'équipe:</b> Adoptez une approche collaborative pour atteindre un objectif commun.",
+    "value3": "<b>Diversité:</b> Accepter les différences des communautés asiatiques et des professions de la santé.",
+    "value4": "<b>Inclusion:</b> Créer une société inclusive pour nos membres et les communautés asiatiques.",
+    "value5": "<b>Équité:</b> Reconnaître que nous ne venons pas de la même situation et que nous devons reconnaître et contribuer au mieux de nos capacités.",
+    "value6": "<b>Innovation:</b> Faire les choses différemment en tirant parti de la technologie et des médias sociaux.",
+    "leadership_header": "Notre équipe de direction"
   }
 }

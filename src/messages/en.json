@@ -59,5 +59,33 @@
     "team_title": "Our Members",
     "team_description": "Our team is growing, and so is our community of students, healthcare professionals and like minded citizens.",
     "sponsor_title": "Our Sponsors"
+  },
+  "About": {
+    "seo_title": "YAHPA - About Us",
+    "seo_description": "Learn about what YAHPA (Young Asian Health Professional Association) is all about, our goals and the team behind it all.",
+    "page_title": "Learn about the goals and motivation behind YAHPA",
+    "page_slug": "About us",
+    "team_image_alt": "Our YAHPA Members",
+    "part1_header": "Who Are We?",
+    "part1_text": "YAHPA (Young Asian Health Professionals Association), emerged in the early days of the COVID-19 pandemic in spring 2020. At that time, misinformation and limited access to services and care were major issues, particularly for seniors and unilingual Asian immigrants living in Quebec. A group of health professionals and students came together to help this community by creating coronavirus information guides, developing community resource lists and translating health measures announcements, all in Asian mother tongues such as Mandarin, Cantonese and Vietnamese. Their goals were to optimize quality and access to care and to reduce inequalities caused by language barriers to the Asian community in Quebec.",
+    "part2_header": "Our Mission",
+    "part2_text": "Our mission is to reduce health equity gaps of Asian communities by improving health promotion, disease prevention and access to healthcare through education, direct services, building an interdisciplinary healthcare professional platform and advocacy.",
+    "goals_header": "Our Vision and Goals",
+    "goals_description": "Our vision is to create a society where Asian communities have equitable access to comprehensive and culturally responsive healthcare services.",
+    "goal1": "Disseminate relevant medical information to the Asian populations in Quebec.",
+    "goal2": "Promote good practices in physical and mental health.",
+    "goal3": "Improve and facilitate access to healthcare and social services.",
+    "goal4": "Showcase all healthcare professions: medicine, nursing, physiotherapy, occupational therapy, psychology, kinesiology, nutrition, etc.",
+    "goal5": "Inspire young people to take initiatives to help their Asian communities.",
+    "goal6": "Help healthcare professionals develop their communication skills to improve the quality of their care for Asian communities.",
+    "values_image_alt": "A YAHPA Member with our t-shirt",
+    "values_header": "Our Core Values",
+    "value1": "<b>Volunteerism:</b> Act for the good of society.",
+    "value2": "<b>Teamwork:</b> Take a collaborative approach to achieve a common goal.",
+    "value3": "<b>Diversity:</b> Embracing the differences of Asian communities and healthcare professions.",
+    "value4": "<b>Inclusion:</b> Creating an inclusive society for our members and the Asian communities.",
+    "value5": "<b>Equity:</b> Recognizing that we do not come from the same situation and must acknowledge and make contributions to the best of our abilities.",
+    "value6": "<b>Innovation:</b> Doing things differently by leveraging technology and social media.",
+    "leadership_header": "Our Leadership Team"
   }
 }

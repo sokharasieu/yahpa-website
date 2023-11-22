@@ -50,16 +50,12 @@ export async function getStaticPaths({ locales }: GetStaticPathsContext) {
 export default function HomePage(
   props: InferGetStaticPropsType<typeof getStaticProps>
 ) {
-  const t = useTranslations()
+  const t = useTranslations('Home')
   const story = useStoryblokState(props?.story)
 
   return (
     <>
-      <SEO
-        title={t('Home.seo_title')}
-        description={t('Home.seo_description')}
-        og_image={'/images/brand.png'}
-      />
+      <SEO title={t('seo_title')} description={t('seo_description')} />
       <Page>
         <Hero />
         <Registry />
