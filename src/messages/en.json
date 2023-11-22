@@ -85,6 +85,14 @@
     "page_slug": "Registry",
     "page_description": "Find a health care professional speaking one or more asian languages near you in the greater Montreal area through our registry of members dedicated to serving their community."
   },
+  "Projects": {
+    "seo_title": "YAHPA - Projects",
+    "seo_description": "Learn more about the ongoing projects from YAHPA (Young Asian Health Professional Association) to support the asian community and healthcare professionals in Montreal through outreach events, translated resources, online conferences, and much more.",
+    "page_title": "Learn more about our upcoming projects ",
+    "page_slug": "Projects",
+    "page_description": "To support our community and the healthcare professionals that interact with them, we are working on projects like organizing outreaching events, translating health resources, online video conferences and much more.",
+    "latest_header": "Latest Projects"
+  },
   "Contact": {
     "seo_title": "YAHPA - Contact Us",
     "seo_description": "To request any information about our organization, our registry of health professionals, or to discuss any future collaboration with our organization, please contact us through one of our official channels.",

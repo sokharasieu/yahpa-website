@@ -84,6 +84,14 @@
     "page_slug": "Notre registre",
     "page_description": "Trouvez un professionnel de la santé parlant une ou plusieurs langues asiatiques près de chez vous dans la grande région de Montréal grâce à notre registre de membres dédiés au service de leur communauté."
   },
+  "Projects": {
+    "seo_title": "AJPAS - Nos Projets",
+    "seo_description": "Apprenez-en davantage sur les projets en cours de AJPAS (Association des Jeunes Professionnels Asiatique de la Santé) pour soutenir la communauté asiatique et les professionnels de la santé à Montréal par le biais d'événements de sensibilisation, de ressources traduites, de conférences en ligne et bien plus encore.",
+    "page_title": "En savoir plus sur nos projets à venir",
+    "page_slug": "Nos Projets",
+    "page_description": "Pour soutenir notre communauté et les professionnels de la santé qui interagissent avec eux, nous travaillons sur des projets tels que l'organisation d'événements de sensibilisation, la traduction de ressources de santé, des vidéoconférences en ligne et bien plus encore.",
+    "latest_header": "Nos projets récents"
+  },
   "Contact": {
     "seo_title": "AJPAS - Contactez-nous",
     "seo_description": "Pour demander des informations sur notre organisation, notre registre de professionnels de la santé ou pour discuter de toute collaboration future avec notre organisation, veuillez nous contacter via l'un de nos canaux officiels.",

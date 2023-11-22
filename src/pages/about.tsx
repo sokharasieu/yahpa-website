@@ -45,6 +45,7 @@ export default function About(
       <AboutUs />
       <GoalsList />
       <ValuesList />
+      {/* TODO: eventually replace members content */}
       <LeadershipTeam members={story.content.members} />
     </Page>
   )
