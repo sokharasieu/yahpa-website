@@ -13,6 +13,7 @@ export default authMiddleware({
     '/contact',
     '/projects',
     '/registry',
+    '/api/webhooks/clerk-user',
   ],
 })
 
