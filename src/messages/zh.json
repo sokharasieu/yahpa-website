@@ -21,6 +21,7 @@
     "results_not_found": "未找到结果",
     "show_more": "显示更多",
     "show_less": "收起",
+    "sign_in": "登入",
     "support": "支持",
     "updated_on": "最后更新",
     "yahpa": "YAHPA",
@@ -115,5 +116,13 @@
       "option2": "从我们的登记处索取卫生专业人员的联系信息",
       "option3": "请求赞助、合作或合作"
     }
+  },
+  "SignIn": {
+    "title": "欢迎回来！",
+    "subtitle": "登录以管理您的注册表配置文件"
+  },
+  "SignUp": {
+    "title": "加入我们，做出改变！",
+    "subtitle": "立即注册，与我们的在线注册一起推动积极的变革"
   }
 }

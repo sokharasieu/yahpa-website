@@ -21,6 +21,7 @@
     "results_not_found": "Không có kết quả",
     "show_more": "Cho xem nhiều hơn",
     "show_less": "Hiện ít hơn",
+    "sign_in": "Đăng nhập",
     "support": "Hỗ trợ",
     "updated_on": "ngày cập nhật",
     "yahpa": "YAHPA",
@@ -115,5 +116,13 @@
       "option2": "Yêu cầu thông tin liên hệ của chuyên gia y tế từ cơ quan đăng ký của chúng tôi",
       "option3": "Yêu cầu tài trợ, đối tác hoặc cộng tác"
     }
+  },
+  "SignIn": {
+    "title": "Chào mừng trở lại!",
+    "subtitle": "Đăng nhập để quản lý hồ sơ đăng ký của bạn"
+  },
+  "SignUp": {
+    "title": "Hãy cùng chúng tôi tạo nên sự khác biệt!",
+    "subtitle": "Đăng ký ngay để tạo ra sự thay đổi tích cực cùng với cơ quan đăng ký trực tuyến của chúng tôi"
   }
 }

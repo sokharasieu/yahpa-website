@@ -6,7 +6,6 @@
     "contribute": "Contribute",
     "contact": "Contact",
     "donate": "Donate",
-
     "error_404_title": "Page Not Found",
     "error_404_message": "The page you're looking for does not seem to exist",
     "error_404_button": "Return to Home",
@@ -22,6 +21,7 @@
     "results_not_found": "No results found",
     "show_more": "Show more",
     "show_less": "Show less",
+    "sign_in": "Sign In",
     "support": "Support",
     "updated_on": "Updated on",
     "yahpa": "YAHPA",
@@ -116,5 +116,13 @@
       "option2": "Request for contact information of health professional from our registry",
       "option3": "Request for sponsorship, partnership or collaboration"
     }
+  },
+  "SignIn": {
+    "title": "Welcome Back!",
+    "subtitle": "Sign in to manage your registry profile"
+  },
+  "SignUp": {
+    "title": "Join us in making a difference!",
+    "subtitle": "Sign up now to empower positive change together with our online registry"
   }
 }
