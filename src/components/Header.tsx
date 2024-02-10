@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Collapse,
   Flex,
   Heading,
@@ -12,12 +13,13 @@ import {
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React, { useRef, useEffect } from 'react'
-import { FiChevronLeft, FiMenu, FiX } from 'react-icons/fi'
+import { FiChevronLeft, FiMenu, FiX, FiUser } from 'react-icons/fi'
 import Image from './Image'
 import Link from './Link'
 import SocialMedia from './SocialMedia'
 import { useTranslations } from 'next-intl'
 import LanguagePicker from './LanguagePicker'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 function NavLink({
   children,
@@ -189,6 +191,22 @@ export default function Header() {
               <SocialMedia.WeChat />
             </SocialMedia>
             <LanguagePicker />
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <Button
+                display={{ base: 'none', md: 'flex' }}
+                as={Link}
+                href="/sign-in"
+                colorScheme="primary"
+                aria-label={'sign-in'}
+                leftIcon={<FiUser size={18} />}
+              >
+                <Text>{t('sign_in')}</Text>
+              </Button>
+            </SignedOut>
+
             <IconButton
               display={{ base: 'inline-flex', xl: 'none' }}
               aria-label={isOpen ? 'close menu' : 'open menu'}
@@ -207,6 +225,17 @@ export default function Header() {
             <MenuLink href="/projects">{t('projects')}</MenuLink>
             <MenuLink href="/contact">{t('contact')}</MenuLink>
           </Stack>
+          <SignedOut>
+            <Button
+              as={Link}
+              href="/sign-in"
+              colorScheme="primary"
+              aria-label={'sign-in'}
+              leftIcon={<FiUser size={18} />}
+            >
+              <Text>{t('sign_in')}</Text>
+            </Button>
+          </SignedOut>
           <Stack
             direction="row"
             alignItems="center"

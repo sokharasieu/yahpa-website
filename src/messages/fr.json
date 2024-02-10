@@ -21,6 +21,7 @@
     "results_not_found": "Aucun résultat trouvé",
     "show_more": "voir plus",
     "show_less": "voir moin",
+    "sign_in": "Se connecter",
     "support": "Support",
     "updated_on": "Dernière mise à jour le",
     "yahpa": "AJPAS",
@@ -115,5 +116,13 @@
       "option2": "Demande de coordonnées d'un professionnel de la santé à partir de notre registre",
       "option3": "Demande de sponsoring, partenariat ou collaboration"
     }
+  },
+  "SignIn": {
+    "title": "Content de vous revoir!",
+    "subtitle": "Connectez-vous pour gérer votre profil de registre"
+  },
+  "SignUp": {
+    "title": "Rejoignez-nous pour faire une différence!",
+    "subtitle": "Inscrivez-vous maintenant pour favoriser un changement positif avec notre registre en ligne"
   }
 }

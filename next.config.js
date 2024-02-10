@@ -5,14 +5,14 @@ module.exports = {
     storyblokAcessToken: process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN,
     storyblokPreviewToken: process.env.STORYBLOK_PREVIEW_TOKEN,
     storyblokPreviewSecret: process.env.STORYBLOK_PREVIEW_SECRET,
-    baseUrl: "https://www.yahpa.org",
+    baseUrl: 'https://www.yahpa.org',
     emailJsUserID: process.env.EMAILJS_USER_ID,
   },
   i18n: {
-    locales: ["en", "fr", "zh", "vi"],
-    defaultLocale: "en",
+    locales: ['en', 'fr', 'zh', 'vi'],
+    defaultLocale: 'en',
   },
   images: {
-    domains: ["a.storyblok.com"],
+    domains: ['a.storyblok.com'],
   },
-};
+}
