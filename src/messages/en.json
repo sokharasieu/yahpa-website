@@ -62,7 +62,7 @@
     "part2_text": "Our mission is to reduce health equity gaps of Asian communities by improving health promotion, disease prevention and access to healthcare through education, direct services, building an interdisciplinary healthcare professional platform and advocacy.",
     "goals_header": "Our Vision and Goals",
     "goals_description": "To foster equitable healthcare access and wellbeing for Asian communities in Quebec through the dissemination of medical knowledge, promotion of holistic health practices, facilitation of healthcare access, celebration of diverse healthcare professions, encouragement of community initiatives among youth, and enhancement of communication skills among healthcare professionals.",
-    "values_header": "To achieve this vision, we are guided by our core values",
+    "values_header": "To achieve this vision, we are guided by our <b>core values</b>",
     "values": {
       "title1": "Volunteerism",
       "value1": "We act for the good of society, dedicating our time and efforts to serve the Asian communities in Quebec.",
@@ -90,6 +90,47 @@
       "treasurer": "Treasurer",
       "wechat": "VP WeChat",
       "volunteer": "VP Volunteer Relations"
+    },
+    "history_title": "Our History",
+    "history_description": "A timeline of YAHPA's biggest milestones and achievements since its founding.",
+    "timeline": {
+      "months": {
+        "jan": "January",
+        "feb": "February",
+        "mar": "March",
+        "apr": "April",
+        "may": "May",
+        "jun": "June",
+        "jul": "July",
+        "aug": "August",
+        "sep": "September",
+        "oct": "October",
+        "nov": "November",
+        "dec": "December"
+      },
+      "2023": {
+        "jan": "YAHPA launches a recruitment drive to broaden its volunteer network, seeking dedicated individuals to bolster its mission and enhance its influence. With a current team of 30 members, we aim to expand our reach and deepen our impact in the community.",
+        "sep": "YAHPA presents \"Sip, Share, and Connect,\" a networking event tailored for healthcare professionals, generously sponsored by Desjardins, Mi Bao, and OCHA"
+      },
+      "2022": {
+        "oct": "The first annual in-person general assembly for YAHPA members was held.",
+        "nov": "YAHPA launches a series of online webinars to tackle various health related issues such as mental health and chronic diseases",
+        "dec": "The start of an online campaign of infographic posters discussing mental wellness on social media."
+      },
+      "2021": {
+        "may": "YAHPA hosts its first virtual conference in Mandarin on mental health issues given by industry speakers",
+        "jun": "YAHPA's organizes the first in-person table tennis event in Chinatown to meet the local asian community",
+        "aug": "YAHPA is now officially recognized a non-profit organization (NPO) at the provincial level of Quebec",
+        "oct": "YAHPA's online event featured 15 medical professionals sharing career paths with 150+ attendees. Speakers discussed diverse professional journeys, offering inspiration and guidance to aspiring healthcare professionals"
+      },
+      "2020": {
+        "jun": "YAHPA kick-starts its official online presence with Facebook and publishes its first translations of COVID related government instructions",
+        "nov": "A social media campaign initiates recruitment of healthcare professionals for the YAHPA registry. The inaugural online registry is published and comprises over 150 members",
+        "dec": "YAHPA participates in an online conference panel with BLIA Montreal regarding COVID-19 guidelines in Cantonese"
+      },
+      "2019": {
+        "dec": "YAHPA is founded during the COVID-19 pandemic by a group of passionate individuals who saw the rising inequalities in the current health care system regarding its accessibility to the asian population in Montreal"
+      }
     }
   },
   "Registry": {

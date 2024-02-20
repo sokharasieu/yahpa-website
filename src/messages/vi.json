@@ -97,6 +97,47 @@
       "treasurer": "Thủ quỹ",
       "wechat": "VP WeChat",
       "volunteer": "VP Quan hệ tình nguyện"
+    },
+    "history_title": "Lịch sử của chúng tôi",
+    "history_description": "Dòng thời gian về các cột mốc và thành tựu lớn nhất của YAHPA kể từ khi thành lập.",
+    "timeline": {
+      "months": {
+        "jan": "Tháng Giêng",
+        "feb": "Tháng 2",
+        "mar": "Tháng ba",
+        "apr": "Tháng 4",
+        "may": "tháng năm",
+        "jun": "Tháng sáu",
+        "jul": "Tháng 7",
+        "aug": "Tháng 8",
+        "sep": "Tháng 9",
+        "oct": "Tháng 10",
+        "nov": "Tháng 11",
+        "dec": "Tháng 12"
+      },
+      "2023": {
+        "jan": "YAHPA triển khai đợt tuyển dụng nhằm mở rộng mạng lưới tình nguyện viên, tìm kiếm những cá nhân tận tâm để củng cố sứ mệnh và nâng cao tầm ảnh hưởng của mình. Với đội ngũ hiện tại gồm 30 thành viên, chúng tôi mong muốn mở rộng phạm vi tiếp cận và tăng cường tác động của mình trong cộng đồng. ",
+        "sep": "YAHPA giới thiệu \"Sip, Share và Connect\", một sự kiện kết nối dành riêng cho các chuyên gia chăm sóc sức khỏe, được tài trợ rộng rãi bởi Desjardins, Mi Bao và OCHA"
+      },
+      "2022": {
+        "oct": "Đại hội đồng trực tiếp thường niên đầu tiên dành cho các thành viên YAHPA đã được tổ chức.",
+        "nov": "YAHPA ra mắt một loạt hội thảo trực tuyến nhằm giải quyết các vấn đề khác nhau liên quan đến sức khỏe như sức khỏe tâm thần và các bệnh mãn tính",
+        "dec": "Sự khởi đầu của một chiến dịch trực tuyến gồm các áp phích đồ họa thông tin thảo luận về sức khỏe tinh thần trên mạng xã hội."
+      },
+      "2021": {
+        "may": "YAHPA tổ chức hội nghị ảo đầu tiên bằng tiếng Quan Thoại về các vấn đề sức khỏe tâm thần do các diễn giả trong ngành đưa ra",
+        "jun": "YAHPA's tổ chức sự kiện bóng bàn trực tiếp đầu tiên ở Khu Phố Tàu để gặp gỡ cộng đồng người Châu Á tại địa phương",
+        "aug": "YAHPA hiện được chính thức công nhận là tổ chức phi lợi nhuận (NPO) ở cấp tỉnh Quebec",
+        "oct": "Sự kiện trực tuyến của YAHPA có sự góp mặt của 15 chuyên gia y tế chia sẻ con đường sự nghiệp với hơn 150 người tham dự. Các diễn giả đã thảo luận về các hành trình nghề nghiệp đa dạng, truyền cảm hứng và hướng dẫn cho các chuyên gia chăm sóc sức khỏe đầy tham vọng"
+      },
+      "2020": {
+        "jun": "YAHPA bắt đầu hiện diện trực tuyến chính thức với Facebook và xuất bản bản dịch đầu tiên về các hướng dẫn của chính phủ liên quan đến COVID",
+        "nov": "Một chiến dịch truyền thông xã hội bắt đầu tuyển dụng các chuyên gia chăm sóc sức khỏe cho cơ quan đăng ký YAHPA. Cơ quan đăng ký trực tuyến đầu tiên được xuất bản và bao gồm hơn 150 thành viên",
+        "dec": "YAHPA tham gia hội thảo trực tuyến với BLIA Montreal về các hướng dẫn về COVID-19 bằng tiếng Quảng Đông"
+      },
+      "2019": {
+        "dec": "YAHPA được thành lập trong thời kỳ đại dịch COVID-19 bởi một nhóm những người đam mê nhiệt huyết, những người đã nhận thấy sự bất bình đẳng ngày càng gia tăng trong hệ thống chăm sóc sức khỏe hiện tại liên quan đến khả năng tiếp cận người dân châu Á ở Montréal"
+      }
     }
   },
   "Registry": {
