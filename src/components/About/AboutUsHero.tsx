@@ -35,7 +35,8 @@ export default function AboutUsHero() {
         <Stack
           borderRadius="xl"
           position="absolute"
-          marginBottom={{ base: '-20vh', md: 0 }}
+          // bottom={0}
+          // marginBottom={{ base: '-20vh', md: 0 }}
           backgroundColor="primary.200"
           justifySelf="center"
           alignSelf={{ base: 'center', md: 'flex-end' }}

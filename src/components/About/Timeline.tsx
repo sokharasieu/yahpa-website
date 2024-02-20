@@ -52,7 +52,7 @@ function TimelineItem({ month, description }: TimelineItemProps) {
   )
 }
 
-export default function History() {
+export default function Timeline() {
   const t = useTranslations('About')
   return (
     <Container maxW="6xl" px={0} pb={{ base: '20vh', md: 12 }}>
@@ -64,7 +64,7 @@ export default function History() {
           borderColor="primary.500"
           my={1}
         />
-        <Text>{t('history_description')}</Text>
+        <Text textAlign="center">{t('history_description')}</Text>
       </Stack>
       <Stack alignItems="center" gap={0}>
         <TimelineYear year={'2023'}>

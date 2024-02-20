@@ -62,14 +62,8 @@
     "part2_text": "Notre mission est de réduire les écarts d'équité en matière de santé des communautés asiatiques en améliorant la promotion de la santé, la prévention des maladies et l'accès aux soins de santé par l'éducation, les services directs, la création d'une plate-forme interdisciplinaire de professionnels de la santé et le plaidoyer.",
     "goals_header": "Notre Vision et Nos Valeurs",
     "goals_description": "L'objectif de YAHPA est de favoriser l'accès équitable aux soins de santé et le bien-être des communautés asiatiques du Québec par la diffusion des connaissances médicales, la promotion de pratiques de santé holistiques, la facilitation de l'accès aux soins de santé, la célébration de la diversité des professions de la santé, l'encouragement des initiatives communautaires parmi les jeunes et l'amélioration de la communication. compétences des professionnels de santé.",
-    "goal1": "Diffuser l'information médicale pertinente aux populations asiatiques du Québec.",
-    "goal2": "Promouvoir les bonnes pratiques en santé physique et mentale.",
-    "goal3": "Améliorer et faciliter l'accès aux soins de santé et aux services sociaux.",
-    "goal4": "Mettre en valeur toutes les professions de la santé : médecine, soins infirmiers, physiothérapie, ergothérapie, psychologie, kinésiologie, nutrition, etc.",
-    "goal5": "Inspirer les jeunes à prendre des initiatives pour aider leurs communautés asiatiques.",
-    "goal6": "Aidez les professionnels de la santé à développer leurs compétences en communication pour améliorer la qualité de leurs soins pour les communautés asiatiques.",
     "values_image_alt": "Un membre YAHPA avec notre t-shirt",
-    "values_header": "Pour réaliser cette vision, nous sommes guidés par nos valeurs fondamentales",
+    "values_header": "Pour réaliser cette vision, nous sommes guidés par nos <b>valeurs fondamentales</b>",
     "values": {
       "title1": "Bénévolat",
       "value1": "Nous agissons pour le bien de la société, en consacrant notre temps et nos efforts au service des communautés asiatiques du Québec.",
@@ -127,7 +121,7 @@
       "2021": {
         "may": "YAHPA organise sa première conférence virtuelle en mandarin sur les problèmes de santé mentale donnée par des conférenciers de l'industrie",
         "jun": "YAHPA's organise le premier événement de tennis de table en personne à Chinatown pour rencontrer la communauté asiatique locale",
-        "aug": "YAHPA est maintenant officiellement reconnu organisme à but non lucratif (OBNL) à l'échelle provinciale du Québec",
+        "aug": "YAHPA est maintenant officiellement reconnu comme organisme à but non lucratif (OBNL) à l'échelle provinciale du Québec",
         "oct": "L'événement en ligne de YAHPA a réuni 15 professionnels de la santé partageant leur parcours professionnel avec plus de 150 participants. Les intervenants ont discuté de divers parcours professionnels, offrant inspiration et conseils aux futurs professionnels de la santé."
       },
       "2020": {

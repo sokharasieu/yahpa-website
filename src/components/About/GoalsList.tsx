@@ -50,13 +50,7 @@ export default function GoalsList() {
           borderColor="primary.500"
           my={1}
         />
-        <Text
-          maxW="xl"
-          textAlign="center"
-          background="primary.200"
-          borderRadius="xl"
-          padding={6}
-        >
+        <Text maxW="xl" background="primary.200" borderRadius="xl" padding={6}>
           {t('goals_description')}
         </Text>
       </Stack>
