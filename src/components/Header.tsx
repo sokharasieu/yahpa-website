@@ -195,7 +195,8 @@ export default function Header() {
               <SocialMedia.WeChat />
             </SocialMedia>
             <LanguagePicker />
-            <SignedIn>
+            {/* TODO: Add back once dashboard feature is ready */}
+            {/* <SignedIn>
               <UserButton />
             </SignedIn>
             <SignedOut>
@@ -209,7 +210,7 @@ export default function Header() {
               >
                 <Text>{t('sign_in')}</Text>
               </Button>
-            </SignedOut>
+            </SignedOut> */}
 
             <IconButton
               display={{ base: 'inline-flex', xl: 'none' }}
@@ -229,7 +230,8 @@ export default function Header() {
             <MenuLink href="/projects">{t('projects')}</MenuLink>
             <MenuLink href="/contact">{t('contact')}</MenuLink>
           </Stack>
-          <SignedOut>
+          {/* TODO: Add back once dashboard feature is ready */}
+          {/* <SignedOut>
             <Button
               as={Link}
               href="/sign-in"
@@ -239,7 +241,7 @@ export default function Header() {
             >
               <Text>{t('sign_in')}</Text>
             </Button>
-          </SignedOut>
+          </SignedOut> */}
           <Stack
             direction="row"
             alignItems="center"
