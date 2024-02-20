@@ -12,7 +12,7 @@ import {
   useOutsideClick,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { FiChevronLeft, FiMenu, FiX, FiUser } from 'react-icons/fi'
 import Image from './Image'
 import Link from './Link'
@@ -25,26 +25,12 @@ function NavLink({
   children,
   ...linkProps
 }: React.ComponentProps<typeof Link>) {
-  const router = useRouter()
-  const isActiveLink = router.asPath === linkProps.href
-
   return (
     <Link
       fontSize="xl"
       fontWeight="500"
       position="relative"
       sx={{
-        color: isActiveLink ? 'primary.500' : undefined,
-        ':after': {
-          content: "''",
-          display: isActiveLink ? 'block' : 'none',
-          position: 'absolute',
-          bottom: '-0.9em',
-          left: 0,
-          width: '100%',
-          backgroundColor: 'primary.500',
-          height: 1,
-        },
         ':hover, :focus': {
           transition: 'all 0.2s ease-in-out',
           textDecoration: 'none',
@@ -114,16 +100,31 @@ export function Topbar() {
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const router = useRouter()
-  const ref = useRef(null)
+  const [isScrolled, setIsScrolled] = useState<boolean>(false)
+  const ref = useRef<HTMLDivElement | null>(null)
   useOutsideClick({ ref: ref, handler: onClose })
   const t = useTranslations('App')
 
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true)
+    } else {
+      setIsScrolled(false)
+    }
+  }
   useEffect(() => {
     router.events.on('routeChangeComplete', onClose)
     return () => {
       router.events.off('routeChangeComplete', onClose)
     }
   }, [router, onClose])
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <>
@@ -137,7 +138,10 @@ export default function Header() {
         h="full"
         p={{ base: 2, xl: 0 }}
         px={{ xl: 3 }}
-        boxShadow="xl"
+        boxShadow={isScrolled ? 'lg' : 'none'}
+        borderBottom={'1px solid'}
+        borderColor={isScrolled ? 'transparent' : 'gray.200'}
+        borderBottomWidth={1.5}
         ref={ref}
       >
         <Stack
