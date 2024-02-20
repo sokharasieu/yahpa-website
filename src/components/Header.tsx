@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Collapse,
   Flex,
   Heading,
@@ -11,15 +10,14 @@ import {
   useDisclosure,
   useOutsideClick,
 } from '@chakra-ui/react'
+import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/router'
-import React, { useRef, useEffect, useState } from 'react'
-import { FiChevronLeft, FiMenu, FiX, FiUser } from 'react-icons/fi'
+import React, { useEffect, useRef, useState } from 'react'
+import { FiChevronLeft, FiMenu, FiX } from 'react-icons/fi'
 import Image from './Image'
+import LanguagePicker from './LanguagePicker'
 import Link from './Link'
 import SocialMedia from './SocialMedia'
-import { useTranslations } from 'next-intl'
-import LanguagePicker from './LanguagePicker'
-import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 function NavLink({
   children,
