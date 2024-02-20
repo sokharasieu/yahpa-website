@@ -40,7 +40,7 @@ export default function GoalsList() {
 
   return (
     <Container maxW="6xl" px={0} pb={{ base: 8, md: 12 }}>
-      <Stack alignItems="center" pb={12} mx={4}>
+      <Stack alignItems="center" pb={4} mx={4}>
         <Heading fontSize="5xl" textAlign="center">
           {t('goals_header')}
         </Heading>
@@ -50,11 +50,17 @@ export default function GoalsList() {
           borderColor="primary.500"
           my={1}
         />
-        <Text maxW="xl" textAlign="center">
+        <Text
+          maxW="xl"
+          textAlign="center"
+          background="primary.200"
+          borderRadius="xl"
+          padding={6}
+        >
           {t('goals_description')}
         </Text>
       </Stack>
-      <Text fontSize="2xl" textAlign="center" py={4} color="primary.600">
+      <Text fontSize="xl" textAlign="center" py={4} color="primary.600">
         {t.rich('values_header', {
           b: (chunk) => (
             <Text as="b" textDecoration="wavy underline" color="primary.400">
@@ -76,7 +82,7 @@ export default function GoalsList() {
               key={index}
               background="primary.100"
               p={4}
-              borderRadius="md"
+              borderRadius="xl"
               height={{ base: '100%', md: '200px' }}
               width="full"
               maxWidth={{ md: '300px' }}
