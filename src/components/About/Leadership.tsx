@@ -9,76 +9,89 @@ import {
   useTheme,
 } from '@chakra-ui/react'
 import { useTranslations } from 'next-intl'
+import React from 'react'
+
+type Member = {
+  name: string
+  titles: string[]
+  src?: string
+}
 
 export default function Leadership() {
   const theme = useTheme()
   const t = useTranslations('About')
 
-  const MEMBERS = [
+  const MEMBERS: Member[] = [
     {
       name: 'Kimfay Hua',
-      title: t('role.president'),
+      titles: [
+        t('role.founder', { gender: 'male' }),
+        t('role.president', { gender: 'male' }),
+      ],
       src: '/images/leadership/kimfay.png',
     },
     {
-      name: 'Caroline Trinh',
-      title: t('role.eventplanning'),
-      src: '/images/leadership/caroline.png',
+      name: 'Vida Sieu',
+      titles: [t('role.vice_president', { gender: 'female' })],
+      src: '/images/leadership/vida.png',
     },
     {
-      name: 'Alex Chung',
-      title: t('role.eventplanning'),
-      src: '/images/leadership/alex.png',
+      name: 'Melissa Hua',
+      titles: [t('role.founder', { gender: 'female' }), t('role.secretary')],
+      src: '/images/leadership/melissa.png',
     },
     {
-      name: 'Brendon Pham',
-      title: t('role.external'),
-      src: '/images/leadership/brendon.png',
-    },
-    {
-      name: 'Uyen Do',
-      title: t('role.marketing'),
-      src: '/images/leadership/uyen.png',
+      name: 'Gillian Truong',
+      titles: [t('role.treasurer', { gender: 'female' })],
     },
     {
       name: 'Belinda Jiao',
-      title: t('role.marketing'),
+      titles: [t('role.marketing', { gender: 'female' })],
       src: '/images/leadership/belinda.png',
     },
     {
+      name: 'Alex Chung',
+      titles: [t('role.marketing', { gender: 'male' })],
+      src: '/images/leadership/alex.png',
+    },
+    {
+      name: 'Uyen Do',
+      titles: [t('role.volunteers', { gender: 'female' })],
+      src: '/images/leadership/uyen.png',
+    },
+
+    {
+      name: 'Caroline Trinh',
+      titles: [t('role.community_outreach', { gender: 'female' })],
+      src: '/images/leadership/caroline.png',
+    },
+    {
+      name: 'Robert Chen',
+      titles: [t('role.community_outreach', { gender: 'male' })],
+      src: '/images/leadership/robert.png',
+    },
+
+    {
+      name: 'Brendon Pham',
+      titles: [t('role.founder', { gender: 'male' }), t('role.member')],
+      src: '/images/leadership/brendon.png',
+    },
+
+    {
       name: 'Kaiyang Li',
-      title: t('role.registry'),
+      titles: [t('role.member')],
       src: '/images/leadership/kaiyang.png',
     },
     {
       name: 'Yu Xin Hu',
-      title: t('role.funding'),
+      titles: [t('role.founder', { gender: 'female' }), t('role.member')],
       src: '/images/leadership/yuxin.png',
     },
-    {
-      name: 'Melissa Hua',
-      title: t('role.secretary'),
-      src: '/images/leadership/melissa.png',
-    },
-    {
-      name: 'Vida Sieu',
-      title: t('role.treasurer'),
-      src: '/images/leadership/vida.png',
-    },
+
     {
       name: 'Oliver Ying Zhan',
-      title: t('role.wechat'),
+      titles: [t('role.member')],
       src: '/images/leadership/oliver.png',
-    },
-    {
-      name: 'Robert Chen',
-      title: t('role.volunteer'),
-      src: '/images/leadership/robert.png',
-    },
-    {
-      name: 'Jin Kuang',
-      title: t('role.volunteer'),
-      src: '/images/leadership/jin.png',
     },
   ]
 
@@ -113,6 +126,7 @@ export default function Leadership() {
               key={member.name}
               flexDirection={{ base: 'column', md: 'row' }}
               alignItems="center"
+              gap={2}
             >
               <Avatar
                 size="2xl"
@@ -126,9 +140,8 @@ export default function Leadership() {
               />
 
               <Stack
-                width={{ base: 'full', md: '100px' }}
-                maxW={{ base: 'full', md: '100px' }}
-                marginLeft={{ md: '-4' }}
+                width={{ base: 'full', md: '120px' }}
+                maxW={{ base: 'full', md: '120px' }}
                 zIndex={1}
                 gap={0}
                 marginTop={{ base: 3, md: 30 }}
@@ -139,7 +152,14 @@ export default function Leadership() {
                 <Text fontWeight="bold" pb={1}>
                   {member.name}
                 </Text>
-                <Text fontSize="xs">{member.title}</Text>
+                <Text fontSize="xs">
+                  {member.titles?.map((title, index) => (
+                    <React.Fragment key={title}>
+                      {title}
+                      {index !== member.titles.length - 1 && ', '}
+                    </React.Fragment>
+                  ))}
+                </Text>
               </Stack>
             </WrapItem>
           )

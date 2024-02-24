@@ -81,15 +81,14 @@
     "leadership_description": "The YAHPA leadership team features talented professionals and students with a wide range of experiences in both private and public healthcare institutions.",
     "role": {
       "president": "President",
-      "eventplanning": "VP Event Planning",
-      "external": "VP External",
-      "marketing": "VP Marketing",
-      "registry": "VP Registry",
-      "funding": "VP Funding",
+      "vice_president": "Vice-President",
+      "community_outreach": "Co-director of Community Outreach",
+      "marketing": "Co-director of Marketing",
       "secretary": "Secretary",
       "treasurer": "Treasurer",
-      "wechat": "VP WeChat",
-      "volunteer": "VP Volunteer Relations"
+      "volunteers": "Director of Volunteer Relations",
+      "member": "Member at large",
+      "founder": "Co-founder"
     },
     "history_title": "Our History",
     "history_description": "A timeline of YAHPA's biggest milestones and achievements since its founding.",
@@ -113,6 +112,7 @@
         "sep": "YAHPA presents \"Sip, Share, and Connect,\" a networking event tailored for healthcare professionals, generously sponsored by Desjardins, Mi Bao, and OCHA"
       },
       "2022": {
+        "aug": "YAHPA hosts Bubble Tea & Cookies, a sponsored networking event for students to meet with over 30 health professionals to discuss and learn about their career paths",
         "oct": "The first annual in-person general assembly for YAHPA members was held.",
         "nov": "YAHPA launches a series of online webinars to tackle various health related issues such as mental health and chronic diseases",
         "dec": "The start of an online campaign of infographic posters discussing mental wellness on social media."

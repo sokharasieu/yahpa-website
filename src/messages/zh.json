@@ -82,15 +82,14 @@
     "leadership_description": "YAHPA 领导团队由才华横溢的专业人士和学生组成，他们在私立和公立医疗机构拥有丰富的经验。",
     "role": {
       "president": "总监",
-      "eventplanning": "活动副总监",
-      "external": "外务副总监",
+      "vice_president": "副总监",
+      "community_outreach": "社区外展副总监",
       "marketing": "公关副总监",
-      "registry": "注册副总监",
-      "funding": "赞助副总监",
       "secretary": "秘书",
       "treasurer": "财务主管",
-      "wechat": "微信副总监",
-      "volunteer": "志愿者关副总监"
+      "volunteers": "志愿者关副总监",
+      "member": "普通会员",
+      "founder": "联合创始人"
     },
     "history_title": "我们的历史",
     "history_description": "YAHPA 自成立以来最大的里程碑和成就的时间表。",
@@ -114,6 +113,7 @@
         "sep": "YAHPA 推出“Sip、Share 和 Connect”，这是一项为医疗保健专业人士量身定制的社交活动，由 Desjardins、咪宝和 OCHA 慷慨赞助"
       },
       "2022": {
+        "aug": "YAHPA 举办了 Bubble Tea & Cookies，这是一项赞助的社交活动，学生可以与 30 多名健康专业人士会面，讨论和了解他们的职业道路",
         "oct": "YAHPA 会员首次年度现场大会召开。",
         "nov": "YAHPA 推出一系列在线网络研讨会，以解决各种健康相关问题，如心理健康和慢性病",
         "dec": "在社交媒体上讨论心理健康的信息图表海报在线活动的开始。"

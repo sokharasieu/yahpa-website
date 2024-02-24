@@ -27,7 +27,7 @@ export default function AboutUsHero() {
         <Image
           width={{ base: '100%', md: '90%' }}
           height="100%"
-          src="/images/gloves.jpg"
+          src="/images/about.jpg"
           alt="bg"
           borderRadius={{ base: 'none', md: 'xl' }}
           zIndex={0}
@@ -35,14 +35,13 @@ export default function AboutUsHero() {
         <Stack
           borderRadius="xl"
           position="absolute"
-          // bottom={0}
-          // marginBottom={{ base: '-20vh', md: 0 }}
+          marginBottom={{ base: '-20vh', md: 0 }}
           backgroundColor="primary.200"
           justifySelf="center"
           alignSelf={{ base: 'center', md: 'flex-end' }}
           zIndex={1}
           mx={4}
-          padding={12}
+          padding={{ base: 6, md: 12 }}
           maxW="xl"
         >
           <Divider borderColor="black" borderWidth={1.5} />

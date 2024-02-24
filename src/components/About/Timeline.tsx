@@ -1,4 +1,5 @@
 import { Box, Container, Divider, Heading, Stack, Text } from '@chakra-ui/react'
+import Image from 'components/Image'
 import { useTranslations } from 'next-intl'
 
 type TimelineYearProps = React.PropsWithChildren<{
@@ -19,9 +20,10 @@ function TimelineYear({ children, year }: TimelineYearProps) {
 type TimelineItemProps = {
   month?: string
   description?: string
+  imageSrc?: string
 }
 
-function TimelineItem({ month, description }: TimelineItemProps) {
+function TimelineItem({ month, description, imageSrc }: TimelineItemProps) {
   return (
     <Stack
       minHeight="150px"
@@ -32,7 +34,7 @@ function TimelineItem({ month, description }: TimelineItemProps) {
       }}
     >
       <Box width={{ base: '250px', md: '500px' }}>
-        <Stack px={5} position="relative">
+        <Stack px={5} pb={12} position="relative">
           <Heading fontSize="2xl">
             <Box
               w={3}
@@ -45,7 +47,16 @@ function TimelineItem({ month, description }: TimelineItemProps) {
             />
             {month}
           </Heading>
-          <Text pb={12}>{description}</Text>
+          <Text>{description}</Text>
+          {imageSrc && (
+            <Image
+              alt=""
+              src={imageSrc}
+              width={{ base: '200px', sm: '280px', md: '480px' }}
+              height={'full'}
+              borderRadius="md"
+            />
+          )}
         </Stack>
       </Box>
     </Stack>
@@ -86,9 +97,15 @@ export default function Timeline() {
             month={t('timeline.months.nov')}
             description={t('timeline.2022.nov')}
           />
+
           <TimelineItem
             month={t('timeline.months.oct')}
             description={t('timeline.2022.oct')}
+          />
+          <TimelineItem
+            month={t('timeline.months.aug')}
+            description={t('timeline.2022.aug')}
+            imageSrc="/images/timeline/2022_08_bbtc.jpg"
           />
         </TimelineYear>
         <TimelineYear year={'2021'}>
@@ -103,6 +120,7 @@ export default function Timeline() {
           <TimelineItem
             month={t('timeline.months.jun')}
             description={t('timeline.2021.jun')}
+            imageSrc="/images/team.jpeg"
           />
           <TimelineItem
             month={t('timeline.months.may')}

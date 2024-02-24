@@ -61,7 +61,7 @@
     "part2_header": "Notre mission",
     "part2_text": "Notre mission est de réduire les écarts d'équité en matière de santé des communautés asiatiques en améliorant la promotion de la santé, la prévention des maladies et l'accès aux soins de santé par l'éducation, les services directs, la création d'une plate-forme interdisciplinaire de professionnels de la santé et le plaidoyer.",
     "goals_header": "Notre Vision et Nos Valeurs",
-    "goals_description": "L'objectif de YAHPA est de favoriser l'accès équitable aux soins de santé et le bien-être des communautés asiatiques du Québec par la diffusion des connaissances médicales, la promotion de pratiques de santé holistiques, la facilitation de l'accès aux soins de santé, la célébration de la diversité des professions de la santé, l'encouragement des initiatives communautaires parmi les jeunes et l'amélioration de la communication. compétences des professionnels de santé.",
+    "goals_description": "L'objectif de YAHPA est de favoriser l'accès équitable aux soins de santé et le bien-être des communautés asiatiques du Québec par la diffusion des connaissances médicales, la promotion de pratiques de santé holistiques, la facilitation de l'accès aux soins de santé, la célébration de la diversité des professions de la santé, l'encouragement des initiatives communautaires parmi les jeunes et l'amélioration de la communication, et compétences des professionnels de santé.",
     "values_image_alt": "Un membre YAHPA avec notre t-shirt",
     "values_header": "Pour réaliser cette vision, nous sommes guidés par nos <b>valeurs fondamentales</b>",
     "values": {
@@ -81,16 +81,15 @@
     "leadership_header": "Notre équipe de direction",
     "leadership_description": "L'équipe de direction de YAHPA est composée de professionnels et d'étudiants talentueux possédant un large éventail d'expériences dans des établissements de santé privés et publics.",
     "role": {
-      "president": "Président",
-      "eventplanning": "VP Planification d'événements",
-      "external": "VP Externe",
-      "marketing": "VP Marketing",
-      "registry": "VP Registre",
-      "funding": "VP Financement",
+      "president": "{gender, select, female {Présidente} male {Président} other {Président(e)}}",
+      "vice_president": "{gender, select, female {Vice-présidente} male {Vice-président} other {Vice-président(e)}}",
+      "community_outreach": "{gender, select, female {Co-directrice de l'engagement communautaire } male {Co-directeur de l'engagement communautaire } other {Co-direct(eur/rice) de la sensibilisation communautaire }}",
+      "marketing": "{gender, select, female {Co-directrice du Marketing} male {Co-directeur du Marketing} other {Co-direct(eur/rice) du Marketing}}",
       "secretary": "Secrétaire",
-      "treasurer": "Trésorière",
-      "wechat": "VP WeChat",
-      "volunteer": "VP Relations Bénévoles"
+      "treasurer": "{gender, select, female {Trésorière} male {Trésorier} other {Trésori(er/ère)}}",
+      "volunteers": "{gender, select, female {Directrice des Relations Bénévoles} male {Directeur des Relations Bénévoles} other {Direct(eur/rice) des Relations Bénévoles}}",
+      "member": "Membre ordinaire",
+      "founder": "{gender, select, female {Co-fondatrice} male {Co-fondateur} other {Co-fondat(eur/rice)}}"
     },
     "history_title": "Notre histoire",
     "history_description": "Une chronologie des plus grandes étapes et réalisations de YAHPA depuis sa création.",
@@ -100,7 +99,7 @@
         "feb": "février",
         "mar": "mars",
         "avril": "avril",
-        "peut": "Mai",
+        "may": "Mai",
         "jun": "juin",
         "jul": "juillet",
         "aug": "août",
@@ -114,6 +113,7 @@
         "sep": "YAHPA présente \"Sip, Share, and Connect\", un événement de réseautage adapté aux professionnelles en soins, généreusement commandité par Desjardins, Mi Bao et OCHA"
       },
       "2022": {
+        "aug": "YAHPA organise Bubble Tea & Cookies, un événement de réseautage sponsorisé permettant aux étudiants de rencontrer plus de 30 professionnels de la santé pour discuter et en apprendre davantage sur leur cheminement de carrière",
         "oct": "La première assemblée générale annuelle en personne pour les membres de YAHPA a eu lieu.",
         "nov": "YAHPA lance une série de webinaires en ligne pour aborder diverses questions liées à la santé telles que la santé mentale et les maladies chroniques",
         "dec": "Le lancement d'une campagne en ligne d'affiches infographiques discutant du bien-être mental sur les réseaux sociaux."

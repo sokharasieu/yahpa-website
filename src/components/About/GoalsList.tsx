@@ -50,14 +50,21 @@ export default function GoalsList() {
           borderColor="primary.500"
           my={1}
         />
-        <Text maxW="xl" background="primary.200" borderRadius="xl" padding={6}>
+        <Text
+          maxW="2xl"
+          fontSize="xl"
+          background="primary.50"
+          lineHeight={1.8}
+          borderRadius="xl"
+          padding={6}
+        >
           {t('goals_description')}
         </Text>
       </Stack>
       <Text fontSize="xl" textAlign="center" py={4} color="primary.600">
         {t.rich('values_header', {
           b: (chunk) => (
-            <Text as="b" textDecoration="wavy underline" color="primary.400">
+            <Text as="b" color="primary.400">
               {chunk}
             </Text>
           ),
