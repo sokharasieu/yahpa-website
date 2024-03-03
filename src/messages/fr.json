@@ -91,6 +91,16 @@
       "member": "Membre ordinaire",
       "founder": "{gender, select, female {Co-fondatrice} male {Co-fondateur} other {Co-fondat(eur/rice)}}"
     },
+    "job": {
+      "physiotherapist": "Physiothérapeute",
+      "occupational_therapist": "Ergothérapeute",
+      "medical_resident": "{gender, select, female {Résidente en médecine} male {Résident en médecine} other {Résident(e) en médecine}}",
+      "healthcare_student": "{gender, select, female {Étudiante en santé} male {Étudiant en santé} other {Étudiant(e) en santé}}",
+      "application_engineer": "{gender, select, female {Ingénieure d'application} male {Ingénieur d'application} other {Ingénieur(e) d'application}}",
+      "research_officer": "{gender, select, female {Agente de recherche} male {Agent de recherche} other {Agent(e) de recherche}}",
+      "social_work_student": "{gender, select, female {Étudiante en travail social} male {Étudiant en travail social} other {Étudiant(e) en travail social}}",
+      "accountant": "Comptable"
+    },
     "history_title": "Notre histoire",
     "history_description": "Une chronologie des plus grandes étapes et réalisations de YAHPA depuis sa création.",
     "timeline": {

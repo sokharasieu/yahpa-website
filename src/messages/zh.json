@@ -91,6 +91,16 @@
       "member": "普通会员",
       "founder": "联合创始人"
     },
+    "job": {
+      "physiotherapist": "物理治疗师",
+      "occupational_therapist": "职业治疗师",
+      "medical_resident": "医疗住院医师",
+      "healthcare_student": "医疗保健学生",
+      "application_engineer": "应用工程师",
+      "research_officer": "研究官员",
+      "social_work_student": "社会工作学生",
+      "accountant": "会计师"
+    },
     "history_title": "我们的历史",
     "history_description": "YAHPA 自成立以来最大的里程碑和成就的时间表。",
     "timeline": {

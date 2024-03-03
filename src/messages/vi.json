@@ -91,6 +91,16 @@
       "member": "Thành viên bình thường",
       "founder": "Người đồng sáng lập"
     },
+    "job": {
+      "physiotherapist": "Nhà vật lý trị liệu",
+      "occupational_therapist": "Nhà trị liệu nghề nghiệp",
+      "medical_resident": "Cá nhân viên y tế",
+      "healthcare_student": "Sinh viên y tế",
+      "application_engineer": "Kỹ sư ứng dụng",
+      "research_officer": "Nhân viên nghiên cứu",
+      "social_work_student": "Sinh viên công tác xã hội",
+      "accountant": "Kế toán viên"
+    },
     "history_title": "Lịch sử của chúng tôi",
     "history_description": "Dòng thời gian về các cột mốc và thành tựu lớn nhất của YAHPA kể từ khi thành lập.",
     "timeline": {

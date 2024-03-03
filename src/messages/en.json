@@ -90,6 +90,16 @@
       "member": "Member at large",
       "founder": "Co-founder"
     },
+    "job": {
+      "physiotherapist": "Physiotherapist",
+      "occupational_therapist": "Occupational Therapist",
+      "medical_resident": "Medical Resident",
+      "healthcare_student": "Healthcare Student",
+      "application_engineer": "Application Engineer",
+      "research_officer": "Research Officier",
+      "social_work_student": "Social Work Student",
+      "accountant": "Accountant"
+    },
     "history_title": "Our History",
     "history_description": "A timeline of YAHPA's biggest milestones and achievements since its founding.",
     "timeline": {
