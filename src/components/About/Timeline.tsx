@@ -1,6 +1,7 @@
 import { Box, Container, Divider, Heading, Stack, Text } from '@chakra-ui/react'
 import Image from 'components/Image'
 import { useTranslations } from 'next-intl'
+import React from 'react'
 
 type TimelineYearProps = React.PropsWithChildren<{
   year?: string
@@ -17,13 +18,18 @@ function TimelineYear({ children, year }: TimelineYearProps) {
   )
 }
 
-type TimelineItemProps = {
+type TimelineItemProps = React.PropsWithChildren<{
   month?: string
   description?: string
   imageSrc?: string
-}
+}>
 
-function TimelineItem({ month, description, imageSrc }: TimelineItemProps) {
+function TimelineItem({
+  month,
+  description,
+  imageSrc,
+  children,
+}: TimelineItemProps) {
   return (
     <Stack
       minHeight="150px"
@@ -57,6 +63,7 @@ function TimelineItem({ month, description, imageSrc }: TimelineItemProps) {
               borderRadius="md"
             />
           )}
+          {children}
         </Stack>
       </Box>
     </Stack>
@@ -80,8 +87,9 @@ export default function Timeline() {
       <Stack alignItems="center" gap={0}>
         <TimelineYear year={'2023'}>
           <TimelineItem
-            month={t('timeline.months.sep')}
-            description={t('timeline.2023.sep')}
+            month={t('timeline.months.oct')}
+            description={t('timeline.2023.oct')}
+            imageSrc="/images/timeline/2023_10_sip_share_connect.jpg"
           />
           <TimelineItem
             month={t('timeline.months.jan')}
