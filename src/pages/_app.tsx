@@ -1,5 +1,6 @@
-import { Center, ChakraProvider, Spinner } from '@chakra-ui/react'
-import { ClerkLoaded, ClerkLoading, ClerkProvider } from '@clerk/nextjs'
+import { ChakraProvider } from '@chakra-ui/react'
+import { enUS, frFR, viVN, zhCN } from '@clerk/localizations'
+import { ClerkProvider } from '@clerk/nextjs'
 import '@fontsource/lato'
 import '@fontsource/source-sans-pro'
 import Layout from 'components/Layout'
@@ -8,7 +9,6 @@ import { NextIntlClientProvider } from 'next-intl'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import theme from 'styles/theme'
-import { enUS, frFR, zhCN, viVN } from '@clerk/localizations'
 
 emailjs.init(process?.env?.emailJsUserID as string)
 
@@ -39,20 +39,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       >
         <ChakraProvider theme={theme}>
           <Layout>
-            <ClerkLoading>
-              <Center bg="white" width="100%">
-                <Spinner
-                  size="xl"
-                  thickness="4px"
-                  speed="0.65s"
-                  emptyColor="gray.200"
-                  color="primary.500"
-                />
-              </Center>
-            </ClerkLoading>
-            <ClerkLoaded>
-              <Component {...pageProps} />
-            </ClerkLoaded>
+            <Component {...pageProps} />
           </Layout>
         </ChakraProvider>
       </NextIntlClientProvider>
