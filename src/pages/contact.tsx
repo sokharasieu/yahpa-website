@@ -1,42 +1,40 @@
-import { Box, Center, Icon, Stack, Tooltip } from "@chakra-ui/react";
-import FormContact from "components/FormContact";
-import Link from "components/Link";
-import Page from "components/Page";
-import PageTitle from "components/PageTitle";
-import RenderRichText from "components/RenderRichText";
-import Section from "components/Section";
-import SEO from "components/SEO";
-import useTranslation from "hooks/useTranslation";
-import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
-import React from "react";
-import { RiMessengerFill } from "react-icons/ri";
-import { getContact } from "utils/api";
-import { useStoryblok } from "utils/storyblokClient";
+import {
+  Box,
+  Center,
+  Heading,
+  Icon,
+  Stack,
+  Text,
+  Tooltip,
+} from '@chakra-ui/react'
+import Link from 'components/Link'
+import Page from 'components/Page'
+import PageTitle from 'components/PageTitle'
+import SEO from 'components/SEO'
+import Section from 'components/Section'
+import { GetStaticPropsContext } from 'next'
+import { useTranslations } from 'next-intl'
+import dynamic from 'next/dynamic'
+import React from 'react'
+import { RiMessengerFill } from 'react-icons/ri'
+
+// Hydration error caused by data from getStaticProps being passed to component
+const DynamicFormContact = dynamic(() => import('../components/FormContact'), {
+  ssr: false,
+})
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const story = await getContact({
-    language: context.locale,
-  });
-
-  //because of [[...slug]] its hard to catch 404s i.e. /fr/this-is-not-real
-  if (context?.params?.slug) {
-    return {
-      props: {},
-      notFound: true,
-    };
-  }
-
   return {
     props: {
-      story,
       locale: context.locale,
+      messages: (await import(`messages/${context.locale}.json`)).default,
     },
     revalidate: 60 * 60,
-  };
+  }
 }
 
 const FbChat = React.forwardRef(function renderShit(
-  { children, ...props }: React.ComponentPropsWithoutRef<typeof Link>,
+  { ...props }: React.ComponentPropsWithoutRef<typeof Link>,
   ref?: React.ForwardedRef<HTMLDivElement>
 ) {
   return (
@@ -62,43 +60,52 @@ const FbChat = React.forwardRef(function renderShit(
         <Icon
           color="#006AFF"
           as={RiMessengerFill}
-          w={"3rem"}
-          h={"3rem"}
+          w={'3rem'}
+          h={'3rem'}
           _hover={{
-            transform: "scale(1.1)",
-            transition: "all 0.3s ease-in-out",
+            transform: 'scale(1.1)',
+            transition: 'all 0.3s ease-in-out',
           }}
         />
       </Center>
     </Link>
-  );
-});
+  )
+})
 
-export default function ContactPage(
-  props: InferGetStaticPropsType<typeof getStaticProps>
-) {
-  const story = useStoryblok(props?.story!!);
-  const { t } = useTranslation();
+export default function ContactPage() {
+  const t = useTranslations()
   return (
     <Page>
-      <SEO meta={story.content.seo} />
+      <SEO
+        title={t('Contact.seo_title')}
+        description={t('Contact.seo_description')}
+      />
       <PageTitle
-        title={story.content.page_title}
-        language={story.lang}
-        translatedSlugs={story.translated_slugs}
-        defaultSlug={story.full_slug}
+        title={t('Contact.page_title')}
+        translatedTitle={t('Contact.page_slug')}
       />
       <Section>
         <Stack>
-          <Box>{RenderRichText(story.content.page_text)}</Box>
           <Box>
-            <FormContact options={story.content.options} />
+            <Heading
+              mb={3}
+              fontSize={{ base: '2xl', lg: '3xl' }}
+              fontWeight="bold"
+            >
+              {t('Contact.form_header')}
+            </Heading>
+            <Text fontSize={{ base: 'md', xl: 'lg' }} mb={6}>
+              {t('Contact.form_description')}
+            </Text>
+          </Box>
+          <Box>
+            <DynamicFormContact />
           </Box>
         </Stack>
       </Section>
-      <Tooltip label={t("chat")} bg="gray.900" placement="left">
+      <Tooltip label={t('App.chat')} bg="gray.900" placement="left">
         <FbChat />
       </Tooltip>
     </Page>
-  );
+  )
 }

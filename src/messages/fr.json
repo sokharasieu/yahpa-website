@@ -1,0 +1,194 @@
+{
+  "App": {
+    "about": "À propos de nous",
+    "become_member": "Comment devenir membre",
+    "chat": "Besoin de discuter?",
+    "contribute": "Contribuer",
+    "contact": "Nous contacter",
+    "donate": "Donation",
+    "error_404_title": "Page non trouvée",
+    "error_404_message": "La page que vous recherchez ne semble pas exister",
+    "error_404_button": "Retourner à l'accueil",
+    "follow_social": "Suivez-nous sur nos réseaux sociaux",
+    "home": "Accueil",
+    "languages": "Langages",
+    "latest_projects": "Nos projets récents",
+    "organization": "Notre Organisation",
+    "projects": "Nos projets",
+    "registry": "Notre registre",
+    "registry_search_placeholder": "Rechercher un professionnel de la santé, par sa langue ou par sa spécialité",
+    "results_found": "résultat(s) trouvé(s)",
+    "results_not_found": "Aucun résultat trouvé",
+    "show_more": "voir plus",
+    "show_less": "voir moin",
+    "sign_in": "Se connecter",
+    "support": "Support",
+    "updated_on": "Dernière mise à jour le",
+    "yahpa": "AJPAS",
+    "yahpa_full": "Association des Jeunes Professionnels Asiatiques de la Santé"
+  },
+  "Home": {
+    "seo_title": "AJPAS - Association des Jeunes Professionnels Asiatique de la Santé",
+    "seo_description": "AJPAS est un organisme à but non lucratif basé à Montréal, nos membres comprennent des professionnels et des étudiants de divers domaines de la santé.",
+    "hero_title": "Bienvenue à la page officielle de notre association",
+    "hero_description": "Nous sommes un groupe de jeunes professionnels et d’étudiants provenant de divers domaines de la santé qui a pour mission d'aider et de soutenir la communauté asiatique dans différents enjeux reliés à la santé.",
+    "hero_button": "En savoir plus",
+    "registry_title": "Intéressé à faire partie de notre registre?",
+    "registry_description": "Nous avons besoin de professionnels de la santé parlant au moins une langue asiatique qui seraient prêts à offrir leur service à la communauté asiatique.",
+    "registry_video_title": "Registre des professionnels asiatiques de la santé de Montréal - YAHPA",
+    "registry_button": "Je veux m'inscrire au registre",
+    "registry_option1": "Je suis médecin",
+    "registry_option2": "Je suis un professionnel de la santé",
+    "news_title": "Notre dernière activité",
+    "news_description": "Découvrez nos événements les plus récents en interaction avec la communauté via des rassemblements en ligne ou en plein air.",
+    "resources_title": "Découvrez nos ressources",
+    "resources_option1": "Nos récents projets",
+    "resources_option2": "Informations sur le COVID-19",
+    "resources_option3": "Nous contacter",
+    "resources_option4": "Trouver un professionnel de la santé",
+    "team_title": "Nos membres",
+    "team_description": "Notre équipe s'agrandit, tout comme notre communauté d'étudiants, de professionnels de la santé et de citoyens partageant les mêmes idées.",
+    "sponsor_title": "Nos commanditaires "
+  },
+  "About": {
+    "seo_title": "YAHPA - À propos de nous",
+    "seo_description": "Découvrez ce qu'est l'AJPAS (Association des Jeunes Professionnels Asiatique de la Santé), nos objectifs et l'équipe derrière tout cela.",
+    "page_title": "À propos de nous",
+    "page_description": "Découvrez les objectifs et la motivation derrière YAHPA",
+    "team_image_alt": "Nos membres YAHPA",
+    "part1_header": "Qui sommes nous?",
+    "part1_text": "L'Association des Jeunes Professionnels Asiatiques de la Santé (AJPAS), aussi connue sous le nom de YAHPA (Young Asian Health Professionals Association), a vu jour dans les débuts de la pandémie de la COVID-19 en printemps 2020. À ce moment,  la désinformation et l’accès aux services et aux soins étaient des problématiques de grande ampleur, particulièrement pour les aînés et les immigrants unilingues asiatiques vivant au Québec. Un groupe de professionnels et d’étudiants en santé se sont rassemblés pour venir en aide à cette communauté en créant des guides d’informations sur le coronavirus, en développant des listes de ressources communautaires et en traduisant les annonces des mesures sanitaires, le tout dans les langues maternelles asiatiques. Leurs buts étaient d’optimiser la qualité et l’accès aux soins ainsi que de réduire les inégalités causées par les barrières linguistiques envers la communauté asiatique du Québec.",
+    "part2_header": "Notre mission",
+    "part2_text": "Notre mission est de réduire les écarts d'équité en matière de santé des communautés asiatiques en améliorant la promotion de la santé, la prévention des maladies et l'accès aux soins de santé par l'éducation, les services directs, la création d'une plate-forme interdisciplinaire de professionnels de la santé et le plaidoyer.",
+    "goals_header": "Notre Vision et Nos Valeurs",
+    "goals_description": "L'objectif de YAHPA est de favoriser l'accès équitable aux soins de santé et le bien-être des communautés asiatiques du Québec par la diffusion des connaissances médicales, la promotion de pratiques de santé holistiques, la facilitation de l'accès aux soins de santé, la célébration de la diversité des professions de la santé, l'encouragement des initiatives communautaires parmi les jeunes et l'amélioration de la communication, et compétences des professionnels de santé.",
+    "values_image_alt": "Un membre YAHPA avec notre t-shirt",
+    "values_header": "Pour réaliser cette vision, nous sommes guidés par nos <b>valeurs fondamentales</b>",
+    "values": {
+      "title1": "Bénévolat",
+      "value1": "Nous agissons pour le bien de la société, en consacrant notre temps et nos efforts au service des communautés asiatiques du Québec.",
+      "title2": "Travail d'équipe",
+      "value2": "Nous croyons au pouvoir de la collaboration et travaillons ensemble pour atteindre notre mission et nos objectifs communs.",
+      "title3": "Diversité",
+      "value3": "Nous embrassons la riche diversité des communautés asiatiques et des professions de santé, reconnaissant les forces et les perspectives uniques qu'elles apportent à notre organisation.",
+      "title4": "Inclusion",
+      "value4": "Nous nous efforçons de créer une société inclusive où tous les membres et les communautés asiatiques se sentent accueillis, respectés et valorisés.",
+      "title5": "Actions",
+      "value5": "Nous reconnaissons et résolvons les disparités au sein de nos communautés, en veillant à ce que chacun ait un accès équitable aux ressources et opportunités de soins de santé.",
+      "title6": "Innovation",
+      "value6": "Nous adoptons l'innovation en tirant parti de la technologie et des médias sociaux pour trouver des moyens nouveaux et efficaces de remplir notre mission et d'atteindre notre public."
+    },
+    "leadership_header": "Notre équipe de direction",
+    "leadership_description": "L'équipe de direction de YAHPA est composée de professionnels et d'étudiants talentueux possédant un large éventail d'expériences dans des établissements de santé privés et publics.",
+    "role": {
+      "president": "{gender, select, female {Présidente} male {Président} other {Président(e)}}",
+      "vice_president": "{gender, select, female {Vice-présidente} male {Vice-président} other {Vice-président(e)}}",
+      "community_outreach": "{gender, select, female {Co-directrice de l'engagement communautaire } male {Co-directeur de l'engagement communautaire } other {Co-direct(eur/rice) de la sensibilisation communautaire }}",
+      "marketing": "{gender, select, female {Co-directrice du Marketing} male {Co-directeur du Marketing} other {Co-direct(eur/rice) du Marketing}}",
+      "secretary": "Secrétaire",
+      "treasurer": "{gender, select, female {Trésorière} male {Trésorier} other {Trésori(er/ère)}}",
+      "volunteers": "{gender, select, female {Directrice des Relations Bénévoles} male {Directeur des Relations Bénévoles} other {Direct(eur/rice) des Relations Bénévoles}}",
+      "member": "Membre ordinaire",
+      "founder": "{gender, select, female {Co-fondatrice} male {Co-fondateur} other {Co-fondat(eur/rice)}}"
+    },
+    "job": {
+      "physiotherapist": "Physiothérapeute",
+      "occupational_therapist": "Ergothérapeute",
+      "medical_resident": "{gender, select, female {Résidente en médecine} male {Résident en médecine} other {Résident(e) en médecine}}",
+      "healthcare_student": "{gender, select, female {Étudiante en santé} male {Étudiant en santé} other {Étudiant(e) en santé}}",
+      "application_engineer": "{gender, select, female {Ingénieure d'application} male {Ingénieur d'application} other {Ingénieur(e) d'application}}",
+      "research_officer": "{gender, select, female {Agente de recherche} male {Agent de recherche} other {Agent(e) de recherche}}",
+      "social_work_student": "{gender, select, female {Étudiante en travail social} male {Étudiant en travail social} other {Étudiant(e) en travail social}}",
+      "accountant": "Comptable"
+    },
+    "history_title": "Notre histoire",
+    "history_description": "Une chronologie des plus grandes étapes et réalisations de YAHPA depuis sa création.",
+    "timeline": {
+      "months": {
+        "jan": "janvier",
+        "feb": "février",
+        "mar": "mars",
+        "avril": "avril",
+        "may": "Mai",
+        "jun": "juin",
+        "jul": "juillet",
+        "aug": "août",
+        "sep": "septembre",
+        "oct": "octobre",
+        "nov": "novembre",
+        "dec": "décembre"
+      },
+      "2023": {
+        "jan": "YAHPA lance une campagne de recrutement pour élargir son réseau de bénévoles, à la recherche de personnes dévouées pour renforcer sa mission et accroître son influence. Avec une équipe actuelle de 30 membres, nous visons à élargir notre portée et à approfondir notre impact dans la communauté. ",
+        "oct": "YAHPA présente \"Sip, Share, and Connect\", un événement de réseautage adapté aux professionnelles en soins, généreusement commandité par Desjardins, Mi Bao et OCHA"
+      },
+      "2022": {
+        "aug": "YAHPA organise Bubble Tea & Cookies, un événement de réseautage sponsorisé permettant aux étudiants de rencontrer plus de 30 professionnels de la santé pour discuter et en apprendre davantage sur leur cheminement de carrière",
+        "oct": "La première assemblée générale annuelle en personne pour les membres de YAHPA a eu lieu.",
+        "nov": "YAHPA lance une série de webinaires en ligne pour aborder diverses questions liées à la santé telles que la santé mentale et les maladies chroniques",
+        "dec": "Le lancement d'une campagne en ligne d'affiches infographiques discutant du bien-être mental sur les réseaux sociaux."
+      },
+      "2021": {
+        "may": "YAHPA organise sa première conférence virtuelle en mandarin sur les problèmes de santé mentale donnée par des conférenciers de l'industrie",
+        "jun": "YAHPA's organise le premier événement de tennis de table en personne à Chinatown pour rencontrer la communauté asiatique locale",
+        "aug": "YAHPA est maintenant officiellement reconnu comme organisme à but non lucratif (OBNL) à l'échelle provinciale du Québec",
+        "oct": "L'événement en ligne de YAHPA a réuni 15 professionnels de la santé partageant leur parcours professionnel avec plus de 150 participants. Les intervenants ont discuté de divers parcours professionnels, offrant inspiration et conseils aux futurs professionnels de la santé."
+      },
+      "2020": {
+        "jun": "YAHPA démarre sa présence officielle en ligne avec Facebook et publie ses premières traductions des instructions gouvernementales liées au COVID",
+        "nov": "Une campagne sur les réseaux sociaux lance le recrutement de professionnels de santé pour le registre YAHPA. Le premier registre en ligne est publié et compte plus de 150 membres",
+        "dec": "YAHPA participe à une conférence en ligne avec BLIA Montréal concernant les directives COVID-19 en cantonais"
+      },
+      "2019": {
+        "dec": "YAHPA est fondée pendant la pandémie de COVID-19 par un groupe d'individus passionnés qui ont constaté les inégalités croissantes du système de santé actuel quant à son accessibilité à la population asiatique de Montréal"
+      }
+    }
+  },
+  "Registry": {
+    "seo_title": "AJPAS -  Notre registre des professionnels de la santé",
+    "seo_description": "Trouvez un professionnel de la santé parlant une ou plusieurs langues asiatiques près de chez vous dans la grande région de Montréal grâce à notre registre de membres dédiés au service de leur communauté.",
+    "page_title": "Registre des professionnels de la santé",
+    "page_slug": "Notre registre",
+    "page_description": "Trouvez un professionnel de la santé parlant une ou plusieurs langues asiatiques près de chez vous dans la grande région de Montréal grâce à notre registre de membres dédiés au service de leur communauté."
+  },
+  "Projects": {
+    "seo_title": "AJPAS - Nos Projets",
+    "seo_description": "Apprenez-en davantage sur les projets en cours de AJPAS (Association des Jeunes Professionnels Asiatique de la Santé) pour soutenir la communauté asiatique et les professionnels de la santé à Montréal par le biais d'événements de sensibilisation, de ressources traduites, de conférences en ligne et bien plus encore.",
+    "page_title": "En savoir plus sur nos projets à venir",
+    "page_slug": "Nos Projets",
+    "page_description": "Pour soutenir notre communauté et les professionnels de la santé qui interagissent avec eux, nous travaillons sur des projets tels que l'organisation d'événements de sensibilisation, la traduction de ressources de santé, des vidéoconférences en ligne et bien plus encore.",
+    "latest_header": "Nos projets récents"
+  },
+  "Contact": {
+    "seo_title": "AJPAS - Contactez-nous",
+    "seo_description": "Pour demander des informations sur notre organisation, notre registre de professionnels de la santé ou pour discuter de toute collaboration future avec notre organisation, veuillez nous contacter via l'un de nos canaux officiels.",
+    "page_title": " Contactez-nous pour plus d'informations",
+    "page_slug": "Contactez-nous",
+    "form_header": "Comment nous joindre",
+    "form_description": "Pour demander de l'informations à notre organisation, veuillez remplir le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+    "Form": {
+      "email": "Votre adresse courriel",
+      "error": "Une erreur s'est produite, nous ne pouvons pas envoyer votre message",
+      "message": "Votre message",
+      "name": "Votre nom",
+      "send_message": "Envoyer le message",
+      "success": "Votre message a été envoyé",
+      "reason": "Sélectionnez la raison pour laquelle vous nous contactez",
+      "email_required": "Une adresse courriel valide est requise",
+      "message_required": "Veuillez nous écrire votre message",
+      "name_required": "Votre nom est requis",
+      "reason_required": "Veuillez sélectionner la raison de votre contact avec nous",
+      "option1": "Demande d'informations générales",
+      "option2": "Demande de coordonnées d'un professionnel de la santé à partir de notre registre",
+      "option3": "Demande de sponsoring, partenariat ou collaboration"
+    }
+  },
+  "SignIn": {
+    "title": "Content de vous revoir!",
+    "subtitle": "Connectez-vous pour gérer votre profil de registre"
+  },
+  "SignUp": {
+    "title": "Rejoignez-nous pour faire une différence!",
+    "subtitle": "Inscrivez-vous maintenant pour favoriser un changement positif avec notre registre en ligne"
+  }
+}

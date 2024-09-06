@@ -15,34 +15,29 @@ import {
   Textarea,
   useToast,
   VisuallyHidden,
-} from "@chakra-ui/react";
-import emailjs from "emailjs-com";
-import useTranslation from "hooks/useTranslation";
-import { useForm } from "react-hook-form";
-import { BiErrorCircle } from "react-icons/bi";
-import { BsCheck2Circle, BsPerson } from "react-icons/bs";
-import { MdOutlineEmail } from "react-icons/md";
-import { EmailContactForm, EmailConfig } from "types/email";
-import { PageContactBlok } from "types/story";
+} from '@chakra-ui/react'
+import emailjs from 'emailjs-com'
+import { useTranslations } from 'next-intl'
+import { useForm } from 'react-hook-form'
+import { BiErrorCircle } from 'react-icons/bi'
+import { BsCheck2Circle, BsPerson } from 'react-icons/bs'
+import { MdOutlineEmail } from 'react-icons/md'
+import { EmailContactForm, EmailConfig } from 'types/email'
 
 const emailConfig: EmailConfig = {
-  serviceID: "contact_service",
-  templateID: "contact_form",
-};
+  serviceID: 'contact_service',
+  templateID: 'contact_form',
+}
 
-type FormContactProps = {
-  options: PageContactBlok["options"];
-};
-
-export default function FormContact(props: FormContactProps) {
-  const { t } = useTranslation();
+export default function FormContact() {
+  const t = useTranslations('Contact.Form')
   const {
     handleSubmit,
     register,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<EmailContactForm>();
-  const toast = useToast();
+  } = useForm<EmailContactForm>()
+  const toast = useToast()
 
   const onSubmit = async ({
     user_email,
@@ -56,40 +51,42 @@ export default function FormContact(props: FormContactProps) {
         message,
         user_name,
         reason,
-      });
-      reset();
+      })
+      reset()
       toast({
-        position: "bottom",
+        position: 'bottom',
         duration: 3000,
         render: () => (
           <Alert bg="green.200" borderRadius="md">
             <Stack direction="row" alignItems="center">
               <Icon as={BsCheck2Circle} w={8} h={8} />
-              <AlertTitle>{t("email_success")}</AlertTitle>
+              <AlertTitle>{t('success')}</AlertTitle>
             </Stack>
           </Alert>
         ),
-      });
+      })
     } catch {
-      onError();
+      onError()
     }
-  };
+  }
 
   const onError = () =>
     toast({
-      title: "An error has occured",
-      position: "bottom",
+      title: 'An error has occured',
+      position: 'bottom',
       duration: 3000,
-      status: "error",
+      status: 'error',
       render: () => (
         <Alert bg="red.200" borderRadius="md">
           <Stack direction="row" alignItems="center">
             <Icon as={BiErrorCircle} w={8} h={8} />
-            <AlertTitle>{t("email_error")}</AlertTitle>
+            <AlertTitle>{t('error')}</AlertTitle>
           </Stack>
         </Alert>
       ),
-    });
+    })
+
+  const OPTIONS = [t('option1'), t('option2'), t('option3')]
 
   return (
     <Box
@@ -98,7 +95,7 @@ export default function FormContact(props: FormContactProps) {
       overflow="hidden"
       borderRadius="lg"
       width="full"
-      maxW={{ base: "full", lg: "2xl" }}
+      maxW={{ base: 'full', lg: '2xl' }}
     >
       <Box
         as="form"
@@ -107,19 +104,19 @@ export default function FormContact(props: FormContactProps) {
         id="contact-form"
       >
         <Stack spacing={3}>
-          <Stack w="full" spacing={3} direction={{ base: "column", md: "row" }}>
+          <Stack w="full" spacing={3} direction={{ base: 'column', md: 'row' }}>
             <FormControl isInvalid={!!errors.user_name}>
-              <FormLabel as={VisuallyHidden}>{t("email_name")}</FormLabel>
+              <FormLabel as={VisuallyHidden}>{t('name')}</FormLabel>
               <InputGroup>
                 <InputLeftElement pointerEvents="none">
                   <BsPerson color="gray.800" />
                 </InputLeftElement>
                 <Input
-                  placeholder={t("email_name")}
+                  placeholder={t('name')}
                   type="text"
                   size="md"
-                  {...register("user_name", {
-                    required: t("email_name_required"),
+                  {...register('user_name', {
+                    required: t('name_required'),
                   })}
                 />
               </InputGroup>
@@ -128,17 +125,17 @@ export default function FormContact(props: FormContactProps) {
               </FormErrorMessage>
             </FormControl>
             <FormControl isInvalid={!!errors.user_email}>
-              <FormLabel as={VisuallyHidden}>{t("email_email")}</FormLabel>
+              <FormLabel as={VisuallyHidden}>{t('email')}</FormLabel>
               <InputGroup>
                 <InputLeftElement pointerEvents="none">
                   <MdOutlineEmail color="gray.800" />
                 </InputLeftElement>
                 <Input
-                  placeholder={t("email_email")}
+                  placeholder={t('email')}
                   type="email"
                   size="md"
-                  {...register("user_email", {
-                    required: t("email_email_required"),
+                  {...register('user_email', {
+                    required: t('email_required'),
                   })}
                 />
               </InputGroup>
@@ -148,14 +145,14 @@ export default function FormContact(props: FormContactProps) {
             </FormControl>
           </Stack>
           <FormControl isInvalid={!!errors.reason}>
-            <FormLabel as={VisuallyHidden}>{t("email_reason")}</FormLabel>
+            <FormLabel as={VisuallyHidden}>{t('reason')}</FormLabel>
             <Select
-              placeholder={t("email_reason")}
-              {...register("reason", {
-                required: t("email_reason_required"),
+              placeholder={t('reason')}
+              {...register('reason', {
+                required: t('reason_required'),
               })}
             >
-              {props.options?.map((option, index) => (
+              {OPTIONS?.map((option, index) => (
                 <Box as="option" key={index} value={option} p={3}>
                   {option}
                 </Box>
@@ -166,11 +163,11 @@ export default function FormContact(props: FormContactProps) {
             </FormErrorMessage>
           </FormControl>
           <FormControl isInvalid={!!errors.message}>
-            <FormLabel as={VisuallyHidden}>{t("email_message")}</FormLabel>
+            <FormLabel as={VisuallyHidden}>{t('message')}</FormLabel>
             <Textarea
-              placeholder={t("email_message")}
-              {...register("message", {
-                required: t("email_message_required"),
+              placeholder={t('message')}
+              {...register('message', {
+                required: t('message_required'),
               })}
             />
             <FormErrorMessage>
@@ -181,12 +178,12 @@ export default function FormContact(props: FormContactProps) {
             colorScheme="primary"
             isLoading={isSubmitting}
             type="submit"
-            sx={{ alignSelf: "self-start" }}
+            sx={{ alignSelf: 'self-start' }}
           >
-            {t("email_send_message")}
+            {t('send_message')}
           </Button>
         </Stack>
       </Box>
     </Box>
-  );
+  )
 }

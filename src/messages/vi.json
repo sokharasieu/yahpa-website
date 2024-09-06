@@ -1,0 +1,194 @@
+{
+  "App": {
+    "about": "Về chúng tôi",
+    "become_member": "Trở thành thành viên",
+    "chat": "Cần trò chuyện?",
+    "contribute": "Góp phần",
+    "contact": "Tiếp xúc",
+    "donate": "Quyên tặng",
+    "error_404_title": "Không tìm thấy trang",
+    "error_404_message": "Trang bạn đang tìm kiếm dường như không tồn tại",
+    "error_404_button": "Trở về Trang chủ",
+    "follow_social": "Theo chúng tôi",
+    "home": "Trang chủ",
+    "languages": "Ngôn ngữ",
+    "latest_projects": "Dự án mới nhất",
+    "organization": "Tổ chức",
+    "projects": "Dự án",
+    "registry": "Đăng ký",
+    "registry_search_placeholder": "Tìm kiếm chuyên gia, theo ngôn ngữ hoặc nghề nghiệp",
+    "results_found": "kết quả",
+    "results_not_found": "Không có kết quả",
+    "show_more": "Cho xem nhiều hơn",
+    "show_less": "Hiện ít hơn",
+    "sign_in": "Đăng nhập",
+    "support": "Hỗ trợ",
+    "updated_on": "ngày cập nhật",
+    "yahpa": "YAHPA",
+    "yahpa_full": "Hiệp hội Chuyên gia Y tế Trẻ Châu Á"
+  },
+  "Home": {
+    "seo_title": "YAHPA - Hiệp hội Chuyên gia Y tế Trẻ Châu Á",
+    "seo_description": "YAHPA là một tổ chức phi lợi nhuận có trụ sở tại Montreal, các thành viên của chúng tôi bao gồm các chuyên gia và sinh viên từ các lĩnh vực y tế khác nhau.",
+    "hero_title": "Phấn đấu vì một cộng đồng lành mạnh hơn",
+    "hero_description": "Chúng tôi là một nhóm các chuyên gia trẻ và sinh viên từ các lĩnh vực y tế khác nhau với sứ mệnh giúp đỡ và hỗ trợ cộng đồng Châu Á trong các vấn đề liên quan đến sức khỏe.",
+    "hero_button": "Tìm hiểu thêm",
+    "registry_title": "Quan tâm đến việc trở thành một phần của sổ đăng ký của chúng tôi?",
+    "registry_description": "Chúng tôi cần các chuyên gia y tế nói được ít nhất một ngôn ngữ Châu Á, những người sẵn sàng cung cấp dịch vụ của họ cho cộng đồng Châu Á.",
+    "registry_video_title": "Cơ quan đăng ký YAHPA Montreal",
+    "registry_button": "Tôi muốn tham gia sổ đăng ký",
+    "registry_option1": "Tôi là bác sĩ y khoa",
+    "registry_option2": "Tôi là một chuyên gia chăm sóc sức khỏe",
+    "news_title": "Hoạt động mới nhất",
+    "news_description": "Kiểm tra các sự kiện gần đây nhất của chúng tôi tương tác với cộng đồng thông qua các cuộc họp trực tuyến hoặc ngoài trời.",
+    "resources_title": "Khám phá tài nguyên của chúng tôi",
+    "resources_option1": "Các dự án của chúng tôi",
+    "resources_option2": "Thông tin về COVID-19",
+    "resources_option3": "Liên hệ chúng tôi",
+    "resources_option4": "Tìm một chuyên gia y tế",
+    "team_title": "Thành viên của chúng tôi",
+    "team_description": "Đội ngũ của chúng tôi đang phát triển và cộng đồng sinh viên, chuyên gia chăm sóc sức khỏe và những công dân có chí hướng cũng như vậy.",
+    "sponsor_title": "Các nhà tài trợ"
+  },
+  "About": {
+    "seo_title": "YAHPA - Về chúng tôi",
+    "seo_description": "Tìm hiểu về YAHPA (Hiệp hội Chuyên gia Y tế Trẻ Châu Á) là gì, các mục tiêu của chúng tôi và đội ngũ đằng sau tất cả.",
+    "page_title": "Về chúng tôi",
+    "page_description": "Tìm hiểu về mục tiêu và động lực của YAHPA",
+    "team_image_alt": "Thành viên YAHPA của chúng tôi",
+    "part1_header": "Tổ chức của chúng ta là gì?",
+    "part1_text": "YAHPA (Hiệp hội Chuyên gia Y tế Trẻ Châu Á), xuất hiện vào những ngày đầu của đại dịch COVID-19 vào mùa xuân năm 2020. Vào thời điểm đó, thông tin sai lệch và hạn chế tiếp cận các dịch vụ và chăm sóc là những vấn đề lớn, đặc biệt đối với người cao tuổi và người nhập cư Châu Á không nói được ngôn ngữ sống ở Quebec . Một nhóm các chuyên gia y tế và sinh viên đã cùng nhau giúp đỡ cộng đồng này bằng cách tạo ra các hướng dẫn thông tin về vi-rút corona, phát triển danh sách tài nguyên cộng đồng và dịch các thông báo về các biện pháp y tế, tất cả đều bằng tiếng mẹ đẻ châu Á như tiếng Quan Thoại, tiếng Quảng Đông và tiếng Việt. Mục tiêu của họ là tối ưu hóa chất lượng và khả năng tiếp cận dịch vụ chăm sóc, đồng thời giảm bớt sự bất bình đẳng do rào cản ngôn ngữ gây ra đối với cộng đồng người châu Á ở Quebec.",
+    "part2_header": "Nhiệm vụ của chúng ta",
+    "part2_text": "Sứ mệnh của chúng tôi là giảm khoảng cách về công bằng y tế của các cộng đồng châu Á bằng cách cải thiện nâng cao sức khỏe, phòng ngừa bệnh tật và tiếp cận chăm sóc sức khỏe thông qua giáo dục, dịch vụ trực tiếp, xây dựng nền tảng chuyên môn chăm sóc sức khỏe liên ngành và vận động chính sách.",
+    "goals_header": "Tầm nhìn và Giá trị của chúng tôi",
+    "goals_description": "Mục tiêu của YAHPA là thúc đẩy khả năng tiếp cận chăm sóc sức khỏe một cách công bằng và phúc lợi cho các cộng đồng người châu Á ở Quebec thông qua việc phổ biến kiến ​​thức y tế, thúc đẩy thực hành sức khỏe toàn diện, tạo điều kiện tiếp cận chăm sóc sức khỏe, tôn vinh các ngành nghề chăm sóc sức khỏe đa dạng, khuyến khích các sáng kiến ​​​​cộng đồng trong giới trẻ và tăng cường giao tiếp kỹ năng của các chuyên gia chăm sóc sức khỏe.",
+    "values_image_alt": "Một thành viên YAHPA với chiếc áo phông của chúng tôi",
+    "values_header": "Để đạt được tầm nhìn này, chúng tôi được hướng dẫn bởi <b>Giá trị cốt lõi</b> của mình",
+    "values": {
+      "title1": "Tình nguyện",
+      "value1": "Chúng tôi hành động vì lợi ích của xã hội, cống hiến thời gian và nỗ lực của mình để phục vụ cộng đồng người châu Á ở Quebec.",
+      "title2": "Làm việc theo nhóm",
+      "value2": "Chúng tôi tin vào sức mạnh của sự cộng tác, làm việc cùng nhau để đạt được sứ mệnh và mục tiêu chung.",
+      "title3": "Đa dạng",
+      "value3": "Chúng tôi trân trọng sự đa dạng phong phú của cộng đồng người Châu Á và ngành nghề chăm sóc sức khỏe, ghi nhận những thế mạnh và quan điểm độc đáo mà họ mang lại cho tổ chức của chúng tôi.",
+      "title4": "Bao gồm",
+      "value4": "Chúng tôi cố gắng tạo ra một xã hội hòa nhập, nơi tất cả thành viên và cộng đồng Châu Á cảm thấy được chào đón, tôn trọng và có giá trị.",
+      "title5": "Vốn chủ sở hữu",
+      "value5": "Chúng tôi ghi nhận và giải quyết sự chênh lệch trong cộng đồng của mình, đảm bảo rằng mọi người đều có quyền tiếp cận công bằng với các nguồn lực và cơ hội chăm sóc sức khỏe.",
+      "title6": "Đổi mới",
+      "value6": "Chúng tôi đón nhận sự đổi mới bằng cách tận dụng công nghệ và truyền thông xã hội để tìm ra những cách thức mới và hiệu quả nhằm hoàn thành sứ mệnh và tiếp cận khán giả của mình."
+    },
+    "leadership_header": "Đội ngũ lãnh đạo của chúng tôi",
+    "leadership_description": "Đội ngũ lãnh đạo YAHPA có các chuyên gia và sinh viên tài năng với nhiều kinh nghiệm trong cả cơ sở chăm sóc sức khỏe tư nhân và công cộng.",
+    "role": {
+      "president": "Giám đốc",
+      "vice_president": "Phó Giám đốc",
+      "community_outreach": "Phó Giám đốc Tiếp cận Cộng đồng",
+      "marketing": "Phó Giám đốc Quan hệ Công chúng",
+      "secretary": "Thư ký",
+      "treasurer": "Thủ quỹ",
+      "volunteers": "Phó Giám đốc Tình nguyện viên",
+      "member": "Thành viên bình thường",
+      "founder": "Người đồng sáng lập"
+    },
+    "job": {
+      "physiotherapist": "Nhà vật lý trị liệu",
+      "occupational_therapist": "Nhà trị liệu nghề nghiệp",
+      "medical_resident": "Cá nhân viên y tế",
+      "healthcare_student": "Sinh viên y tế",
+      "application_engineer": "Kỹ sư ứng dụng",
+      "research_officer": "Nhân viên nghiên cứu",
+      "social_work_student": "Sinh viên công tác xã hội",
+      "accountant": "Kế toán viên"
+    },
+    "history_title": "Lịch sử của chúng tôi",
+    "history_description": "Dòng thời gian về các cột mốc và thành tựu lớn nhất của YAHPA kể từ khi thành lập.",
+    "timeline": {
+      "months": {
+        "jan": "Tháng Một",
+        "feb": "Tháng Hai",
+        "mar": "Tháng Ba",
+        "apr": "Tháng Tư",
+        "may": "Tháng Năm",
+        "jun": "Tháng Sáu",
+        "jul": "Tháng Bảy",
+        "aug": "Tháng Tám",
+        "sep": "Tháng Chín",
+        "oct": "Tháng Mười",
+        "nov": "Tháng Mười Một",
+        "dec": "Tháng Mười Hai"
+      },
+      "2023": {
+        "jan": "YAHPA triển khai đợt tuyển dụng nhằm mở rộng mạng lưới tình nguyện viên, tìm kiếm những cá nhân tận tâm để củng cố sứ mệnh và nâng cao tầm ảnh hưởng của mình. Với đội ngũ hiện tại gồm 30 thành viên, chúng tôi mong muốn mở rộng phạm vi tiếp cận và tăng cường tác động của mình trong cộng đồng. ",
+        "oct": "YAHPA giới thiệu \"Sip, Share và Connect\", một sự kiện kết nối dành riêng cho các chuyên gia chăm sóc sức khỏe, được tài trợ rộng rãi bởi Desjardins, Mi Bao và OCHA"
+      },
+      "2022": {
+        "aug": "YAHPA tổ chức Bubble Tea & Cookies, một sự kiện giao lưu được tài trợ để sinh viên gặp gỡ hơn 30 chuyên gia y tế để thảo luận và tìm hiểu về con đường sự nghiệp của họ",
+        "oct": "Đại hội đồng trực tiếp thường niên đầu tiên dành cho các thành viên YAHPA đã được tổ chức.",
+        "nov": "YAHPA ra mắt một loạt hội thảo trực tuyến nhằm giải quyết các vấn đề khác nhau liên quan đến sức khỏe như sức khỏe tâm thần và các bệnh mãn tính",
+        "dec": "Sự khởi đầu của một chiến dịch trực tuyến gồm các áp phích đồ họa thông tin thảo luận về sức khỏe tinh thần trên mạng xã hội."
+      },
+      "2021": {
+        "may": "YAHPA tổ chức hội nghị ảo đầu tiên bằng tiếng Quan Thoại về các vấn đề sức khỏe tâm thần do các diễn giả trong ngành đưa ra",
+        "jun": "YAHPA's tổ chức sự kiện bóng bàn trực tiếp đầu tiên ở Khu Phố Tàu để gặp gỡ cộng đồng người Châu Á tại địa phương",
+        "aug": "YAHPA hiện được chính thức công nhận là tổ chức phi lợi nhuận (NPO) ở cấp tỉnh ở Quebec",
+        "oct": "Sự kiện trực tuyến của YAHPA có sự góp mặt của 15 chuyên gia y tế chia sẻ con đường sự nghiệp với hơn 150 người tham dự. Các diễn giả đã thảo luận về các hành trình nghề nghiệp đa dạng, truyền cảm hứng và hướng dẫn cho các chuyên gia chăm sóc sức khỏe đầy tham vọng"
+      },
+      "2020": {
+        "jun": "YAHPA bắt đầu hiện diện trực tuyến chính thức với Facebook và xuất bản bản dịch đầu tiên về các hướng dẫn của chính phủ liên quan đến COVID",
+        "nov": "Một chiến dịch truyền thông xã hội bắt đầu tuyển dụng các chuyên gia chăm sóc sức khỏe cho cơ quan đăng ký YAHPA. Cơ quan đăng ký trực tuyến đầu tiên được xuất bản và bao gồm hơn 150 thành viên",
+        "dec": "YAHPA tham gia hội thảo trực tuyến với BLIA Montreal về các hướng dẫn về COVID-19 bằng tiếng Quảng Đông"
+      },
+      "2019": {
+        "dec": "YAHPA được thành lập trong thời kỳ đại dịch COVID-19 bởi một nhóm những người đam mê nhiệt huyết, những người đã nhận thấy sự bất bình đẳng ngày càng gia tăng trong hệ thống chăm sóc sức khỏe hiện tại liên quan đến khả năng tiếp cận người dân châu Á ở Montréal"
+      }
+    }
+  },
+  "Registry": {
+    "seo_title": "YAHPA - Đăng ký các chuyên gia chăm sóc sức khỏe",
+    "seo_description": "Tìm một chuyên gia chăm sóc sức khỏe nói một hoặc nhiều ngôn ngữ châu Á gần bạn ở khu vực Montreal rộng lớn hơn thông qua sổ đăng ký của chúng tôi gồm các thành viên tận tâm phục vụ cộng đồng của họ.",
+    "page_title": "Đăng ký các chuyên gia chăm sóc sức khỏe",
+    "page_slug": "Đăng ký của chúng tôi",
+    "page_description": "Tìm một chuyên gia chăm sóc sức khỏe nói một hoặc nhiều ngôn ngữ châu Á gần bạn ở khu vực Montreal rộng lớn hơn thông qua sổ đăng ký của chúng tôi gồm các thành viên tận tâm phục vụ cộng đồng của họ."
+  },
+  "Projects": {
+    "seo_title": "YAHPA - Dự án của chúng tôi",
+    "seo_description": "Tìm hiểu thêm về các dự án đang thực hiện từ YAHPA (Hiệp hội Chuyên gia Y tế Trẻ Châu Á) để hỗ trợ cộng đồng Châu Á và các chuyên gia chăm sóc sức khỏe ở Montreal thông qua các sự kiện tiếp cận cộng đồng, các nguồn được dịch, hội nghị trực tuyến, v.v.",
+    "page_title": "Tìm hiểu thêm về các dự án sắp tới của chúng tôi",
+    "page_slug": "Dự án của chúng tôi",
+    "page_description": "Để hỗ trợ cộng đồng của chúng tôi và các chuyên gia chăm sóc sức khỏe tương tác với họ, chúng tôi đang thực hiện các dự án như tổ chức các sự kiện tiếp cận cộng đồng, dịch các tài nguyên sức khỏe, hội nghị video trực tuyến và hơn thế nữa.",
+    "latest_header": "Dự án mới nhất"
+  },
+  "Contact": {
+    "seo_title": "YAHPA - Liên hệ với chúng tôi",
+    "seo_description": "Để yêu cầu bất kỳ thông tin nào về tổ chức của chúng tôi, cơ quan đăng ký các chuyên gia y tế của chúng tôi hoặc để thảo luận về bất kỳ sự hợp tác nào trong tương lai với tổ chức của chúng tôi, vui lòng liên hệ với chúng tôi qua một trong các kênh chính thức của chúng tôi.",
+    "page_title": "Liên hệ với chúng tôi để biết thêm thông tin",
+    "page_slug": "Liên hệ với chúng tôi để biết thông tin",
+    "form_header": "Làm thế nào để tiếp cận chúng tôi",
+    "form_description": "Để biết thêm thông tin từ tổ chức của chúng tôi, vui lòng điền vào biểu mẫu bên dưới và chúng tôi sẽ liên hệ lại với bạn trong thời sớm nhất.",
+    "Form": {
+      "email": "Email của bạn",
+      "error": "Đã xảy ra lỗi, chúng tôi không thể gửi tin nhắn của bạn",
+      "message": "Tin nhắn của bạn",
+      "name": "Tên của bạn",
+      "send_message": "Gửi tin nhắn",
+      "success": "Tin nhắn của bạn đã được gửi",
+      "reason": "Chọn lý do liên hệ với chúng tôi",
+      "email_required": "Một email hợp lệ là bắt buộc",
+      "message_required": "Hãy viết cho chúng tôi tin nhắn của bạn",
+      "name_required": "Tên của bạn là bắt buộc",
+      "reason_required": "Vui lòng chọn lý do bạn liên hệ với chúng tôi",
+      "option1": "Yêu cầu thông tin chung",
+      "option2": "Yêu cầu thông tin liên hệ của chuyên gia y tế từ cơ quan đăng ký của chúng tôi",
+      "option3": "Yêu cầu tài trợ, đối tác hoặc cộng tác"
+    }
+  },
+  "SignIn": {
+    "title": "Chào mừng trở lại!",
+    "subtitle": "Đăng nhập để quản lý hồ sơ đăng ký của bạn"
+  },
+  "SignUp": {
+    "title": "Hãy cùng chúng tôi tạo nên sự khác biệt!",
+    "subtitle": "Đăng ký ngay để tạo ra sự thay đổi tích cực cùng với cơ quan đăng ký trực tuyến của chúng tôi"
+  }
+}

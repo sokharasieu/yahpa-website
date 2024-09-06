@@ -1,9 +1,18 @@
-import { Box, Button, Container, Heading, Text } from "@chakra-ui/react";
-import Link from "components/Link";
-import useTranslation from "hooks/useTranslation";
+import { Box, Button, Container, Heading, Text } from '@chakra-ui/react'
+import Link from 'components/Link'
+import { GetStaticPropsContext } from 'next'
+import { useTranslations } from 'next-intl'
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`messages/${context.locale}.json`)).default,
+    },
+  }
+}
 
 export default function NotFound() {
-  const { t } = useTranslation();
+  const t = useTranslations('App')
   return (
     <Container maxWidth="full" py={10} backgroundColor="gray.200">
       <Box textAlign="center" py={10} px={6}>
@@ -17,19 +26,19 @@ export default function NotFound() {
           404
         </Heading>
         <Text fontSize="xl" mt={3} mb={2}>
-          {t("error_404_title")}
+          {t('error_404_title')}
         </Text>
-        <Text color={"gray.500"} mb={6}>
-          {t("error_404_message")}
+        <Text color={'gray.500'} mb={6}>
+          {t('error_404_message')}
         </Text>
         <Link
           href="/"
-          _hover={{ textDecoration: "none" }}
+          _hover={{ textDecoration: 'none' }}
           textDecoration="none"
         >
-          <Button colorScheme="red">{t("error_404_button")}</Button>
+          <Button colorScheme="red">{t('error_404_button')}</Button>
         </Link>
       </Box>
     </Container>
-  );
+  )
 }

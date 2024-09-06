@@ -7,21 +7,21 @@ import {
   useDisclosure,
   Wrap,
   WrapItem,
-} from "@chakra-ui/react";
-import { StoryResult, TeamMemberBlok } from "types/story";
-import Image from "./Image";
-import RenderRichText from "./RenderRichText";
+} from '@chakra-ui/react'
+import { StoryResult, TeamMemberBlok } from 'types/story'
+import Image from './Image'
+import RenderRichText from './RenderRichText'
 
 type CardMemberProps = {
-  member: StoryResult<TeamMemberBlok>;
-};
+  member: StoryResult<TeamMemberBlok>
+}
 
 export default function CardMember({ member }: CardMemberProps) {
   const { onToggle } = useDisclosure({
     defaultIsOpen: false,
-  });
+  })
 
-  const hasContent = !!member.content?.description;
+  const hasContent = !!member.content?.description
 
   return (
     <Stack
@@ -36,13 +36,13 @@ export default function CardMember({ member }: CardMemberProps) {
         <Box
           width="auto"
           onClick={hasContent ? onToggle : undefined}
-          _hover={{ cursor: hasContent ? "pointer" : undefined }}
+          _hover={{ cursor: hasContent ? 'pointer' : undefined }}
         >
           <Image
             ratio={2 / 3}
             w={{ base: 150, lg: 200 }}
             h={{ base: 200, lg: 280 }}
-            src={member.content?.image?.filename ?? "/images/logo_white.png"}
+            src={member.content?.image?.filename ?? '/images/logo_white.png'}
             alt={member.content?.name}
             borderRadius="md"
             boxShadow="md"
@@ -56,7 +56,7 @@ export default function CardMember({ member }: CardMemberProps) {
             justify="center"
           >
             <Stack spacing={1}>
-              <Heading as="h3" fontSize={{ base: "lg", lg: "xl" }}>
+              <Heading as="h3" fontSize={{ base: 'lg', lg: 'xl' }}>
                 {member.content?.name}
               </Heading>
               <Text color="primary.600" fontStyle="italic">
@@ -81,5 +81,5 @@ export default function CardMember({ member }: CardMemberProps) {
         </Box>
       )}
     </Stack>
-  );
+  )
 }

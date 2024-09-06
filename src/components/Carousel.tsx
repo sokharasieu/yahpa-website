@@ -1,119 +1,163 @@
 import {
-  ButtonGroup,
-  chakra,
-  Container,
-  Heading,
+  Box,
+  BoxProps,
+  Flex,
+  HStack,
   IconButton,
-} from "@chakra-ui/react";
-import React from "react";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-import ReactMultiCarousel, {
-  ButtonGroupProps,
-  ResponsiveType,
-} from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+  IconButtonProps,
+  useMediaQuery,
+} from '@chakra-ui/react'
+import React, { useCallback, useEffect, useState } from 'react'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
-export const defaultResponsiveConfig: ResponsiveType = {
-  xl: {
-    breakpoint: { max: 3000, min: 1201 },
-    items: 4,
-    partialVisibilityGutter: 20,
-  },
-  lg: {
-    breakpoint: { max: 1200, min: 961 },
-    items: 3,
-    partialVisibilityGutter: 40,
-  },
-  md: {
-    breakpoint: { max: 960, min: 769 },
-    items: 3,
-    partialVisibilityGutter: 20,
-  },
-  sm: {
-    breakpoint: { max: 768, min: 481 },
-    items: 2,
-    partialVisibilityGutter: 80,
-  },
-  base: {
-    breakpoint: { max: 480, min: 0 },
-    items: 1,
-    partialVisibilityGutter: 150,
-  },
-};
-
-function CustomButtonGroup({
-  next,
-  previous,
-  carouselState,
-}: ButtonGroupProps) {
-  const lastIndex = carouselState?.totalItems!! - carouselState?.slidesToShow!!;
-  const allItemsVisible =
-    carouselState?.totalItems!! - carouselState?.slidesToShow!! === 0;
+function ButtonNavigation({
+  ...props
+}: React.PropsWithChildren<IconButtonProps>) {
   return (
-    <ButtonGroup
+    <IconButton
+      bg="blackAlpha.500"
+      _hover={{
+        background: 'blackAlpha.600',
+      }}
+      _active={{
+        background: 'blackAlpha.700',
+      }}
+      color="white"
       position="absolute"
-      right={{ base: "0rem", md: "1rem" }}
-      top={0}
-      transform="translateY(-100%)"
-      paddingY={3}
-      size="sm"
-      display={allItemsVisible ? "none" : "block"}
-    >
-      <IconButton
-        aria-label="previous"
-        borderRadius="full"
-        border="0.5px solid"
-        borderColor="gray.300"
-        disabled={carouselState?.currentSlide === 0 ? true : false}
-        onClick={previous}
-        icon={<FiChevronLeft size="1.5rem" />}
-      />
-      <IconButton
-        aria-label="next"
-        borderRadius="full"
-        border="0.5px solid"
-        borderColor="gray.300"
-        disabled={carouselState?.currentSlide === lastIndex ? true : false}
-        onClick={next}
-        icon={<FiChevronRight size="1.5rem" />}
-      />
-    </ButtonGroup>
-  );
+      top={{ base: '50%' }}
+      height={{ base: 'auto' }}
+      p={8}
+      zIndex={10}
+      {...props}
+    />
+  )
 }
-
-const ChakraCarousel = chakra(ReactMultiCarousel);
-
-type CarouselProps = {
-  title?: string;
-} & React.ComponentProps<typeof ChakraCarousel>;
 
 export default function Carousel({
   children,
-  title,
-  responsive,
-  renderButtonGroup,
-  ...props
-}: CarouselProps) {
+}: React.PropsWithChildren<Record<never, never>>) {
+  const [isMobile] = useMediaQuery('(max-width: 768px)')
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [showNavigation, setShowNavigation] = useState(false)
+  const [autoSlide, setAutoSlide] = useState(true)
+  const slidesCount = React.Children.count(children)
+
+  const SLIDES_INTERVAL_TIME = 3000
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((s) => (s === 0 ? slidesCount - 1 : s - 1))
+  }, [slidesCount])
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((s) => (s === slidesCount - 1 ? 0 : s + 1))
+  }, [slidesCount])
+
+  const setSlide = (slide: number) => {
+    setCurrentSlide(slide)
+  }
+
+  // automatically shows the navigation buttons on mobile
+  useEffect(() => {
+    if (isMobile) {
+      setShowNavigation(true)
+    } else {
+      setShowNavigation(false)
+    }
+  }, [isMobile])
+
+  // automatically change slides
+  useEffect(() => {
+    const automatedSlide = setInterval(() => {
+      autoSlide ? nextSlide() : null
+    }, SLIDES_INTERVAL_TIME)
+
+    return () => clearInterval(automatedSlide)
+  }, [slidesCount, nextSlide, autoSlide])
+
+  const onMouseEnterHandler = () => {
+    !isMobile && setShowNavigation(true)
+    setAutoSlide(false)
+  }
+  const onMouseLeaveHandler = () => {
+    !isMobile && setShowNavigation(false)
+    setAutoSlide(true)
+  }
+
   return (
-    <>
-      {title && (
-        <Heading maxW="80%" fontSize={{ base: "2xl", lg: "3xl" }} p={3}>
-          {title}
-        </Heading>
-      )}
-      <Container padding={0} maxW="full" position="relative">
-        <ChakraCarousel
-          ssr={true}
-          partialVisible={true}
-          removeArrowOnDeviceType={["base", "sm", "md", "lg", "xl"]}
-          responsive={responsive}
-          customButtonGroup={<CustomButtonGroup />}
-          renderButtonGroupOutside={true}
-          {...props}
+    <Flex
+      w="full"
+      alignItems="center"
+      position="relative"
+      justifyContent="center"
+      isolation="isolate"
+      onMouseEnter={onMouseEnterHandler}
+      onMouseLeave={onMouseLeaveHandler}
+      marginBottom={{ base: 10, lg: 3 }}
+    >
+      <ButtonNavigation
+        aria-label="Prev Slide"
+        borderEndRadius="full"
+        opacity={showNavigation ? 1 : 0}
+        transition="opacity 0.3s ease-in-out"
+        left={{ base: 0 }}
+        icon={<FiChevronLeft size={32} />}
+        onClick={prevSlide}
+      />
+      <ButtonNavigation
+        aria-label="Next Slide"
+        borderStartRadius="full"
+        opacity={showNavigation ? 1 : 0}
+        transition="opacity 0.3s ease-in-out"
+        right={{ base: 0 }}
+        icon={<FiChevronRight size={32} />}
+        onClick={nextSlide}
+      />
+      <Flex
+        w="full"
+        position="relative"
+        overflow="hidden"
+        borderRadius={{ base: 'none', lg: 'xl' }}
+      >
+        <Flex
+          h="500px" //TODO: height might need to be predefined in a config file
+          w="full"
+          transition="all .5s"
+          ml={`-${currentSlide * 100}%`}
         >
           {children}
-        </ChakraCarousel>
-      </Container>
-    </>
-  );
+        </Flex>
+      </Flex>
+      <HStack justify="center" position="absolute" bottom="-2rem" w="full">
+        {Array.from({
+          length: slidesCount,
+        }).map((_, slide) => (
+          <Box
+            key={`dots-${slide}`}
+            cursor="pointer"
+            boxSize={['7px', null, '15px']}
+            m="0 2px"
+            bg={currentSlide === slide ? 'primary.800' : 'primary.500'}
+            rounded="50%"
+            display="inline-block"
+            transition="background-color 0.6s ease"
+            _hover={{
+              bg: 'primary.800',
+            }}
+            onClick={() => setSlide(slide)}
+          />
+        ))}
+      </HStack>
+    </Flex>
+  )
+}
+
+Carousel.Item = function CarouselItem({
+  children,
+  ...props
+}: React.PropsWithChildren<BoxProps>) {
+  return (
+    <Flex boxSize="full" flex="none" {...props}>
+      {children}
+    </Flex>
+  )
 }

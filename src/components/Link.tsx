@@ -1,24 +1,25 @@
-import { Icon, Text, Link as ChakraLink, LinkProps } from "@chakra-ui/react";
-import useTranslation from "hooks/useTranslation";
-import NextLink from "next/link";
-import { FiExternalLink } from "react-icons/fi";
+import { Icon, Text, Link as ChakraLink, LinkProps } from '@chakra-ui/react'
+import NextLink from 'next/link'
+import { useRouter } from 'next/router'
+import { FiExternalLink } from 'react-icons/fi'
 
 export default function Link({
   children,
   hideIcon = false,
   ...props
 }: React.PropsWithChildren<LinkProps & { hideIcon?: boolean }>) {
-  const { locale } = useTranslation();
+  const { locale } = useRouter()
 
   if (!props.href) {
-    return <Text>{children}</Text>;
+    return <Text>{children}</Text>
   }
 
   const isExternal =
-    !hideIcon && !!(props?.href as string).match(/^(https?:)?\/\//);
+    !hideIcon && !!(props?.href as string).match(/^(https?:)?\/\//)
   return (
     <NextLink href={props.href as string} passHref>
       <ChakraLink
+        as="span"
         display="inline-flex"
         alignItems="center"
         isExternal={isExternal}
@@ -30,5 +31,5 @@ export default function Link({
         {isExternal && <Icon as={FiExternalLink} ml={1} boxSize={4} />}
       </ChakraLink>
     </NextLink>
-  );
+  )
 }
