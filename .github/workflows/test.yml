@@ -7,6 +7,10 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        browser: [chrome, firefox, edge]
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -19,5 +23,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install browsers
+        run: |
+          if [[ ${{ matrix.browser }} == 'chrome' ]]; then
+            sudo apt-get install -y google-chrome-stable;
+          elif [[ ${{ matrix.browser }} == 'firefox' ]]; then
+            sudo apt-get install -y firefox;
+          elif [[ ${{ matrix.browser }} == 'edge' ]]; then
+            sudo apt-get install -y microsoft-edge-stable;
+          fi
+
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --browser ${{ matrix.browser }}
