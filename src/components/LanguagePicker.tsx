@@ -13,6 +13,7 @@ export default function LanguagePicker(selectProps: SelectFieldProps) {
 
   return (
     <Select
+      id="language-switcher"
       defaultValue={locale}
       onChange={handleLocaleChange}
       width="max-content"
