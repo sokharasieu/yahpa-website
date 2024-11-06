@@ -28,7 +28,7 @@ jobs:
           if [[ ${{ matrix.browser }} == 'chrome' ]]; then
             sudo apt-get install -y google-chrome-stable;
           elif [[ ${{ matrix.browser }} == 'firefox' ]]; then
-            sudo apt-get install -y firefox;
+            sudo apt install firefox;
           elif [[ ${{ matrix.browser }} == 'edge' ]]; then
             sudo apt-get install -y microsoft-edge-stable;
           fi
