@@ -23,32 +23,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install browsers
-        run: |
-          if [[ ${{ matrix.browser }} == 'chrome' ]]; then
-            sudo apt-get update && sudo apt-get install -y google-chrome-stable;
-          elif [[ ${{ matrix.browser }} == 'firefox' ]]; then
-            sudo apt-get update && sudo apt-get install -y firefox;
-          elif [[ ${{ matrix.browser }} == 'edge' ]]; then
-            sudo apt-get update && sudo apt-get install -y microsoft-edge-stable;
-          fi
-
-      - name: Verify browsers
-        run: |
-          if [[ ${{ matrix.browser }} == 'chrome' ]]; then
-            google-chrome --version;
-          elif [[ ${{ matrix.browser }} == 'firefox' ]]; then
-            firefox --version;
-          elif [[ ${{ matrix.browser }} == 'edge' ]]; then
-            microsoft-edge --version;
-          fi
-
       - name: Run Cypress tests
-        run: npx cypress run --browser ${{ matrix.browser }}
-
-      - name: Cleanup
-        if: always()
-        run: |
-          if [[ ${{ matrix.browser }} == 'firefox' ]]; then
-            rm -rf ~/.cache/Cypress/cy/production/browsers/firefox-stable;
-          fi
+        uses: cypress-io/github-action@v2
+        with:
+          browser: ${{ matrix.browser }}
+          start: npm start
