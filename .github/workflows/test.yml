@@ -24,7 +24,4 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v2
-        with:
-          browser: ${{ matrix.browser }}
-          config-file: cypress.config.ts
+        run: npx cypress run --browser ${{ matrix.browser }}
