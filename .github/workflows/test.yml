@@ -6,6 +6,10 @@ on: [push, pull_request]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        browser: [chrome, firefox, edge]
 
     steps:
       - name: Checkout code
@@ -20,10 +24,7 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        run: npx cypress run --browser chrome 
-
-      - name: Run Cypress tests
-        run: npx cypress run --browser firefox
-
-      - name: Run Cypress tests
-        run: npx cypress run --browser edge
+        uses: cypress-io/github-action@v2
+        with:
+          browser: ${{ matrix.browser }}
+          config-file: cypress.config.ts
