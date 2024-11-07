@@ -20,4 +20,10 @@ jobs:
         run: npm install
 
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --browser chrome 
+
+      - name: Run Cypress tests
+        run: npx cypress run --browser firefox
+
+      - name: Run Cypress tests
+        run: npx cypress run --browser edge
