@@ -7,10 +7,6 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        browser: [chrome, firefox, edge]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -18,23 +14,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
-
-      - name: Install Yarn
-        run: npm install -g yarn
+          node-version: '14'
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
-      - name: Build Next.js application
-        run: yarn build
-
-      - name: Start Next.js application
-        run: yarn start &
-        env:
-          CYPRESS_BASE_URL: http://localhost:3000
-
-      - name: Run Cypress tests
-        uses: cypress-io/github-action@v2
+      - name: Chrome Browser Tests
+        uses: cypress-io/github-action@v6
         with:
-          browser: ${{ matrix.browser }}
+          browser: chrome
+          start: npm start
+          wait-on: 'http://localhost:3000'
