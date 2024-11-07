@@ -26,8 +26,15 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Build Next.js application
+        run: yarn build
+
+      - name: Start Next.js application
+        run: yarn start &
+        env:
+          CYPRESS_BASE_URL: http://localhost:3000
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v2
         with:
           browser: ${{ matrix.browser }}
-          start: yarn start
