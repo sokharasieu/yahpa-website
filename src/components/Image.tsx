@@ -3,32 +3,32 @@ import {
   AspectRatioProps,
   Box,
   BoxProps,
-  keyframes,
   useToken,
-} from '@chakra-ui/react'
-import NextImage, { ImageProps as NextImageProps } from 'next/image'
-import { useState } from 'react'
+} from '@chakra-ui/react';
+import { keyframes } from '@emotion/react';
+import NextImage, { ImageProps as NextImageProps } from 'next/image';
+import { useState } from 'react';
 
-const shimmer = keyframes({
-  '0%': { backgroundPosition: '0% 0%' },
-  '50%': { backgroundPosition: '100% 100%' },
-  '100%': { backgroundPosition: '0% 0%' },
-})
+const shimmer = keyframes`
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+`;
 
 type NextImagePropsLimitedProps = Partial<
   Pick<NextImageProps, 'src' | 'alt' | 'priority'>
->
+>;
 
 type ShimmerProps = {
-  isLoading?: boolean
-} & BoxProps
+  isLoading?: boolean;
+} & BoxProps;
 
 export function Shimmer({ isLoading, ...boxProps }: ShimmerProps) {
   const [gray1, gray2, gray3] = useToken('colors', [
     'gray.300',
     'gray.400',
     'gray.500',
-  ])
+  ]);
 
   return (
     <Box
@@ -48,10 +48,10 @@ export function Shimmer({ isLoading, ...boxProps }: ShimmerProps) {
       }}
       {...boxProps}
     />
-  )
+  );
 }
 
-export type ImageProps = NextImagePropsLimitedProps & AspectRatioProps
+export type ImageProps = NextImagePropsLimitedProps & AspectRatioProps;
 
 export default function Image({
   ratio,
@@ -60,7 +60,7 @@ export default function Image({
   priority,
   ...AspectRatioProps
 }: ImageProps) {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   if (priority) {
     return (
@@ -79,7 +79,7 @@ export default function Image({
           priority
         />
       </AspectRatio>
-    )
+    );
   }
 
   return (
@@ -97,5 +97,5 @@ export default function Image({
         />
       </>
     </AspectRatio>
-  )
+  );
 }
